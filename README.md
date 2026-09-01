@@ -18,12 +18,7 @@ Hämta repot, applicera konfigurationen och installera hanterade applikationer:
 chezmoi init --apply Bogstag
 ```
 
-Installationsscriptet använder `omarchy pkg add` och installerar för närvarande:
-
-- Bitwarden
-- Bitwarden CLI
-- Steam
-- Visual Studio Code
+Vilka applikationer som hanteras finns i `run_once_after_10-install-applications.sh`.
 
 Logga därefter in i Bitwarden CLI:
 
@@ -104,10 +99,10 @@ Kontrollera alltid `chezmoi diff` och `git diff --cached` före commit, särskil
 
 ## Installera applikationerna igen
 
-Bootstrap-scriptet körs automatiskt första gången dess version appliceras. Paketkommandot kan även köras manuellt och är säkert att upprepa:
+Bootstrap-scriptet körs automatiskt första gången dess version appliceras. Det kan även köras manuellt från terminalen och är säkert att upprepa:
 
 ```sh
-omarchy pkg add bitwarden bitwarden-cli steam visual-studio-code-bin
+bash "$(chezmoi source-path)/run_once_after_10-install-applications.sh"
 ```
 
 Bitwardens lokala appdata, Bitwarden CLI-sessioner, Steam-spel, cache och kontodata hanteras inte av chezmoi.
