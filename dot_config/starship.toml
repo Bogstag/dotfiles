@@ -41,6 +41,7 @@ Documents = "󰈙 "
 Downloads = " "
 Music = " "
 Pictures = " "
+Projects = "󰲋 "
 
 [git_branch]
 format = "[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)"
