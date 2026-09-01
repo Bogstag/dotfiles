@@ -7,7 +7,7 @@ if ! command -v omarchy >/dev/null 2>&1; then
   exit 0
 fi
 
-omarchy pkg add bitwarden bitwarden-cli steam syncthing visual-studio-code-bin
+omarchy pkg add bitwarden bitwarden-cli steam syncthing tailscale visual-studio-code-bin
 
 mkdir -p "$HOME/Sync"
 systemctl --user enable --now syncthing.service

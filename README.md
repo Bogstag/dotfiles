@@ -105,4 +105,12 @@ Bootstrap-scriptet körs automatiskt första gången dess version appliceras. De
 bash "$(chezmoi source-path)/run_once_after_10-install-applications.sh"
 ```
 
+Tailscale behöver därefter aktiveras och godkännas en gång per dator:
+
+```sh
+omarchy install service tailscale
+```
+
+Kommandot startar tjänsten, öppnar inloggningen, aktiverar Taildrop-mottagning och lägger till Tailscale i panelen. Tailscales maskinidentitet och autentisering är lokala och sparas inte i dotfiles.
+
 Bitwardens lokala appdata, Bitwarden CLI-sessioner, Steam-spel, cache och kontodata hanteras inte av chezmoi.
