@@ -9,5 +9,5 @@ fi
 
 omarchy pkg add bitwarden bitwarden-cli steam syncthing visual-studio-code-bin
 
-mkdir -p "$HOME/Sync/Obsidian"
+mkdir -p "$HOME/Sync"
 systemctl --user enable --now syncthing.service
