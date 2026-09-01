@@ -1,5 +1,6 @@
 # Repository documentation should not be installed in the home directory.
 README.md
+AGENTS.md
 
 {{- if ne .chezmoi.os "linux" }}
 # Omarchy and Hyprland are Linux-specific.
