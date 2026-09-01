@@ -7,4 +7,4 @@ if ! command -v omarchy >/dev/null 2>&1; then
   exit 0
 fi
 
-omarchy pkg add bitwarden bitwarden-cli steam
+omarchy pkg add bitwarden bitwarden-cli steam visual-studio-code-bin

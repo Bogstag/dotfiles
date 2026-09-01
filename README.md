@@ -23,6 +23,7 @@ Installationsscriptet använder `omarchy pkg add` och installerar för närvaran
 - Bitwarden
 - Bitwarden CLI
 - Steam
+- Visual Studio Code
 
 Logga därefter in i Bitwarden CLI:
 
@@ -106,7 +107,7 @@ Kontrollera alltid `chezmoi diff` och `git diff --cached` före commit, särskil
 Bootstrap-scriptet körs automatiskt första gången dess version appliceras. Paketkommandot kan även köras manuellt och är säkert att upprepa:
 
 ```sh
-omarchy pkg add bitwarden bitwarden-cli steam
+omarchy pkg add bitwarden bitwarden-cli steam visual-studio-code-bin
 ```
 
 Bitwardens lokala appdata, Bitwarden CLI-sessioner, Steam-spel, cache och kontodata hanteras inte av chezmoi.
