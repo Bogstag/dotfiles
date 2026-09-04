@@ -1,10 +1,10 @@
 model = "gpt-5.6-sol"
-model_provider = "aperture"
+model_provider = "openai-sub"
 model_reasoning_effort = "low"
 approvals_reviewer = "auto_review"
 
-[model_providers.aperture]
-name = "Aperture"
+[model_providers.openai-sub]
+name = "OpenAI (Subscription)"
 base_url = "http://ai/codex"
 wire_api = "responses"
 requires_openai_auth = true
