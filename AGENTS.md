@@ -47,6 +47,14 @@ important repository convention changes.
    before committing when practical.
 7. Do not push to GitHub without explicit user approval.
 
+## Codex sandbox on Omarchy 4
+
+- System files owned by root may appear as `nobody:nobody` inside the Codex
+  sandbox. Do not diagnose incorrect ownership from that sandbox-only view.
+- Use a normal `git push`. If sandbox networking or SSH blocks it, report the
+  sandbox limitation and let the user push locally; do not bypass the system
+  SSH configuration with `ssh -F /dev/null`.
+
 ## Current managed scope
 
 - Starship prompt configuration, including Tokyo Night styling.
