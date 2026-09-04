@@ -19,9 +19,9 @@ chezmoi init --apply Bogstag
 ```
 
 Vilka applikationer som hanteras finns i `run_once_after_10-install-applications.sh`.
-Tailscale-skillen för Codex installeras globalt av
-`run_once_after_20-install-codex-skills.sh`. Installationen kräver Node.js och
-`npx`.
+Codex-skills för Tailscale och chezmoi installeras globalt av
+`run_once_after_20-install-codex-skills.sh`. Installationerna kräver Node.js
+och `npx`.
 
 Logga därefter in i Bitwarden CLI:
 
@@ -120,12 +120,9 @@ Bitwardens lokala appdata, Bitwarden CLI-sessioner, Steam-spel, cache och kontod
 
 ## Codex-skills
 
-Tailscale-skillen installeras globalt från sitt upstream-repo med
-[`skills`](https://github.com/vercel-labs/skills):
-
-```sh
-npx skills add https://github.com/tailscale/tailscale-skill --global --agent codex --skill tailscale --yes
-```
+Globala Codex-skills installeras från sina upstream-repon med
+[`skills`](https://github.com/vercel-labs/skills). Se
+`run_once_after_20-install-codex-skills.sh` för vilka skills som installeras.
 
 `run_after_30-update-codex-skills.sh` uppdaterar globala skills automatiskt
 efter varje `chezmoi apply` och därmed även efter `chezmoi update`. Uppdatera

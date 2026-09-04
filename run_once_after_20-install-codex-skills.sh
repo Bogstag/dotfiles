@@ -12,3 +12,9 @@ npx --yes skills add https://github.com/tailscale/tailscale-skill \
   --agent codex \
   --skill tailscale \
   --yes
+
+npx --yes skills add https://github.com/terrylica/cc-skills \
+  --global \
+  --agent codex \
+  --skill chezmoi-workflows \
+  --yes
