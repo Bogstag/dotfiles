@@ -1,8 +1,8 @@
 # Dotfiles
 
 Personliga dotfiles för Omarchy, hanterade med [chezmoi](https://www.chezmoi.io/).
-
-Hemligheter hämtas från Bitwarden vid behov och lagras aldrig i klartext i repot.
+Repot är publikt och ska aldrig innehålla hemligheter eller lokal kontodata.
+Bitwarden är avsedd lagringsplats om framtida mallar behöver hemligheter.
 
 ## Återskapa en ny Omarchy-installation
 
@@ -18,10 +18,10 @@ Hämta repot, applicera konfigurationen och installera hanterade applikationer:
 chezmoi init --apply Bogstag
 ```
 
-Vilka applikationer som hanteras finns i `run_once_after_10-install-applications.sh`.
-Codex-skills för Tailscale och chezmoi installeras globalt av
-`run_once_after_20-install-codex-skills.sh`. Installationerna kräver Node.js
-och `npx`.
+Vilka applikationer som installeras finns i
+`run_once_after_10-install-applications.sh`. Codex-skills för Tailscale och
+chezmoi installeras globalt av `run_once_after_20-install-codex-skills.sh`.
+Skill-installationen kräver Node.js och `npx`.
 
 Logga därefter in i Bitwarden CLI:
 
@@ -30,7 +30,8 @@ bw login
 bw status
 ```
 
-Chezmoi låser upp Bitwarden automatiskt när en mall behöver en hemlighet och låser valvet igen efter kommandot.
+Inloggningen är lokal för datorn och lagras inte i dotfiles-repot. Den nuvarande
+konfigurationen innehåller inga mallar som läser hemligheter från Bitwarden.
 
 Konfigurera GitHub CLI om maskinen även ska kunna pusha ändringar:
 
@@ -102,7 +103,9 @@ Kontrollera alltid `chezmoi diff` och `git diff --cached` före commit, särskil
 
 ## Installera applikationerna igen
 
-Bootstrap-scriptet körs automatiskt första gången dess version appliceras. Det kan även köras manuellt från terminalen och är säkert att upprepa:
+Bootstrap-scriptet är ett `run_once`-script och körs därför automatiskt en gång
+per dator. Ändringar i scriptet gör inte att det körs igen. Det kan köras
+manuellt från terminalen och är säkert att upprepa:
 
 ```sh
 bash "$(chezmoi source-path)/run_once_after_10-install-applications.sh"
@@ -124,20 +127,10 @@ Globala Codex-skills installeras från sina upstream-repon med
 [`skills`](https://github.com/vercel-labs/skills). Se
 `run_once_after_20-install-codex-skills.sh` för vilka skills som installeras.
 
-`run_after_30-update-codex-skills.sh` uppdaterar globala skills automatiskt
-efter varje `chezmoi apply` och därmed även efter `chezmoi update`. Uppdatera
-manuellt med:
+`run_onchange_after_30-update-codex-skills.sh` uppdaterar globala skills när
+scriptet installeras eller ändras. Det körs alltså inte efter varje
+`chezmoi apply`. Uppdatera manuellt med samma kommando som scriptet använder:
 
 ```sh
-# Endast globala skills
-npx skills update -g
-
-# Endast skills i det aktuella projektet
-npx skills update -p
-
-# Utan frågor; väljer projekt-scope i ett projekt, annars globalt scope
-npx skills update -y
+npx --yes skills update --global --yes
 ```
-
-Använd `npx skills update -g -y` i script och annan automation för att undvika
-att scope avgörs av aktuell arbetskatalog.
