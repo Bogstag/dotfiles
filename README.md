@@ -2,7 +2,9 @@
 
 Personliga dotfiles för Omarchy, hanterade med [chezmoi](https://www.chezmoi.io/).
 Repot är publikt och ska aldrig innehålla hemligheter eller lokal kontodata.
-Bitwarden är avsedd lagringsplats om framtida mallar behöver hemligheter.
+Bitwarden är avsedd lagringsplats om framtida mallar behöver hemligheter och
+SSH-nycklar. Den GitHub-e-postadress som används av mallarna finns i
+`.chezmoidata.toml` under `github.noreply_email`.
 
 ## Återskapa en ny Omarchy-installation
 
@@ -39,6 +41,29 @@ Konfigurera GitHub CLI om maskinen även ska kunna pusha ändringar:
 gh auth login
 gh auth status
 ```
+
+### Bitwarden SSH-agent och GitHub-signering
+
+Bitwarden Desktop ska ha SSH-agenten aktiverad. Mallen för `~/.ssh/config`
+ansluter GitHub till den lokala socketen `~/.bitwarden-ssh-agent.sock`; privata
+nycklar lämnar därför aldrig Bitwarden. Git väljer den agentnyckel vars
+kommentar är `GithubSigningKey` för SSH-signering och använder en lokalt
+renderad wrapper så att Bitwardens socket fungerar även när `SSH_AUTH_SOCK`
+inte redan är satt i skalet.
+
+Efter att Bitwarden är upplåst och `chezmoi apply` har körts, autentisera om
+GitHub CLI (den sparade inloggningen är maskinlokal) och publicera den publika
+signeringsnyckeln:
+
+```sh
+gh auth login --git-protocol ssh
+SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock" ssh-add -L \
+  | awk '$3 == "GithubSigningKey" { print; exit }' \
+  | gh ssh-key add - --type signing --title "$(hostname)-GitHub-signing"
+```
+
+Kommandot skickar endast den publika nyckeln till GitHub. Kontrollera först med
+`ssh-add -l` att `GithubSigningKey` är den avsedda nyckeln.
 
 ## Daglig användning av chezmoi
 

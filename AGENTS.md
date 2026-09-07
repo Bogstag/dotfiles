@@ -59,6 +59,8 @@ important repository convention changes.
 
 - Starship prompt configuration, including Tokyo Night styling.
 - Omarchy/Hyprland monitor configuration.
+- Bitwarden SSH-agent integration for GitHub and Git SSH-signing configuration.
+- GitHub noreply email stored as reusable chezmoi template data.
 - Linux application bootstrap for Bitwarden, Steam, Syncthing, Tailscale, and
   Visual Studio Code.
 - Creation of `~/Sync` and activation of the Syncthing user service. Folder and
