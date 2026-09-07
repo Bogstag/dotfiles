@@ -159,3 +159,11 @@ scriptet installeras eller ändras. Det körs alltså inte efter varje
 ```sh
 npx --yes skills update --global --yes
 ```
+
+## Codex-konfiguration
+
+`~/.codex/config.toml` är avsiktligt inte en helt hanterad chezmoi-fil:
+Codex ändrar lokal appstatus och modellval i den. Modifieraren
+`private_dot_codex/modify_private_config.toml.tmpl` säkerställer däremot vid varje
+`chezmoi apply` att Aperture-providern och dess MCP-server är konfigurerade.
+Övriga inställningar bevaras.

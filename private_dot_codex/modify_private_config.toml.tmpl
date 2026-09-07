@@ -1,0 +1,72 @@
+#!/bin/sh
+# Keep the portable Aperture settings in sync while preserving Codex-managed
+# preferences and local application state.
+set -eu
+
+awk '
+    function emit(line) {
+        if (line ~ /^[[:space:]]*$/) {
+            pending_blank = 1
+            return
+        }
+        if (pending_blank && printed) {
+            print ""
+        }
+        print line
+        pending_blank = 0
+        printed = 1
+    }
+
+    function emit_provider() {
+        if (!provider_written) {
+            emit("model_provider = \"aperture\"")
+            provider_written = 1
+        }
+    }
+
+    {
+        line = $0
+
+        if (skip_section) {
+            if (line ~ /^\[[^]]+\][[:space:]]*(#.*)?$/) {
+                skip_section = 0
+            } else {
+                next
+            }
+        }
+
+        if (line ~ /^\[model_providers\.aperture\][[:space:]]*(#.*)?$/ ||
+            line ~ /^\[mcp_servers\.aperture\][[:space:]]*(#.*)?$/) {
+            skip_section = 1
+            next
+        }
+
+        if (!seen_table && line ~ /^\[/) {
+            emit_provider()
+            seen_table = 1
+        }
+
+        if (!seen_table &&
+            line ~ /^[[:space:]]*model_provider[[:space:]]*=/) {
+            emit_provider()
+            next
+        }
+
+        emit(line)
+    }
+
+    END {
+        emit_provider()
+        if (printed) {
+            print ""
+        }
+        print "[model_providers.aperture]"
+        print "name = \"Aperture Proxy\""
+        print "base_url = \"https://ai.goldeye-monster.ts.net/codex\""
+        print "wire_api = \"responses\""
+        print "requires_openai_auth = true"
+        print ""
+        print "[mcp_servers.aperture]"
+        print "url = \"https://ai.goldeye-monster.ts.net/v1/mcp\""
+    }
+'

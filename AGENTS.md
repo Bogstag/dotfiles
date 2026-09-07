@@ -31,6 +31,10 @@ important repository convention changes.
   winget only when Scoop is unsuitable, such as for some .NET SDK installations.
 - Keep machine enrollment and interactive authentication manual. In particular,
   do not automate Tailscale login or store its state in chezmoi.
+- Manage `~/.codex/config.toml` with
+  `private_dot_codex/modify_private_config.toml.tmpl`. Enforce only the portable
+  Aperture provider and MCP settings; preserve mutable Codex preferences and
+  local application state.
 
 ## Working method
 
@@ -61,6 +65,8 @@ important repository convention changes.
 - Omarchy/Hyprland monitor configuration.
 - Bitwarden SSH-agent integration for GitHub and Git SSH-signing configuration.
 - GitHub noreply email stored as reusable chezmoi template data.
+- Codex Aperture connection bootstrap, while mutable Codex preferences remain
+  local.
 - Linux application bootstrap for Bitwarden, Steam, Syncthing, Tailscale, and
   Visual Studio Code.
 - Creation of `~/Sync` and activation of the Syncthing user service. Folder and
