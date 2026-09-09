@@ -9,4 +9,6 @@ docs/**
 .config/hypr
 .config/hypr/**
 10-install-applications.sh
+20-install-codex-skills.sh
+30-update-codex-skills.sh
 {{- end }}
