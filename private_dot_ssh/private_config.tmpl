@@ -1,6 +1,6 @@
 # Managed by chezmoi. Bitwarden Desktop provides the SSH agent socket.
 # Keys remain in Bitwarden; this file contains no key material.
 Host github.com
-    HostName github.com
+    HostName ssh.github.com
     User git
     IdentityAgent {{ .chezmoi.homeDir }}/.bitwarden-ssh-agent.sock
