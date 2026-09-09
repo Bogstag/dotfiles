@@ -60,13 +60,25 @@ awk '
         if (printed) {
             print ""
         }
+        print ""
+        print "[features]"
+        print "memories = true"
+        print ""
+        print "[memories]"
+        print "generate_memories = true"
+        print "use_memories = true"
+        print ""
         print "[model_providers.aperture]"
         print "name = \"Aperture Proxy\""
-        print "base_url = \"https://ai.goldeye-monster.ts.net/codex\""
+        print "base_url = \"http://ai.goldeye-monster.ts.net/codex\""
         print "wire_api = \"responses\""
         print "requires_openai_auth = true"
         print ""
+        print "[sandbox_workspace_write]"
+        print "network_access = true"
+        print ""
         print "[mcp_servers.aperture]"
-        print "url = \"https://ai.goldeye-monster.ts.net/v1/mcp\""
+        print "url = \"http://ai.goldeye-monster.ts.net/v1/mcp\""
+        print ""
     }
 '

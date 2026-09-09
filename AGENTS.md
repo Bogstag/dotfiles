@@ -4,6 +4,10 @@ This is Bogstag's public dotfiles repository. It is managed with chezmoi and is
 used primarily on Omarchy Linux. Keep this file concise and update it when an
 important repository convention changes.
 
+Read [docs/decisions.md](docs/decisions.md) for the user's package policy,
+Bitwarden constraints, approval boundaries, and verified versus pending facts.
+Those decisions govern agent execution; setup examples do not grant approval.
+
 ## Safety and privacy
 
 - Never commit passwords, tokens, private keys, recovery codes, authentication
@@ -27,8 +31,7 @@ important repository convention changes.
 - Omarchy and Hyprland configuration is Linux-specific and must remain excluded
   on other operating systems through `.chezmoiignore`.
 - Starship configuration should remain cross-platform and fast to initialize.
-- Windows 11 support may be added later. Prefer Scoop for packages and use
-  winget only when Scoop is unsuitable, such as for some .NET SDK installations.
+- Windows 11 implementation is pending; follow the package decisions linked above.
 - Keep machine enrollment and interactive authentication manual. In particular,
   do not automate Tailscale login or store its state in chezmoi.
 - Manage `~/.codex/config.toml` with
