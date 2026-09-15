@@ -28,14 +28,12 @@
 	enabled = true           # Record and reuse conflict resolutions
 	autoupdate = true        # Apply stored conflict resolutions automatically
 [user]
-	name = {{ .github.name }}
-	email = {{ .github.noreply_email }}
-	signingkey = {{ .chezmoi.homeDir }}/.ssh/allowed_signers 
+	name = {{ .github.name}} 
+	email = {{ .github.email }} 
+	signingkey = key::{{ (bitwarden "item" "GithubSigningKey").sshKey.publicKey }}
 [gpg]
 	format = ssh
 [gpg "ssh"]
-	defaultKeyCommand = {{ .chezmoi.homeDir }}/.local/bin/bitwarden-git-signing-key
-	program = {{ .chezmoi.homeDir }}/.local/bin/bitwarden-ssh-keygen
 	allowedSignersFile = {{ .chezmoi.homeDir }}/.ssh/allowed_signers
 [credential "https://github.com"]
 	helper = 

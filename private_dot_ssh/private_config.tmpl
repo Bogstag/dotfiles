@@ -3,4 +3,5 @@
 Host github.com
     HostName ssh.github.com
     User git
+    IdentityFile {{ .chezmoi.homeDir }}/.ssh/id_ed25519_git.pub
     IdentityAgent {{ .chezmoi.homeDir }}/.bitwarden-ssh-agent.sock
