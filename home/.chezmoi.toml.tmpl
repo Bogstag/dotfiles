@@ -1,0 +1,17 @@
+[bitwarden]
+    unlock = "auto"
+
+[edit]
+    command = "code"
+    args = ["--wait"]
+
+{{- $wsl := (and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
+
+[data]
+wsl = {{ $wsl }}
+
+[env]
+# Configure environment variables
+{{- if eq .chezmoi.os "windows" }}
+$env:XDG_CONFIG_HOME = "$env:USERPROFILE\.config"
+{{- end }}

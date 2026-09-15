@@ -1,0 +1,18 @@
+[packages.linux]
+dnfs = ["epel-release", "git", "curl", "bash", "zsh", "bat", "zoxide", "unzip", "jq", "ncdu", "awscli", "code", "nodejs"]
+apts = ["git", "curl", "bash", "zsh", "bat", "zoxide", "unzip", "jq", "ncdu", "direnv", "awscli", "code", "nodejs"]
+flatpak = ["com.bitwarden.desktop", "com.discordapp.Discord", "com.github.tchx84.Flatseal", "com.gitlab.davem.ClamTk", "com.makemkv.MakeMKV", "com.synology.SynologyDrive", "dev.deedles.Trayscale", "md.obsidian.Obsidian", "org.flameshot.Flameshot", "net.thunderbird.Thunderbird", "org.remmina.Remmina", "org.videolan.VLC", "tv.plex.PlexDesktop", "io.missioncenter.MissionCenter"]
+
+[packages.windows]
+powershell = ["Posh-Git", "Terminal-Icons", "PsReadLine", "Get-WHOIS"]
+winget = ["JanDeDobbeleer.OhMyPosh", "Git.Git", "Microsoft.PowerShell", "Microsoft.VisualStudioCode", "twpayne.chezmoi", "Obsidian.Obsidian", "OpenWhisperSystems.Signal", "Greenshot.Greenshot", "Warrensbox.TerraformSwitcher", "OpenJS.NodeJS.LTS"]
+scoop = ["Bitwarden.CLI", "Bitwarden.Bitwarden", "Mozilla.Firefox", "Discord.Discord", "Valve.Steam", "xpipe-io.xpipe", "GuinpinSoft.MakeMKV", "Plex.Plex", "Synology.SynologyDriveClient", "Tailscale.Tailscale", "TheDocumentFoundation.LibreOffice"]
+
+[extensions.vscode]
+all = ["hashicorp.terraform", "timonwong.shellcheck", "redhat.vscode-xml", "redhat.vscode-yaml", "ms-vscode.PowerShell"]
+linux = [
+  "mkhl.direnv",
+]
+windows = [
+  "ms-vscode.powershell",
+]

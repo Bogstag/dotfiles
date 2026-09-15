@@ -1,0 +1,13 @@
+#:schema https://mise.jdx.dev/schema/mise.json
+
+[tools]
+tombi = "latest"
+
+[tasks.Unlock-Bitwarden]
+allow_env = ["BW_SESSION"]
+run = "export BW_SESSION=$(bw unlock --raw)"
+
+[tasks."tombi:format"]
+alias = "tf"
+description = "Format toml"
+run = "tombi format"
