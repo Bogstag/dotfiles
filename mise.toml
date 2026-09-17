@@ -1,13 +1,18 @@
 #:schema https://mise.jdx.dev/schema/mise.json
 
+[task_config]
+includes = ["tasks.toml"]
+global_env = ["BW_SESSION"]
+global_pass_through_env = ["BW_SESSION"]
+
+[task_config.cache]
+enabled = true
+env = ["BW_SESSION"]
+
 [tools]
 tombi = "latest"
-
-[tasks.Unlock-Bitwarden]
-allow_env = ["BW_SESSION"]
-run = "export BW_SESSION=$(bw unlock --raw)"
-
-[tasks."tombi:format"]
-alias = "tf"
-description = "Format toml"
-run = "tombi format"
+hk = "latest"
+pkl = "latest"
+shfmt = "latest"
+markdownlint-cli2 = "latest"
+shellharden = "latest"

@@ -14,3 +14,6 @@ docs/**
 # Not
 .chezmoiscripts/**
 .chezmoidata/**
+**/*tmp/**
+**/*cache/**
+**/*.sqlite/**

@@ -6,7 +6,11 @@
 	],
 	"settings": {
 		"files.associations": {
-			"*.toml.tmpl": "toml"
+			"*.toml.tmpl": "toml",
+			".chezmoiignore": "ignore",
+		},
+		"debug.javascript.defaultRuntimeExecutable": {
+			"pwa-node": "/home/bogge/.local/share/mise/shims/node"
 		}
 	}
 }

@@ -8,14 +8,19 @@ upgrade.auto_prune = false
 experimental = true
 color_theme = "catppuccin"
 
+[settings.skills]
+dir = ".agents/skills"
+auto_sync = true
+prune = true
 
 [tools]
+"github:daptify14/chezit" = { version = "latest", os = ["linux"] }
+"npm:@kitlangton/ghui" = "latest"
+"packslip:github.com/jdx/hk" = "latest"
 codex = "latest"
 copilot = "latest"
 gemini = { version = "latest", allow_builds = ["@github/keytar", "node-pty"] }
 gh = "latest"
-"github:daptify14/chezit" = { version = "latest", os = ["linux"] }
 node = "26.7.0"
-"npm:@kitlangton/ghui" = "latest"
 opencode = "latest"
 yazi = "latest"

@@ -1,0 +1,27 @@
+amends "package://github.com/jdx/hk/releases/download/v2.0.0/hk@2.0.0#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v2.0.0/hk@2.0.0#/Builtins.pkl"
+// Using a coding agent? See https://hk.jdx.dev/agents
+
+local linters = new Mapping {
+    ["shellcheck"] = Builtins.shellcheck
+    ["shellharden"] = Builtins.shellharden
+    ["tombi"] = (Builtins.tombi) {
+        glob = List("**/*.toml", "**/*.toml.tmpl")
+    }
+    ["mise"] = Builtins.mise
+    ["markdown-lint"] = Builtins.markdown_lint
+}
+
+local formaters = new Mapping {
+    ["tombi-format"] = Builtins.tombi_format
+    ["pkl-format"] = Builtins.pkl_format
+    ["shfmt"] = Builtins.shfmt
+}
+
+local configs = new Mapping {
+    ["pkl"] = Builtins.pkl
+}
+
+
+
+steps = linters
