@@ -1,17 +1,31 @@
+# ~/.config/chezmoi/chezmoi.toml
+
+{{- if eq .chezmoi.osRelease.id "omarchy" }}
+    # omarchy
+{{- else if eq .chezmoi.os "windows" }}
+    # windows
+{{- else if (and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
+    # wsl
+{{- end }}
+
+[data]
+
+[env]
+# Configure environment variables
+{{- if eq .chezmoi.os "windows" }}
+    $env:XDG_DATA_HOME=$env:USERPROFILE/.local/share
+    $env:XDG_CONFIG_HOME=$env:USERPROFILE/.config
+    $env:XDG_STATE_HOME=$env:USERPROFILE/.local/state
+    $env:XDG_CACHE_HOME=$env:USERPROFILE/.cache
+{{- end }}
+
+{{- if eq .chezmoi.osRelease.id "omarchy" }}
+    GITHUB_TOKEN={{ (bitwarden "item" "githubProfile Token").notes | quote }}
+{{- end }}
+
 [bitwarden]
     unlock = "auto"
 
 [edit]
     command = "code"
     args = ["--wait"]
-
-{{- $wsl := (and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
-
-[data]
-wsl = {{ $wsl }}
-
-[env]
-# Configure environment variables
-{{- if eq .chezmoi.os "windows" }}
-$env:XDG_CONFIG_HOME = "$env:USERPROFILE\.config"
-{{- end }}
