@@ -5,18 +5,18 @@
 
 set -e
 
-cd "${HOME}"
+cd "$HOME"
 
 is_command() {
 	type "${1}" >/dev/null 2>&1
 }
 
-if [ -n "${LOGNAME}" ]; then
-	username="${LOGNAME}"
-elif [ -n "${USER}" ]; then
-	username="${USER}"
-elif [ -n "${USERNAME}" ]; then
-	username="${USERNAME}"
+if [ "$LOGNAME" != "" ]; then
+	username="$LOGNAME"
+elif [ "$USER" != "" ]; then
+	username="$USER"
+elif [ "$USERNAME" != "" ]; then
+	username="$USERNAME"
 elif is_command whoami; then
 	username="$(whoami)"
 elif is_command logname; then
@@ -24,11 +24,6 @@ elif is_command logname; then
 else
 	printf "unable to determine username" 1>&2
 	exit 1
-fi
-
-sudo=
-if [ "${username}" != "root" ]; then
-	sudo="sudo "
 fi
 
 chezmoi=chezmoi
@@ -49,7 +44,7 @@ else
 	exit 1
 fi
 
-${chezmoi} init --apply Bogstag
+"$chezmoi" init --apply Bogstag
 
 shell="$(awk -F : "\$1 == \"${username}\" { print \$7 }" /etc/passwd)"
-exec "${shell}"
+exec "$shell"

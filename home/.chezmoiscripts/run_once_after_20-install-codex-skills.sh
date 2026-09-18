@@ -3,18 +3,18 @@
 set -eu
 
 if ! command -v npx >/dev/null 2>&1; then
-  echo "npx saknas; installera Node.js innan Codex-skills installeras." >&2
-  exit 1
+	echo "npx saknas; installera Node.js innan Codex-skills installeras." >&2
+	exit 1
 fi
 
 npx --yes skills add https://github.com/tailscale/tailscale-skill \
-  --global \
-  --agent codex \
-  --skill tailscale \
-  --yes
+	--global \
+	--agent codex \
+	--skill tailscale \
+	--yes
 
 npx --yes skills add https://github.com/terrylica/cc-skills \
-  --global \
-  --agent codex \
-  --skill chezmoi-workflows \
-  --yes
+	--global \
+	--agent codex \
+	--skill chezmoi-workflows \
+	--yes
