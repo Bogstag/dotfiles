@@ -12,17 +12,17 @@ is_command() {
 }
 
 if [ "$LOGNAME" != "" ]; then
-	username="$LOGNAME"
+	localuser="$LOGNAME"
 elif [ "$USER" != "" ]; then
-	username="$USER"
+	localuser="$USER"
 elif [ "$USERNAME" != "" ]; then
-	username="$USERNAME"
+	localuser="$USERNAME"
 elif is_command whoami; then
-	username="$(whoami)"
+	localuser="$(whoami)"
 elif is_command logname; then
-	username="$(logname)"
+	localuser="$(logname)"
 else
-	printf "unable to determine username" 1>&2
+	printf "unable to determine localuser" 1>&2
 	exit 1
 fi
 
@@ -46,5 +46,5 @@ fi
 
 "$chezmoi" init --apply Bogstag
 
-shell="$(awk -F : "\$1 == \"${username}\" { print \$7 }" /etc/passwd)"
+shell="$(awk -F : "\$1 == \"${localuser}\" { print \$7 }" /etc/passwd)"
 exec "$shell"
