@@ -1,13 +1,15 @@
 #:schema https://mise.jdx.dev/schema/mise-task.json
 
 [Unlock-Bitwarden]
-allow_env = ["BW_SESSION"]
-pass_through_env = ["BW_SESSION"]
-cache = { enabled = true, env = ["BW_SESSION"] }
+description = "Unlock Bitwarden session and store token in tmpfs runtime directory"
 interactive = true
 run = '''
 #!/usr/bin/env bash
-export BW_SESSION=$(bw unlock --raw)
+set -eu
+session_file="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/bw_session"
+bw unlock --raw > "$session_file"
+chmod 600 "$session_file"
+echo "Bitwarden unlocked for current login session ($session_file)."
 '''
 sources = ["tasks.toml"]
 outputs = []

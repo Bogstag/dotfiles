@@ -13,14 +13,10 @@
 [env]
 # Configure environment variables
 {{- if eq .chezmoi.os "windows" }}
-    XDG_DATA_HOME={{ .chezmoi.homeDir }}/.local/share
-    XDG_CONFIG_HOME={{ .chezmoi.homeDir }}/.config
-    XDG_STATE_HOME={{ .chezmoi.homeDir }}/.local/state
-    XDG_CACHE_HOME={{ .chezmoi.homeDir }}/.cache
-{{- end }}
-
-{{- if eq .chezmoi.osRelease.id "omarchy" }}
-    GITHUB_TOKEN={{ (bitwarden "item" "githubProfile Token").notes | quote }}
+    XDG_DATA_HOME = "{{ .chezmoi.homeDir }}/.local/share"
+    XDG_CONFIG_HOME = "{{ .chezmoi.homeDir }}/.config"
+    XDG_STATE_HOME = "{{ .chezmoi.homeDir }}/.local/state"
+    XDG_CACHE_HOME = "{{ .chezmoi.homeDir }}/.cache"
 {{- end }}
 
 [bitwarden]
