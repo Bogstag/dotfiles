@@ -21,11 +21,11 @@ run = [
 sources = ["mise"]
 outputs = ["tasks.md"]
 
-["tombi:format"]
-alias = "tf"
-description = "Format toml"
-run = "tombi format"
-sources = ["**/*.toml", "**/*.toml.tmpl"]
-
 [pre-commit]
 run = "hk run pre-commit"
+
+[check]
+run = "hk check --all --no-fail-fast"
+
+[fix]
+run = "hk fix --all --no-fail-fast"

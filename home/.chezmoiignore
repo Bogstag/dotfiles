@@ -12,8 +12,6 @@ docs/**
 {{- end }}
 
 # Not
-.chezmoiscripts/**
-.chezmoidata/**
 **/*tmp/**
 **/*cache/**
 **/*.sqlite/**

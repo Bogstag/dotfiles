@@ -1,6 +1,0 @@
-#!/bin/sh
-# Let Git's SSH signer reach Bitwarden even when SSH_AUTH_SOCK is unset.
-set -eu
-
-export SSH_AUTH_SOCK="{{ .chezmoi.homeDir }}/.bitwarden-ssh-agent.sock"
-exec ssh-keygen "$@"

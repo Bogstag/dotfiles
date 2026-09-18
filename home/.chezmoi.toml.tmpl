@@ -13,10 +13,10 @@
 [env]
 # Configure environment variables
 {{- if eq .chezmoi.os "windows" }}
-    $env:XDG_DATA_HOME=$env:USERPROFILE/.local/share
-    $env:XDG_CONFIG_HOME=$env:USERPROFILE/.config
-    $env:XDG_STATE_HOME=$env:USERPROFILE/.local/state
-    $env:XDG_CACHE_HOME=$env:USERPROFILE/.cache
+    XDG_DATA_HOME={{ .chezmoi.homeDir }}/.local/share
+    XDG_CONFIG_HOME={{ .chezmoi.homeDir }}/.config
+    XDG_STATE_HOME={{ .chezmoi.homeDir }}/.local/state
+    XDG_CACHE_HOME={{ .chezmoi.homeDir }}/.cache
 {{- end }}
 
 {{- if eq .chezmoi.osRelease.id "omarchy" }}
