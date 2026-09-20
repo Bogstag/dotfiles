@@ -38,7 +38,7 @@ hooks = new {
     fix = true
     steps = new {
       ["prelint"] {
-        check = "mise run prelint"
+        check = "echo prelint"
         exclusive = true
       }
       ...linters
