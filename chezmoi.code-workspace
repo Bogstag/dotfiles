@@ -6,7 +6,7 @@
 	],
 	"settings": {
 		"files.associations": {
-			"*.toml.tmpl": "toml",
+			"{*.toml,*.toml.tmpl}": "toml",
 			".chezmoiignore": "ignore",
 		},
 		"debug.javascript.defaultRuntimeExecutable": {

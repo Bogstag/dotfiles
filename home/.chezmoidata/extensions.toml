@@ -1,0 +1,8 @@
+[extensions.vscode]
+all = ["hashicorp.terraform", "timonwong.shellcheck", "redhat.vscode-xml", "redhat.vscode-yaml", "ms-vscode.PowerShell"]
+linux = [
+  "mkhl.direnv",
+]
+windows = [
+  "ms-vscode.powershell",
+]

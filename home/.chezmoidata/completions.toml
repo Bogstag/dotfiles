@@ -1,0 +1,3 @@
+[completions.mise]
+bash = ["packslip:github.com/jdx/hk"]
+powershell = [""]

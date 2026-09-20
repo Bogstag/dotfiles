@@ -4,9 +4,6 @@
 includes = ["tasks.toml"]
 
 [env]
-GITHUB_TOKEN = '{{ "{{" }}exec(command="gh auth token 2>/dev/null || true"){{ "}}" }}'
-BW_SESSION = '{{ "{{" }}exec(command="sh -c \"cat ${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/bw_session 2>/dev/null || true\""){{ "}}" }}'
-
 
 [settings]
 upgrade.auto_prune = false
@@ -17,6 +14,9 @@ color_theme = "catppuccin"
 dir = ".agents/skills"
 auto_sync = true
 prune = true
+
+[settings.packslip]
+exec = true
 
 [tools]
 "github:daptify14/chezit" = { version = "latest", os = ["linux"] }

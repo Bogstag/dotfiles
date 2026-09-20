@@ -21,23 +21,21 @@ Those decisions govern agent execution; setup examples do not grant approval.
 - This repository is public. Review staged changes for sensitive information
   before every commit.
 
+## Using hk from a coding agent
+
+Inspect and plan before running. Scope checks to changed files with `--files0-from` and use `--cd` to select the project root. Prefer `--safe`, inspect command effects, and require approval for unknown or destructive commands. Consume JSON or JSONL diagnostics while retaining raw output, and always review the diff produced by a fix. MCP clients should use `inspect_project`, `plan`, safe run tools, paged output, and `get_diff` rather than invoking arbitrary shell commands.
+
 ## Repository conventions
 
 - The chezmoi source directory is this Git repository. Resolve it with
   `chezmoi source-path` instead of assuming a fixed path.
 - `README.md` contains user-facing setup and maintenance instructions.
-- `run_once_after_10-install-applications.sh` installs Linux applications and
-  enables safe, reproducible user services.
 - Omarchy and Hyprland configuration is Linux-specific and must remain excluded
   on other operating systems through `.chezmoiignore`.
 - Starship configuration should remain cross-platform and fast to initialize.
 - Windows 11 implementation is pending; follow the package decisions linked above.
 - Keep machine enrollment and interactive authentication manual. In particular,
   do not automate Tailscale login or store its state in chezmoi.
-- Manage `~/.codex/config.toml` with
-  `private_dot_codex/modify_private_config.toml.tmpl`. Enforce only the portable
-  Aperture provider and MCP settings; preserve mutable Codex preferences and
-  local application state.
 
 ## Working method
 

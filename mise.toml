@@ -1,13 +1,18 @@
 #:schema https://mise.jdx.dev/schema/mise.json
 
+[settings.skills]
+dir = ".agents/skills"
+auto_sync = true
+prune = true
+
+[settings.packslip]
+exec = true
+
 [task_config]
 includes = ["tasks.toml"]
-global_env = ["BW_SESSION"]
-global_pass_through_env = ["BW_SESSION"]
 
 [task_config.cache]
 enabled = true
-env = ["BW_SESSION"]
 
 [tools]
 tombi = "latest"

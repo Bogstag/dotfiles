@@ -1,18 +1,5 @@
+#! /usr/bin/env bash
 #:schema https://mise.jdx.dev/schema/mise-task.json
-
-[Unlock-Bitwarden]
-description = "Unlock Bitwarden session and store token in tmpfs runtime directory"
-interactive = true
-run = '''
-#!/usr/bin/env bash
-set -eu
-session_file="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/bw_session"
-bw unlock --raw > "$session_file"
-chmod 600 "$session_file"
-echo "Bitwarden unlocked for current login session ($session_file)."
-'''
-sources = ["tasks.toml"]
-outputs = []
 
 ["render:tasks"]
 description = "Generate tasks documentation"
@@ -30,4 +17,4 @@ run = "hk run pre-commit"
 run = "hk check --all --no-fail-fast"
 
 [fix]
-run = "hk fix --all --no-fail-fast"
+run = "hk fix --all --fail-fast"
