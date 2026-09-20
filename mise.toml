@@ -15,10 +15,8 @@ includes = ["tasks.toml"]
 enabled = true
 
 [tools]
-tombi = "latest"
 hk = "latest"
 pkl = "latest"
 shfmt = "latest"
-markdownlint-cli2 = "latest"
 shellharden = "latest"
 shellcheck = "0.11.0"

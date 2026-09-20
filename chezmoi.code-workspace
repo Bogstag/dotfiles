@@ -5,13 +5,25 @@
 		}
 	],
 	"settings": {
+		"bashIde.shellcheckPath": "",
+		"bashIde.shfmt.path": "",
 		"files.associations": {
-			".chezmoiignore": "ignore"
+			".chezmoiignore": "ignore",
+			"*.tmpl": "go-template"
 		},
+		"go.alternateTools": {
+			"go": "/home/bogge/.local/share/mise/shims/go",
+			"gopls": "/home/bogge/.local/share/mise/shims/gopls",
+			"dlv": "/home/bogge/.local/share/mise/shims/dlv"
+		},
+		"gopls": {
+			"ui.semanticTokens": true
+		},
+		"mise.enableTaskSymbolProvider": true,
 		"shellcheck.ignorePatterns": {
 			"**/*.sh.tmpl": true
 		},
-		"bashIde.shellcheckPath": "",
-		"bashIde.shfmt.path": "",
+		"pkl.cli.path": "/home/bogge/.local/share/mise/shims/pkl",
+		"pkl.lsp.java.path": "/home/bogge/.local/share/mise/shims/java"
 	}
 }

@@ -18,6 +18,10 @@ prune = true
 [settings.packslip]
 exec = true
 
+[hooks.apply.pre]
+command = "bwu"
+args = ["post-apply-hook"]
+
 [settings.github]
 credential_command = "gh auth token"
 use_git_credentials = true
@@ -33,3 +37,4 @@ gh = "latest"
 node = "26.7.0"
 opencode = "latest"
 yazi = "latest"
+tombi = "1.5.5"

@@ -1,4 +1,4 @@
-$schema = "https://json.schemastore.org/chezmoi.json"
+"$schema" = "https://json.schemastore.org/chezmoi.json"
 # ~/.config/chezmoi/chezmoi.toml
 
 {{- if eq .chezmoi.osRelease.id "omarchy" }}
@@ -21,8 +21,11 @@ $schema = "https://json.schemastore.org/chezmoi.json"
 {{- end }}
 
 [bitwarden]
-    unlock = "auto"
+    unlock = "false"
 
 [edit]
     command = "code"
     args = ["--wait"]
+
+[diff]
+    pager = "delta"

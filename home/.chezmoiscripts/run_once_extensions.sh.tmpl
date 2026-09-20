@@ -1,22 +1,35 @@
 #!/usr/bin/env bash
 
-echo "[-] Installing VS Code extensions [-]"
+echo "[-] Installing Common VS Code extensions [-]"
+{{ range .extensions.vscode.all -}}
+	if ! code --list-extensions | grep -qF {{ . | quote }}; then
+		echo "Installing extension {{ . }}..."
+		code --force --install-extension {{ . | quote }}
+	else
+		echo "Extension already installed: {{ . }}"
+	fi
+{{ end }}
+
 {{- if eq .chezmoi.os "linux" }}
-{{ range {.extensions.vscode.all}{.extensions.vscode.linux} -}}
-if ! code --list-extensions | grep -qF {{ . | quote }}; then
-	echo "Installing extension {{ . }}..."
-	code --force --install-extension {{ . | quote }}
-else
-	echo "Extension already installed: {{ . }}"
-fi
+echo "[-] Installing Linux VS Code extensions [-]"
+	{{ range .extensions.vscode.linux -}}
+		if ! code --list-extensions | grep -qF {{ . | quote }}; then
+			echo "Installing extension {{ . }}..."
+			code --force --install-extension {{ . | quote }}
+		else
+			echo "Linux Extension already installed: {{ . }}"
+		fi
+	{{ end }}
 {{ end }}
 
 {{- if eq .chezmoi.os "windows" }}
-{{ range {.extensions.vscode.all}{.extensions.vscode.windows} -}}
-if ! code --list-extensions | grep -qF {{ . | quote }}; then
-	echo "Installing extension {{ . }}..."
-	code --force --install-extension {{ . | quote }}
-else
-	echo "Extension already installed: {{ . }}"
-fi
+	echo "[-] Installing Windows VS Code extensions [-]"
+	{{ range .extensions.vscode.windows -}}
+		if ! code --list-extensions | grep -qF {{ . | quote }}; then
+			echo "Installing extension {{ . }}..."
+			code --force --install-extension {{ . | quote }}
+		else
+			echo "Windows Extension already installed: {{ . }}"
+		fi
+	{{ end }}
 {{ end }}

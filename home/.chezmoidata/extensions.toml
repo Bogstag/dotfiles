@@ -1,8 +1,13 @@
 [extensions.vscode]
-all = ["hashicorp.terraform", "timonwong.shellcheck", "redhat.vscode-xml", "redhat.vscode-yaml", "ms-vscode.PowerShell"]
+all = ["hashicorp.terraform", "golang.go", "openai.chatgpt", "tombi-toml.tombi", "hverlin.mise-vscode", "timonwong.shellcheck", "ms-azuretools.vscode-containers", "mads-hartmann.bash-ide-vscode", "timonwong.shellcheck", "gruntfuggly.todo-tree", "foxundermoon.shell-format", "editorconfig.editorconfig", "redhat.vscode-yaml", "ms-vscode-remote.remote-containers", "hashicorp.terraform", "redhat.vscode-xml", "redhat.vscode-xml", "redhat.vscode-yaml", "ms-vscode.PowerShell"]
 linux = [
-  "mkhl.direnv",
+  "local.omarchy-theme",
+  "catppuccin.catppuccin-vsc",
 ]
 windows = [
   "ms-vscode.powershell",
 ]
+
+# pkl-vscode
+# https://github.com/apple/pkl-vscode
+# Installed by VSIX

@@ -22,9 +22,12 @@ local linters = new Mapping<String, Step | Group> {
 
   ["tombi"] = Builtins.tombi
   ["mise"] = Builtins.mise
-  // ["markdown-lint"] = Builtins.markdown_lint
   ["hk-test"] = Builtins.hk_test
   ["tombi-format"] = Builtins.tombi_format
+  //["luacheck"] = Builtins.luacheck
+  ["ryl"] = Builtins.ryl
+  ["ryl-markdown"] = Builtins.ryl_markdown
+  ["betterleaks"] = Builtins.betterleaks
 
   // Render
   ["render"] = new Step {
