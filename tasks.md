@@ -1,6 +1,10 @@
-## `Unlock-Bitwarden`
+## `check`
 
-- **Usage:** `Unlock-Bitwarden`
+- **Usage:** `check`
+
+## `fix`
+
+- **Usage:** `fix`
 
 ## `pre-commit`
 
@@ -11,10 +15,3 @@
 - **Usage:** `render:tasks`
 
 Generate tasks documentation
-
-## `tombi:format`
-
-- **Usage:** `tombi:format`
-- **Aliases:** `tf`
-
-Format toml

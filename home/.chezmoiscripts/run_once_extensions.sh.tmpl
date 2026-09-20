@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+echo "[-] Installing VS Code extensions [-]"
+{{- if eq .chezmoi.os "linux" }}
+{{ range {.extensions.vscode.all}{.extensions.vscode.linux} -}}
+if ! code --list-extensions | grep -qF {{ . | quote }}; then
+	echo "Installing extension {{ . }}..."
+	code --force --install-extension {{ . | quote }}
+else
+	echo "Extension already installed: {{ . }}"
+fi
+{{ end }}
+
+{{- if eq .chezmoi.os "windows" }}
+{{ range {.extensions.vscode.all}{.extensions.vscode.windows} -}}
+if ! code --list-extensions | grep -qF {{ . | quote }}; then
+	echo "Installing extension {{ . }}..."
+	code --force --install-extension {{ . | quote }}
+else
+	echo "Extension already installed: {{ . }}"
+fi
+{{ end }}

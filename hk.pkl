@@ -3,27 +3,61 @@ amends "package://github.com/jdx/hk/releases/download/v2.0.0/hk@2.0.0#/Config.pk
 import "package://github.com/jdx/hk/releases/download/v2.0.0/hk@2.0.0#/Builtins.pkl"
 // Using a coding agent? See https://hk.jdx.dev/agents
 
-local linters = new Mapping {
-  ["shellcheck"] = Builtins.shellcheck
+// defines what happens during git pre-commit hook
+local linters = new Mapping<String, Step | Group> {
+  ["pkl"] = Builtins.pkl
+  ["pkl-format"] = Builtins.pkl_format
+
+  // Shells
+  ["shellcheck"] = (Builtins.shellcheck) {
+    exclude = List("**/*.sh.tmpl")
+  }
+  ["shfmt"] = (Builtins.shfmt) {
+    exclude = List("**/*.sh.tmpl")
+  }
   ["shellharden"] = Builtins.shellharden
+
+  ["newlines"] = Builtins.newlines
+  ["trailing-whitespace"] = Builtins.trailing_whitespace
+
   ["tombi"] = Builtins.tombi
   ["mise"] = Builtins.mise
   // ["markdown-lint"] = Builtins.markdown_lint
   ["hk-test"] = Builtins.hk_test
-}
-
-local formaters = new Mapping {
   ["tombi-format"] = Builtins.tombi_format
-  ["pkl-format"] = Builtins.pkl_format
-  ["shfmt"] = Builtins.shfmt
+
+  // Render
+  ["render"] = new Step {
+    check = "mise run render:*"
+    output_summary = "hide"
+  }
 }
 
-local configs = new Mapping {
-  ["pkl"] = Builtins.pkl
+hooks = new {
+  ["pre-commit"] {
+    fix = true
+    steps = new {
+      ["prelint"] {
+        check = "mise run prelint"
+        exclusive = true
+      }
+      ...linters
+      ["postlint"] {
+        check = "echo postlint"
+        exclusive = true
+      }
+    }
+  }
+  ["pre-push"] {
+    steps = linters
+  }
+  ["check"] {
+    steps = linters
+  }
+  ["fix"] {
+    fix = true
+    steps = linters
+  }
 }
 
-steps {
-  ...linters
-  ...formaters
-  ...configs
-}
+warnings = List("missing-profiles")

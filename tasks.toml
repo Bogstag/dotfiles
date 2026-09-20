@@ -11,7 +11,7 @@ sources = ["mise"]
 outputs = ["tasks.md"]
 
 [pre-commit]
-run = "hk run pre-commit"
+run = "hk run pre-commit --all --fail-fast"
 
 [check]
 run = "hk check --all --no-fail-fast"

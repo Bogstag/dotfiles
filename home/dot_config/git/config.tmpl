@@ -28,19 +28,23 @@
 	enabled = true           # Record and reuse conflict resolutions
 	autoupdate = true        # Apply stored conflict resolutions automatically
 [user]
-	name = {{ .github.name}} 
-	email = {{ .github.email }} 
+	name = {{ .github.name}}
+	email = {{ .github.email }}
 	signingkey = key::{{ (bitwarden "item" "GithubSigningKey").sshKey.publicKey }}
 [gpg]
 	format = ssh
 [gpg "ssh"]
 	allowedSignersFile = {{ .chezmoi.homeDir }}/.ssh/allowed_signers
 [credential "https://github.com"]
-	helper = 
-	helper = !gh auth git-credential
+	helper =
+	helper = !gh auth setup-git
+[credential "https://api.github.com"]
+	helper =
+	helper = !gh auth setup-git
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !gh auth git-credential
+	helper =
+	helper = !gh auth setup-git
+	# helper = !gh auth git-credential
 [hook "hk-commit-msg"]
 	command = test \"${HK:-1}\" = \"0\" || /usr/bin/mise x hk -- hk run commit-msg --from-hook
 	event = commit-msg

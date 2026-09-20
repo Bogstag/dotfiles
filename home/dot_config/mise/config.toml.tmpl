@@ -18,6 +18,10 @@ prune = true
 [settings.packslip]
 exec = true
 
+[settings.github]
+credential_command = "gh auth token"
+use_git_credentials = true
+
 [tools]
 "github:daptify14/chezit" = { version = "latest", os = ["linux"] }
 "npm:@kitlangton/ghui" = "latest"

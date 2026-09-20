@@ -6,11 +6,12 @@
 	],
 	"settings": {
 		"files.associations": {
-			"{*.toml,*.toml.tmpl}": "toml",
-			".chezmoiignore": "ignore",
+			".chezmoiignore": "ignore"
 		},
-		"debug.javascript.defaultRuntimeExecutable": {
-			"pwa-node": "/home/bogge/.local/share/mise/shims/node"
-		}
+		"shellcheck.ignorePatterns": {
+			"**/*.sh.tmpl": true
+		},
+		"bashIde.shellcheckPath": "",
+		"bashIde.shfmt.path": "",
 	}
 }

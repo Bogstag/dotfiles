@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+{{ range .completions.mise.bash -}}
+	mise completion bash --install --tool {{ . | quote }}
+{{ end -}}
