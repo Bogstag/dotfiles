@@ -29,3 +29,7 @@
 
 [diff]
     pager = "delta"
+
+[hooks.apply.pre]
+	command = "bwu"
+	args = ["pre-apply-hook"]
