@@ -5,13 +5,16 @@ docs
 docs/**
 
 {{- if ne .chezmoi.os "linux" }}
-# Omarchy and Hyprland are Linux-specific.
-.config/hypr
-.config/hypr/**
-
+	# Omarchy and Hyprland are Linux-specific.
+	.config/hypr
+	.config/hypr/**
 {{- end }}
 
 # Not
 **/*tmp/**
 **/*cache/**
 **/*.sqlite/**
+**/*.src.ini
+
+# It is symlinked
+.mise/config.toml

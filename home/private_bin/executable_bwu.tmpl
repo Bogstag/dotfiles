@@ -1,5 +1,6 @@
-
-{{- if (eq .chezmoi.os "linux") }}
+{{- if (eq .chezmoi.os "linux") -}}
+#!{{ lookPath "bash" }}
+set -eu
 # Bitwarden helper function
 function bwu {
     if ! command -v bw >/dev/null 2>&1; then
@@ -33,5 +34,6 @@ function bwu {
 
     echo "Syncing vault..."
     bw sync
+	return bw
 }
 {{- end }}

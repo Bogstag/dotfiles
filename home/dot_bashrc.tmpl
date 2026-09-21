@@ -13,6 +13,8 @@
 {{- if eq .chezmoi.os "linux" }}
     # Add your own exports, aliases, and functions here.
 
+	export PATH="#{{ .chezmoi.homeDir }}/bin:$PATH"
+
     # Alias definitions.
     # ~/.bash_aliases, instead of adding them here directly.
     if [ -f ~/.bash_aliases ]; then

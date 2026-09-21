@@ -21,7 +21,8 @@
 {{- end }}
 
 [bitwarden]
-    unlock = "false"
+command = "bw"
+unlock = "true"
 
 [edit]
     command = "code"
@@ -29,7 +30,3 @@
 
 [diff]
     pager = "delta"
-
-[hooks.apply.pre]
-	command = "bwu"
-	args = ["pre-apply-hook"]

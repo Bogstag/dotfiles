@@ -4,6 +4,7 @@
 includes = ["tasks.toml"]
 
 [env]
+_.path = "~/bin"
 
 [settings]
 upgrade.auto_prune = false
@@ -34,3 +35,11 @@ node = "26.7.0"
 opencode = "latest"
 yazi = "latest"
 tombi = "1.5.5"
+go = "latest"
+agy = "latest"
+betterleaks = "latest"
+crush = "latest"
+java = "latest"
+"aqua:owenlamont/ryl" = "latest"
+ripgrep = "latest"
+lua = "latest"

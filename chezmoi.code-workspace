@@ -9,7 +9,7 @@
 		"bashIde.shfmt.path": "",
 		"files.associations": {
 			".chezmoiignore": "ignore",
-			"*.tmpl": "go-template"
+			"*.tmpl": "gotmpl"
 		},
 		"go.alternateTools": {
 			"go": "/home/bogge/.local/share/mise/shims/go",
