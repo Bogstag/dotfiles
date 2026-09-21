@@ -14,7 +14,7 @@ outputs = ["tasks.md"]
 run = "hk run pre-commit --no-fail-fast"
 
 [check]
-run = "hk check --all --no-fail-fast --stats"
+run = "hk check --all --no-fail-fast"
 
 [fix]
-run = "hk fix --all --no-fail-fast --stats"
+run = "hk fix --all --no-fail-fast "
