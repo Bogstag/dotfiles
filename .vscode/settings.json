@@ -1,9 +1,6 @@
 {
 		"files.associations": {
 			".chezmoiignore": "ignore",
-			"*.ps1.tmpl": "powershell",
-			"*.sh.tmpl": "shellscript",
-			"*.yaml.tmpl": "yaml",
 			"**/profile.d/*": "shellscript",
 			"dot_bashrc*": "shellscript"
 		},
