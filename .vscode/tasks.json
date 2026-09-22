@@ -4,7 +4,7 @@
     {
       "label": "hk: safe check",
       "type": "shell",
-      "command": "hk run check --safe --format json",
+      "command": "hk check --all",
       "problemMatcher": []
     }
   ]

@@ -29,9 +29,9 @@
 	autoupdate = true        # Apply stored conflict resolutions automatically
 
 [user]
-	name = {{ .github.name}}
+	name = {{ .github.name }}
 	email = {{ .github.email }}
-	signingkey = key::{{ (bitwarden "item" "GithubSigningKey").sshKey.publicKey }}
+	signingkey = key::{{ rbw "GithubSigningKey" }}
 
 [gpg]
 	format = ssh
@@ -78,3 +78,6 @@
 
 [merge]
     conflictStyle = zdiff3
+
+[pager]
+	diff = delta

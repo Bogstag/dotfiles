@@ -3,14 +3,6 @@ README.md
 AGENTS.md
 docs
 docs/**
-
-{{- if ne .chezmoi.os "linux" }}
-	# Omarchy and Hyprland are Linux-specific.
-	.config/hypr
-	.config/hypr/**
-{{- end }}
-
-# Not
 **/*tmp/**
 **/*cache/**
 **/*.sqlite/**
@@ -18,3 +10,20 @@ docs/**
 
 # It is symlinked
 .mise/config.toml
+
+# Linux ignores
+{{- if ne .chezmoi.os "linux" }}
+home/.chezmoiscripts/*/*.ps1
+{{- end }}
+
+{{- if ne .chezmoi.osRelease.id "omarchy"  }}
+# Omarchy ignores
+# Omarchy and Hyprland are Linux-specific.
+.config/hypr
+.config/hypr/**
+{{- end }}
+
+# Windows ignores
+{{- if ne .chezmoi.os "windows" }}
+home/.chezmoiscripts/*/*.sh
+{{- end }}

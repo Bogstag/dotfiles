@@ -1,1 +1,1 @@
-{{ .github.email }} {{ (bitwarden "item" "GithubSigningKey").sshKey.publicKey }}
+{{ .github.email }} {{ rbw "GithubSigningKey" }}

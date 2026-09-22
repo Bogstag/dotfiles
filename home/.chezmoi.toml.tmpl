@@ -1,12 +1,23 @@
 "$schema" = "https://json.schemastore.org/chezmoi.json"
 # ~/.config/chezmoi/chezmoi.toml
 
+{{- $is_wsl := false -}}
+{{- if and .chezmoi.kernel (hasKey .chezmoi.kernel "osrelease") -}}
+{{-   $is_wsl = (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{- end -}}
+
+{{- $chassisType := (output "hostnamectl" "--json=short" | fromJson).Chassis }}
+
+{{- if eq .chezmoi.os "windows" }}
+	# Windows
+{{- else if eq .chezmoi.os "linux" }}
+# All linux
+{{- end }}
+
 {{- if eq .chezmoi.osRelease.id "omarchy" }}
-    # omarchy
-{{- else if eq .chezmoi.os "windows" }}
-    # windows
-{{- else if (and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
-    # wsl
+	# Omarchy
+{{- else if .chezmoi.kernel.osrelease | lower | contains "microsoft" }}
+	# WSL
 {{- end }}
 
 [data]
@@ -14,19 +25,19 @@
 [env]
 # Configure environment variables
 {{- if eq .chezmoi.os "windows" }}
-    XDG_DATA_HOME = "{{ .chezmoi.homeDir }}/.local/share"
-    XDG_CONFIG_HOME = "{{ .chezmoi.homeDir }}/.config"
-    XDG_STATE_HOME = "{{ .chezmoi.homeDir }}/.local/state"
-    XDG_CACHE_HOME = "{{ .chezmoi.homeDir }}/.cache"
+XDG_DATA_HOME = "{{ .chezmoi.homeDir }}/.local/share"
+XDG_CONFIG_HOME = "{{ .chezmoi.homeDir }}/.config"
+XDG_STATE_HOME = "{{ .chezmoi.homeDir }}/.local/state"
+XDG_CACHE_HOME = "{{ .chezmoi.homeDir }}/.cache"
 {{- end }}
 
 [bitwarden]
-command = "bw"
-unlock = "true"
+command = "rbw"
+unlock = "false"
 
 [edit]
-    command = "code"
-    args = ["--wait"]
+command = "code"
+args = ["--wait"]
 
 [diff]
-    pager = "delta"
+pager = "delta"
