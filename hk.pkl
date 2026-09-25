@@ -3,17 +3,16 @@ amends "package://github.com/jdx/hk/releases/download/v2.0.0/hk@2.0.0#/Config.pk
 import "package://github.com/jdx/hk/releases/download/v2.0.0/hk@2.0.0#/Builtins.pkl"
 // Using a coding agent? See https://hk.jdx.dev/agents
 
-// defines what happens during git pre-commit hook
 local linters = new Mapping<String, Step | Group> {
   ["pkl"] = Builtins.pkl
   ["pkl-format"] = Builtins.pkl_format
 
   // Shells
   ["shellcheck"] = (Builtins.shellcheck) {
-    exclude = List("**/*.sh.tmpl")
+    exclude = List("**/*.tmpl")
   }
   ["shfmt"] = (Builtins.shfmt) {
-    exclude = List("**/*.sh.tmpl")
+    exclude = List("**/*.tmpl")
   }
   ["shellharden"] = Builtins.shellharden
 
@@ -61,6 +60,7 @@ hooks = new {
     fix = true
     steps = linters
   }
+  //  ["missing"] {
+  //    steps = new Mapping { List("missing-profiles") }
+  //  }
 }
-
-warnings = List("missing-profiles")

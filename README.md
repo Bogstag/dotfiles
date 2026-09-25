@@ -2,7 +2,7 @@
 
 Personliga dotfiles för Omarchy, hanterade med [chezmoi](https://www.chezmoi.io/).
 Repot är publikt och ska aldrig innehålla hemligheter eller lokal kontodata.
-Bitwarden är avsedd lagringsplats om framtida mallar behöver hemligheter och
+Bitwarden Secrets Manager är avsedd lagringsplats om framtida mallar behöver hemligheter och
 SSH-nycklar. Den GitHub-e-postadress som används av mallarna finns i
 `.chezmoidata.toml` under `github.noreply_email`.
 
@@ -25,11 +25,12 @@ Vilka applikationer som installeras finns i
 chezmoi installeras globalt av `run_once_after_20-install-codex-skills.sh`.
 Skill-installationen kräver Node.js och `npx`.
 
-Logga därefter in i Bitwarden CLI:
+Lagra Bitwarden Secrets Manager BWS_TOKEN med hjälp av secret-tool
 
 ```sh
-bw login
-bw status
+secret-tool store --label="Bitwarden Secrets Token" "BWS_ACCESS" "TOKEN"
+# Klistra in TOKEN, sedan tar vi ut den med:
+export BWS_ACCESS_TOKEN="$(secret-tool lookup "BWS_ACCESS" "TOKEN")"
 ```
 
 Inloggningen är lokal för datorn och lagras inte i dotfiles-repot. Den nuvarande

@@ -1,10 +1,10 @@
 {
-		"files.associations": {
-			".chezmoiignore": "ignore",
-			"**/profile.d/*": "shellscript",
-			"dot_bashrc*": "shellscript"
-		},
-		"Lua.diagnostics.disable": [
-			"undefined-global"
-		]
-	}
+	"files.associations": {
+		".chezmoiignore": "ignore",
+		"**/profile.d/*": "shellscript",
+		"*.sh.tmpl": "goshell",
+	},
+	"Lua.diagnostics.disable": [
+		"undefined-global"
+	]
+}

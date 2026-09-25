@@ -1,23 +1,33 @@
+#!/bin/bash
 {{- if eq .chezmoi.osRelease.id "omarchy" }}
-    # Omarchy environment (OMARCHY_PATH + PATH), needed even for non-interactive shells
-    [[ -r /usr/share/omarchy/default/bash/env-bootstrap ]] && source /usr/share/omarchy/default/bash/env-bootstrap
+# Omarchy environment (OMARCHY_PATH + PATH), needed even for non-interactive shells
+[[ -r /usr/share/omarchy/default/bash/env-bootstrap ]] && source /usr/share/omarchy/default/bash/env-bootstrap
 
-    # If not running interactively, don't do anything else (leave this above the rc source)
-    [[ $- != *i* ]] && return
+# If not running interactively, don't do anything else (leave this above the rc source)
+[[ $- != *i* ]] && return
 
-    # All the default Omarchy aliases and functions
-    # (don't mess with these directly, just overwrite them here!)
-    source "$OMARCHY_PATH/default/bash/rc"
+# All the default Omarchy aliases and functions
+# (don't mess with these directly, just overwrite them here!)
+if [ -f "$OMARCHY_PATH/default/bash/rc" ]; then
+	# shellcheck source-path=/usr/share/omarchy
+	source "$OMARCHY_PATH/default/bash/rc"
+fi
+
 {{ end -}}
 
 {{- if eq .chezmoi.os "linux" }}
-    # Add your own exports, aliases, and functions here.
 
-	export PATH="#{{ .chezmoi.homeDir }}/bin:$PATH"
+# Add your own exports, aliases, and functions here.
 
-    # Alias definitions.
-    # ~/.bash_aliases, instead of adding them here directly.
-    if [ -f ~/.bash_aliases ]; then
-        . ~/.bash_aliases
-    fi
+PATH="{{ .chezmoi.homeDir }}/bin:$PATH"
+export PATH
+# Alias definitions.
+if [ -f ~/.bash_aliases ]; then
+	# shellcheck source=/home/bogge/.bash_aliases
+	. ~/.bash_aliases
+fi
+
+BWS_ACCESS_TOKEN="$(secret-tool lookup 'BWS_ACCESS' 'TOKEN')"
+export BWS_ACCESS_TOKEN
+
 {{ end -}}

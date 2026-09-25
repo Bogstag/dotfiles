@@ -2,6 +2,10 @@
 
 - **Usage:** `check`
 
+## `edit-config`
+
+- **Usage:** `edit-config`
+
 ## `fix`
 
 - **Usage:** `fix`

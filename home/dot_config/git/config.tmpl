@@ -31,15 +31,15 @@
 [user]
 	name = {{ .github.name }}
 	email = {{ .github.email }}
-	signingkey = key::{{ rbw "GithubSigningKey" }}
+	signingkey = key::{{- (bitwardenSecrets "4c3ab507-e3b1-455f-852f-b4ce01267a85").value }}
 
 [gpg]
 	format = ssh
 [gpg "ssh"]
 	allowedSignersFile = {{ .chezmoi.homeDir }}/.ssh/allowed_signers
 
-[url "git@github.com:"]
-  insteadOf = https://github.com/
+# [url "git@github.com:"]
+#   insteadOf = https://github.com/
 [credential "https://github.com"]
 	helper =
 	helper = !gh auth setup-git
@@ -78,6 +78,7 @@
 
 [merge]
     conflictStyle = zdiff3
+	guitool = "meld"
 
 [pager]
 	diff = delta

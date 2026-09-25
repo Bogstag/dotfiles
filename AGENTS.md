@@ -21,6 +21,30 @@ Those decisions govern agent execution; setup examples do not grant approval.
 - This repository is public. Review staged changes for sensitive information
   before every commit.
 
+## CLI Tools
+
+Prefer this tools over other methods
+
+### AXI (Agent eXperience Interface) defines 10 ergonomic principles for building CLI tools that AI agents use via shell execution
+
+This repo contains:
+
+| AXI | Domain | What it does |
+| -------------------------------------------- | --------- | -------------------------------------------------------- |
+| [`gh-axi`](https://github.com/kunchenguid/gh-axi) | GitHub | Issues, PRs, workflow runs, releases, and more. Wraps the official `gh` CLI with agent-ergonomic output. |
+| [`chrome-devtools-axi`](https://github.com/kunchenguid/chrome-devtools-axi) | Browser automation | Navigate, click, fill, and extract with combined operations and query filtering. Wraps chrome-devtools-mcp. |
+| [`chezmoi-axi`](https://github.com/masculinecache/chezmoi-axi) | Dotfiles | List, diff, add, re-add, apply, verify, and sync chezmoi-managed dotfiles with compact TOON output - template-aware re-add verdicts, preview dry-runs, and idempotent operations. |
+| [`mem-axi`](https://github.com/masculinecache/axi-memory) | Agent memory | Durable cross-session agent memory as markdown + YAML frontmatter in a git repo - typed memories, priority-ranked search with L0 abstracts, OS-side dedup, and cross-machine sync. |
+| [`bws-axi`](https://github.com/masculinecache/bws-axi) | Bitwarden Secrets Manager | Agent-ergonomic Bitwarden Secrets Manager CLI - TOON output, values redacted by default, project/key scoped listings. |
+
+## Skills
+
+Project skills is installed in .agents/skills (~/.local/share/chezmoi/.agents). This are the skills installed:
+.agents/skills/chrome-devtools-axi/SKILL.md
+.agents/skills/gh-axi/SKILL.md
+.agents/skills/hk-configure/SKILL.md
+.agents/skills/hk-debug/SKILL.md
+
 ## Using hk from a coding agent
 
 Inspect and plan before running. Scope checks to changed files with `--files0-from` and use `--cd` to select the project root. Prefer `--safe`, inspect command effects, and require approval for unknown or destructive commands. Consume JSON or JSONL diagnostics while retaining raw output, and always review the diff produced by a fix. MCP clients should use `inspect_project`, `plan`, safe run tools, paged output, and `get_diff` rather than invoking arbitrary shell commands.

@@ -3,7 +3,7 @@
 
 {{- $is_wsl := false -}}
 {{- if and .chezmoi.kernel (hasKey .chezmoi.kernel "osrelease") -}}
-{{-   $is_wsl = (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{- $is_wsl = (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 {{- end -}}
 
 {{- $chassisType := (output "hostnamectl" "--json=short" | fromJson).Chassis }}
@@ -11,7 +11,7 @@
 {{- if eq .chezmoi.os "windows" }}
 	# Windows
 {{- else if eq .chezmoi.os "linux" }}
-# All linux
+	# All linux
 {{- end }}
 
 {{- if eq .chezmoi.osRelease.id "omarchy" }}
@@ -21,23 +21,23 @@
 {{- end }}
 
 [data]
+	BWS_ACCESS_TOKEN="$(secret-tool lookup 'BWS_ACCESS' 'TOKEN')"
 
 [env]
 # Configure environment variables
 {{- if eq .chezmoi.os "windows" }}
-XDG_DATA_HOME = "{{ .chezmoi.homeDir }}/.local/share"
-XDG_CONFIG_HOME = "{{ .chezmoi.homeDir }}/.config"
-XDG_STATE_HOME = "{{ .chezmoi.homeDir }}/.local/state"
-XDG_CACHE_HOME = "{{ .chezmoi.homeDir }}/.cache"
+	XDG_DATA_HOME = "{{ .chezmoi.homeDir }}/.local/share"
+	XDG_CONFIG_HOME = "{{ .chezmoi.homeDir }}/.config"
+	XDG_STATE_HOME = "{{ .chezmoi.homeDir }}/.local/state"
+	XDG_CACHE_HOME = "{{ .chezmoi.homeDir }}/.cache"
 {{- end }}
 
-[bitwarden]
-command = "rbw"
-unlock = "false"
-
 [edit]
-command = "code"
-args = ["--wait"]
+	command = "code"
+	args = ["--wait"]
 
 [diff]
-pager = "delta"
+	pager = "delta"
+
+[merge]
+	command = "meld"

@@ -7,14 +7,12 @@ if ! command -v npx >/dev/null 2>&1; then
 	exit 1
 fi
 
-npx --yes skills add https://github.com/tailscale/tailscale-skill \
-	--global \
-	--agent codex \
-	--skill tailscale \
-	--yes
+# Global skills
+npx --yes skills add tailscale/tailscale-skill --skill tailscale --global --agent universal --yes
 
-npx --yes skills add https://github.com/terrylica/cc-skills \
-	--global \
-	--agent codex \
-	--skill chezmoi-workflows \
-	--yes
+# Project Skills
+if [ -f "/home/bogge/.local/share/chezmoi/.agents/skills/gh-axi/SKILL.md" ]; then
+	npx --yes skills update --project --yes
+else
+	npx --yes skills add https://skills.sh/p/YX1apvHeaqycBTps --agent universal --yes
+fi
