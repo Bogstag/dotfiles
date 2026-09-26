@@ -9,7 +9,7 @@ docs/**
 **/*.src.ini
 
 # It is symlinked
-.mise/config.toml
+**/.mise
 
 # Linux ignores
 {{- if ne .chezmoi.os "linux" }}

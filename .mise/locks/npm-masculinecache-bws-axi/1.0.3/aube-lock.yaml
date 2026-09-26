@@ -1,0 +1,25 @@
+---
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@masculinecache/bws-axi':
+        specifier: 1.0.3
+        version: 1.0.3
+
+packages:
+
+  '@masculinecache/bws-axi@1.0.3':
+    resolution: {integrity: sha512-0/J/5Kbn7hwSvZSNZXsOrEnMjkNAk4nFhsRSdwkUlNp0yU9qN1JXD1gx8Tqw+6qwa+N+ueBtDH3Xukm378R2Xw==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+snapshots:
+
+  '@masculinecache/bws-axi@1.0.3': {}

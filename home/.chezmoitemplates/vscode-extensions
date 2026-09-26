@@ -1,0 +1,44 @@
+# shellcheck shell=bash
+# Thanks to felipecrs/dotfiles for this solution.
+extensions=(
+  davidanson.vscode-markdownlint
+  editorconfig.editorconfig
+  foxundermoon.shell-format
+  gruntfuggly.todo-tree
+  hashicorp.terraform
+  hverlin.mise-vscode
+  ms-azuretools.vscode-containers
+  ms-vscode-remote.remote-containers
+  ms-vscode.vscode-chat-customizations-evaluations
+  pkl.pkl-vscode
+  redhat.vscode-xml
+  redhat.vscode-yaml
+  sumneko.lua
+  timonwong.shellcheck
+  tombi-toml.tombi
+  xembly.gomplat
+{{- if eq .chezmoi.os "windows" }}
+  ms-vscode.powershell
+{{- end }}
+{{- if eq .chezmoi.os "linux" }}
+  local.omarchy-theme
+{{- end }}
+)
+
+function is_vscode_extension_installed() {
+  local extension="$1"
+
+  # shellcheck disable=SC2312
+  code --list-extensions 2>/dev/null | grep "${extension}" >/dev/null
+}
+
+function install_vscode_extensions() {
+  for extension in "${extensions[@]}"; do
+    if ! is_vscode_extension_installed "${extension}"; then
+      log_task "Installing VS Code extension: ${extension}"
+      c code --install-extension "${extension}"
+    else
+      log_task "✅ ${extension}"
+    fi
+  done
+}

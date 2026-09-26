@@ -9,7 +9,8 @@ _.path = "~/bin"
 [settings]
 upgrade.auto_prune = false
 experimental = true
-color_theme = "catppuccin"
+color_theme = "dracula"
+lockfile = true
 
 [settings.skills]
 dir = ".agents/skills"
@@ -19,14 +20,13 @@ prune = true
 [settings.packslip]
 exec = true
 
-[settings.github]
-credential_command = "gh auth token"
-use_git_credentials = true
+# [settings.github]
+# credential_command = "gh auth token"
+# use_git_credentials = true
 
 [tools]
 "github:daptify14/chezit" = { version = "latest", os = ["linux"] }
 "npm:@kitlangton/ghui" = "latest"
-"packslip:github.com/jdx/hk" = "latest"
 codex = "latest"
 copilot = "latest"
 gemini = { version = "latest", allow_builds = ["@github/keytar", "node-pty"] }
@@ -47,3 +47,5 @@ lua = "latest"
 bitwarden-secrets-manager = "latest"
 python = "latest"
 editorconfig-checker = "latest"
+hk = "latest"
+pkl = "latest"

@@ -7,3 +7,4 @@ config:
   fenced-code-language: false
   code-block-style: false
   link-image-reference-definitions: false
+  intendention: 2

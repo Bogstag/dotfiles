@@ -14,10 +14,28 @@ outputs = ["tasks.md"]
 run = "hk check --staged --no-fail-fast"
 
 [Check-all]
-run = "hk check --all --no-fail-fast"
+run = "hk check --all --fail-fast"
 
 [Fix-all]
-run = "hk fix --all --no-fail-fast "
+run = "hk fix --all --fail-fast"
 
 [Chezmoi-edit-config]
 run = "chezmoi edit-config"
+
+[Install-recorded-versions]
+# Run mise install to install the recorded versions
+run = "mise install"
+
+[Install-newer-versions]
+# Use mise upgrade to install newer versions within the configured ranges and update the lockfile.
+run = "mise upgrade"
+
+[Install-required-versions]
+# mise install --locked to require complete entries for supported backends.
+run = "mise install --locked"
+
+[Bumping-Locked-Versions]
+run = "MISE_SAFE=1 mise lock --bump"  # lockfile now pins 22.15.0, mise.toml still says "22"
+
+[Test-Bumping-Locked-Versions]
+run = "MISE_SAFE=1 mise lock --bump --dry-run"

@@ -1,0 +1,7 @@
+{
+  "name": "mise-npm-install",
+  "private": true,
+  "dependencies": {
+    "@masculinecache/chezmoi-axi": "0.1.1"
+  }
+}

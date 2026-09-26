@@ -37,7 +37,16 @@
 	args = ["--wait"]
 
 [diff]
+    exclude = ["scripts"]
 	pager = "delta"
 
 [merge]
-	command = "meld"
+    command = "meld"
+    args = ["{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
+
+[template]
+    options = ["missingkey=zero"]
+
+[interpreters.ps1]
+    command = "pwsh"
+    args = ["-NoLogo"]

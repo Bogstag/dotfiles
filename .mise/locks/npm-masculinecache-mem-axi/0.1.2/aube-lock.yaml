@@ -1,0 +1,24 @@
+---
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@masculinecache/mem-axi':
+        specifier: 0.1.2
+        version: 0.1.2
+
+packages:
+
+  '@masculinecache/mem-axi@0.1.2':
+    resolution: {integrity: sha512-3X85De16OxDSgFpfaD4xnl5NQphZQWpKhj7MHW5HfQGCG8ybfvVMXIx6BmBVEGjLe9fMHwKaANdM/tBxUbrhUQ==}
+    hasBin: true
+
+snapshots:
+
+  '@masculinecache/mem-axi@0.1.2': {}

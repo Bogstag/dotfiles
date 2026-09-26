@@ -1,0 +1,7 @@
+{
+  "name": "mise-npm-install",
+  "private": true,
+  "dependencies": {
+    "@masculinecache/mem-axi": "0.1.2"
+  }
+}

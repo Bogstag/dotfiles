@@ -1,0 +1,24 @@
+---
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      '@masculinecache/chezmoi-axi':
+        specifier: 0.1.1
+        version: 0.1.1
+
+packages:
+
+  '@masculinecache/chezmoi-axi@0.1.1':
+    resolution: {integrity: sha512-sX7l0RPi51QsGBgn2piTmb7aU3aKiGY99T3a5yagNSTzBsha0/Y0b/X38vYIZ5cGBeW97f9GvTOgROf4UezCWw==}
+    hasBin: true
+
+snapshots:
+
+  '@masculinecache/chezmoi-axi@0.1.1': {}

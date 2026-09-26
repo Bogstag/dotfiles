@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+{{- if eq .chezmoi.os "linux" }}
+# Thanks to felipecrs/dotfiles for this solution.
+# {{ template "vscode-extensions" }}
+# The following line is for ShellCheck to correctly identify the above include
+true || source ../.chezmoitemplates/vscode-extensions
+
+function code() {
+  CODE_NATIVE=1 command code "$@"
+}
+
+install_vscode_extensions
+{{- end }}
