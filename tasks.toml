@@ -5,7 +5,7 @@
 description = "Generate tasks documentation"
 env = { CLICOLOR_FORCE = "0" }
 run = [
-  "mise generate task-docs --output tasks.md --style detailed",
+  "mise generate task-docs --output tasks.md --style detailed --inject ",
 ]
 sources = ["mise"]
 outputs = ["tasks.md"]
