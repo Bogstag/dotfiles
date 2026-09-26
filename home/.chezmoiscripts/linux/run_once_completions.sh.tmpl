@@ -1,5 +1,12 @@
-#!/usr/bin/env bash
+#!{{ lookPath "bash" }}
 
-{{ range .completions.mise.bash -}}
+{{- $test := output "/usr/bin/ls" "/home/bogge/.local/share/bash-completion/completions" | splitList "\n" }}
+
+{{- range .completions.mise.bash }}
+{{- if mustHas . $test }}
+	✅ {{ . }}
+{{- else }}
+	📲 {{ . }}
 	mise completion bash --install --tool {{ . | quote }}
-{{ end -}}
+{{- end }}
+{{- end }}

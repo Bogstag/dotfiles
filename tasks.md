@@ -1,21 +1,25 @@
-## `check`
+# Tasks Docs
 
-- **Usage:** `check`
+<!-- mise-tasks -->
+## `Check-all`
 
-## `edit-config`
+- **Usage:** `Check-all`
 
-- **Usage:** `edit-config`
+## `Check-staged`
 
-## `fix`
+- **Usage:** `Check-staged`
 
-- **Usage:** `fix`
+## `Chezmoi-edit-config`
 
-## `pre-commit`
+- **Usage:** `Chezmoi-edit-config`
 
-- **Usage:** `pre-commit`
+## `Fix-all`
+
+- **Usage:** `Fix-all`
 
 ## `render:tasks`
 
 - **Usage:** `render:tasks`
 
 Generate tasks documentation
+<!-- /mise-tasks -->

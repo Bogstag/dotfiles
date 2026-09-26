@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "chrome-devtools-axi": {
+      "source": "kunchenguid/chrome-devtools-axi",
+      "sourceType": "github",
+      "skillPath": "skills/chrome-devtools-axi/SKILL.md",
+      "computedHash": "919144acfa8793f162bd2cc0edf87e87d7b1adc3c74881fb7787904532aa90c8"
+    },
+    "gh-axi": {
+      "source": "kunchenguid/gh-axi",
+      "sourceType": "github",
+      "skillPath": "skills/gh-axi/SKILL.md",
+      "computedHash": "ecb89873efffd09ebf2cc76853e3cc6b528c80e4952d70d3a8d2b57b916cc74f"
+    }
+  }
+}

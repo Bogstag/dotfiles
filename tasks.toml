@@ -10,14 +10,14 @@ run = [
 sources = ["mise"]
 outputs = ["tasks.md"]
 
-[pre-commit]
-run = "hk run pre-commit --no-fail-fast"
+[Check-staged]
+run = "hk check --staged --no-fail-fast"
 
-[check]
+[Check-all]
 run = "hk check --all --no-fail-fast"
 
-[fix]
+[Fix-all]
 run = "hk fix --all --no-fail-fast "
 
-[edit-config]
+[Chezmoi-edit-config]
 run = "chezmoi edit-config"

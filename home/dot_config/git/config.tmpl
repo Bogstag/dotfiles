@@ -31,7 +31,7 @@
 [user]
 	name = {{ .github.name }}
 	email = {{ .github.email }}
-	signingkey = key::{{- (bitwardenSecrets "4c3ab507-e3b1-455f-852f-b4ce01267a85").value }}
+	signingkey = key::{{- (bitwardenSecrets "4c3ab507-e3b1-455f-852f-b4ce01267a85" .bws_access_token).value }}
 
 [gpg]
 	format = ssh

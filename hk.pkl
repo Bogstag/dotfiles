@@ -35,22 +35,10 @@ local linters = new Mapping<String, Step | Group> {
   }
 }
 
-hooks = new {
+hooks {
   ["pre-commit"] {
     fix = true
-    steps = new {
-      ["prelint"] {
-        check = "echo prelint"
-        exclusive = true
-      }
-      ...linters
-      ["postlint"] {
-        check = "echo postlint"
-        exclusive = true
-      }
-    }
-  }
-  ["pre-push"] {
+    stash = "git"
     steps = linters
   }
   ["check"] {

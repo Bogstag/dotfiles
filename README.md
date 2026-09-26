@@ -20,17 +20,21 @@ Hämta repot, applicera konfigurationen och installera hanterade applikationer:
 chezmoi init --apply Bogstag
 ```
 
-Vilka applikationer som installeras finns i
-`run_once_after_10-install-applications.sh`. Codex-skills för Tailscale och
-chezmoi installeras globalt av `run_once_after_20-install-codex-skills.sh`.
-Skill-installationen kräver Node.js och `npx`.
-
 Lagra Bitwarden Secrets Manager BWS_TOKEN med hjälp av secret-tool
 
 ```sh
 secret-tool store --label="Bitwarden Secrets Token" "BWS_ACCESS" "TOKEN"
-# Klistra in TOKEN, sedan tar vi ut den med:
+# Klistra in TOKEN när du får frågan. Exportera sedan ut variabeln på lämpligt sätt.
 export BWS_ACCESS_TOKEN="$(secret-tool lookup "BWS_ACCESS" "TOKEN")"
+```
+
+Sätt Token som data och hämta sedan hemligheterna så här:
+
+```toml
+[data]
+ {{ if eq .chezmoi.os "linux" -}} bws_access_token = {{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" | quote }} {{- end }}
+
+{{ (bitwardenSecrets "0c12859e-ac06-43fd-bec3-b4ce0126fb07" .bws_access_token).value }}
 ```
 
 Inloggningen är lokal för datorn och lagras inte i dotfiles-repot. Den nuvarande
@@ -48,23 +52,7 @@ gh auth status
 Bitwarden Desktop ska ha SSH-agenten aktiverad. Mallen för `~/.ssh/config`
 ansluter GitHub till den lokala socketen `~/.bitwarden-ssh-agent.sock`; privata
 nycklar lämnar därför aldrig Bitwarden. Git väljer den agentnyckel vars
-kommentar är `GithubSigningKey` för SSH-signering och använder en lokalt
-renderad wrapper så att Bitwardens socket fungerar även när `SSH_AUTH_SOCK`
-inte redan är satt i skalet.
-
-Efter att Bitwarden är upplåst och `chezmoi apply` har körts, autentisera om
-GitHub CLI (den sparade inloggningen är maskinlokal) och publicera den publika
-signeringsnyckeln:
-
-```sh
-gh auth login --git-protocol ssh
-SSH_AUTH_SOCK="$HOME/.bitwarden-ssh-agent.sock" ssh-add -L \
-  | awk '$3 == "GithubSigningKey" { print; exit }' \
-  | gh ssh-key add - --type signing --title "$(hostname)-GitHub-signing"
-```
-
-Kommandot skickar endast den publika nyckeln till GitHub. Kontrollera först med
-`ssh-add -l` att `GithubSigningKey` är den avsedda nyckeln.
+kommentar är `GithubSigningKey` för SSH-signering.
 
 ## Daglig användning av chezmoi
 
@@ -168,3 +156,9 @@ Codex ändrar lokal appstatus och modellval i den. Modifieraren
 `private_dot_codex/modify_private_config.toml.tmpl` säkerställer däremot vid varje
 `chezmoi apply` att Aperture-providern och dess MCP-server är konfigurerade.
 Övriga inställningar bevaras.
+
+## Tasks
+
+<!-- mise-tasks -->
+
+<!-- /mise-tasks -->

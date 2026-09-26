@@ -1,28 +1,24 @@
 [extensions.vscode]
 all = [
-  "hashicorp.terraform",
-  "golang.go",
-  "openai.chatgpt",
-  "tombi-toml.tombi",
-  "hverlin.mise-vscode",
-  "timonwong.shellcheck",
-  "ms-azuretools.vscode-containers",
-  "mads-hartmann.bash-ide-vscode",
-  "timonwong.shellcheck",
-  "gruntfuggly.todo-tree",
-  "foxundermoon.shell-format",
+  "davidanson.vscode-markdownlint",
   "editorconfig.editorconfig",
-  "redhat.vscode-yaml",
-  "ms-vscode-remote.remote-containers",
+  "foxundermoon.shell-format",
+  "gruntfuggly.todo-tree",
   "hashicorp.terraform",
-  "redhat.vscode-xml",
+  "hverlin.mise-vscode",
+  "ms-azuretools.vscode-containers",  # Container Tools
+  "ms-vscode-remote.remote-containers",  # Dev Containers
+  "ms-vscode.vscode-chat-customizations-evaluations",
+  "pkl.pkl-vscode",
   "redhat.vscode-xml",
   "redhat.vscode-yaml",
-  "ms-vscode.PowerShell"
+  "sumneko.lua",
+  "timonwong.shellcheck",
+  "tombi-toml.tombi",
+  "xembly.gomplate",
 ]
 linux = [
   "local.omarchy-theme",
-  "catppuccin.catppuccin-vsc",
 ]
 windows = [
   "ms-vscode.powershell",

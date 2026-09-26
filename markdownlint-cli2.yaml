@@ -1,0 +1,9 @@
+---
+globs:
+- '**/*.md'
+config:
+  line-length: false
+  no-trailing-punctuation: false
+  fenced-code-language: false
+  code-block-style: false
+  link-image-reference-definitions: false

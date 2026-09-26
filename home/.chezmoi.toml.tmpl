@@ -20,9 +20,6 @@
 	# WSL
 {{- end }}
 
-[data]
-	BWS_ACCESS_TOKEN="$(secret-tool lookup 'BWS_ACCESS' 'TOKEN')"
-
 [env]
 # Configure environment variables
 {{- if eq .chezmoi.os "windows" }}
@@ -31,6 +28,9 @@
 	XDG_STATE_HOME = "{{ .chezmoi.homeDir }}/.local/state"
 	XDG_CACHE_HOME = "{{ .chezmoi.homeDir }}/.cache"
 {{- end }}
+
+[data]
+	{{ if eq .chezmoi.os "linux" -}} bws_access_token = {{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" | quote }} {{- end }}
 
 [edit]
 	command = "code"

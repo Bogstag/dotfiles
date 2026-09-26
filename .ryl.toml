@@ -4,6 +4,11 @@ yaml = [
   "*.yml",
   ".yamllint",
 ]
+markdown = ["**/*.md", "*.mdx"]
+
+[markdown]
+front-matter = true  # lint the --- ... --- block
+fenced-blocks = true  # lint yaml / yml fenced blocks
 
 [rules]
 anchors = "enable"
@@ -19,7 +24,7 @@ hyphens = "enable"
 indentation = "enable"
 key-duplicates = "enable"
 key-ordering = "disable"
-line-length = "enable"
+line-length = "disable"
 new-line-at-end-of-file = "enable"
 new-lines = "enable"
 octal-values = "disable"
