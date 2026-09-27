@@ -37,7 +37,7 @@
 	args = ["--wait"]
 
 [diff]
-    exclude = ["scripts"]
+#    exclude = ["scripts"]
 	pager = "delta"
 
 [merge]
@@ -46,7 +46,3 @@
 
 [template]
     options = ["missingkey=zero"]
-
-[interpreters.ps1]
-    command = "pwsh"
-    args = ["-NoLogo"]

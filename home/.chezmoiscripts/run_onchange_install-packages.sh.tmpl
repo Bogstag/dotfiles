@@ -1,0 +1,25 @@
+{{ if eq .chezmoi.os "windows" "linux" -}}
+#!/bin/bash-
+set -eufo pipefail
+
+{{- if eq .chezmoi.os "windows" }}
+    {{ range .packages.windows.powershell -}}
+    TODO: Install packages windows.powershell
+    {{ end -}}
+    {{ range .packages.windows.winget -}}
+    TODO: Install packages windows.winget
+    {{ end -}}
+    {{ range .packages.windows.scoop -}}
+    TODO: Install packages windows.scoop
+    {{ end -}}
+{{- else if eq .chezmoi.os "linux" }}
+	{{ range .packages.linux.dnfs -}}
+    TODO: Install packages linux.dnfs
+    {{ end -}}
+    {{ range .packages.linux.apts -}}
+    TODO: Install packages linux.apts
+    {{ end -}}
+    {{ range .packages.linux.flatpak -}}
+    TODO: Install packages linux.flatpak
+    {{ end -}}
+{{- end }}

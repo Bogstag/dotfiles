@@ -1,10 +1,6 @@
 # Tasks Docs
 
 <!-- mise-tasks -->
-## `Bumping-Locked-Versions`
-
-- **Usage:** `Bumping-Locked-Versions`
-
 ## `Check-all`
 
 - **Usage:** `Check-all`
@@ -29,13 +25,9 @@
 
 - **Usage:** `Install-recorded-versions`
 
-## `Install-required-versions`
+## `Mise-Install`
 
-- **Usage:** `Install-required-versions`
-
-## `Test-Bumping-Locked-Versions`
-
-- **Usage:** `Test-Bumping-Locked-Versions`
+- **Usage:** `Mise-Install`
 
 ## `render:tasks`
 

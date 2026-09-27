@@ -1,6 +1,6 @@
 ---
 globs:
-- '**/*.md'
+  - "**/*.md"
 config:
   line-length: false
   no-trailing-punctuation: false

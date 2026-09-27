@@ -39,7 +39,4 @@ hooks {
     fix = true
     steps = linters
   }
-  //  ["missing"] {
-  //    steps = new Mapping { List("missing-profiles") }
-  //  }
 }

@@ -12,13 +12,9 @@ if [ -f "$OMARCHY_PATH/default/bash/rc" ]; then
 	# shellcheck source-path=/usr/share/omarchy
 	source "$OMARCHY_PATH/default/bash/rc"
 fi
-
 {{ end -}}
-
 {{- if eq .chezmoi.os "linux" }}
-
 # Add your own exports, aliases, and functions here.
-
 PATH="{{ .chezmoi.homeDir }}/bin:$PATH"
 export PATH
 # Alias definitions.
