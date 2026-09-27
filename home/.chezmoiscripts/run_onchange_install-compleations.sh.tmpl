@@ -1,9 +1,0 @@
-#!/bin/bash
-
-{{- if eq .chezmoi.os "linux" }}
-	{{ range .completions.mise.bash -}}
-    mise completion bash --install --tool {{ . }}
-    {{ end -}}
-{{- end }}
-
-{{- end }}

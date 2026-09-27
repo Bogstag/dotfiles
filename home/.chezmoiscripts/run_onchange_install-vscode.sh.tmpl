@@ -1,8 +1,0 @@
-{{ if eq .chezmoi.os "windows" "linux" -}}
-#!/bin/bash-
-set -eufo pipefail
-
-{{ range .vscode.extensions -}}
-code --install-extension {{ . }}
-{{ end -}}
-{{ end -}}

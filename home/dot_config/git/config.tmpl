@@ -38,18 +38,19 @@
 [gpg "ssh"]
 	allowedSignersFile = {{ .chezmoi.homeDir }}/.ssh/allowed_signers
 
-# [url "git@github.com:"]
-#   insteadOf = https://github.com/
-[credential "https://github.com"]
+#[url "git@github.com:"]
+#    insteadOf = https://github.com/
+[url "https://www.github.com/"]
+    insteadOf = https://github.com/
+[credential "https://www.github.com"]
 	helper =
-	helper = !gh auth setup-git
+	helper = !gh auth git-credential
 [credential "https://api.github.com"]
 	helper =
-	helper = !gh auth setup-git
+	helper = !gh auth git-credential
 [credential "https://gist.github.com"]
 	helper =
-	helper = !gh auth setup-git
-	# helper = !gh auth git-credential
+	helper = !gh auth git-credential
 
 [hook "hk-commit-msg"]
 	command = test \"${HK:-1}\" = \"0\" || /usr/bin/mise x hk -- hk run commit-msg --from-hook
