@@ -3,30 +3,21 @@ amends "package://github.com/jdx/hk/releases/download/v2.0.0/hk@2.0.0#/Config.pk
 import "package://github.com/jdx/hk/releases/download/v2.0.0/hk@2.0.0#/Builtins.pkl"
 // Using a coding agent? See https://hk.jdx.dev/agents
 
-local linters = new Mapping<String, Step | Group> {
-  ["pkl"] = Builtins.pkl
-  ["pkl-format"] = Builtins.pkl_format
-
-  // Shells
-  ["shellcheck"] = (Builtins.shellcheck) {
-    exclude = List("**/*.tmpl")
-  }
-  ["shfmt"] = (Builtins.shfmt) {
-    exclude = List("**/*.tmpl")
-  }
-  ["shellharden"] = Builtins.shellharden
-
-  ["newlines"] = Builtins.newlines
-  ["trailing-whitespace"] = Builtins.trailing_whitespace
-
-  ["tombi"] = Builtins.tombi
-  ["mise"] = Builtins.mise
-  ["hk-test"] = Builtins.hk_test
-  ["tombi-format"] = Builtins.tombi_format
-  //["luacheck"] = Builtins.luacheck
-  ["ryl"] = Builtins.ryl
-  ["ryl-markdown"] = Builtins.ryl_markdown
+local linters = new Mapping {
   ["betterleaks"] = Builtins.betterleaks
+  ["hk-test"] = Builtins.hk_test
+  ["mise"] = Builtins.mise
+  ["newlines"] = Builtins.newlines
+  ["pkl-format"] = Builtins.pkl_format
+  ["pkl"] = Builtins.pkl
+  ["ryl-markdown"] = Builtins.ryl_markdown
+  ["ryl"] = Builtins.ryl
+  ["shellcheck"] = (Builtins.shellcheck) { exclude = List("**/*.tmpl") }
+  ["shellharden"] = Builtins.shellharden
+  ["shfmt"] = (Builtins.shfmt) { exclude = List("**/*.tmpl") }
+  ["tombi-format"] = Builtins.tombi_format
+  ["tombi"] = Builtins.tombi
+  ["trailing-whitespace"] = Builtins.trailing_whitespace
 
   // Render
   ["render"] = new Step {

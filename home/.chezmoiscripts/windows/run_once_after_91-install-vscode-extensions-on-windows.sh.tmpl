@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 {{- if eq .chezmoi.os "windows" }}
 # Thanks to felipecrs/dotfiles for this solution.
+# {{ template "script-utils" }}
 # {{ template "vscode-extensions" }}
 # The following line is for ShellCheck to correctly identify the above include
-true || source ../.chezmoitemplates/vscode-extensions
+true || source ../../.chezmoitemplates/script-utils
+true || source ../../.chezmoitemplates/vscode-extensions
 
 function code() {
   local script
