@@ -1,3 +1,7 @@
+##### May contain secrets #####
+.config/ai-usagebar/config.toml
+###############################
+
 # Repository documentation should not be installed in the home directory.
 README.md
 AGENTS.md
@@ -27,3 +31,7 @@ home/.chezmoiscripts/*/*.ps1
 {{- if ne .chezmoi.os "windows" }}
 home/.chezmoiscripts/*/*.sh
 {{- end }}
+
+# Files that i do not use
+.claude
+.dotnet
