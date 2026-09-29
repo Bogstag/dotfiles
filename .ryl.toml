@@ -1,44 +1,44 @@
 [files]
-yaml = [
-  "*.yaml",
-  "*.yml",
-  ".yamllint",
-]
-markdown = ["**/*.md", "*.mdx"]
+  yaml = [
+    "*.yaml",
+    "*.yml",
+    ".yamllint",
+  ]
+  markdown = ["**/*.md", "*.mdx"]
 
 [markdown]
-front-matter = true  # lint the --- ... --- block
-fenced-blocks = true  # lint yaml / yml fenced blocks
+  front-matter = true  # lint the --- ... --- block
+  fenced-blocks = true  # lint yaml / yml fenced blocks
 
 [rules]
-anchors = "enable"
-braces = "enable"
-brackets = "enable"
-colons = "enable"
-commas = "enable"
-document-end = "disable"
-empty-lines = "enable"
-empty-values = "disable"
-float-values = "disable"
-hyphens = "enable"
-indentation = "enable"
-key-duplicates = "enable"
-key-ordering = "disable"
-line-length = "disable"
-new-line-at-end-of-file = "enable"
-new-lines = "enable"
-octal-values = "disable"
-quoted-strings = "disable"
-trailing-spaces = "enable"
+  anchors = "enable"
+  braces = "enable"
+  brackets = "enable"
+  colons = "enable"
+  commas = "enable"
+  document-end = "disable"
+  empty-lines = "enable"
+  empty-values = "disable"
+  float-values = "disable"
+  hyphens = "enable"
+  indentation = "enable"
+  key-duplicates = "enable"
+  key-ordering = "disable"
+  line-length = "disable"
+  new-line-at-end-of-file = "enable"
+  new-lines = "enable"
+  octal-values = "disable"
+  quoted-strings = "disable"
+  trailing-spaces = "enable"
 
 [rules.comments]
-level = "warning"
+  level = "warning"
 
 [rules.comments-indentation]
-level = "warning"
+  level = "warning"
 
 [rules.document-start]
-level = "warning"
+  level = "warning"
 
 [rules.truthy]
-level = "warning"
+  level = "warning"

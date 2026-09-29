@@ -2,34 +2,34 @@
 #:schema https://mise.jdx.dev/schema/mise-task.json
 
 ["render:tasks"]
-description = "Generate tasks documentation"
-env = { CLICOLOR_FORCE = "0" }
-run = [
-  "mise generate task-docs --output tasks.md --style detailed --inject ",
-]
-sources = ["mise"]
-outputs = ["tasks.md"]
+  description = "Generate tasks documentation"
+  env = { CLICOLOR_FORCE = "0" }
+  run = [
+    "mise generate task-docs --output tasks.md --style detailed --inject ",
+  ]
+  sources = ["mise"]
+  outputs = ["tasks.md"]
 
 [Check-staged]
-run = "hk check --staged --no-fail-fast"
+  run = "hk check --staged --no-fail-fast"
 
 [Check-all]
-run = "hk check --all --no-fail-fast --quiet --stage --sarif ./tests/check.sarif"
+  run = "hk check --all --no-fail-fast --quiet --stage --sarif ./tests/check.sarif"
 
 [Fix-all]
-run = "hk fix --all --fail-fast --quiet --stage --sarif ./tests/fix.sarif"
+  run = "hk fix --all --fail-fast --quiet --stage --sarif ./tests/fix.sarif"
 
 [Chezmoi-edit-config]
-run = "chezmoi edit-config"
+  run = "chezmoi edit-config"
 
 [Install-recorded-versions]
-# Run mise install to install the recorded versions
-run = "mise install"
+  # Run mise install to install the recorded versions
+  run = "mise install"
 
 [Install-newer-versions]
-# Use mise upgrade to install newer versions within the configured ranges and update the lockfile.
-run = "mise upgrade"
+  # Use mise upgrade to install newer versions within the configured ranges and update the lockfile.
+  run = "mise upgrade"
 
 [Mise-Install]
-# mise install --locked to require complete entries for supported backends.
-run = "mise install"
+  # mise install --locked to require complete entries for supported backends.
+  run = "mise install"
