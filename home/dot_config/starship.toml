@@ -8,28 +8,51 @@ command_timeout = 200
 scan_timeout = 10
 continuation_prompt = "▶▶ "
 
+# Icons ple
+#                              
+#                              
+#
+#       
+#
+# ╰ ─  ░▒▓ ▓▒░  ▁▂▃▄▅▆▇█ ▉▊▋▌▍▍▎▏▐  ▏▎▍▌▋▊▉
+#
+#                      
+#
+#         l  ∟ ╰
+#
+#              
+#
+#   󰯉  ⬬
+# [ ▒▓
 # [░▒▓](#a3aed2)\ [](purple)\
 format = """
-[](purple)\
+[ ](blue)\
+$shell\
 $os\
 [](bg:cyan fg:purple)\
 $directory\
 [](bg:pink fg:cyan)\
 $git_branch\
 $git_status\
-[](fg:pink bg:green)\
+[](fg:pink bg:pink)\
 $nodejs\
 $golang\
 $python\
 $docker_context\
 $terraform\
-[](fg:green bg:comment)\
+[](fg:pink bg:crust)\
+$fill\
+[](fg:crust bg:pink)\
 $mise\
-[](fg:comment bg:comment)\
+[](fg:pink bg:cyan)\
+$jobs\
+[](fg:cyan bg:comment)\
 $time\
-[ ](fg:comment)\
+[](fg:comment bg:red)\
 $cmd_duration\
+[](fg:red bg:crust)\
 $line_break\
+[  ╰](bold fg:blue)\
 $character"""
 
 [os]
@@ -38,16 +61,85 @@ style = "bg:purple fg:crust"
 format = "[ $symbol ]($style)"
 
 [os.symbols]
+Alpine = ""
 Arch = "󰣇"
+Raspbian = "󰐿"
+Ubuntu = "󰕈"
 Windows = "󰍲"
+
+[shell]
+fish_indicator = "󰈺"
+bash_indicator = "󱆃"
+pwsh_indicator = "_"
+powershell_indicator = ""
+cmd_indicator = ""
+unknown_indicator = ""
+disabled = false
+style = "bg:blue"
+format = "[ $indicator ]($style)"
 
 [directory]
 style = "bg:cyan fg:crust"
 format = "[ $path ]($style)"
-truncation_length = 3
+truncation_length = 10
 truncation_symbol = "…/"
 
 [directory.substitutions]
+".cache" = "󰃨"
+".config" = ""
+".data" = "󱙋"
+".dotfies" = ""
+".dotnet" = "󰪮"
+".git" = ""
+".nuget" = ""
+".ssh" = "󰣀"
+".vscode-insiders" = ""
+".vscode" = ""
+"Ansible" = ""
+"API" = "󱂛"
+"AppData" = ""
+"Astro" = ""
+"bash" = ""
+"cloudflare" = ""
+"dbeaver" = ""
+"Desktop" = ""
+"dev" = ""
+"Docker" = ""
+"eleventy" = ""
+"eslint" = ""
+"git" = ""
+"javascript" = ""
+"json" = ""
+"less" = ""
+"Links" = ""
+"linux" = ""
+"markdown" = ""
+"md" = ""
+"nginx" = ""
+"node" = ""
+"npm" = ""
+"nppWorkspace" = "󰎞"
+"nuxt" = ""
+"Perl" = ""
+"PowerShell" = "_"
+"Python" = ""
+"repos" = ""
+"Scoop" = ""
+"ssh" = "󰣀"
+"Sync" = "󱈖"
+"SyncB" = "󱦕"
+"Ubuntu" = "󰕈"
+"unicode" = "󰻐"
+"vite" = ""
+"vitejs" = ""
+"vitess" = ""
+"vitest" = ""
+"vscode-insiders" = ""
+"vscode" = ""
+"vue" = ""
+"vuejs" = ""
+"vuetify" = ""
+"windows" = ""
 Documents = "󰈙 "
 Downloads = " "
 Music = " "
@@ -61,7 +153,13 @@ format = "[[ $symbol $branch ](fg:crust bg:pink)]($style)"
 
 [git_status]
 style = "bg:pink"
-format = "[[($all_status$ahead_behind )](fg:crust bg:pink)]($style)"
+format = "[[$all_status $ahead_behind](fg:crust bg:pink)]($style)"
+ahead = "⇡ ${count} "
+behind = "⇣ ${count} "
+untracked = " ${count} "
+modified = " ${count} "
+deleted = " ${count} "
+staged = " ${count} "
 
 [nodejs]
 symbol = ""
@@ -79,23 +177,32 @@ style = "bg:green"
 format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:green)]($style)'
 
 [docker_context]
-symbol = ""
 style = "bg:comment"
 format = "[[ $symbol( $context) ](fg:crust bg:comment)]($style)"
 
 [mise]
 disabled = false
-style = "fg:crust bg:comment"
-format = "[on $symbol$health]($style)"
+symbol = ""
+healthy_symbol = ""
+unhealthy_symbol = ""
+style = "fg:crust bg:pink"
+format = "[ $symbol $health ]($style)"
 
 [terraform]
 disabled = false
 style = "bg:comment"
 format = "[via $symbol$workspace]($style)"
 
+[jobs]
+symbol = "󰒓"
+number_threshold = 1
+symbol_threshold = 1
+style = "bg:cyan"
+format = "[ $symbol $number](fg:crust bg:comment)]($style)"
+
 [time]
 disabled = false
-time_format = "%_I:%M %p"
+time_format = "%H:%M"
 style = "bg:comment"
 format = "[[  $time ](fg:crust bg:comment)]($style)"
 
@@ -113,21 +220,42 @@ vimcmd_visual_symbol = "[❮](bold fg:yellow)"
 
 [cmd_duration]
 show_milliseconds = true
-format = " in $duration "
-style = "bg:purple"
+format = "  in $duration "
+style = "bg:red fg:red"
 disabled = false
 show_notifications = true
 min_time_to_notify = 45000
 
+[username]
+disabled = true
+
+[aws]
+disabled = true
+
+[battery]
+disabled = true
+
+[elixir]
+disabled = true
+
+[bun]
+disabled = true
+
+[c]
+disabled = true
+
 [palettes.dracula]
+base = "#1e1e2e"
+blue = "#644ac9"
+comment = "#6272a4"
+crust = "#262935"
+cyan = "#8be9fd"
+green = "#50fa7b"
+mantle = "#181825"
 pink = "#ff79c6"
+purple = "#bd93f9"
 red = "#ff5555"
 yellow = "#f1fa8c"
-green = "#50fa7b"
-blue = "#644ac9"
-purple = "#bd93f9"
-cyan = "#8be9fd"
-comment = "#6272a4"
-base = "#1e1e2e"
-mantle = "#181825"
-crust = "#11111b"
+
+# Orginal
+# crust = "#11111b"
