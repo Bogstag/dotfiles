@@ -1,0 +1,20 @@
+# $schema: https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+git:
+  diffRenderers:
+    - command: delta --dark --paging=never
+
+{{/* chezmoi:modify-template */ -}}
+
+{{/* Load existing configuration */ -}}
+{{ $config := toYaml dict -}}
+{{ if not (.chezmoi.stdin | empty) -}}
+{{   $config = .chezmoi.stdin -}}
+{{ end -}}
+
+{{/* Load dracula theme */ -}}
+{{ $theme := include (joinPath .chezmoi.homeDir ".config/lazygit/dracula.yml") | fromYaml -}}
+
+{{/* Set dracula theme */ -}}
+{{ $output := setValueAtPath "gui" $theme $config  -}}
+
+{{ toYaml $output -}}
