@@ -18,8 +18,6 @@ local linters = new Mapping {
   ["tombi-format"] = Builtins.tombi_format
   ["tombi"] = Builtins.tombi
   ["trailing-whitespace"] = Builtins.trailing_whitespace
-
-  // Render
   ["render"] = new Step {
     check = "mise run render:*"
     output_summary = "hide"
