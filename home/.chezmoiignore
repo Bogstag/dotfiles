@@ -35,3 +35,12 @@ home/.chezmoiscripts/*/*.sh
 # Files that i do not use
 .claude
 .dotnet
+.nv
+.pki
+.pkl
+.steam
+.steampath
+.steampid
+.vscode-dictation
+.vscode-shared
+Projects/
