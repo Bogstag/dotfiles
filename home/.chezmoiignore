@@ -12,6 +12,9 @@ docs/**
 **/*.sqlite/**
 **/*.src.ini
 
+# Ignore files i tell you to ignore
+ignore*
+
 # It is symlinked
 .config/mise/config.toml
 

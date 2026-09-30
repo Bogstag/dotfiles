@@ -1,5 +1,0 @@
-[".config/lazygit/dracula.yml"]
-  type = "file"
-  exact = true
-  url = "https://raw.githubusercontent.com/dracula/lazygit/refs/heads/main/config/dracula.yml"
-  refreshPeriod = "168h"

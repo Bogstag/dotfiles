@@ -1,11 +1,4 @@
 
-[*]
-charset = utf-8
-indent_size = 4
-indent_style = space
-insert_final_newline = true
-trim_trailing_whitespace = true
-
 [*.sh]
 # like -i=4
 indent_style = space
@@ -28,9 +21,3 @@ minify             = true
 # the ignore logic is applied only when the --apply-ignore flag is given.
 [third_party/**]
 ignore = true
-
-[*.{yaml,yml}]
-indent_style = space
-indent_size = 2
-insert_final_newline = true
-trim_trailing_whitespace = true
