@@ -1,17 +1,20 @@
 #:schema https://yazi-rs.github.io/schemas/theme.json
+{{/* chezmoi:modify-template */}}
 
-{{/* chezmoi:modify-template */ -}}
+{{/* Load default configuration */ -}}
+{{ $default_file := (joinPath .chezmoi.homeDir ".config/yazi/theme-dark.toml") }}
+{{ $default := (include $default_file) | fromToml -}}
 
-#{ {/* Load existing configuration */ -}}
-#{ { $config := toToml dict -}}
-#{ { if not (.chezmoi.stdin | empty) -}}
-#{ {   $config = .chezmoi.stdin -}}
-#{ { end -}}
+{{/* Load existing configuration */ -}}
+{{ $existing := dict -}}
+{{ if not (.chezmoi.stdin | trim | empty) -}}
+{{   $existing = fromToml .chezmoi.stdin -}}
+{{ end -}}
 
-{{/* Load defult keymap */ -}}
-{{ $default := include (joinPath .chezmoi.homeDir ".config/yazi/theme-dark.toml") | fromToml -}}
+{{/* Merge existing with default, giving precedence to existing */ -}}
+{{ $result := merge $existing $default -}}
 
 {{/* Set dracula theme */ -}}
-{{ $output := setValueAtPath "flavor.dark" "dracula" $default -}}
+{{ $result := setValueAtPath "flavor.dark" "dracula" $result -}}
 
-{{ toToml $default }}
+{{ toToml $result -}}

@@ -7,7 +7,7 @@
   markdown = ["**/*.md", "*.mdx"]
 
 [markdown]
-  front-matter = true  # lint the --- ... --- block
+  front-matter = true   # lint the --- ... --- block
   fenced-blocks = true  # lint yaml / yml fenced blocks
 
 [rules]

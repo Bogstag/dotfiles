@@ -1,18 +1,17 @@
 #:schema https://yazi-rs.github.io/schemas/vfs.json
+{{/* chezmoi:modify-template */}}
 
-{{ /* chezmoi:modify-template */ -}}
+{{/* Load default configuration */ -}}
+{{ $default_file := (joinPath .chezmoi.homeDir ".config/yazi/vfs-default.toml") }}
+{{ $default := (include $default_file) | fromToml -}}
 
 {{/* Load existing configuration */ -}}
-{{ $config := toToml dict -}}
-{{ if not (.chezmoi.stdin | empty) -}}
-{{   $config = .chezmoi.stdin -}}
+{{ $existing := dict -}}
+{{ if not (.chezmoi.stdin | trim | empty) -}}
+{{   $existing = fromToml .chezmoi.stdin -}}
 {{ end -}}
 
-{{/* Load defult keymap */ -}}
-{{ $default := include (joinPath .chezmoi.homeDir ".config/yazi/vfs-default.toml") | fromToml -}}
+{{/* Merge existing with default, giving precedence to existing */ -}}
+{{ $result := merge $existing $default -}}
 
-#{ {/* Set setting */ -}}
-#{ { $output := setValueAtPath "" $default $config  -}}
-
-{{ toToml $default }}
-modify_keymap copy
+{{ toToml $result -}}

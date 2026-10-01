@@ -1,17 +1,35 @@
 #:schema https://yazi-rs.github.io/schemas/keymap.json
+{{/* chezmoi:modify-template */}}
 
-{{ /* chezmoi:modify-template */ -}}
+{{/* Load default configuration */ -}}
+{{ $default_file := (joinPath .chezmoi.homeDir ".config/yazi/keymap-default.toml") }}
+{{ $default := (include $default_file) | fromToml -}}
 
 {{/* Load existing configuration */ -}}
-{{ $config := toToml dict -}}
-{{ if not (.chezmoi.stdin | empty) -}}
-{{   $config = .chezmoi.stdin -}}
+{{ $existing := dict -}}
+{{ if not (.chezmoi.stdin | trim | empty) -}}
+{{   $existing = fromToml .chezmoi.stdin -}}
 {{ end -}}
 
-{{/* Load defult keymap */ -}}
-{{ $default := include (joinPath .chezmoi.homeDir ".config/yazi/keymap-default.toml") | fromToml -}}
+{{/* Merge existing with default, giving precedence to existing */ -}}
+{{ $result := merge $existing $default -}}
 
-#{ {/* Set dracula theme */ -}}
-#{ { $output := setValueAtPath "" $default $config  -}}
+{{/* Set chmod config */ -}}
+{{ $chmod_entry := dict "on" (list "c" "m") "run" "plugin chmod" "desc" "Chmod on selected files" -}}
 
-{{ toToml $default }}
+{{/* Set smart enter config */ -}}
+{{ $smartenter_entry := dict "on" "l" "run" "plugin smart-enter" "desc" "Enter the child directory, or open the file" -}}
+
+{{/* Set diff config */ -}}
+{{ $diff_entry := dict "on" (list "C" "d") "run" "plugin diff" "desc" "Diff the selected with the hovered file" -}}
+
+{{/* Set smart-filter config */ -}}
+{{ $smartfilter_entry := dict "on" "F" "run" "plugin smart-filter" "desc" "Smart filter" -}}
+
+{{/* Set smart-paste config */ -}}
+{{ $smartpaste_entry := dict "on" "p" "run" "plugin smart-paste" "desc" "Paste into the hovered directory or CWD" -}}
+
+{{/* Add all under prepend_keymap */ -}}
+{{ $result = setValueAtPath "mgr.prepend_keymap" (list $chmod_entry $smartenter_entry $diff_entry $smartfilter_entry $smartpaste_entry ) $result -}}
+
+{{ toToml $result -}}

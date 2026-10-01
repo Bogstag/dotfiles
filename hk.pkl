@@ -7,7 +7,6 @@ local linters = new Mapping {
   ["betterleaks"] = Builtins.betterleaks
   ["hk-test"] = Builtins.hk_test
   ["mise"] = Builtins.mise
-  //["newlines"] = Builtins.newlines
   ["pkl-format"] = Builtins.pkl_format
   ["pkl"] = Builtins.pkl
   ["ryl-markdown"] = Builtins.ryl_markdown
