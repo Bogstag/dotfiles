@@ -15,8 +15,8 @@ local linters = new Mapping {
   ["shellcheck"] = (Builtins.shellcheck) { exclude = List("**/*.tmpl") }
   ["shellharden"] = Builtins.shellharden
   ["shfmt"] = (Builtins.shfmt) { exclude = List("**/*.tmpl") }
-  ["tombi-format"] = (Builtins.tombi_format) { exclude = List("**/modify_*.toml") }
-  ["tombi"] = (Builtins.tombi) { exclude = List("**/modify_*.toml") }
+  ["tombi-format"] = Builtins.tombi_format
+  ["tombi"] = Builtins.tombi
   ["trailing-whitespace"] = Builtins.trailing_whitespace
   ["render"] = new Step {
     check = "mise run render:*"

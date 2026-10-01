@@ -1,19 +1,19 @@
 [".config/yazi/keymap-default.toml"]
-type = "file"
-url = "https://raw.githubusercontent.com/sxyazi/yazi/shipped/yazi-config/preset/keymap-default.toml"
-refreshPeriod = "672h"
+  type = "file"
+  url = "https://raw.githubusercontent.com/sxyazi/yazi/shipped/yazi-config/preset/keymap-default.toml"
+  refreshPeriod = "672h"
 
 [".config/yazi/yazi-default.toml"]
-type = "file"
-url = "https://raw.githubusercontent.com/sxyazi/yazi/shipped/yazi-config/preset/yazi-default.toml"
-refreshPeriod = "672h"
+  type = "file"
+  url = "https://raw.githubusercontent.com/sxyazi/yazi/shipped/yazi-config/preset/yazi-default.toml"
+  refreshPeriod = "672h"
 
 [".config/yazi/vfs-default.toml"]
-type = "file"
-url = "https://raw.githubusercontent.com/sxyazi/yazi/shipped/yazi-config/preset/vfs-default.toml"
-refreshPeriod = "672h"
+  type = "file"
+  url = "https://raw.githubusercontent.com/sxyazi/yazi/shipped/yazi-config/preset/vfs-default.toml"
+  refreshPeriod = "672h"
 
 [".config/yazi/theme-dark.toml"]
-type = "file"
-url = "https://raw.githubusercontent.com/sxyazi/yazi/shipped/yazi-config/preset/theme-dark.toml"
-refreshPeriod = "672h"
+  type = "file"
+  url = "https://raw.githubusercontent.com/sxyazi/yazi/shipped/yazi-config/preset/theme-dark.toml"
+  refreshPeriod = "672h"

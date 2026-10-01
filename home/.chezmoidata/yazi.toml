@@ -1,10 +1,10 @@
 [ya]
-pkg = [
-  "Rolv-Apneseth/starship",
-  "yazi-rs/plugins:git",  # https://github.com/yazi-rs/plugins/tree/main/git.yazi
-  "yazi-rs/plugins:chmod",  # https://github.com/yazi-rs/plugins/tree/main/chmod.yazi
-  "yazi-rs/plugins:diff",  # https://github.com/yazi-rs/plugins/tree/main/diff.yazi
-  "yazi-rs/plugins:mime-ext",  # https://github.com/yazi-rs/plugins/tree/main/mime-ext.yazi
-  "yazi-rs/plugins:smart-enter",  # https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi
-  "yazi-rs/plugins:vcs-files"  # https://github.com/yazi-rs/plugins/tree/main/vcs-files.yaziy
-]
+  pkg = [
+    "Rolv-Apneseth/starship",
+    "yazi-rs/plugins:git",  # https://github.com/yazi-rs/plugins/tree/main/git.yazi
+    "yazi-rs/plugins:chmod",  # https://github.com/yazi-rs/plugins/tree/main/chmod.yazi
+    "yazi-rs/plugins:diff",  # https://github.com/yazi-rs/plugins/tree/main/diff.yazi
+    "yazi-rs/plugins:mime-ext",  # https://github.com/yazi-rs/plugins/tree/main/mime-ext.yazi
+    "yazi-rs/plugins:smart-enter",  # https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi
+    "yazi-rs/plugins:vcs-files"  # https://github.com/yazi-rs/plugins/tree/main/vcs-files.yaziy
+  ]

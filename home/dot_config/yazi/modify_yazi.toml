@@ -1,0 +1,18 @@
+#:schema https://yazi-rs.github.io/schemas/yazi.json
+
+{{ /* chezmoi:modify-template */ -}}
+
+{{/* Load existing configuration */ -}}
+{{ $config := toToml dict -}}
+{{ if not (.chezmoi.stdin | empty) -}}
+{{   $config = .chezmoi.stdin -}}
+{{ end -}}
+
+{{/* Load defult keymap */ -}}
+{{ $default := include (joinPath .chezmoi.homeDir ".config/yazi/yazi-default.toml") | fromToml -}}
+
+#{ {/* Set setting */ -}}
+#{ { $output := setValueAtPath "" $default $config  -}}
+
+{{ toToml $default }}
+modify_keymap copy

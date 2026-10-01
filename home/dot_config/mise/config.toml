@@ -1,56 +1,56 @@
 #:schema https://mise.jdx.dev/schema/mise.json
 
 [task_config]
-includes = ["tasks.toml"]
+  includes = ["tasks.toml"]
 
 [env]
-_.path = "~/bin"
+  _.path = "~/bin"
 
 [settings]
-upgrade.auto_prune = false
-experimental = true
-color_theme = "dracula"
-lockfile = true
+  upgrade.auto_prune = false
+  experimental = true
+  color_theme = "dracula"
+  lockfile = true
 
 [settings.skills]
-dir = ".agents/skills"
-auto_sync = true
-prune = true
+  dir = ".agents/skills"
+  auto_sync = true
+  prune = true
 
 [settings.packslip]
-exec = true
+  exec = true
 
-# [settings.github]
-# credential_command = "gh auth token"
-# use_git_credentials = true
+  # [settings.github]
+  # credential_command = "gh auth token"
+  # use_git_credentials = true
 
 [tools]
-"github:daptify14/chezit" = { version = "latest", os = ["linux"] }
-"npm:@kitlangton/ghui" = "latest"
-codex = "latest"
-copilot = "latest"
-gemini = { version = "latest", allow_builds = ["@github/keytar", "node-pty"] }
-gh = "latest"
-node = "26.7.0"
-opencode = "latest"
-yazi = "latest"
-tombi = "1.5.5"
-agy = "latest"
-betterleaks = "latest"
-crush = "latest"
-java = "latest"
-"aqua:owenlamont/ryl" = "latest"
-ripgrep = "latest"
-lua = "latest"
-"github:bitwarden/sdk" = "latest"
-bitwarden-secrets-manager = "latest"
-python = "latest"
-editorconfig-checker = "latest"
-hk = "latest"
-pkl = "latest"
-"go:mvdan.cc/sh/v3/cmd/shfmt" = "latest"
-shellharden = "latest"
-shellcheck = "latest"
-rg = "latest"
-oxfmt = "latest"
-oxlint = "latest"
+  "github:daptify14/chezit" = { version = "latest", os = ["linux"] }
+  "npm:@kitlangton/ghui" = "latest"
+  codex = "latest"
+  copilot = "latest"
+  gemini = { version = "latest", allow_builds = ["@github/keytar", "node-pty"] }
+  gh = "latest"
+  node = "26.7.0"
+  opencode = "latest"
+  yazi = "latest"
+  tombi = "1.5.5"
+  agy = "latest"
+  betterleaks = "latest"
+  crush = "latest"
+  java = "latest"
+  "aqua:owenlamont/ryl" = "latest"
+  ripgrep = "latest"
+  lua = "latest"
+  "github:bitwarden/sdk" = "latest"
+  bitwarden-secrets-manager = "latest"
+  python = "latest"
+  editorconfig-checker = "latest"
+  hk = "latest"
+  pkl = "latest"
+  "go:mvdan.cc/sh/v3/cmd/shfmt" = "latest"
+  shellharden = "latest"
+  shellcheck = "latest"
+  rg = "latest"
+  oxfmt = "latest"
+  oxlint = "latest"

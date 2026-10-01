@@ -1,0 +1,7 @@
+{
+  "name": "mise-npm-install",
+  "private": true,
+  "dependencies": {
+    "@masculinecache/bws-axi": "1.0.3"
+  }
+}

@@ -1,0 +1,50 @@
+#:schema https://www.schemastore.org/tombi.json
+
+toml-version = "v1.1.0"
+
+[files]
+  include = ["**/*.toml"]
+  exclude = ["**/modify_*.toml"]
+  respect-ignore-files = true
+
+[format]
+[format.rules]
+  indent-table-key-value-pairs = true
+
+  # [lint]
+  # [lint.rules]
+
+  # [lsp]
+  # code-action.enabled = true
+  #   completion.enabled = true
+  #   diagnostic.enabled = true
+  #   document-link.enabled = true
+  #   formatting.enabled = true
+  #   goto-declaration.enabled = true
+  #   goto-definition.enabled = true
+  #   goto-type-definition.enabled = true
+  #   hover.enabled = true
+  #   workspace-diagnostic.enabled = true
+
+  # [schema]
+  # enabled = true
+  #   strict = true
+  #   catalog = {
+  #     paths = [
+  #       "tombi://www.schemastore.org/api/json/catalog.json",
+  #       "https://www.schemastore.org/api/json/catalog.json",
+  #     ],
+  #   }
+
+  # [extensions]
+  # "tombi-toml/tombi" = {
+  #     lsp = {
+  #       completion = {
+  #         path.enabled = true,
+  #       },
+  #       goto-definition = {
+  #         path.enabled = true,
+  #       },
+  #       hover.enabled = true,
+  #     }
+  #   }

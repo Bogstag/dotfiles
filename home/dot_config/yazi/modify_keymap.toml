@@ -1,0 +1,17 @@
+#:schema https://yazi-rs.github.io/schemas/keymap.json
+
+{{ /* chezmoi:modify-template */ -}}
+
+{{/* Load existing configuration */ -}}
+{{ $config := toToml dict -}}
+{{ if not (.chezmoi.stdin | empty) -}}
+{{   $config = .chezmoi.stdin -}}
+{{ end -}}
+
+{{/* Load defult keymap */ -}}
+{{ $default := include (joinPath .chezmoi.homeDir ".config/yazi/keymap-default.toml") | fromToml -}}
+
+#{ {/* Set dracula theme */ -}}
+#{ { $output := setValueAtPath "" $default $config  -}}
+
+{{ toToml $default }}
