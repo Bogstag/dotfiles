@@ -10,7 +10,7 @@
   upgrade.auto_prune = false
   experimental = true
   color_theme = "dracula"
-  lockfile = true
+  lockfile = false
 
 [settings.skills]
   dir = ".agents/skills"
