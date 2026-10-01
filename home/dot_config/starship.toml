@@ -221,7 +221,7 @@ $character"""
 [cmd_duration]
   show_milliseconds = false
   format = "[  in $duration ]($style)"
-  style = "bg:red fg:cyan"
+  style = "bg:red fg:crust"
   disabled = false
   show_notifications = false
   min_time_to_notify = 45000
