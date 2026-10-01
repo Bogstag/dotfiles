@@ -1,0 +1,53 @@
+[plugins]
+  enable = [
+    "io.github.dadofsambonzuki.chezmoi-hound",
+    "akitaonrails.ai-usagebar",
+    "omarchy.audio",
+    "omarchy.background",
+    "omarchy.bar",
+    "omarchy.battery",
+    "omarchy.bluetooth",
+    "omarchy.clipboard",
+    "omarchy.clock",
+    "omarchy.dev-gallery",
+    "omarchy.disk-speedtest",
+    "omarchy.monitor",
+    "omarchy.emojis",
+    "omarchy.idle",
+    "omarchy.image-picker",
+    "omarchy.indicators",
+    "omarchy.keyboard-layout",
+    "omarchy.lock",
+    "omarchy.network",
+    "omarchy.nightlight",
+    "omarchy.notifications",
+    "omarchy.menu",
+    "omarchy.system-update",
+    "omarchy.osd",
+    "omarchy.polkit",
+    "omarchy.power",
+    "omarchy.reminders",
+    "omarchy.spacer",
+    "omarchy.speedtest",
+    "omarchy.tray",
+    "omarchy.tailscale",
+    "omarchy.weather",
+    "omarchy.wifiqr",
+  ]
+  add = [
+    "https://github.com/tornikegomareli/omarchy-spaces.git",
+    "https://github.com/dadofsambonzuki/chezmoi-hound.git",
+    "https://github.com/gladimdim/omarchy-ai-usage-bar.git"
+  ]
+  disable = [
+    "omarchy.active-window",
+    "omarchy.agents",
+    "omarchy.dropbox",
+    "omarchy.media",
+    "omarchy.microphone",
+    "omarchy.workspaces"
+  ]
+
+[replace]
+  "omarchy.workspaces" = "tornikegomareli.spaces"
+  "omarchy.agents" = "akitaonrails.ai-usagebar"
