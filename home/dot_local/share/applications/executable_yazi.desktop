@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=yazi
+Comment=yazi
+Exec=xdg-terminal-exec --app-id=TUI.tile -e yazi
+Terminal=false
+Type=Application
+Icon=yazi
+StartupNotify=true
