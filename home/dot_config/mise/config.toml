@@ -42,7 +42,6 @@
   "aqua:owenlamont/ryl" = "latest"
   ripgrep = "latest"
   lua = "latest"
-  "github:bitwarden/sdk" = "latest"
   bitwarden-secrets-manager = "latest"
   python = "latest"
   editorconfig-checker = "latest"

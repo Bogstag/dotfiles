@@ -11,13 +11,13 @@
   outputs = ["tasks.md"]
 
 [Check-staged]
-  run = "hk check --staged --no-fail-fast"
+  run = "hk check --staged --no-fail-fast --sarif ./tests/latest.sarif"
 
 [Check-all]
-  run = "hk check --all --no-fail-fast --quiet --stage --sarif ./tests/check.sarif"
+  run = "hk check --all --no-fail-fast --quiet --stage --sarif ./tests/latest.sarif"
 
 [Fix-all]
-  run = "hk fix --all --fail-fast --quiet --stage --sarif ./tests/fix.sarif"
+  run = "hk fix --all --fail-fast --quiet --stage --sarif ./tests/latest.sarif"
 
 [Chezmoi-edit-config]
   run = "chezmoi edit-config"
