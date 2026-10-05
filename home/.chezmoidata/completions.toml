@@ -1,3 +1,9 @@
 [completions.mise]
-  bash = ["copilot", "hk", "tombi", "delta"]
-  powershell = [""]
+  bash = [
+    { name = "copilot", cmd = "completion bash" },
+    { name = "hk", cmd = "completion bash" },
+    { name = "tombi", cmd = "completion bash" },
+    { name = "delta", cmd = "--generate-completion bash" },
+    { name = "ryl", cmd = "--generate-completions bash" }
+  ]
+  powershell = []

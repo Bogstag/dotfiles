@@ -1,0 +1,11 @@
+#!/bin/bash
+
+{{- if eq .chezmoi.os "linux" }}
+	{{ range .completions.mise.bash -}}
+        {{ "$current" := . }}
+        {{ "$file" := list "~/.local/share/bash-completion/completions/" "$current".name | join "" }}
+        # if [ ! -f {{ $file }} ];then
+        {{ "$current".name }} {{ "$current".cmd }} > {{ "$file" }}
+        # fi
+    {{ end -}}
+{{- end }}

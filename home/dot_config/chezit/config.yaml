@@ -1,0 +1,5 @@
+# https://github.com/daptify14/chezit#configuration
+icons: nerdfont  # nerdfont | unicode | none
+mode: write  # write | read_only
+panel: auto  # auto | show | hide
+diff_builtin: false  # true = ignore chezmoi diff.pager and use chezit's built-in diff rendering

@@ -1,3 +1,8 @@
+#:schema https://json.schemastore.org/ryl.json
+#:tombi schema.strict = false
+
+ignore = ["**/modify_*.yml"]
+
 [files]
   yaml = [
     "*.yaml",
@@ -17,6 +22,7 @@
   colons = "enable"
   commas = "enable"
   document-end = "disable"
+  document-start = "disable"
   empty-lines = "enable"
   empty-values = "disable"
   float-values = "disable"
@@ -35,9 +41,6 @@
   level = "warning"
 
 [rules.comments-indentation]
-  level = "warning"
-
-[rules.document-start]
   level = "warning"
 
 [rules.truthy]

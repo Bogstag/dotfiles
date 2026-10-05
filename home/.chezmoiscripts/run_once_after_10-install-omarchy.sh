@@ -1,0 +1,13 @@
+#!/bin/bash
+set -eu
+if ! command -v omarchy > /dev/null 2>&1;then
+    echo "Omarchy saknas; hoppar över installation av Omarchy-applikationer." >&2
+    exit 0
+fi
+mkdir -p "$HOME/Sync"
+systemctl --user enable --now syncthing.service
+if command omarchy-installed-service-tailscale;then
+    echo "Tailscale service installed"
+else
+    omarchy-install-service-tailscale
+fi
