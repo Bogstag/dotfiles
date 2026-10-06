@@ -12,7 +12,7 @@ local linters = new Mapping {
   ["ryl-markdown"] = Builtins.ryl_markdown
   ["ryl"] = Builtins.ryl
   ["shellcheck"] = (Builtins.shellcheck) { exclude = List("**/*.tmpl") }
-  ["shellharden"] = Builtins.shellharden
+  ["shellharden"] = (Builtins.shellharden) { exclude = List("**/*.tmpl") }
   ["shfmt"] = (Builtins.shfmt) { exclude = List("**/*.tmpl") }
   ["tombi-format"] = Builtins.tombi_format
   ["tombi"] = Builtins.tombi

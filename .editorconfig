@@ -4,16 +4,15 @@
 indent_style = space
 indent_size = 4
 
-language_dialect   = bash
+language_dialect   = auto
 simplify           = true
-binary_next_line   = true
-case_indent        = true
-space_redirects    = true
-keep_padding       = true
-# --func-next-line
-function_next_line = true
+binary_next_line   = true # like -bn
+case_indent        = true # like -ci
+space_redirects    = true # like -sr
+keep_padding       = true # like -kp
+function_next_line = true # like -fn
 block_next_line    = true
-minify             = true
+minify             = false # like -mn
 
 # Ignore the entire "third_party" directory when calling shfmt on directories,
 # such as "shfmt -l -w .". When formatting files directly,
