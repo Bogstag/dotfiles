@@ -1,8 +1,65 @@
 ##### May contain secrets #####
 .config/ai-usagebar/config.toml
+.local/share/opencode/auth.json
 ###############################
 
-# Repository documentation should not be installed in the home directory.
+# Ignore files i tell you to ignore
+ignore*
+
+# It is symlinked
+.config/mise/config.toml
+
+{{- if ne .chezmoi.os "linux" }}
+# Linux ignores
+
+{{- end }}
+
+{{- if ne .chezmoi.osRelease.id "omarchy" }}
+# Omarchy ignores
+
+# Omarchy and Hyprland are Linux-specific.
+.config/hypr
+.config/hypr/**
+{{- end }}
+
+{{- if ne .chezmoi.os "windows" }}
+# Windows ignores
+
+{{- end }}
+
+# Unmanaged dotfiles to ignore
+.claude
+.dotnet
+.nv
+.pki
+.pkl
+.ssh/id_ed25519
+.ssh/id_ed25519.pub
+.ssh/known_hosts
+.steam
+.steampath
+.steampid
+.vscode-dictation
+.vscode-shared
+.zshrc
+.npm
+.pulse-cookie
+Documents/
+Downloads/
+go
+Microsoft/
+Music/
+Pictures/
+Projects/
+skills-lock.json
+steam.desktop
+Sync/
+SyncB/
+Videos/
+Wallpapers/
+Work/
+
+# Ignore repo docs amd other temp files
 README.md
 AGENTS.md
 docs
@@ -11,39 +68,3 @@ docs/**
 **/*cache/**
 **/*.sqlite/**
 **/*.src.ini
-
-# Ignore files i tell you to ignore
-ignore*
-
-# It is symlinked
-.config/mise/config.toml
-
-# Linux ignores
-{{- if ne .chezmoi.os "linux" }}
-home/.chezmoiscripts/*/*.ps1
-{{- end }}
-
-{{- if ne .chezmoi.osRelease.id "omarchy"  }}
-# Omarchy ignores
-# Omarchy and Hyprland are Linux-specific.
-.config/hypr
-.config/hypr/**
-{{- end }}
-
-# Windows ignores
-{{- if ne .chezmoi.os "windows" }}
-home/.chezmoiscripts/*/*.sh
-{{- end }}
-
-# Files that i do not use
-.claude
-.dotnet
-.nv
-.pki
-.pkl
-.steam
-.steampath
-.steampid
-.vscode-dictation
-.vscode-shared
-Projects/

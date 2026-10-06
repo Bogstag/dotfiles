@@ -1,0 +1,22 @@
+{
+    "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/v0.41.1/schema/markdownlint-config-schema.json",
+    "gitignore": true,
+    "frontMatter": true,
+    "config": {
+        "default": true,
+        "code-block-style": {
+            "style": "fenced"
+        },
+        "descriptive-link-text": false,
+        "hr-style": {
+            "style": "---"
+        },
+        "line-length": {
+            "code_blocks": false,
+            "tables": false,
+            "headings": true,
+            "heading_line_length": 120,
+            "line_length": 5000
+        }
+    }
+}
