@@ -1,11 +1,25 @@
 #!/bin/bash
 
 {{- if eq .chezmoi.os "linux" }}
-	{{ range .completions.mise.bash -}}
+    {{ "$shell" := "bash" }}
+	{{ range .completions.mise -}}
         {{ "$current" := . }}
         {{ "$file" := list "~/.local/share/bash-completion/completions/" "$current".name | join "" }}
         # if [ ! -f {{ $file }} ];then
-        {{ "$current".name }} {{ "$current".cmd }} > {{ "$file" }}
+        echo "Adding completion for {{ $current.name }}"
+        {{ "$current".name }} {{ "$current".cmd }} {{ "$shell" }} > {{ "$file" }}
+        # fi
+    {{ end -}}
+{{- end }}
+
+{{- if eq .chezmoi.os "windows" }}
+# TODO: Not implemented
+    {{ "$shell" := "powershell" }}
+	{{ range .completions.mise -}}
+        {{ "$current" := . }}
+        {{ "$file" := list "~/.local/share/bash-completion/completions/" "$current".name | join "" }}
+        # if [ ! -f {{ $file }} ];then
+        #{{ $current.name }} {{ $current.cmd }} {{ $shell }} > {{ $file }}
         # fi
     {{ end -}}
 {{- end }}
