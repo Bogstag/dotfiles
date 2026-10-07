@@ -1,0 +1,24 @@
+#!/bin/bash
+set -eu
+if ! command -v npx > /dev/null 2>&1; then
+    echo "npx saknas; installera Node.js innan Codex-skills installeras." >&2
+    exit 1
+fi
+
+{{ $agents :=  .skills.agents | join " " -}}
+
+{{ range .skills.global -}}
+{{ $sourceUrl := .sourceUrl -}}
+{{ range .skill -}}
+if [ -d ~/.agents/skills/{{ . }} ]; then
+    npx -y skills update -g {{ . }}
+else
+    npx -y skills add -g {{ $sourceUrl }} \
+        --skill {{ . }} \
+        --agent {{ $agents }} -y
+fi
+{{ "" }}
+{{ end -}}
+{{ end -}}
+
+# TODO: Complete with project add and update

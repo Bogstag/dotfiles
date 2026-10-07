@@ -1,0 +1,64 @@
+# tombi: format.rules.table-keys-order = "ascending"
+# AXI: https://axi.md/
+
+[skills]
+  projects = [
+    { name = "chezmoi", path = "$HOME/.local/share/chezmoi", skills = [
+      { sourceUrl = "https://github.com/terrylica/cc-skills", skill = [
+        "chezmoi-sync",
+        "chezmoi-workflows",
+        "mise-configuration",
+        "mise-tasks"
+      ] },
+      { sourceUrl = "https://github.com/kunchenguid/chrome-devtools-axi", skill = [
+        "chrome-devtools-axi"
+      ] },
+      { sourceUrl = "https://github.com/kunchenguid/gh-axi", skill = ["gh-axi"] },
+      { sourceUrl = "https://github.com/SSBrouhard/npm-axi", skill = ["npm-axi"] },
+      { sourceUrl = "https://github.com/thatdudealso/docker-axi", skill = [
+        "docker-axi"
+      ] },
+      { sourceUrl = "https://github.com/AndersHoffmann/obsidian-axi", skill = [
+        "obsidian-axi"
+      ] },
+      { sourceUrl = "https://github.com/masculinecache/chezmoi-axi", skill = [
+        "chezmoi-axi"
+      ] },
+      { sourceUrl = "https://github.com/masculinecache/bws-axi", skill = [
+        "bws-axi"
+      ] },
+      { sourceUrl = "https://github.com/batamire/ha-axi", skill = ["ha-axi"] }
+    ] }
+  ]
+
+  # https://github.com/vercel-labs/skills/blob/main/src/agents.ts#L80
+  agents = [
+    "antigravity",
+    "antigravity-cli",
+    "codex",
+    "gemini-cli",
+    "github-copilot",
+    "opencode",
+    "universal"
+  ]
+  global = [
+    { sourceUrl = "https://github.com/tt-a1i/archify", skill = [
+      "archify-review",
+      "archify",
+    ] },
+    { sourceUrl = "https://github.com/mattpocock/skills", skill = [
+      "code-review",
+      "grill-me",
+      "grill-with-docs",
+      "grilling",
+      "wayfinder",
+      "writing-for-agents"
+    ] },
+    { sourceUrl = "https://github.com/vercel-labs/skills", skill = [
+      "find-skills"
+    ] },
+    { sourceUrl = "https://github.com/jdx/fnox", skill = ["fnox"] },
+    { sourceUrl = "https://github.com/tailscale/tailscale-skill", skill = [
+      "tailscale"
+    ] },
+  ]
