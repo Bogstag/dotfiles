@@ -1,4 +1,4 @@
-
+# This is not the top-most EditorConfig file
 [*.sh]
 # like -i=4
 indent_style = space

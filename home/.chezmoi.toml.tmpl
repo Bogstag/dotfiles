@@ -9,40 +9,40 @@
 {{- $chassisType := (output "hostnamectl" "--json=short" | fromJson).Chassis }}
 
 {{- if eq .chezmoi.os "windows" }}
-	# Windows
+  # Windows
 {{- else if eq .chezmoi.os "linux" }}
-	# All linux
+  # All linux
 {{- end }}
 
 {{- if eq .chezmoi.osRelease.id "omarchy" }}
-	# Omarchy
+  # Omarchy
 {{- else if .chezmoi.kernel.osrelease | lower | contains "microsoft" }}
-	# WSL
+  # WSL
 {{- end }}
 
 [env]
 # Configure environment variables
 {{- if eq .chezmoi.os "windows" }}
-	XDG_DATA_HOME = "{{ .chezmoi.homeDir }}/.local/share"
-	XDG_CONFIG_HOME = "{{ .chezmoi.homeDir }}/.config"
-	XDG_STATE_HOME = "{{ .chezmoi.homeDir }}/.local/state"
-	XDG_CACHE_HOME = "{{ .chezmoi.homeDir }}/.cache"
+  XDG_DATA_HOME = "{{ .chezmoi.homeDir }}/.local/share"
+  XDG_CONFIG_HOME = "{{ .chezmoi.homeDir }}/.config"
+  XDG_STATE_HOME = "{{ .chezmoi.homeDir }}/.local/state"
+  XDG_CACHE_HOME = "{{ .chezmoi.homeDir }}/.cache"
 {{- end }}
 
 [data]
-	{{ if eq .chezmoi.os "linux" -}} bws_access_token = {{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" | quote }} {{- end }}
+  {{ if eq .chezmoi.os "linux" -}} bws_access_token = {{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" | quote }} {{- end }}
 
 [edit]
-	command = "code"
-	args = ["--wait"]
+  command = "code"
+  args = ["--wait"]
 
 [diff]
-#    exclude = ["scripts"]
-	pager = "delta"
+  exclude = ["externals"]
+  pager = "delta"
 
 [merge]
-    command = "meld"
-    args = ["{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
+  command = "meld"
+  args = ["{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
 
 [template]
-    options = ["missingkey=zero"]
+  options = ["missingkey=zero"]

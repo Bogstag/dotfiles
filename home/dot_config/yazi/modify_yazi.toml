@@ -2,7 +2,7 @@
 {{/* chezmoi:modify-template */}}
 
 {{/* Load default configuration */ -}}
-{{ $default_file := (joinPath .chezmoi.homeDir ".config/yazi/yazi-default.toml") }}
+{{ $default_file := (joinPath .chezmoi.homeDir ".config/yazi/yazi-default.toml") -}}
 {{ $default := (include $default_file) | fromToml -}}
 
 {{/* Load existing configuration */ -}}
@@ -13,5 +13,9 @@
 
 {{/* Merge existing with default, giving precedence to existing */ -}}
 {{ $result := merge $existing $default -}}
+
+{{/* Set ratio */ -}}
+{{ $ratio := list 1 3 4 -}}
+{{ $result := setValueAtPath "mgr.ratio" $ratio $result -}}
 
 {{ toToml $result -}}
