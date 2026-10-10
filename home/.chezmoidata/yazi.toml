@@ -9,7 +9,6 @@
     "yazi-rs/plugins:smart-paste",   # https://github.com/yazi-rs/plugins/tree/main/smart-paste.yazi
 
     # "yazi-rs/plugins:diff",         # https://github.com/yazi-rs/plugins/tree/main/diff.yazi
-    # "yazi-rs/plugins:diff",         # https://github.com/yazi-rs/plugins/tree/main/diff.yazi
   ]
   flavors = [
     "yazi-rs/flavors:dracula",       # https://github.com/yazi-rs/flavors/tree/main/dracula.yazi
