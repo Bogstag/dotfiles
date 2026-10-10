@@ -1,0 +1,13 @@
+# shellcheck disable=SC2140
+export BWS_ACCESS_TOKEN='{{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" }}'
+export GROQ_API_KEY='{{ (bitwardenSecrets "d1234cc2-eeb4-4666-bafe-16eceeaa3ab6" .bws_access_token).value }}'
+export CODECOV_TOKEN='{{ (bitwardenSecrets "a34b60ef-04ab-4dd8-aeb5-92cbf3971172" .bws_access_token).value }}'
+export GEMINI_API_KEY='{{ (bitwardenSecrets "a7b8b702-d578-44bf-be5e-b730a3598935" .bws_access_token).value }}'
+export HASS_SERVER='{{ (bitwardenSecrets "ece43e68-2df4-4426-9cf6-1fba5870d369" .bws_access_token).value }}'
+export MISTRAL_API_KEY='{{ (bitwardenSecrets "39f01db7-f4d9-4da7-a0d5-42af5891f527" .bws_access_token).value }}'
+export OPENROUTER_API_KEY='{{ (bitwardenSecrets "ce19b9a9-c685-49e9-952f-3773cebaf5f3" .bws_access_token).value }}'
+export SNYK_TOKEN='{{ (bitwardenSecrets "49331b2a-ed39-4952-b87b-6608572fab1e" .bws_access_token).value }}'
+export SONAR_TOKEN='{{ (bitwardenSecrets "84b00592-954f-40da-b7ed-3dcefc812747" .bws_access_token).value }}'
+export SONARR_API_KEY='{{ (bitwardenSecrets "d5c22d4a-4ea5-4e65-876a-734ee0dfabf0" .bws_access_token).value }}'
+export STEAM_64ID='{{ (bitwardenSecrets "64a52966-1bab-43e8-b780-723e40e3381f" .bws_access_token).value }}'
+export STEAM_KEY='{{ (bitwardenSecrets "6cf9dd27-8a16-4963-935d-a6b5fc1f4ec8" .bws_access_token).value }}'

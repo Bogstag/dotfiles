@@ -11,8 +11,15 @@
 {{   $existing = fromToml .chezmoi.stdin -}}
 {{ end -}}
 
+# Modifiers
+# <S-…>	Shift key.
+# <C-…>	Ctrl key.
+# <A-…>	Alt key.
+# <D-…>	Windows/Super key.
+
 {{/* Merge existing with default, giving precedence to existing */ -}}
-{{ $result := merge $existing $default -}}
+{{/*  $result := merge $existing $default */ -}}
+{{ $result := $existing -}}
 
 {{/* Set chmod config */ -}}
 {{ $chmod_entry := dict "on" (list "c" "m") "run" "plugin chmod" "desc" "Chmod on selected files" -}}
@@ -29,7 +36,17 @@
 {{/* Set smart-paste config */ -}}
 {{ $smartpaste_entry := dict "on" "p" "run" "plugin smart-paste" "desc" "Paste into the hovered directory or CWD" -}}
 
-{{/* Add all under prepend_keymap */ -}}
-{{ $result = setValueAtPath "mgr.prepend_keymap" (list $chmod_entry $smartenter_entry $diff_entry $smartfilter_entry $smartpaste_entry ) $result -}}
+{{/* Set Dropping to the shell config */ -}}
+{{ $dropshell_entry_win := dict "on" "!" "for" "windows" "run" "shell 'powershell.exe' --block" "desc" "Open PowerShell here" -}}
+{{ $dropshell_entry_unix := dict "on" "!" "for" "unix" "run" "shell '$SHELL' --block" "desc" "Open $SHELL here" -}}
+{{ $dropshell_entry := mustMerge $dropshell_entry_win $dropshell_entry_unix}}
 
+{{/* Add all under prepend_keymap */ -}}
+{{ $result = setValueAtPath "mgr.prepend_keymap" (list $chmod_entry $smartenter_entry $diff_entry $smartfilter_entry $smartpaste_entry $dropshell_entry ) $result -}}
 {{ toToml $result -}}
+
+# TODO: https://yazi-rs.github.io/docs/tips#smart-tab
+# TODO: https://yazi-rs.github.io/docs/tips#smart-switch
+# TODO: https://github.com/yazi-rs/plugins/tree/main/toggle-pane.yazi
+# TODO: https://yazi-rs.github.io/docs/tips#symlink-in-status
+# TODO: https://yazi-rs.github.io/docs/tips#system-chooser

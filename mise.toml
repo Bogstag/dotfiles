@@ -1,15 +1,15 @@
 #:schema https://mise.jdx.dev/schema/mise.json
 
 [settings.skills]
-  dir = ".agents/skills"
-  auto_sync = true
-  prune = true
+dir = ".agents/skills"
+auto_sync = true
+prune = true
 
 [settings.packslip]
-  exec = true
+exec = true
 
 [task_config]
-  includes = ["tasks.toml"]
+includes = ["tasks.toml"]
 
 [task_config.cache]
-  enabled = true
+enabled = true

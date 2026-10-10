@@ -53,3 +53,7 @@
   rg = "latest"
   oxfmt = "latest"
   oxlint = "latest"
+  go = "latest"
+  hunk = "latest"
+  "npm:@masculinecache/mem-axi" = "latest"
+  "npm:playwright" = "latest"

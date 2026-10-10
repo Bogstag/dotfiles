@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "aperture": {
+      "type": "http",
+      "url": "https://ai.goldeye-monster.ts.net/v1/mcp"
+    }
+  }
+}

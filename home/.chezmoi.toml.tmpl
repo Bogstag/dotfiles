@@ -1,4 +1,4 @@
-#:schema https://json.schemastore.org/chezmoi.json
+#:schema https://www.schemastore.org/chezmoi.json
 # ~/.config/chezmoi/chezmoi.toml
 
 {{- $is_wsl := false -}}
@@ -20,14 +20,8 @@
   # WSL
 {{- end }}
 
-[env]
-# Configure environment variables
-{{- if eq .chezmoi.os "windows" }}
-  XDG_DATA_HOME = "{{ .chezmoi.homeDir }}/.local/share"
-  XDG_CONFIG_HOME = "{{ .chezmoi.homeDir }}/.config"
-  XDG_STATE_HOME = "{{ .chezmoi.homeDir }}/.local/state"
-  XDG_CACHE_HOME = "{{ .chezmoi.homeDir }}/.cache"
-{{- end }}
+[scriptEnv]
+  HOME = "{{ .chezmoi.homeDir }}"
 
 [data]
   {{ if eq .chezmoi.os "linux" -}} bws_access_token = {{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" | quote }} {{- end }}

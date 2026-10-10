@@ -1,0 +1,566 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "model": "opencode/ling-3.0-flash-fin-free",
+  "enabled_providers": [
+    "llama.cpp",
+    "opencode",
+    "aperture-openai",
+    "aperture-openai-compatible",
+    "aperture-google"
+  ],
+  "provider": {
+    "llama.cpp": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "llama-server (local)",
+      "api": "",
+      "options": {
+        "apiKey": "noneed",
+        "baseURL": "http://127.0.0.1:8080/v1"
+      },
+      "models": {
+        "meta-llama/Llama-3.2-1B-Instruct:Q8_0": {
+          "id": "Llama-3.2-1B-Instruct-GGUF",
+          "name": "Llama-3.2-1B-Instruct-GGUF",
+          "family": "llama",
+          "attachment": false,
+          "reasoning": false,
+          "tool_call": true,
+          "temperature": true,
+          "release_date": "2024-07-23",
+          "limit": {
+            "context": 128000,
+            "output": 4096,
+          },
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+        },
+      },
+    },
+    "opencode": {
+      "name": "Personal / OpenCode",
+      "env": [
+        "OPENCODE_CONSOLE_TOKEN"
+      ],
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "https://opencode.ai/inference/openai/v1",
+        "apiKey": "{env:OPENCODE_CONSOLE_TOKEN}"
+      },
+      "models": {
+        "big-pickle": {
+          "family": "big-pickle",
+          "name": "Big Pickle",
+          "tool_call": true,
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cache_read": 0,
+            "cache_write": 0
+          },
+          "limit": {
+            "context": 200000,
+            "input": 160000,
+            "output": 32000
+          },
+          "headers": {
+            "x-opencode-org-id": "org_01M3FTW4ZN6KVAJKD8E04C63GW"
+          },
+        },
+        "ling-3.0-flash-fin-free": {
+          "family": "ling",
+          "name": "Ling 3.0 Flash Fin Free",
+          "tool_call": true,
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cache_read": 0,
+            "cache_write": 0
+          },
+          "limit": {
+            "context": 262144,
+            "output": 32768
+          }
+        },
+        "ling-3.1-flash-free": {
+          "family": "ling",
+          "name": "Ling 3.1 Flash Free",
+          "tool_call": true,
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cache_read": 0,
+            "cache_write": 0
+          },
+          "limit": {
+            "context": 262144,
+            "output": 32768
+          }
+        },
+        "longcat-2.5-preview-free": {
+          "family": "longcat",
+          "name": "LongCat 2.5 Preview Free",
+          "tool_call": true,
+          "modalities": {
+            "input": [
+              "text",
+              "image"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cache_read": 0,
+            "cache_write": 0
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 131072
+          }
+        },
+        "mimo-v2.6-flash-free": {
+          "family": "mimo",
+          "name": "MiMo-V2.6-Flash Free",
+          "tool_call": true,
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "audio",
+              "video"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cache_read": 0,
+            "cache_write": 0
+          },
+          "limit": {
+            "context": 200000,
+            "output": 32000
+          }
+        },
+        "muse-spark-1.3-contributor-free": {
+          "family": "muse-free",
+          "name": "Muse Spark 1.3 Free",
+          "tool_call": true,
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "video",
+              "pdf",
+              "audio"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cache_read": 0,
+            "cache_write": 0
+          },
+          "limit": {
+            "context": 1048576,
+            "output": 131072
+          }
+        },
+        "nemotron-3-ultra-free": {
+          "family": "nemotron-free",
+          "name": "Nemotron 3 Ultra Free",
+          "tool_call": true,
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cache_read": 0,
+            "cache_write": 0
+          },
+          "limit": {
+            "context": 1000000,
+            "output": 128000
+          }
+        },
+        "nemotron-3.5-lightning-free": {
+          "family": "nemotron-free",
+          "name": "Nemotron 3.5 Lightning Free",
+          "tool_call": true,
+          "modalities": {
+            "input": [
+              "text"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cache_read": 0,
+            "cache_write": 0
+          },
+          "limit": {
+            "context": 262144,
+            "output": 262144
+          }
+        },
+        "space-bunny-free": {
+          "name": "Space Bunny Free",
+          "tool_call": true,
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cache_read": 0,
+            "cache_write": 0
+          },
+          "limit": {
+            "context": 1048576,
+            "input": 524288,
+            "output": 524288
+          }
+        },
+        "step-5-preview-free": {
+          "name": "Step 5 Preview Free",
+          "tool_call": true,
+          "modalities": {
+            "input": [
+              "text",
+              "image",
+              "video"
+            ],
+            "output": [
+              "text"
+            ]
+          },
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cache_read": 0,
+            "cache_write": 0
+          },
+          "limit": {
+            "context": 1000000,
+            "input": 1000000,
+            "output": 65536
+          }
+        }
+      }
+    },
+    "aperture-google": {
+      "npm": "@ai-sdk/google",
+      "name": "Aperture (Gemini)",
+      "options": {
+        "baseURL": "https://ai.goldeye-monster.ts.net/v1beta",
+        "apiKey": "not-required"
+      },
+      "models": {
+        "auto-review": {
+          "name": "auto-review",
+          "tool_call": true
+        },
+        "gemini-2.5-flash": {
+          "name": "gemini-2.5-flash",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "gemini-3.1-flash-lite": {
+          "name": "gemini-3.1-flash-lite",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "gemini-3.5-flash": {
+          "name": "gemini-3.5-flash",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "gemini-3.5-flash-lite": {
+          "name": "gemini-3.5-flash-lite",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "gemini-3.6-flash": {
+          "name": "gemini-3.6-flash",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "gemma-4-26b-a4b-it": {
+          "name": "gemma-4-26b-a4b-it",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "gemma-4-31b-it": {
+          "name": "gemma-4-31b-it",
+          "tool_call": true,
+          "reasoning": true
+        }
+      }
+    },
+    "aperture-openai": {
+      "npm": "@ai-sdk/openai",
+      "name": "Aperture (Responses API)",
+      "options": {
+        "baseURL": "https://ai.goldeye-monster.ts.net/v1",
+        "apiKey": "not-required"
+      },
+      "models": {
+        "apodex/apodex-1.1-mini:free": {
+          "name": "apodex/apodex-1.1-mini:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "cohere/north-mini-code:free": {
+          "name": "cohere/north-mini-code:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "dots-studio/dots-3-note-preview:free": {
+          "name": "dots-studio/dots-3-note-preview:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "google/gemma-4-26b-a4b-it:free": {
+          "name": "google/gemma-4-26b-a4b-it:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "google/gemma-4-31b-it:free": {
+          "name": "google/gemma-4-31b-it:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "liquid/lfm-2.5-2.6b:free": {
+          "name": "liquid/lfm-2.5-2.6b:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free": {
+          "name": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "nvidia/nemotron-3-super-120b-a12b:free": {
+          "name": "nvidia/nemotron-3-super-120b-a12b:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "nvidia/nemotron-3-ultra-550b-a55b:free": {
+          "name": "nvidia/nemotron-3-ultra-550b-a55b:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "nvidia/nemotron-3.5-content-safety:free": {
+          "name": "nvidia/nemotron-3.5-content-safety:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "nvidia/nemotron-3.5-lightning:free": {
+          "name": "nvidia/nemotron-3.5-lightning:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "openrouter/free": {
+          "name": "openrouter/free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "poolside/laguna-s-2.1:free": {
+          "name": "poolside/laguna-s-2.1:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "poolside/laguna-xs-2.1:free": {
+          "name": "poolside/laguna-xs-2.1:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "thinkingmachines/inkling-small:free": {
+          "name": "thinkingmachines/inkling-small:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "thinkingmachines/inkling:free": {
+          "name": "thinkingmachines/inkling:free",
+          "tool_call": true
+        }
+      }
+    },
+    "aperture-openai-compatible": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Aperture (Completions API)",
+      "options": {
+        "baseURL": "https://ai.goldeye-monster.ts.net/v1",
+        "apiKey": "not-required"
+      },
+      "models": {
+        "allam-2-7b": {
+          "name": "allam-2-7b",
+          "tool_call": true
+        },
+        "apodex/apodex-1.1-mini:free": {
+          "name": "apodex/apodex-1.1-mini:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "cohere/north-mini-code:free": {
+          "name": "cohere/north-mini-code:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "dots-studio/dots-3-note-preview:free": {
+          "name": "dots-studio/dots-3-note-preview:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "google/gemma-4-26b-a4b-it:free": {
+          "name": "google/gemma-4-26b-a4b-it:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "google/gemma-4-31b-it:free": {
+          "name": "google/gemma-4-31b-it:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "liquid/lfm-2.5-2.6b:free": {
+          "name": "liquid/lfm-2.5-2.6b:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "meta-llama/llama-prompt-guard-2-22m": {
+          "name": "meta-llama/llama-prompt-guard-2-22m",
+          "tool_call": true
+        },
+        "meta-llama/llama-prompt-guard-2-86m": {
+          "name": "meta-llama/llama-prompt-guard-2-86m",
+          "tool_call": true
+        },
+        "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free": {
+          "name": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "nvidia/nemotron-3-super-120b-a12b:free": {
+          "name": "nvidia/nemotron-3-super-120b-a12b:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "nvidia/nemotron-3-ultra-550b-a55b:free": {
+          "name": "nvidia/nemotron-3-ultra-550b-a55b:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "nvidia/nemotron-3.5-content-safety:free": {
+          "name": "nvidia/nemotron-3.5-content-safety:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "nvidia/nemotron-3.5-lightning:free": {
+          "name": "nvidia/nemotron-3.5-lightning:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "openai/gpt-oss-120b": {
+          "name": "openai/gpt-oss-120b",
+          "tool_call": true
+        },
+        "openai/gpt-oss-20b": {
+          "name": "openai/gpt-oss-20b",
+          "tool_call": true
+        },
+        "openai/gpt-oss-safeguard-20b": {
+          "name": "openai/gpt-oss-safeguard-20b",
+          "tool_call": true
+        },
+        "openrouter/free": {
+          "name": "openrouter/free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "poolside/laguna-s-2.1:free": {
+          "name": "poolside/laguna-s-2.1:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "poolside/laguna-xs-2.1:free": {
+          "name": "poolside/laguna-xs-2.1:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "qwen/qwen3.8-27b": {
+          "name": "qwen/qwen3.8-27b",
+          "tool_call": true
+        },
+        "thinkingmachines/inkling-small:free": {
+          "name": "thinkingmachines/inkling-small:free",
+          "tool_call": true,
+          "reasoning": true
+        },
+        "thinkingmachines/inkling:free": {
+          "name": "thinkingmachines/inkling:free",
+          "tool_call": true
+        }
+      }
+    }
+  },
+  "mcp": {
+    "aperture": {
+      "type": "remote",
+      "url": "https://ai.goldeye-monster.ts.net/v1/mcp"
+    }
+  }
+}

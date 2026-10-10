@@ -18,3 +18,9 @@
 {{ $result := setValueAtPath "flavor.dark" "dracula" $result -}}
 
 {{ toToml $result -}}
+
+# TODO: https://yazi-rs.github.io/docs/configuration/theme/#icon
+# TODO: yazi use https://github.com/nvim-tree/nvim-web-devicons
+# TODO: Add more [[icon.dirs]]
+# TODO: Add more [[icon.files]]
+# TODO: Add more [[icon.exts]]

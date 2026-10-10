@@ -1,0 +1,29 @@
+{{ $lang := "sv_SE.UTF-8" -}}
+
+{{- if eq .chezmoi.os "linux" -}}
+# export HOME="~"
+# HOME=/home/bogge
+export LANG={{ $lang }}
+{{ end -}}
+
+{{- if eq .chezmoi.os "windows" -}}
+# $Env:XDG_CONFIG_DIRS=/etc/xdg
+# $Env:XDG_DATA_DIRS=/usr/local/share:/usr/share
+# $Env:XDG_RUNTIME_DIR=/run/user/1000
+$Env:HOME="{{ .chezmoi.homeDir }}"
+$Env:LANG={{ $lang }}
+$Env:SSH_AUTH_SOCK="{{ .chezmoi.homeDir }}/.bitwarden-ssh-agent.sock"
+$Env:XDG_CACHE_HOME="{{ .chezmoi.homeDir }}/.cache"
+$Env:XDG_CONFIG_HOME="{{ .chezmoi.homeDir }}/.config"
+$Env:XDG_DATA_HOME="{{ .chezmoi.homeDir }}/.local/share"
+$Env:XDG_DESKTOP_DIR="{{ .chezmoi.homeDir }}/"
+$Env:XDG_DOCUMENTS_DIR="{{ .chezmoi.homeDir }}/Documents"
+$Env:XDG_DOWNLOAD_DIR="{{ .chezmoi.homeDir }}/Downloads"
+$Env:XDG_MUSIC_DIR="{{ .chezmoi.homeDir }}/Music"
+$Env:XDG_PICTURES_DIR="{{ .chezmoi.homeDir }}/Pictures"
+$Env:XDG_PROJECTS_DIR="{{ .chezmoi.homeDir }}/Projects"
+$Env:XDG_PUBLICSHARE_DIR="{{ .chezmoi.homeDir }}/"
+$Env:XDG_STATE_HOME="{{ .chezmoi.homeDir }}/.local/state"
+$Env:XDG_TEMPLATES_DIR="{{ .chezmoi.homeDir }}/"
+$Env:XDG_VIDEOS_DIR="{{ .chezmoi.homeDir }}/Videos"
+{{ end -}}

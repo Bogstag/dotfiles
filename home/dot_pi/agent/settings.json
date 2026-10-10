@@ -1,0 +1,167 @@
+{
+  "theme": "omarchy-system",
+  "providers": {
+    "aperture-completions": {
+      "baseUrl": "https://ai.goldeye-monster.ts.net/v1",
+      "api": "openai-completions",
+      "apiKey": "not-required",
+      "models": [
+        {
+          "id": "allam-2-7b"
+        },
+        {
+          "id": "meta-llama/llama-prompt-guard-2-22m"
+        },
+        {
+          "id": "meta-llama/llama-prompt-guard-2-86m"
+        },
+        {
+          "id": "openai/gpt-oss-120b"
+        },
+        {
+          "id": "openai/gpt-oss-20b"
+        },
+        {
+          "id": "openai/gpt-oss-safeguard-20b"
+        },
+        {
+          "id": "qwen/qwen3.8-27b"
+        },
+        {
+          "id": "apodex/apodex-1.1-mini:free"
+        },
+        {
+          "id": "dots-studio/dots-3-note-preview:free"
+        },
+        {
+          "id": "liquid/lfm-2.5-2.6b:free"
+        },
+        {
+          "id": "nvidia/nemotron-3.5-lightning:free"
+        },
+        {
+          "id": "thinkingmachines/inkling-small:free"
+        },
+        {
+          "id": "poolside/laguna-s-2.1:free"
+        },
+        {
+          "id": "thinkingmachines/inkling:free"
+        },
+        {
+          "id": "poolside/laguna-xs-2.1:free"
+        },
+        {
+          "id": "cohere/north-mini-code:free"
+        },
+        {
+          "id": "nvidia/nemotron-3.5-content-safety:free"
+        },
+        {
+          "id": "nvidia/nemotron-3-ultra-550b-a55b:free"
+        },
+        {
+          "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
+        },
+        {
+          "id": "google/gemma-4-26b-a4b-it:free"
+        },
+        {
+          "id": "google/gemma-4-31b-it:free"
+        },
+        {
+          "id": "nvidia/nemotron-3-super-120b-a12b:free"
+        },
+        {
+          "id": "openrouter/free"
+        }
+      ]
+    },
+    "aperture-gemini": {
+      "baseUrl": "https://ai.goldeye-monster.ts.net/v1beta",
+      "api": "google-generative-ai",
+      "apiKey": "not-required",
+      "models": [
+        {
+          "id": "gemini-2.5-flash"
+        },
+        {
+          "id": "gemini-3.1-flash-lite"
+        },
+        {
+          "id": "gemini-3.5-flash"
+        },
+        {
+          "id": "gemini-3.5-flash-lite"
+        },
+        {
+          "id": "gemini-3.6-flash"
+        },
+        {
+          "id": "gemma-4-26b-a4b-it"
+        },
+        {
+          "id": "gemma-4-31b-it"
+        },
+        {
+          "id": "auto-review"
+        }
+      ]
+    },
+    "aperture-responses": {
+      "baseUrl": "https://ai.goldeye-monster.ts.net/v1",
+      "api": "openai-responses",
+      "apiKey": "not-required",
+      "models": [
+        {
+          "id": "apodex/apodex-1.1-mini:free"
+        },
+        {
+          "id": "dots-studio/dots-3-note-preview:free"
+        },
+        {
+          "id": "liquid/lfm-2.5-2.6b:free"
+        },
+        {
+          "id": "nvidia/nemotron-3.5-lightning:free"
+        },
+        {
+          "id": "thinkingmachines/inkling-small:free"
+        },
+        {
+          "id": "poolside/laguna-s-2.1:free"
+        },
+        {
+          "id": "thinkingmachines/inkling:free"
+        },
+        {
+          "id": "poolside/laguna-xs-2.1:free"
+        },
+        {
+          "id": "cohere/north-mini-code:free"
+        },
+        {
+          "id": "nvidia/nemotron-3.5-content-safety:free"
+        },
+        {
+          "id": "nvidia/nemotron-3-ultra-550b-a55b:free"
+        },
+        {
+          "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free"
+        },
+        {
+          "id": "google/gemma-4-26b-a4b-it:free"
+        },
+        {
+          "id": "google/gemma-4-31b-it:free"
+        },
+        {
+          "id": "nvidia/nemotron-3-super-120b-a12b:free"
+        },
+        {
+          "id": "openrouter/free"
+        }
+      ]
+    }
+  }
+}

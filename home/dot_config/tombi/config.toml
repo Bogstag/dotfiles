@@ -1,0 +1,115 @@
+#:schema https://www.schemastore.org/tombi.json
+
+toml-version = "v1.1.0"
+
+[files]
+  exclude = [".cache/**/*.toml", "**/modify_*.toml"]
+
+[format]
+[format.rules]
+  indent-table-key-value-pairs = true
+  line-width = 80
+  trailing-comment-alignment = true
+
+  # [lint]
+  # [lint.rules]
+
+  # [lsp]
+
+  # [schema]
+
+[[schemas]]
+  path = "https://learn.chatgpt.com/docs/config-schema.json"
+  include = [
+    "$HOME/.codex/config.toml",
+    "$HOME/.codex/*.config.toml",
+    "$HOME/.local/share/chezmoi/home/private_dot_codex/private_aperture.config.toml",
+    "$HOME/.local/share/chezmoi/home/private_dot_codex/private_config.toml"
+  ]
+  lint.rules.deprecated = "off"
+
+[[schemas]]
+  path = "https://www.schemastore.org/tombi.json"
+  include = [
+    "$HOME/.config/tombi/config.toml",
+    "**/tombi/config.toml",
+    "**/.tombi.toml"
+  ]
+  lint.rules.deprecated = "off"
+
+[[schemas]]
+  path = "https://www.schemastore.org/chezmoi.json"
+  include = [
+    "$HOME/.config/chezmoi.toml",
+    "**/.chezmoi.toml",
+    "**/chezmoi.toml"
+  ]
+  lint.rules.deprecated = "off"
+
+[[schemas]]
+  path = "https://starship.rs/config-schema.json"
+  include = ["$HOME/.config/starship.toml", "**/starship.toml"]
+  lint.rules.deprecated = "off"
+
+[[schemas]]
+  path = "https://yazi-rs.github.io/schemas/keymap.json"
+  include = ["$HOME/.config/yazi/keymap.toml", "**/yazi/keymap.toml"]
+  lint.rules.deprecated = "off"
+
+[[schemas]]
+  path = "https://yazi-rs.github.io/schemas/yazi.json"
+  include = ["$HOME/.config/yazi/yazi.toml", "**/yazi/yazi.toml"]
+  lint.rules.deprecated = "off"
+
+[[schemas]]
+  path = "https://yazi-rs.github.io/schemas/vfs.json"
+  include = ["$HOME/.config/yazi/vfs.toml", "**/yazi/vfs.toml"]
+  lint.rules.deprecated = "off"
+
+[[schemas]]
+  path = "https://yazi-rs.github.io/schemas/theme.json"
+  include = ["$HOME/.config/yazi/theme.toml", "**/yazi/theme.toml"]
+  lint.rules.deprecated = "off"
+
+[[schemas]]
+  path = "https://yazi-rs.github.io/schemas/package.json"
+  include = ["$HOME/.config/yazi/package.toml", "**/yazi/package.toml"]
+  lint.rules.deprecated = "off"
+
+[[schemas]]
+  path = "https://www.schemastore.org/ryl.json"
+  include = ["**/ryl/.ryl.toml", "$HOME/.config/ryl/.ryl.toml"]
+  lint.rules.deprecated = "off"
+
+[[schemas]]
+  path = "https://mise.jdx.dev/schema/mise-task.json"
+  include = ["**/tasks.toml"]
+  lint.rules.deprecated = "off"
+
+[[schemas]]
+  path = "https://mise.jdx.dev/schema/mise.json"
+  include = [
+    "**/mise.toml",
+    "$HOME/.config/mise/config.toml",
+    "**/mise/config.toml"
+  ]
+  lint.rules.deprecated = "off"
+
+[[schemas]]
+  path = "https://www.schemastore.org/cargo.json"
+  include = ["**/Cargo.toml"]
+
+[[schemas]]
+  path = "https://www.schemastore.org/pyproject.json"
+  include = ["**/pyproject.toml"]
+
+  # [[overrides]]
+  # [overrides.files]
+
+  # [overrides.format]
+  # [overrides.format.rules]
+
+  # [overrides.lint]
+  # [overrides.lint.rules]
+
+  # [extensions]

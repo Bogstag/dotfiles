@@ -1,5 +1,4 @@
-#:schema https://json.schemastore.org/ryl.json
-#:tombi schema.strict = false
+#:schema https://www.schemastore.org/ryl.json
 
 ignore = ["**/modify_*.yml"]
 
