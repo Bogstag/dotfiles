@@ -1,0 +1,228 @@
+{
+    "[json]": {
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.tabSize": 2,
+        "editor.wordBasedSuggestions": "off"
+    },
+    "[terraform]": {
+        "editor.autoIndent": "advanced",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    },
+    "[xml]": {
+        "editor.autoIndent": "advanced",
+        "editor.tabSize": 2
+    },
+    "[yaml]": {
+        "editor.autoIndent": "advanced",
+        "editor.defaultFormatter": "owenlamont.ryl",
+        "editor.formatOnSaveMode": "file", // critical for kennylong ^^ formatter to work!
+        "editor.tabSize": 2
+    },
+    "breadcrumbs.enabled": true,
+    "cody.commandCodeLenses": true,
+    "diffEditor.experimental.showMoves": true,
+    "editor.detectIndentation": false,
+    // I love font ligatures
+    // https://github.com/githubnext/monaspace?tab=readme-ov-file#coding-ligatures
+    // https://github.com/githubnext/monaspace?tab=readme-ov-file#character-variants
+    "editor.fontLigatures": "'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09'",
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "modifications",
+    "editor.inlineSuggest.enabled": true,
+    "editor.inlineSuggest.syntaxHighlightingEnabled": true,
+    "editor.insertSpaces": true,
+    "editor.minimap.enabled": true,
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.showSlider": "always",
+    "editor.minimap.size": "fit",
+    "editor.mouseWheelZoom": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.renderWhitespace": "boundary",
+    "editor.rulers": [
+        80,
+        120
+    ],
+    // The latest thing in syntax highlighting is sometimes buggy, but we need to try it and report those bugs ...
+    "editor.semanticHighlighting.enabled": true,
+    // I'm still not sure where I think snippets should go
+    "editor.snippetSuggestions": "inline",
+    // Having a battle with AI "suggestions" vs language completions
+    "editor.suggest.snippetsPreventQuickSuggestions": true,
+    "editor.tabSize": 4,
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "punctuation.definition.comment.block.begin",
+                "settings": {
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": "punctuation.definition.comment.block.end",
+                "settings": {
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": "variable.other.member",
+                "settings": {
+                    "foreground": "#E3E"
+                }
+            },
+            {
+                "scope": "variable.other.member.method",
+                "settings": {
+                    "foreground": "#FF0000"
+                }
+            },
+            {
+                "scope": "comment",
+                "settings": {
+                    "fontStyle": "italic"
+                }
+            },
+            {
+                "scope": "punctuation.definition.variable.powershell",
+                "settings": {
+                    "foreground": "#DAD"
+                }
+            }
+        ]
+    },
+    // Personally, I like wordwrap.
+    "editor.wordWrap": "on",
+    "editor.wrappingIndent": "indent",
+    "errorLens.fontSize": ".9em",
+    "errorLens.fontWeight": "200",
+    "explorer.confirmDelete": false,
+    // Stop asking me if I'm sure ...
+    "explorer.confirmDragAndDrop": false,
+    "extensions.ignoreRecommendations": false,
+    // Default all the things to PowerShell
+    "files.defaultLanguage": "powershell",
+    // Everyone should keep files git friendly
+    "files.encoding": "utf8",
+    // But because I can't convince everyone to switch to LF
+    "files.eol": "auto",
+    "files.hotExit": "onExitAndWindowClose",
+    // This makes backtick linewrapping safe
+    "files.trimTrailingWhitespace": true,
+    "git.allowForcePush": true,
+    "git.autofetch": true,
+    "git.autoStash": true,
+    "git.confirmSync": false,
+    "git.fetchOnPull": true,
+    "git.mergeEditor": true,
+    "git.rebaseWhenSync": true,
+    "github.copilot.enable": {
+        "*": true,
+        "bicep": false,
+        "markdown": true,
+        "plaintext": true,
+        "scminput": true,
+        "yaml": true
+    },
+    "GithubGistExplorer.explorer.gistAscending": false,
+    "GithubGistExplorer.explorer.gistSortBy": "Last Updated",
+    "GithubGistExplorer.explorer.subscriptionAscending": false,
+    "GithubGistExplorer.explorer.subscriptionSortBy": "Last Updated",
+    "highlight-bad-chars.additionalUnicodeChars": [
+        "\u2018",
+        "\u2019",
+        "\u201d",
+        "\u201c"
+    ],
+    "jupyter.insidersChannel": "off",
+    "liveshare.languages.allowGuestCommandControl": true,
+    "markdownlint.focusMode": 2,
+    "powershell.codeFolding.enable": true,
+    "powershell.codeFolding.showLastLine": false,
+    "powershell.codeFormatting.alignPropertyValuePairs": true,
+    "powershell.codeFormatting.autoCorrectAliases": true,
+    "powershell.codeFormatting.pipelineIndentationStyle": "IncreaseIndentationForFirstPipeline",
+    // One True Brace Style is The Way (when necessary, override in projects)
+    "powershell.codeFormatting.preset": "OTBS",
+    "powershell.codeFormatting.trimWhitespaceAroundPipe": false,
+    "powershell.codeFormatting.useCorrectCasing": true,
+    // So we don't forget which version is running
+    "powershell.integratedConsole.suppressStartupBanner": false,
+    "powershell.pester.codeLens": false,
+    // Pester 5 now
+    "powershell.pester.useLegacyCodeLens": false,
+    // This is the setting for the "PowerShell Integrated Console"
+    "powershell.powerShellDefaultVersion": "PowerShell (x64)",
+    "python.defaultInterpreterPath": "C:\\tools\\miniforge3\\python.exe",
+    //******** extensions will add new settings at the bottom - don't assume I customized this stuff ***********//
+    "python.pythonPath": "C:\\tools\\miniforge3\\python.exe",
+    "quickgrep.grep": "Ripgrep",
+    "quickgrep.preview": true,
+    // Use Windows Terminal for all the "show in terminal" stuff
+    "terminal.external.windowsExec": "wt.exe",
+    "terminal.integrated.allowChords": false,
+    "terminal.integrated.copyOnSelection": true,
+    // You should use PowerShell for everything
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    // I don't like confirming that I meant to paste
+    "terminal.integrated.enableMultiLinePasteWarning": "auto",
+    "terminal.integrated.enableVisualBell": true,
+    //"editor.fontVariations": "'slnt' 0, 'wght' 850, 'wdth' 400",
+    "terminal.integrated.fontFamily": "'Cascadia Code', 'Symbols Nerd Font', monospace",
+    "terminal.integrated.rendererType": "auto",
+    // Your right-click will do _something_, choose:
+    //  - default: Show a context menu.
+    //  - copyPaste: Copy when there is a selection, otherwise paste.
+    //  - selectWord: Select the word under the cursor and show the context menu.
+    "terminal.integrated.rightClickBehavior": "selectWord",
+    // I want a lot more scrollback than the default
+    "terminal.integrated.scrollback": 5000,
+    "terminal.integrated.setLocaleVariables": true,
+    "terminal.integrated.shellIntegration.enabled": false,
+    // Obviously you should use the latest PTY on Windows
+    "terminal.integrated.windowsEnableConpty": true,
+    "vs-kubernetes": {
+        "vs-kubernetes.crd-code-completion": "enabled"
+    },
+    "vsicons.dontShowNewVersionMessage": true,
+    // Personally, I don't need to see the menus. They show up when I press Alt ...
+    "window.menuBarVisibility": "toggle",
+    // Personally, I want all files in the existing window (for speed)
+    "window.openFilesInNewWindow": "off",
+    // Personally, I want hot exit for everything
+    "window.restoreWindows": "all",
+    "window.title": "${rootName}${separator}${activeEditorShort}${dirty}${separator}${appName}",
+    // I can't figure out which VSCode is which without this
+    "window.titleBarStyle": "custom",
+    "window.zoomLevel": 0,
+    // Here we can put fixes to the current VS Code theme's colors
+    "workbench.colorCustomizations": {
+        "terminal.ansiBlack": "#212021",
+        "terminal.ansiBlue": "#01A0E4",
+        "terminal.ansiBrightBlack": "#493F3F",
+        "terminal.ansiBrightBlue": "#6ECEFF",
+        "terminal.ansiBrightCyan": "#95F2FF",
+        "terminal.ansiBrightGreen": "#6CD18E",
+        "terminal.ansiBrightMagenta": "#D29BC6",
+        "terminal.ansiBrightRed": "#FF6E6D",
+        "terminal.ansiBrightWhite": "#FFFCFF",
+        "terminal.ansiBrightYellow": "#FFFF85",
+        "terminal.ansiCyan": "#55C4CF",
+        "terminal.ansiGreen": "#01A252",
+        "terminal.ansiMagenta": "#A16A94",
+        "terminal.ansiRed": "#D92D20",
+        "terminal.ansiWhite": "#A5A2A2",
+        "terminal.ansiYellow": "#FBED02",
+        // I usually don't let Color Themes change the colors of the terminal, because Red should be Red ...
+        "terminal.background": "#212021", // The background of the Integrated Terminal's viewport.
+        "terminal.foreground": "#FFFCFF" // The default foreground color of the Integrated Terminal.
+    },
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    // I like the sidebar on the right
+    "workbench.sideBar.location": "right",
+    "workbench.startupEditor": "welcomePage"
+}

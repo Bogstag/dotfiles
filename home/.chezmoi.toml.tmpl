@@ -9,7 +9,8 @@
 {{- $chassisType := (output "hostnamectl" "--json=short" | fromJson).Chassis }}
 
 {{- if eq .chezmoi.os "windows" }}
-  # Windows
+# Windows
+follow = true
 {{- else if eq .chezmoi.os "linux" }}
   # All linux
 {{- end }}
@@ -24,7 +25,22 @@
   HOME = "{{ .chezmoi.homeDir }}"
 
 [data]
-  {{ if eq .chezmoi.os "linux" -}} bws_access_token = {{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" | quote }} {{- end }}
+  {{ if eq .chezmoi.os "linux" -}}
+  bws_access_token = {{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" | quote }}
+  shell = "/usr/bin/bash"
+  {{- end }}
+  {{- if eq .chezmoi.os "windows" }}
+  shell = "PowerShell"
+  shellexe = "pwsh.exe"
+
+[cd]
+  command = "pwsh"
+  args = ["-NoProfile", "-NoLogo"]
+
+[interpreters.ps1]
+  command = "pwsh"
+  args = ["-NoLogo", "-NoProfile"]
+  {{- end }}
 
 [edit]
   command = "code"
@@ -35,8 +51,13 @@
   pager = "delta"
 
 [merge]
+{{ if eq .chezmoi.os "linux" -}}
   command = "meld"
   args = ["{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
-
+{{- end }}
+{{- if eq .chezmoi.os "windows" }}
+  command = "code-insiders"
+  args = "--wait $MERGED"
+{{- end }}
 [template]
   options = ["missingkey=zero"]

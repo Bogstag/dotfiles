@@ -1,4 +1,3 @@
-#! /usr/bin/env bash
 #:schema https://mise.jdx.dev/schema/mise-task.json
 
 ["render:tasks"]
@@ -14,10 +13,10 @@
   run = "hk check --staged --sarif ./tests/latest.sarif"
 
 [Check-all]
-  run = "hk check --all --quiet --stage --sarif ./tests/latest.sarif"
+  run = "hk check --all --stage --sarif ./tests/latest.sarif"
 
 [Fix-all]
-  run = "hk fix --all --quiet --stage --sarif ./tests/latest.sarif"
+  run = "hk fix --all --stage --sarif ./tests/latest.sarif"
 
 [Chezmoi-edit-config]
   run = "chezmoi edit-config"
@@ -36,3 +35,9 @@
 
 [pre-commit]
   run = "hk run pre-commit"
+
+[Get-all-file-ext-in-dir]
+  run = '''
+  #!/usr/bin/env bash
+  find . -type f | sed -rn 's|.*/[^/]+\.([^/.]+)$|\1|p' | sort -u
+  '''
