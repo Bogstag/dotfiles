@@ -11,24 +11,22 @@ groq)
 	;;
 google-generate | gog)
 	url="https://generativelanguage.googleapis.com/v1beta/models?key=$GEMINI_API_KEY"
-	# jq="[.models[].name]"
+	jq='[.models[].name | sub("^models/"; "")]'
 	key="?"
-	# TODO: Auto filter model/
 	;;
 google-openai | goa)
 	url="https://generativelanguage.googleapis.com/v1beta/openai/models"
-	# jq="[.data[].id]"
+	jq='[.data[].id | sub("^models/"; "")]'
 	key="$GEMINI_API_KEY"
-	# TODO: Auto filter model/
 	;;
 openrouter)
 	url="https://openrouter.ai/api/v1/models"
-	# jq="[.data[] | select(.id | endswith('free')) | .id]"
+	jq="[.data[] | select(.id | endswith('free')) | .id]"
 	key=""
 	;;
 opencode-zen | zen)
 	url="https://opencode.ai/zen/v1/models"
-	# jq="[.data[] | select(.id | endswith('free')) | .id]"
+	jq="[.data[] | select(.id | endswith('free')) | .id]"
 	key=""
 	;;
 *)
@@ -39,12 +37,9 @@ opencode-zen | zen)
 esac
 
 if [ "$key" == "" ]; then
-	# TODO: Replace jq filter with $jq
-	curl -s "$url" | jq "[.data[] | select(.id | endswith(\"free\")) | .id]"
+	curl -s "$url" | jq "$jq"
 elif [ "$key" == "?" ]; then
-	# TODO: Replace jq filter with $jq
-	curl -s "$url" | jq "[.models[].name]"
+	curl -s "$url" | jq "$jq"
 else
-	# TODO: Replace jq filter with $jq
-	curl -s "$url" -H "Authorization: Bearer $key" | jq "[.data[].id]"
+	curl -s "$url" -H "Authorization: Bearer $key" | jq "$jq"
 fi

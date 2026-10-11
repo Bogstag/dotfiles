@@ -47,13 +47,13 @@ model_verbosity = "low"
   enabled = true
 
 [plugins."pdf@openai-primary-runtime"]
-  enabled = true
+  enabled = false
 
 [plugins."spreadsheets@openai-primary-runtime"]
-  enabled = true
+  enabled = false
 
 [plugins."presentations@openai-primary-runtime"]
-  enabled = true
+  enabled = false
 
 [plugins."template-creator@openai-primary-runtime"]
   enabled = true
@@ -62,6 +62,9 @@ model_verbosity = "low"
   enabled = true
 
 [plugins."homelab@plugins"]
+  enabled = true
+
+[plugins."hk@plugins"]
   enabled = true
 
 [desktop]
@@ -75,12 +78,16 @@ model_verbosity = "low"
 [tui]
   resume_cwd = "session"
   screen_reader_detection_done = true
+  theme = "dracula"
+  fullscreen_transcript = false
 
 [tui.model_availability_nux]
-  "gpt-6.1-sol" = 1
+  "gpt-6.1-sol" = 3
 
 [features]
   memories = true
+  analytics_plan_history = true
+  login_shell_package_path = true
 
 [memories]
   generate_memories = true
