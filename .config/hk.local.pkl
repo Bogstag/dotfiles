@@ -1,42 +1,53 @@
 amends "/home/bogge/.config/hk.pkl"
-// amends "package://github.com/jdx/hk/releases/download/v2.0.0/hk@2.0.0#/Config.pkl"
+// amends "package://github.com/jdx/hk/releases/download/v2.5.0/hk@2.5.0#/Config.pkl"
 
-import "package://github.com/jdx/hk/releases/download/v2.0.0/hk@2.0.0#/Builtins.pkl"
+import "package://github.com/jdx/hk/releases/download/v2.5.0/hk@2.5.0#/Builtins.pkl"
 
-local linters = new Mapping {
-  // "category": "Secrets",
-  ["betterleaks"] = (Builtins.betterleaks) {}
-  // "category": "Infrastructure",
-  ["mise"] = (Builtins.mise) {}
-  // "category": "Pkl",
-  ["pkl-format"] = (Builtins.pkl_format) {}
-  ["pkl"] = (Builtins.pkl) {}
-  ["ryl-markdown"] = (Builtins.ryl_markdown)
-  ["ryl"] = (Builtins.ryl)
-  ["shellcheck"] = (Builtins.shellcheck) { exclude = List("**/*.tmpl") }
-  ["shellharden"] = (Builtins.shellharden) { exclude = List("**/*.tmpl") }
-  ["shfmt"] = (Builtins.shfmt) { exclude = List("**/*.tmpl") }
-  ["tombi-format"] = (Builtins.tombi_format) { exclude = List("mise.toml") }
-  ["tombi"] = (Builtins.tombi)
-  ["trailing-whitespace"] = Builtins.trailing_whitespace
-  ["newlines"] = Builtins.newlines
-  ["render"] = new Step {
+steps {
+  ["betterleaks"] = (Builtins.betterleaks) {
+  // description = "A Better Secrets Scanner built for configurability and speed"
+  }
+
+  ["mise"] = (Builtins.mise) {
+  // description = "mise-en-place's built-in formatter and linter"
+  }
+
+  ["pkl"] = Builtins.pkl // description = "Pkl configuration language"
+  ["pkl-format"] = Builtins.pkl_format // description = "Pkl formatter"
+
+  ["ryl"] = Builtins.ryl // description = "Re-implementation of yamllint in Rust"
+  ["ryl-markdown"] = Builtins.ryl_markdown // description = "Lint YAML embedded in Markdown (front matter + fenced yaml blocks) with ryl"
+
+  ["shell"] = new Group {
+    exclude = List("**/*.tmpl")
+    steps {
+      // FileSelector { glob = List("**/*.sh", "**/*.bash") }
+      // FileSelector { types = List("sh", "bash") }
+      ["shellcheck"] = Builtins.shellcheck
+      ["shellharden"] = Builtins.shellharden
+      // FileSelector { glob = List("**/*.sh", "**/*.bash", "**/*.mksh", "**/*.bats", "**/*.zsh") }
+      // FileSelector { types = List("sh", "bash") }
+      ["shfmt"] = Builtins.shfmt
+    }
+  }
+
+  ["tombi"] = (Builtins.tombi) {
+  // description = "TOML linter"
+  }
+  ["tombi-format"] = (Builtins.tombi_format) {
+    // description = "TOML formatter"
+    exclude = List("mise.toml")
+  }
+
+  ["trailing-whitespace"] = (Builtins.trailing_whitespace) {
+  // description = "Detect and remove trailing whitespace"
+  }
+  ["newlines"] = (Builtins.newlines) {
+  // description = "Ensure files end with newline"
+  }
+
+  ["mise-generate-task-docs"] = new Step {
     check = "mise run render:*"
     output_summary = "hide"
-  }
-}
-
-hooks {
-  ["pre-commit"] {
-    fix = true
-    stash = "git"
-    steps = linters
-  }
-  ["check"] {
-    steps = linters
-  }
-  ["fix"] {
-    fix = true
-    steps = linters
   }
 }

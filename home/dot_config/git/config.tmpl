@@ -38,8 +38,6 @@
 [gpg "ssh"]
 	allowedSignersFile = {{ .chezmoi.homeDir }}/.ssh/allowed_signers
 
-#[url "git@github.com:"]
-#    insteadOf = https://github.com/
 [credential "https://github.com"]
 	helper =
 	helper = !gh auth git-credential

@@ -29,6 +29,10 @@
 
 - **Usage:** `Mise-Install`
 
+## `pre-commit`
+
+- **Usage:** `pre-commit`
+
 ## `render:tasks`
 
 - **Usage:** `render:tasks`
