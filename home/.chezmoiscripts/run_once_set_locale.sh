@@ -10,7 +10,7 @@ if [ "$(id -u)" = "0" ]; then
 fi
 
 echo "Please do not run this script. Dont know if it works"
-exit 1
+exit 0
 
 # Add German and US English locales
 echo "Generating en_GB.UTF-8 en_US.UTF-8 sv_SE.UTF-8 locales..."
