@@ -17,6 +17,10 @@
 
 - **Usage:** `Fix-all`
 
+## `Get-all-file-ext-in-dir`
+
+- **Usage:** `Get-all-file-ext-in-dir`
+
 ## `Install-newer-versions`
 
 - **Usage:** `Install-newer-versions`

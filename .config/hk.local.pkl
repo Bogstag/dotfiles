@@ -84,13 +84,13 @@ steps {
     }
   }
 
-  ["lua"] = new Group {
-    steps {
-      ["luacheck"] = (Builtins.luacheck) {
-      // description = "Lua linter"
-      }
-    }
-  }
+  // ["lua"] = new Group {
+  //   steps {
+  //     ["luacheck"] = (Builtins.luacheck) {
+  //     // description = "Lua linter"
+  //     }
+  //   }
+  // }
 
   ["editorconfig-checker"] = new Group {
     steps {
