@@ -1,32 +1,55 @@
 #!/bin/bash
 
+# For gog and goa
+google_deprecated=("gemini-3.5-flash" "gemini-3.7-flash")
+google_remove=("lyria-3.5" "lyria-3-pro-preview" "lyria-3-clip-preview" "nano-banana-pro-preview" "veo-3.1-generate-preview" "antigravity-preview-05-2026" "antigravity-preview-09-2026" "antigravity-preview-latest" "aqa")
+google_excluded_argjson=$(jq -cn '$ARGS.positional' --args "${google_deprecated[@]}" "${google_remove[@]}")
+
 # Ta bort bindestreck i början, då funkar både "--openrouter" och "openrouter"
-provider="${1#--}"
+provider=""
+debug=false
+for arg in "$@"; do
+	case "$arg" in
+	-d | --debug)
+		debug=true
+		;;
+	*)
+		if [ "$provider" = "" ]; then
+			provider="${arg#--}"
+		fi
+		;;
+	esac
+done
+jq_args=()
 
 case "$provider" in
 groq)
 	url="https://api.groq.com/openai/v1/models"
-	# jq="[.data[].id]"
+	jq_filter="[.data[].id]"
 	key="$GROQ_API_KEY"
 	;;
 google-generate | gog)
 	url="https://generativelanguage.googleapis.com/v1beta/models?key=$GEMINI_API_KEY"
-	jq='[.models[].name | sub("^models/"; "")]'
-	key="?"
+	# shellcheck disable=SC2016
+	jq_filter='[.models[].name | sub("^models/"; "")] | map(select(. as $name | $excluded | index($name) | not)) | sort'
+	jq_args=(--argjson excluded "$google_excluded_argjson")
+	key=""
 	;;
 google-openai | goa)
 	url="https://generativelanguage.googleapis.com/v1beta/openai/models"
-	jq='[.data[].id | sub("^models/"; "")]'
+	# shellcheck disable=SC2016
+	jq_filter='[.data[].id | sub("^models/"; "")] | map(select(. as $name | $excluded | index($name) | not)) | sort'
+	jq_args=(--argjson excluded "$google_excluded_argjson")
 	key="$GEMINI_API_KEY"
 	;;
 openrouter)
 	url="https://openrouter.ai/api/v1/models"
-	jq="[.data[] | select(.id | endswith('free')) | .id]"
+	jq_filter="[.data[] | select(.id | endswith(\"free\")) | .id]"
 	key=""
 	;;
 opencode-zen | zen)
 	url="https://opencode.ai/zen/v1/models"
-	jq="[.data[] | select(.id | endswith('free')) | .id]"
+	jq_filter="[.data[] | select(.id | endswith(\"free\")) | .id]"
 	key=""
 	;;
 *)
@@ -35,11 +58,14 @@ opencode-zen | zen)
 	exit 1
 	;;
 esac
+if [ "$debug" = true ]; then
+	printf '\033[31m%s\033[0m\n' '-----##### DEBUG START #####-----'
+	printf '%s' 'jq' "${jq_args[@]}" "$jq_filter" | bat --language=JQ
+	printf '\033[31m%s\033[0m\n' '-----##### DEBUG END #####-----'
+fi
 
 if [ "$key" == "" ]; then
-	curl -s "$url" | jq "$jq"
-elif [ "$key" == "?" ]; then
-	curl -s "$url" | jq "$jq"
+	curl -s "$url" | jq "${jq_args[@]}" "$jq_filter"
 else
-	curl -s "$url" -H "Authorization: Bearer $key" | jq "$jq"
+	curl -s "$url" -H "Authorization: Bearer $key" | jq "${jq_args[@]}" "$jq_filter"
 fi

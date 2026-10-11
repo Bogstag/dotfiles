@@ -32,7 +32,9 @@ Sätt Token som data och hämta sedan hemligheterna så här:
 
 ```toml
 [data]
- {{ if eq .chezmoi.os "linux" -}} bws_access_token = {{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" | quote }} {{- end }}
+{{ if eq .chezmoi.os "linux" -}}
+bws_access_token = {{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" | quote }}
+{{- end }}
 
 {{ (bitwardenSecrets "0c12859e-ac06-43fd-bec3-b4ce0126fb07" .bws_access_token).value }}
 ```
@@ -101,19 +103,7 @@ chezmoi update
 chezmoi cd
 ```
 
-## Committa och pusha
-
-Från `chezmoi cd`:
-
-```sh
-git status
-git diff
-git add <filer>
-git commit -m "Beskriv ändringen"
-git push
-```
-
-Kontrollera alltid `chezmoi diff` och `git diff --cached` före commit, särskilt eftersom repot är publikt.
+Kontrollera alltid `chezmoi diff` och `git diff --cached` före commit.
 
 ## Installera applikationerna igen
 
@@ -131,34 +121,66 @@ Tailscale behöver därefter aktiveras och godkännas en gång per dator:
 omarchy install service tailscale
 ```
 
-Kommandot startar tjänsten, öppnar inloggningen, aktiverar Taildrop-mottagning och lägger till Tailscale i panelen. Tailscales maskinidentitet och autentisering är lokala och sparas inte i dotfiles.
+Kommandot startar tjänsten, aktiverar Taildropoch lägger till Tailscale i panelen.
+Tailscales maskinidentitet och autentisering är lokala och sparas inte i dotfiles.
 
-Bitwardens lokala appdata, Bitwarden CLI-sessioner, Steam-spel, cache och kontodata hanteras inte av chezmoi.
+## Sätta korrekt locale
 
-## Codex-skills
+Ange vilka språk som ska genereras.
 
-Globala Codex-skills installeras från sina upstream-repon med
-[`skills`](https://github.com/vercel-labs/skills). Se
-`run_once_after_20-install-codex-skills.sh` för vilka skills som installeras.
-
-`run_onchange_after_30-update-codex-skills.sh` uppdaterar globala skills när
-scriptet installeras eller ändras. Det körs alltså inte efter varje
-`chezmoi apply`. Uppdatera manuellt med samma kommando som scriptet använder:
-
-```sh
-npx --yes skills update --global --yes
+```bash
+sudo nvim /etc/locale.gen
+# Okommentera dessa språk
+en_GB.UTF-8 UTF-8
+en_US.UTF-8 UTF-8
+sv_SE.UTF-8 UTF-8
 ```
 
-## Codex-konfiguration
+Alternativt så går det att generera dessa direkt utan .gen filen.
+**Jag har aldrig testat.**
 
-`~/.codex/config.toml` är avsiktligt inte en helt hanterad chezmoi-fil:
-Codex ändrar lokal appstatus och modellval i den. Modifieraren
-`private_dot_codex/modify_private_config.toml.tmpl` säkerställer däremot vid varje
-`chezmoi apply` att Aperture-providern och dess MCP-server är konfigurerade.
-Övriga inställningar bevaras.
+```bash
+sudo locale-gen en_GB.UTF-8 en_US.UTF-8 sv_SE.UTF-8
+```
 
-## Tasks
+Kör `sudo locale-gen`för att generera språken.
 
-<!-- mise-tasks -->
+```bash
+sudo locale-gen
+Generating locales...
+en_GB.UTF-8... done
+en_US.UTF-8... done
+sv_SE.UTF-8... done
+Generation complete.
+```
 
-<!-- /mise-tasks -->
+Konfigurera de språk som ska användas.
+
+```bash
+>_ sudo nvim /etc/locale.conf
+# Do not set overrides everything below!
+# LC_ALL
+
+# Primary language is British English.
+# First fallback to Swedish, second fallback to generic English.
+LANGUAGE=en_GB:sv:en
+
+# Global default fallback for everything else
+LANG=en_GB.UTF-8
+# LC_MESSAGES inherits from LANG
+# LC_CTYPE inherits from LANG
+
+# Sorting (Swedish: Z, Å, Ä, Ö)
+LC_COLLATE=sv_SE.UTF-8
+
+# Swedish regional formats
+LC_ADDRESS=sv_SE.UTF-8
+LC_IDENTIFICATION=sv_SE.UTF-8
+LC_MEASUREMENT=sv_SE.UTF-8
+LC_MONETARY=sv_SE.UTF-8
+LC_NAME=sv_SE.UTF-8
+LC_NUMERIC=sv_SE.UTF-8
+LC_PAPER=sv_SE.UTF-8
+LC_TELEPHONE=sv_SE.UTF-8
+LC_TIME=sv_SE.UTF-8
+```

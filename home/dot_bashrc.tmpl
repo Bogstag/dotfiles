@@ -3,8 +3,8 @@
 {{ template "bashrc-omarchy.sh" . }}
 {{ end -}}
 
-PATH="{{ .chezmoi.homeDir }}/bin:$PATH"
-export PATH
+# Omarchy defaults can be found here:
+# /usr/share/omarchy/default/bash
 
 # Aliases.
 if [ -f "{{ .chezmoi.homeDir }}/.bash_aliases" ]; then
