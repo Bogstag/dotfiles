@@ -1,6 +1,6 @@
 #:schema https://www.schemastore.org/ryl.json
 
-ignore = ["**/modify_*.yml"]
+ignore = ["**/modify_*.yml", "**/modify_*.toml"]
 
 [files]
   yaml = [
@@ -26,21 +26,26 @@ ignore = ["**/modify_*.yml"]
   empty-values = "disable"
   float-values = "disable"
   hyphens = "enable"
-  indentation = "enable"
   key-duplicates = "enable"
   key-ordering = "disable"
-  line-length = "disable"
   new-line-at-end-of-file = "enable"
   new-lines = "enable"
   octal-values = "disable"
   quoted-strings = "disable"
   trailing-spaces = "enable"
 
+[rules.line-length]
+  max = 80
+
+[rules.indentation]
+  level = "error"
+  spaces = 2
+
 [rules.comments]
-  level = "warning"
+  level = "error"
 
 [rules.comments-indentation]
-  level = "warning"
+  level = "error"
 
 [rules.truthy]
-  level = "warning"
+  level = "error"

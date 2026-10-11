@@ -50,11 +50,25 @@
       ],
       "right": [
         {
-          "id": "omarchy.tray",
-          "pinned": [
+          "id": "io.github.tyrichards.tray",
+          "hidden": [],
+          "order": [
             "chrome_status_icon_1"
           ],
-          "hidden": []
+          "showTrayIcons": true,
+          "widgets": [
+            {
+              "entry": {},
+              "listed": true
+            },
+            {
+              "entry": {},
+              "listed": true
+            }
+          ]
+        },
+        {
+          "id": "omarchy.spacer"
         },
         {
           "id": "omarchy.spacer"
@@ -79,7 +93,12 @@
           "id": "omarchy.tailscale"
         },
         {
-          "id": "omarchy.spacer"
+          "id": "cvatca.eyecare",
+          "smallIntervalMinutes": 20,
+          "smallBreakSeconds": 20,
+          "bigIntervalMinutes": 60,
+          "bigBreakMinutes": 10,
+          "bigBreakSkippable": true
         },
         {
           "id": "omarchy.bluetooth"
@@ -99,5 +118,21 @@
       ]
     }
   },
-  "plugins": []
+  "plugins": [
+    {
+      "id": "io.github.tyrichards.tray"
+    },
+    {
+      "id": "cvatca.eyecare"
+    },
+    {
+      "id": "omarchy.tailscale"
+    },
+    {
+      "id": "akitaonrails.ai-usagebar"
+    },
+    {
+      "id": "io.github.dadofsambonzuki.chezmoi-hound"
+    }
+  ]
 }

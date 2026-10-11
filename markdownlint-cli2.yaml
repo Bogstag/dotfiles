@@ -1,10 +1,10 @@
 ---
+config:
+  code-block-style: false
+  fenced-code-language: false
+  intendention: 2
+  line-length: false
+  link-image-reference-definitions: false
+  no-trailing-punctuation: false
 globs:
   - "**/*.md"
-config:
-  line-length: false
-  no-trailing-punctuation: false
-  fenced-code-language: false
-  code-block-style: false
-  link-image-reference-definitions: false
-  intendention: 2

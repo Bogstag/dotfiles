@@ -1,22 +1,25 @@
-amends "package://github.com/jdx/hk/releases/download/v2.0.0/hk@2.0.0#/Config.pkl"
+amends "/home/bogge/.config/hk.pkl"
+// amends "package://github.com/jdx/hk/releases/download/v2.0.0/hk@2.0.0#/Config.pkl"
 
 import "package://github.com/jdx/hk/releases/download/v2.0.0/hk@2.0.0#/Builtins.pkl"
-// Using a coding agent? See https://hk.jdx.dev/agents
 
 local linters = new Mapping {
-  ["betterleaks"] = Builtins.betterleaks
-  ["hk-test"] = Builtins.hk_test
-  ["mise"] = Builtins.mise
-  ["pkl-format"] = Builtins.pkl_format
-  ["pkl"] = Builtins.pkl
-  ["ryl-markdown"] = Builtins.ryl_markdown
-  ["ryl"] = Builtins.ryl
+  // "category": "Secrets",
+  ["betterleaks"] = (Builtins.betterleaks) {}
+  // "category": "Infrastructure",
+  ["mise"] = (Builtins.mise) {}
+  // "category": "Pkl",
+  ["pkl-format"] = (Builtins.pkl_format) {}
+  ["pkl"] = (Builtins.pkl) {}
+  ["ryl-markdown"] = (Builtins.ryl_markdown)
+  ["ryl"] = (Builtins.ryl)
   ["shellcheck"] = (Builtins.shellcheck) { exclude = List("**/*.tmpl") }
   ["shellharden"] = (Builtins.shellharden) { exclude = List("**/*.tmpl") }
   ["shfmt"] = (Builtins.shfmt) { exclude = List("**/*.tmpl") }
   ["tombi-format"] = (Builtins.tombi_format) { exclude = List("mise.toml") }
-  ["tombi"] = Builtins.tombi
+  ["tombi"] = (Builtins.tombi)
   ["trailing-whitespace"] = Builtins.trailing_whitespace
+  ["newlines"] = Builtins.newlines
   ["render"] = new Step {
     check = "mise run render:*"
     output_summary = "hide"
