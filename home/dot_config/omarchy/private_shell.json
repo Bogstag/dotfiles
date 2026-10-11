@@ -74,7 +74,8 @@
           "id": "omarchy.spacer"
         },
         {
-          "id": "io.github.dadofsambonzuki.chezmoi-hound"
+          "id": "io.github.dadofsambonzuki.chezmoi-hound",
+          "whenClean": "Show"
         },
         {
           "id": "omarchy.spacer"
