@@ -42,6 +42,11 @@ google-openai | goa)
 	jq_args=(--argjson excluded "$google_excluded_argjson")
 	key="$GEMINI_API_KEY"
 	;;
+mistral)
+	url="https://api.mistral.ai/v1/models"
+	jq_filter='[.data[].id] | sort'
+	key="$MISTRAL_API_KEY"
+	;;
 openrouter)
 	url="https://openrouter.ai/api/v1/models"
 	jq_filter="[.data[] | select(.id | endswith(\"free\")) | .id]"
