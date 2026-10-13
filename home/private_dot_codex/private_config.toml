@@ -135,6 +135,18 @@ sandbox_mode = "workspace-write"
   fullscreen_transcript = true
   resume_cwd = "session"
   screen_reader_detection_done = true
+
+  # tombi: format.rules.array-values-order = { disabled = true }
+  status_line = [
+    "model-with-reasoning",
+    "project-root",
+    "current-dir",
+    "git-branch",
+    "context-remaining",
+    "five-hour-limit",
+    "weekly-limit"
+  ]
+  status_line_use_colors = true
   theme = "dracula"
 
 [tui.model_availability_nux]

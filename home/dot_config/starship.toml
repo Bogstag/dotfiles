@@ -1,12 +1,13 @@
 #:schema https://starship.rs/config-schema.json
+# tombi: format.rules.table-keys-order = "ascending"
 
 # Use the color palette
 palette = "dracula"
 
 # add_newline = false
 command_timeout = 200
-scan_timeout = 10
 continuation_prompt = "▶▶ "
+scan_timeout = 10
 
 # Icons ple
 #                              
@@ -23,11 +24,12 @@ continuation_prompt = "▶▶ "
 #              
 #
 #   󰯉  ⬬
-# [ ▒▓
-# [░▒▓](#a3aed2)\ [](purple)\
+# [ ▒▓] 
+# [ ░▒▓](#a3aed2)\ [](purple)\
 format = """
-[ ](blue)\
+[](bg:blue fg:crust)\
 $shell\
+[](bg:purple fg:blue)\
 $os\
 [](bg:cyan fg:purple)\
 $directory\
@@ -52,162 +54,20 @@ $cmd_duration\
 $time\
 [](fg:comment bg:crust)\
 $line_break\
-[  ╰](bold fg:blue)\
+[╰](bold fg:blue)\
 $character"""
 
-[os]
-  disabled = false
-  style = "bg:purple fg:crust"
-  format = "[ $symbol ]($style)"
+[aws]
+  disabled = true
 
-[os.symbols]
-  Alpine = ""
-  Arch = "󰣇"
-  Raspbian = "󰐿"
-  Ubuntu = "󰕈"
-  Windows = "󰍲"
+[battery]
+  disabled = true
 
-[shell]
-  fish_indicator = "󰈺"
-  bash_indicator = "󱆃"
-  pwsh_indicator = "_"
-  powershell_indicator = ""
-  cmd_indicator = ""
-  unknown_indicator = ""
-  disabled = false
-  style = "bg:blue"
-  format = "[ $indicator ]($style)"
+[bun]
+  disabled = true
 
-[directory]
-  style = "bg:cyan fg:crust"
-  format = "[ $path ]($style)"
-  truncation_length = 10
-  truncation_symbol = "…/"
-
-[directory.substitutions]
-  ".cache" = "󰃨"
-  ".config" = ""
-  ".data" = "󱙋"
-  ".dotfies" = ""
-  ".dotnet" = "󰪮"
-  ".git" = ""
-  ".nuget" = ""
-  ".ssh" = "󰣀"
-  ".vscode-insiders" = ""
-  ".vscode" = ""
-  "Ansible" = ""
-  "API" = "󱂛"
-  "AppData" = ""
-  "Astro" = ""
-  "bash" = ""
-  "cloudflare" = ""
-  "dbeaver" = ""
-  "Desktop" = ""
-  "dev" = ""
-  "Docker" = ""
-  "eleventy" = ""
-  "eslint" = ""
-  "git" = ""
-  "javascript" = ""
-  "json" = ""
-  "less" = ""
-  "Links" = ""
-  "linux" = ""
-  "markdown" = ""
-  "md" = ""
-  "nginx" = ""
-  "node" = ""
-  "npm" = ""
-  "nppWorkspace" = "󰎞"
-  "nuxt" = ""
-  "Perl" = ""
-  "PowerShell" = "_"
-  "Python" = ""
-  "repos" = ""
-  "Scoop" = ""
-  "ssh" = "󰣀"
-  "Sync" = "󱈖"
-  "SyncB" = "󱦕"
-  "Ubuntu" = "󰕈"
-  "unicode" = "󰻐"
-  "vite" = ""
-  "vitejs" = ""
-  "vitess" = ""
-  "vitest" = ""
-  "vscode-insiders" = ""
-  "vscode" = ""
-  "vue" = ""
-  "vuejs" = ""
-  "vuetify" = ""
-  "windows" = ""
-  Documents = "󰈙 "
-  Downloads = " "
-  Music = " "
-  Pictures = " "
-  Projects = "󰲋 "
-
-[git_branch]
-  symbol = ""
-  style = "bg:pink"
-  format = "[[ $symbol $branch ](fg:crust bg:pink)]($style)"
-
-[git_status]
-  style = "bg:pink"
-  format = "[[$all_status $ahead_behind](fg:crust bg:pink)]($style)"
-  ahead = "⇡ ${count} "
-  behind = "⇣ ${count} "
-  untracked = " ${count} "
-  modified = " ${count} "
-  deleted = " ${count} "
-  staged = " ${count} "
-
-[nodejs]
-  symbol = ""
-  style = "bg:green"
-  format = "[[ $symbol( $version) ](fg:crust bg:green)]($style)"
-
-[golang]
-  symbol = ""
-  style = "bg:green"
-  format = "[[ $symbol( $version) ](fg:crust bg:green)]($style)"
-
-[python]
-  symbol = ""
-  style = "bg:green"
-  format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:green)]($style)'
-
-[docker_context]
-  style = "bg:comment"
-  format = "[[ $symbol( $context) ](fg:crust bg:comment)]($style)"
-
-[mise]
-  disabled = false
-  symbol = ""
-  healthy_symbol = ""
-  unhealthy_symbol = ""
-  style = "fg:crust bg:pink"
-  format = "[ $symbol $health ]($style)"
-
-[terraform]
-  disabled = false
-  style = "bg:comment"
-  format = "[via $symbol$workspace]($style)"
-
-[jobs]
-  symbol = "󰒓"
-  number_threshold = 1
-  symbol_threshold = 1
-  style = "bg:cyan"
-  format = "[ $symbol $number](fg:crust bg:comment)]($style)"
-
-[time]
-  disabled = false
-  time_format = "%H:%M"
-  style = "bg:comment"
-  format = "[[  $time ](fg:crust bg:comment)]($style)"
-
-[line_break]
-  disabled = false
+[c]
+  disabled = true
 
 [character]
   disabled = false
@@ -226,23 +86,138 @@ $character"""
   show_notifications = false
   min_time_to_notify = 45000
 
-[username]
-  disabled = true
+[directory]
+  style = "bg:cyan fg:crust"
+  format = "[ $path ]($style)"
+  truncation_length = 10
+  truncation_symbol = "…/"
 
-[aws]
-  disabled = true
+# tombi: format.rules.table-keys-order = "ascending"
+[directory.substitutions]
+  ".cache" = "󰃨"
+  ".config" = ""
+  ".data" = "󱙋"
+  ".dotfies" = ""
+  ".dotnet" = "󰪮"
+  ".git" = ""
+  ".nuget" = ""
+  ".ssh" = "󰣀"
+  ".vscode" = ""
+  ".vscode-insiders" = ""
+  API = "󱂛"
+  Ansible = ""
+  Astro = ""
+  Desktop = ""
+  Docker = ""
+  Documents = "󰈙 "
+  Downloads = " "
+  Links = ""
+  Music = " "
+  Perl = ""
+  Pictures = " "
+  PowerShell = "_"
+  Projects = "󰲋 "
+  Python = ""
+  Scoop = ""
+  Sync = "󱈖"
+  SyncB = "󱦕"
+  Ubuntu = "󰕈"
+  bash = ""
+  cloudflare = ""
+  dbeaver = ""
+  dev = ""
+  eleventy = ""
+  eslint = ""
+  git = ""
+  javascript = ""
+  json = ""
+  less = ""
+  linux = ""
+  markdown = ""
+  md = ""
+  nginx = ""
+  node = ""
+  npm = ""
+  nppWorkspace = "󰎞"
+  nuxt = ""
+  repos = ""
+  ssh = "󰣀"
+  unicode = "󰻐"
+  vite = ""
+  vitejs = ""
+  vitess = ""
+  vitest = ""
+  vscode = ""
+  vscode-insider = ""
+  vue = ""
+  vuejs = ""
+  vuetify = ""
+  windows = ""
 
-[battery]
-  disabled = true
+[docker_context]
+  style = "bg:comment"
+  format = "[[$symbol( $context)](fg:crust bg:comment)]($style)"
 
 [elixir]
   disabled = true
 
-[bun]
-  disabled = true
+[fill]
+  symbol = " "
 
-[c]
-  disabled = true
+[git_branch]
+  symbol = ""
+  style = "bg:pink"
+  format = "[[$symbol $branch](fg:crust bg:pink)]($style)"
+
+[git_status]
+  style = "bg:pink"
+  format = "[[$all_status $ahead_behind](fg:crust bg:pink)]($style)"
+  ahead = "⇡ ${count} "
+  behind = "⇣ ${count} "
+  untracked = " ${count} "
+  modified = " ${count} "
+  deleted = " ${count} "
+  staged = " ${count} "
+
+[golang]
+  symbol = ""
+  style = "bg:green"
+  format = "[[ $symbol( $version) ](fg:crust bg:green)]($style)"
+
+[jobs]
+  symbol = "󰒓"
+  number_threshold = 1
+  symbol_threshold = 1
+  style = "bg:cyan"
+  format = "[ $symbol $number](fg:crust bg:comment)]($style)"
+
+[line_break]
+  disabled = false
+
+[mise]
+  disabled = false
+  symbol = ""
+  healthy_symbol = ""
+  unhealthy_symbol = ""
+  style = "fg:crust bg:pink"
+  format = "[ $symbol $health ]($style)"
+
+[nodejs]
+  symbol = ""
+  style = "bg:green"
+  format = "[[ $symbol( $version) ](fg:crust bg:green)]($style)"
+
+[os]
+  disabled = false
+  style = "bg:purple fg:crust"
+  format = "[ $symbol ]($style)"
+
+[os.symbols]
+  Alpine = ""
+  Arch = "󰣇"
+  Raspbian = "󰐿"
+  Ubuntu = "󰕈"
+  Windows = "󰍲"
 
 [palettes.dracula]
   base = "#1e1e2e"
@@ -259,3 +234,32 @@ $character"""
 
   # Orginal
   # crust = "#11111b"
+
+[python]
+  symbol = ""
+  style = "bg:green"
+  format = '[[ $symbol( $version)(\(#$virtualenv\)) ](fg:crust bg:green)]($style)'
+
+[shell]
+  bash_indicator = "󱆃"
+  pwsh_indicator = "_"
+  powershell_indicator = ""
+  cmd_indicator = ""
+  unknown_indicator = ""
+  disabled = false
+  style = "bg:blue fg:crust"
+  format = "[ $indicator ]($style)"
+
+[terraform]
+  disabled = false
+  style = "bg:comment"
+  format = "[via $symbol$workspace]($style)"
+
+[time]
+  disabled = false
+  time_format = "%H:%M"
+  style = "bg:comment"
+  format = "[[  $time ](fg:crust bg:comment)]($style)"
+
+[username]
+  disabled = true

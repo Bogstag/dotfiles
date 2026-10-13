@@ -52,25 +52,11 @@
       ],
       "right": [
         {
-          "id": "io.github.tyrichards.tray",
-          "hidden": [],
-          "order": [
+          "id": "omarchy.tray",
+          "pinned": [
             "chrome_status_icon_1"
           ],
-          "showTrayIcons": true,
-          "widgets": [
-            {
-              "entry": {},
-              "listed": true
-            },
-            {
-              "entry": {},
-              "listed": true
-            }
-          ]
-        },
-        {
-          "id": "omarchy.spacer"
+          "hidden": []
         },
         {
           "id": "omarchy.spacer"
@@ -96,14 +82,6 @@
           "id": "omarchy.tailscale"
         },
         {
-          "id": "cvatca.eyecare",
-          "smallIntervalMinutes": 20,
-          "smallBreakSeconds": 20,
-          "bigIntervalMinutes": 60,
-          "bigBreakMinutes": 10,
-          "bigBreakSkippable": true
-        },
-        {
           "id": "omarchy.bluetooth"
         },
         {
@@ -123,10 +101,7 @@
   },
   "plugins": [
     {
-      "id": "io.github.tyrichards.tray"
-    },
-    {
-      "id": "cvatca.eyecare"
+      "id": "omarchy.tray"
     },
     {
       "id": "omarchy.tailscale"

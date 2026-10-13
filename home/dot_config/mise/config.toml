@@ -56,3 +56,4 @@
   "npm:@masculinecache/mem-axi" = "latest"
   shfmt = "latest"
   playwright = "latest"
+  resvg = "latest"
