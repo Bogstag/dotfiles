@@ -1,7 +1,5 @@
 #:schema https://mise.jdx.dev/schema/mise.json
-
-[task_config]
-  includes = ["tasks.toml"]
+# tombi: format.rules.table-keys-order = "ascending"
 
 [env]
   _.path = "~/bin"
@@ -12,11 +10,6 @@
   color_theme = "dracula"
   lockfile = false
 
-[settings.skills]
-  dir = ".agents/skills"
-  auto_sync = true
-  prune = true
-
 [settings.packslip]
   exec = true
 
@@ -24,36 +17,46 @@
   # credential_command = "gh auth token"
   # use_git_credentials = true
 
+[settings.skills]
+  dir = ".agents/skills"
+  auto_sync = true
+  prune = true
+
+[task_config]
+  includes = ["tasks.toml"]
+
+# tombi: format.rules.table-keys-order = "ascending"
 [tools]
-  "github:daptify14/chezit" = { version = "latest", os = ["linux"] }
+  agy = "latest"
+  "aqua:owenlamont/ryl" = "latest"
+  betterleaks = "latest"
+  biome = "latest"
+  bitwarden-secrets-manager = "latest"
   codex = "latest"
   copilot = "latest"
+  crush = "latest"
+  editorconfig-checker = "latest"
   gemini = { version = "latest", allow_builds = ["@github/keytar", "node-pty"] }
   gh = "latest"
-  node = "26.7.0"
-  opencode = "latest"
-  yazi = "latest"
-  tombi = "1.5.5"
-  agy = "latest"
-  betterleaks = "latest"
-  crush = "latest"
-  java = "latest"
-  "aqua:owenlamont/ryl" = "latest"
-  ripgrep = "latest"
-  lua = "latest"
-  bitwarden-secrets-manager = "latest"
-  python = "latest"
-  editorconfig-checker = "latest"
+  "github:daptify14/chezit" = { version = "latest", os = ["linux"] }
+  go = "latest"
   hk = "latest"
-  pkl = "latest"
-  shellharden = "latest"
-  shellcheck = "latest"
-  rg = "latest"
+  hunk = "latest"
+  java = "latest"
+  lua = "latest"
+  node = "26.7.0"
+  "npm:@masculinecache/mem-axi" = "latest"
+  opencode = "latest"
   oxfmt = "latest"
   oxlint = "latest"
-  go = "latest"
-  hunk = "latest"
-  "npm:@masculinecache/mem-axi" = "latest"
-  shfmt = "latest"
+  pkl = "latest"
   playwright = "latest"
+  python = "latest"
   resvg = "latest"
+  rg = "latest"
+  ripgrep = "latest"
+  shellcheck = "latest"
+  shellharden = "latest"
+  shfmt = "latest"
+  tombi = "latest"
+  yazi = "latest"

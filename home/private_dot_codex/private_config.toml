@@ -11,6 +11,12 @@ model_reasoning_effort = "medium"
 model_verbosity = "low"
 sandbox_mode = "workspace-write"
 
+[apps.connector_20205bf7d4e99a89d7154bb849718324]
+  enabled = true
+
+[apps.connector_openai_chatgpt_pets]
+  enabled = false
+
 [desktop]
   ambient-suggestions-enabled = false
   appearanceDarkCodeThemeId = "dracula"
@@ -36,10 +42,16 @@ sandbox_mode = "workspace-write"
   diffRemoved = "#ff5555"
   skill = "#ff79c6"
 
+# tombi: format.rules.table-keys-order = "ascending"
 [features]
   analytics_plan_history = true
+  fast_mode = false
+  hooks = true
   login_shell_package_path = true
   memories = true
+
+[features.guardianv2]
+  enabled = false
 
 [hooks.state."/home/bogge/.codex/hooks.json:session_start:0:0"]
   trusted_hash = "sha256:25c9ca70d3148d3004ea3982a4b1f9e085528cb65790f18ec2f91c3af7df687d"
@@ -126,6 +138,9 @@ sandbox_mode = "workspace-write"
   enabled = true
 
 [projects."/home/bogge/.local/share/chezmoi"]
+  trust_level = "trusted"
+
+[projects."/home/bogge/Projects/ObsidianRnDVault"]
   trust_level = "trusted"
 
 [sandbox_workspace_write]
