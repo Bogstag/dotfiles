@@ -2,3 +2,8 @@
   type = "file"
   url = "https://raw.githubusercontent.com/dracula/lazygit/main/config/dracula.yml"
   refreshPeriod = "672h"
+
+[".local/share/delta/dracula.gitconfig"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/dracula/delta/main/dracula.gitconfig"
+  refreshPeriod = "672h"

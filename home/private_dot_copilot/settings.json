@@ -1,0 +1,23 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "bash": "bash '/home/bogge/.copilot/hooks/herdr-agent-state.sh'",
+        "timeoutSec": 10,
+        "type": "command"
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": null,
+        "hooks": [
+          {
+            "type": "command",
+            "command": "hk agent stop-hook --target codex",
+            "timeout": 120
+          }
+        ]
+      }
+    ]
+  }
+}

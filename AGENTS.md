@@ -45,9 +45,14 @@ Project skills is installed in .agents/skills (~/.local/share/chezmoi/.agents). 
 .agents/skills/hk-configure/SKILL.md
 .agents/skills/hk-debug/SKILL.md
 
-## Using hk from a coding agent
+## hk
 
-Inspect and plan before running. Scope checks to changed files with `--files0-from` and use `--cd` to select the project root. Prefer `--safe`, inspect command effects, and require approval for unknown or destructive commands. Consume JSON or JSONL diagnostics while retaining raw output, and always review the diff produced by a fix. MCP clients should use `inspect_project`, `plan`, safe run tools, paged output, and `get_diff` rather than invoking arbitrary shell commands.
+- Before changing files, inspect the project with `hk mcp` or `hk run check --safe --format json`.
+- Scope checks to the files you changed. For exact filenames, write a NUL-delimited list and use `--files0-from`; use `--cd` instead of changing hk's process-wide directory.
+- Inspect each planned command's effect. Prefer `--safe`; never run an unknown or destructive command without explicit user approval.
+- Consume normalized diagnostics from JSON/JSONL, preserve raw tool output for debugging, and review the resulting diff after fixes.
+- Use `hk run check --safe --format jsonl` for streaming lifecycle events. A final summary is emitted even when a step fails.
+- MCP clients should use `inspect_project`, `plan`, safe run tools, paged output, and `get_diff` rather than invoking arbitrary shell commands.
 
 ## Repository conventions
 

@@ -6,7 +6,7 @@
 	ci = commit
 	st = status
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [pull]
 	rebase = true 			 # Rebase (instead of merge) on pull
 [push]
@@ -75,6 +75,9 @@
     hyperlinks-file-link-format = "vscode://file/{path}:{line}"
     navigate = true  # use n and N to move between diff sections
     dark = true      # or light = true, or omit for auto-detection
+	features = dracula
+    side-by-side = true
+	line-numbers = true
 
 [merge]
     conflictStyle = zdiff3
@@ -82,3 +85,6 @@
 
 [pager]
 	diff = delta
+
+[include]
+    path = ~/.local/share/delta/dracula.gitconfig
