@@ -109,7 +109,9 @@ steps {
   }
 
   ["mise-generate-task-docs"] = new Step {
-    check = "mise run render:*"
+    glob = List("mise.toml", "tasks.toml", "tasks.md")
+    check = ".config/check-task-docs.sh"
+    fix = "mise run --force render:tasks"
     output_summary = "hide"
   }
 }

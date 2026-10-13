@@ -1,33 +1,31 @@
 #:schema https://mise.jdx.dev/schema/mise-task.json
-
-["render:tasks"]
-  description = "Generate tasks documentation"
-  env = { CLICOLOR_FORCE = "0" }
-  run = [
-    "mise generate task-docs --output tasks.md --style detailed --inject ",
-  ]
-  sources = ["mise"]
-  outputs = ["tasks.md"]
-
-[Check-staged]
-  run = "hk check --staged --sarif ./tests/latest.sarif"
+# tombi: format.rules.table-keys-order = "ascending"
 
 [Check-all]
   run = "hk check --all --stage --sarif ./tests/latest.sarif"
 
-[Fix-all]
-  run = "hk fix --all --stage --sarif ./tests/latest.sarif"
+[Check-staged]
+  run = "hk check --staged --sarif ./tests/latest.sarif"
 
 [Chezmoi-edit-config]
   run = "chezmoi edit-config"
 
-[Install-recorded-versions]
-  # Run mise install to install the recorded versions
-  run = "mise install"
+[Fix-all]
+  run = "hk fix --all --stage --sarif ./tests/latest.sarif"
+
+[Get-all-file-ext-in-dir]
+  run = '''
+  #!/usr/bin/env bash
+  find . -type f | sed -rn 's|.*/[^/]+\.([^/.]+)$|\1|p' | sort -u
+  '''
 
 [Install-newer-versions]
   # Use mise upgrade to install newer versions within the configured ranges and update the lockfile.
   run = "mise upgrade"
+
+[Install-recorded-versions]
+  # Run mise install to install the recorded versions
+  run = "mise install"
 
 [Mise-Install]
   # mise install --locked to require complete entries for supported backends.
@@ -36,8 +34,11 @@
 [pre-commit]
   run = "hk run pre-commit"
 
-[Get-all-file-ext-in-dir]
-  run = '''
-  #!/usr/bin/env bash
-  find . -type f | sed -rn 's|.*/[^/]+\.([^/.]+)$|\1|p' | sort -u
-  '''
+["render:tasks"]
+  description = "Generate tasks documentation"
+  env = { CLICOLOR_FORCE = "0" }
+  run = [
+    "mise generate task-docs --output README.md --style detailed --inject ",
+  ]
+  sources = ["mise"]
+  outputs = ["README.md"]
