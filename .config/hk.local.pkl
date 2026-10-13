@@ -22,8 +22,15 @@ steps {
       }
       ["check_shebang_scripts_are_executable"] = (Builtins.check_shebang_scripts_are_executable) {
         // description = "Verify files with shebang lines are executable"
-        exclude = List("**/*.ps1", "**/*.tmpl", "**/executable_*", "**/dot_*")
-        // , "**/*.toml"
+        // Bash startup files are sourced; executable_ sets the target's executable mode.
+        exclude =
+          List(
+            "**/*.ps1",
+            "**/*.tmpl",
+            "**/executable_*",
+            "home/dot_bash_profile",
+            "home/dot_bashrc.d/**",
+          )
       }
     }
   }
