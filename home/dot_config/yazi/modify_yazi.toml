@@ -8,7 +8,7 @@
 {{/* Load existing configuration */ -}}
 {{ $existing := dict -}}
 {{ if not (.chezmoi.stdin | trim | empty) -}}
-{{   $existing = fromToml .chezmoi.stdin -}}
+	{{ $existing = fromToml .chezmoi.stdin -}}
 {{ end -}}
 
 {{/* Merge existing with default, giving precedence to existing */ -}}

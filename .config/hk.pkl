@@ -6,34 +6,24 @@ import "package://github.com/jdx/hk/releases/download/v2.5.0/hk@2.5.0#/Builtins.
 // Groups can provide dir, prefix, workspace_indicator, shell, stage, and exclude.
 
 steps {
-  // ["hk-coverage"] = new Step {
-  //   check = "python3 .config/check-hk-coverage.py"
-  // }
   ["Special_Purpose"] = new Group {
     steps {
+      // ["hk-coverage"] = new Step {
+      //   check = "python3 .utils/check-hk-coverage.py"
+      // }
       ["hk_test"] = (Builtins.hk_test) {
-        // description = "Run step-defined hk's tests"
-        diagnostic_format = "sarif"
-        // sarif = "../tests/latest.hk_test.sarif"
+      // description = "Run step-defined hk's tests"
       }
       ["trailing-whitespace"] = (Builtins.trailing_whitespace) {
-        // description = "Detect and remove trailing whitespace"
-        diagnostic_format = "sarif"
-        // sarif = "../tests/latest.trailing-whitespace.sarif"
+      // description = "Detect and remove trailing whitespace"
       }
       ["newlines"] = (Builtins.newlines) {
-        // description = "Ensure files end with newline"
-        diagnostic_format = "sarif"
-        // sarif = "../tests/latest.newlines.sarif"
+      // description = "Ensure files end with newline"
       }
       ["check_executables_have_shebangs"] = (Builtins.check_executables_have_shebangs) {
-        // description = "Verify executable files have shebang lines"
-        diagnostic_format = "sarif"
-        // sarif = "../tests/latest.check_executables_have_shebangs.sarif"
+      // description = "Verify executable files have shebang lines"
       }
       ["check_shebang_scripts_are_executable"] = (Builtins.check_shebang_scripts_are_executable) {
-        diagnostic_format = "sarif"
-        // sarif = "../tests/latest.heck_shebang_scripts_are_executable.sarif"
         // description = "Verify files with shebang lines are executable"
         // Bash startup files are sourced; executable_ sets the target's executable mode.
         exclude =
@@ -51,14 +41,10 @@ steps {
   ["pkl"] = new Group {
     steps {
       ["pkl"] = (Builtins.pkl) {
-        // description = "Pkl configuration language"
-        diagnostic_format = "sarif"
-        // sarif = "../tests/latest.pkl.sarif"
+      // description = "Pkl configuration language"
       }
       ["pkl-format"] = (Builtins.pkl_format) {
-        // description = "Pkl formatter"
-        diagnostic_format = "sarif"
-        // sarif = "../tests/latest.pkl-format.sarif"
+      // description = "Pkl formatter"
       }
     }
   }
@@ -67,14 +53,10 @@ steps {
     exclude = List("**/modify_*.toml", "mise.toml")
     steps {
       ["tombi"] = (Builtins.tombi) {
-        // description = "TOML linter"description = "Shell formatter"
-        diagnostic_format = "sarif"
-        // sarif = "../tests/latest.tombi.sarif"
+      // description = "TOML linter"description = "Shell formatter"
       }
       ["tombi-format"] = (Builtins.tombi_format) {
-        // description = "TOML formatter"
-        diagnostic_format = "sarif"
-        // sarif = "../tests/latest.tombi-format.sarif"
+      // description = "TOML formatter"
       }
     }
   }
@@ -82,14 +64,10 @@ steps {
   ["yaml"] = new Group {
     steps {
       ["ryl"] = (Builtins.ryl) {
-        // description = "Re-implementation of yamllint in Rust"
-        diagnostic_format = "sarif"
-        // sarif = "../tests/latest.ryl.sarif"
+      // description = "Re-implementation of yamllint in Rust"
       }
       ["ryl-markdown"] = (Builtins.ryl_markdown) {
-        // description = "Lint YAML embedded in Markdown (front matter + fenced yaml blocks) with ryl"
-        diagnostic_format = "sarif"
-        // sarif = "../tests/latest.ryl-markdown.sarif"
+      // description = "Lint YAML embedded in Markdown (front matter + fenced yaml blocks) with ryl"
       }
     }
   }
@@ -98,24 +76,18 @@ steps {
     exclude = List("**/*.tmpl")
     steps {
       ["shellharden"] = (Builtins.shellharden) {
-        // description = "The corrective bash syntax highlighter"
-        // types = List("bash", "sh")
-        diagnostic_format = "sarif"
-        // sarif = "../tests/latest.shellharden.sarif"
+      // description = "The corrective bash syntax highlighter"
+      // types = List("bash", "sh")
       }
       ["shellcheck"] = (Builtins.shellcheck) {
-        // description = "Shell script analyzer"
-        // FileSelector { glob = List("**/*.sh", "**/*.bash") }
-        // FileSelector { types = List("sh", "bash") }
-        diagnostic_format = "sarif"
-        // sarif = "../tests/latest.shellcheck.sarif"
+      // description = "Shell script analyzer"
+      // FileSelector { glob = List("**/*.sh", "**/*.bash") }
+      // FileSelector { types = List("sh", "bash") }
       }
       ["shfmt"] = (Builtins.shfmt) {
-        // description = "Shell formatter"
-        // FileSelector { glob = List("**/*.sh", "**/*.bash", "**/*.mksh", "**/*.bats", "**/*.zsh") }
-        // FileSelector { types = List("sh", "bash") }
-        diagnostic_format = "sarif"
-        // sarif = "../tests/latest.shfmt.sarif"
+      // description = "Shell formatter"
+      // FileSelector { glob = List("**/*.sh", "**/*.bash", "**/*.mksh", "**/*.bats", "**/*.zsh") }
+      // FileSelector { types = List("sh", "bash") }
       }
     }
   }
@@ -131,29 +103,23 @@ steps {
   ["editorconfig-checker"] = new Group {
     steps {
       ["editorconfig-checker"] = (Builtins.editorconfig_checker) {
-        // description = "Validate files against EditorConfig rules"
-        diagnostic_format = "sarif"
-        // sarif = "../tests/latest.editorconfig-checker.sarif"
+      // description = "Validate files against EditorConfig rules"
       }
     }
   }
 
   ["betterleaks"] = (Builtins.betterleaks) {
-    // description = "A Better Secrets Scanner built for configurability and speed"
-    diagnostic_format = "sarif"
-    // sarif = "../tests/latest.betterleaks.sarif"
+  // description = "A Better Secrets Scanner built for configurability and speed"
   }
 
   ["mise"] = (Builtins.mise) {
-    // description = "mise-en-place's built-in formatter and linter"
-    diagnostic_format = "sarif"
-    // sarif = "../tests/latest.mise.sarif"
+  // description = "mise-en-place's built-in formatter and linter"
   }
 
-  ["mise-generate-task-docs"] = new Step {
-    glob = List("mise.toml", "tasks.toml", "tasks.md")
-    check = ".config/check-task-docs.sh"
-    fix = "mise run --force render:tasks"
-    output_summary = "hide"
-  }
+  // ["mise-generate-task-docs"] = new Step {
+  //   glob = List("mise.toml", "tasks.toml", "tasks.md")
+  //   check = ".config/check-task-docs.sh"
+  //   fix = "mise run --force render:tasks"
+  //   output_summary = "hide"
+  // }
 }

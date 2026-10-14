@@ -15,37 +15,28 @@ ignore = ["**/modify_*.yml", "**/modify_*.toml"]
   fenced-blocks = true  # lint yaml / yml fenced blocks
 
 [rules]
-  anchors = "enable"
-  braces = "enable"
-  brackets = "enable"
-  colons = "enable"
-  commas = "enable"
+  ALL = "enable"
+  # anchors = "enable"
+  # braces = "enable"
+  # brackets = "enable"
+  # colons = "enable"
+  # commas = "enable"
   document-end = "disable"
-  document-start = "disable"
-  empty-lines = "enable"
+  document-start = "disable"  # default on
+  # empty-lines = "enable"
   empty-values = "disable"
   float-values = "disable"
-  hyphens = "enable"
-  key-duplicates = "enable"
-  key-ordering = "disable"
-  new-line-at-end-of-file = "enable"
-  new-lines = "enable"
+  # hyphens = "enable"
+  # key-duplicates = "enable"
+  # key-ordering = "enable"   # default disable
+  # new-line-at-end-of-file = "enable"
+  # new-lines = "enable"
   octal-values = "disable"
   quoted-strings = "disable"
-  trailing-spaces = "enable"
-
-[rules.line-length]
-  max = 80
-
-[rules.indentation]
-  level = "error"
-  spaces = 2
-
-[rules.comments]
-  level = "error"
-
-[rules.comments-indentation]
-  level = "error"
+  # trailing-spaces = "enable"
+  # line-length = "enable"
 
 [rules.truthy]
   level = "error"
+  allowed-values = ["true", "false", "on"]
+  check-keys = true

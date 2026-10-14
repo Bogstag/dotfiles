@@ -1,63 +1,62 @@
 #:schema https://www.schemastore.org/chezmoi.json
 # ~/.config/chezmoi/chezmoi.toml
 
-{{- $is_wsl := false -}}
-{{- if and .chezmoi.kernel (hasKey .chezmoi.kernel "osrelease") -}}
-{{- $is_wsl = (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
-{{- end -}}
+{{- $is_wsl := false }}
+{{- if and .chezmoi.kernel (hasKey .chezmoi.kernel "osrelease") }}
+	{{- $is_wsl = (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{- end }}
 
 {{- $chassisType := (output "hostnamectl" "--json=short" | fromJson).Chassis }}
 
 {{- if eq .chezmoi.os "windows" }}
-# Windows
-follow = true
-{{- else if eq .chezmoi.os "linux" }}
-  # All linux
+	# Windows
+	follow = true
 {{- end }}
-
-{{- if eq .chezmoi.osRelease.id "omarchy" }}
-  # Omarchy
-{{- else if .chezmoi.kernel.osrelease | lower | contains "microsoft" }}
-  # WSL
+{{- if .chezmoi.kernel.osrelease | lower | contains "microsoft" }}
+	# WSL
+{{- end }}
+{{- if eq .chezmoi.os "linux" }}
+	# Linux
+	{{- if eq .chezmoi.osRelease.id "omarchy" }}
+		# Omarchy
+	{{- end }}
 {{- end }}
 
 [scriptEnv]
-  HOME = "{{ .chezmoi.homeDir }}"
+HOME = "{{ .chezmoi.homeDir }}"
 
 [data]
-  {{ if eq .chezmoi.os "linux" -}}
-  bws_access_token = {{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" | quote }}
-  shell = "/usr/bin/bash"
-  {{- end }}
-  {{- if eq .chezmoi.os "windows" }}
-  shell = "PowerShell"
-  shellexe = "pwsh.exe"
-
-[cd]
-  command = "pwsh"
-  args = ["-NoProfile", "-NoLogo"]
-
-[interpreters.ps1]
-  command = "pwsh"
-  args = ["-NoLogo", "-NoProfile"]
-  {{- end }}
-
-[edit]
-  command = "code"
-  args = ["--wait"]
-
-[diff]
-  exclude = ["externals"]
-  pager = "delta"
-
-[merge]
-{{ if eq .chezmoi.os "linux" -}}
-  command = "meld"
-  args = ["{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
+{{- if eq .chezmoi.os "linux" }}
+	bws_access_token = {{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" | quote }}
+	shell = "/usr/bin/bash"
 {{- end }}
 {{- if eq .chezmoi.os "windows" }}
-  command = "code-insiders"
-  args = "--wait $MERGED"
+	shell = "PowerShell"
+	shellexe = "pwsh.exe"
+
+	[cd]
+	command = "pwsh"
+	args = ["-NoProfile", "-NoLogo"]
+
+	[interpreters.ps1]
+	command = "pwsh"
+	args = ["-NoLogo", "-NoProfile"]
 {{- end }}
+
+[edit]
+command = "code"
+args = ["--wait"]
+
+[diff]
+exclude = ["externals"]
+pager = "delta"
+
+# TODO: Detta fungerar inte
+# [merge]
+{{- if eq .chezmoi.os "linux" }}
+	# command = "meld"
+	# args = ["{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
+{{- end }}
+
 [template]
-  options = ["missingkey=zero"]
+options = ["missingkey=zero"]

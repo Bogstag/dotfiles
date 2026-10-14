@@ -13,3 +13,7 @@ includes = ["tasks.toml"]
 
 [task_config.cache]
 enabled = true
+
+[tools]
+hk = { version = "latest", workflow = "release.yml" }
+pkl = "latest"

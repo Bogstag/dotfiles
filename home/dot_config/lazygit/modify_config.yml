@@ -1,11 +1,11 @@
+{{/* gotmplfmt-ignore-start */}}
 # $schema: https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
 
 git:
   diffRenderers:
     - command: delta --dark --paging=never
-
+{{/* gotmplfmt-ignore-end */}}
 {{/* chezmoi:modify-template */ -}}
-
 {{/* Load existing configuration */ -}}
 {{ $config := toYaml dict -}}
 {{ if not (.chezmoi.stdin | empty) -}}

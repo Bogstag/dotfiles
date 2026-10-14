@@ -188,10 +188,10 @@ LC_TIME=sv_SE.UTF-8
 ## hk-täckning
 
 `hk check --all --plan` visar vilka steg hk väljer. Kör
-`python3 .config/check-hk-coverage.py --report` för att se spårade filer
+`python3 .utils/check-hk-coverage.py --report` för att se spårade filer
 som bara får allmänna kontroller, inte väljs alls eller är symboliska länkar.
 `hk-coverage` körs även av pre-commit-hooken. Baslinjen i
-`.config/hk-coverage-baseline.json` listar befintliga luckor; nya luckor gör
+`tests/hk-coverage-baseline.json` listar befintliga luckor; nya luckor gör
 att steget misslyckas tills en kontroll lagts till eller baslinjen granskats.
 Planen visar filval, inte om kontrollerna har körts tidigare.
 

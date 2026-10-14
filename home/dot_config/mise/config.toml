@@ -40,6 +40,7 @@
   gh = "latest"
   "github:daptify14/chezit" = { version = "latest", os = ["linux"] }
   go = "latest"
+  "go:github.com/gohugoio/gotmplfmt" = "latest"
   hk = "latest"
   hunk = "latest"
   java = "latest"

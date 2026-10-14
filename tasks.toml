@@ -1,17 +1,8 @@
 #:schema https://mise.jdx.dev/schema/mise-task.json
 # tombi: format.rules.table-keys-order = "ascending"
 
-[Check-all]
-  run = "hk check --all --stage --sarif ./tests/latest.sarif"
-
-[Check-staged]
-  run = "hk check --staged --sarif ./tests/latest.sarif"
-
 [Chezmoi-edit-config]
   run = "chezmoi edit-config"
-
-[Fix-all]
-  run = "hk fix --all --stage --sarif ./tests/latest.sarif"
 
 [Get-all-file-ext-in-dir]
   run = '''
@@ -21,24 +12,41 @@
 
 [Install-newer-versions]
   # Use mise upgrade to install newer versions within the configured ranges and update the lockfile.
-  run = "mise upgrade"
+  run = "mise upgrade --bump"
 
-[Install-recorded-versions]
-  # Run mise install to install the recorded versions
-  run = "mise install"
+[check]
+  run = "hk check --all"
 
-[Mise-Install]
-  # mise install --locked to require complete entries for supported backends.
-  run = "mise install"
+[fix]
+  run = "hk fix --all"
+
+# tombi: format.rules.table-keys-order = "ascending"
+["format:gotmpl:write"]
+  description = "Format go templates"
+  env = { CLICOLOR_FORCE = "0" }
+  outputs = [""]
+  # run = "gotmplfmt -w ${file}"
+  sources = ["gotmplfmt"]
+
+# tombi: format.rules.table-keys-order = "ascending"
+["list-gotmpl-diff"]
+  description = "List files whose formatting differs from gotmplfmt's"
+  raw_args = true
+  run = "gotmplfmt -l {{ cwd }}"
+  tools = { "go:github.com/gohugoio/gotmplfmt" = "latest" }
 
 [pre-commit]
   run = "hk run pre-commit"
 
+# tombi: format.rules.table-keys-order = "ascending"
 ["render:tasks"]
   description = "Generate tasks documentation"
   env = { CLICOLOR_FORCE = "0" }
+  outputs = ["README.md"]
   run = [
     "mise generate task-docs --output README.md --style detailed --inject ",
   ]
   sources = ["mise"]
-  outputs = ["README.md"]
+
+[stage]
+  run = "hk check -stage --sarif ./tests/stage.latest.sarif"
