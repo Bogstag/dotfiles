@@ -18,10 +18,10 @@ function ensure_path_entry() {
 }
 
 function log_color() {
-		local color_code="$1"
-		shift
+	local color_code="$1"
+	shift
 
-		printf "\033[${color_code}m%s\033[0m\n" "$*" >&2
+	printf "\033[${color_code}m%s\033[0m\n" "$*" >&2
 }
 
 function log_red() {

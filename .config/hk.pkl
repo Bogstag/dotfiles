@@ -8,9 +8,9 @@ import "package://github.com/jdx/hk/releases/download/v2.5.0/hk@2.5.0#/Builtins.
 steps {
   ["Special_Purpose"] = new Group {
     steps {
-      // ["hk-coverage"] = new Step {
-      //   check = "python3 .utils/check-hk-coverage.py"
-      // }
+      //   ["hk-coverage"] = new Step {
+      //     check = "python3 .utils/check-hk-coverage.py"
+      //   }
       ["hk_test"] = (Builtins.hk_test) {
       // description = "Run step-defined hk's tests"
       }
@@ -50,7 +50,8 @@ steps {
   }
 
   ["toml"] = new Group {
-    exclude = List("**/modify_*.toml", "mise.toml")
+    // exclude = List("**/modify_*.toml")
+    // exclude = List("**/modify_*.toml", "mise.toml")
     steps {
       ["tombi"] = (Builtins.tombi) {
       // description = "TOML linter"description = "Shell formatter"
@@ -112,14 +113,14 @@ steps {
   // description = "A Better Secrets Scanner built for configurability and speed"
   }
 
-  ["mise"] = (Builtins.mise) {
-  // description = "mise-en-place's built-in formatter and linter"
-  }
+  //   ["mise"] = (Builtins.mise) {
+  //   // description = "mise-en-place's built-in formatter and linter"
+  //   }
 
-  // ["mise-generate-task-docs"] = new Step {
-  //   glob = List("mise.toml", "tasks.toml", "tasks.md")
-  //   check = ".config/check-task-docs.sh"
-  //   fix = "mise run --force render:tasks"
-  //   output_summary = "hide"
-  // }
+  ["render:tasks"] = new Step {
+    glob = List("mise.toml", "tasks.toml", "tasks.md")
+    check = ".utils/check-task-docs.sh"
+    fix = "mise run --force render:tasks"
+    output_summary = "hide"
+  }
 }

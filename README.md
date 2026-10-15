@@ -198,21 +198,9 @@ Planen visar filval, inte om kontrollerna har körts tidigare.
 ## mise Tasks
 
 <!-- mise-tasks -->
-## `Check-all`
-
-- **Usage:** `Check-all`
-
-## `Check-staged`
-
-- **Usage:** `Check-staged`
-
 ## `Chezmoi-edit-config`
 
 - **Usage:** `Chezmoi-edit-config`
-
-## `Fix-all`
-
-- **Usage:** `Fix-all`
 
 ## `Get-all-file-ext-in-dir`
 
@@ -222,13 +210,25 @@ Planen visar filval, inte om kontrollerna har körts tidigare.
 
 - **Usage:** `Install-newer-versions`
 
-## `Install-recorded-versions`
+## `check`
 
-- **Usage:** `Install-recorded-versions`
+- **Usage:** `check`
 
-## `Mise-Install`
+## `fix`
 
-- **Usage:** `Mise-Install`
+- **Usage:** `fix`
+
+## `format:gotmpl:write`
+
+- **Usage:** `format:gotmpl:write`
+
+Format go templates
+
+## `list-gotmpl-diff`
+
+- **Usage:** `list-gotmpl-diff`
+
+List files whose formatting differs from gotmplfmt's
 
 ## `pre-commit`
 
@@ -239,4 +239,8 @@ Planen visar filval, inte om kontrollerna har körts tidigare.
 - **Usage:** `render:tasks`
 
 Generate tasks documentation
+
+## `stage`
+
+- **Usage:** `stage`
 <!-- /mise-tasks -->

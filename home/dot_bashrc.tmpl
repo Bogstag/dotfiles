@@ -1,21 +1,25 @@
 #!{{ lookPath "bash" }}
-{{- if eq .chezmoi.osRelease.id "omarchy" }}
-{{ template "bashrc-omarchy.sh" . }}
-{{ end -}}
 
 # Omarchy defaults can be found here:
 # /usr/share/omarchy/default/bash
 
+{{- if eq .chezmoi.osRelease.id "omarchy" }}
+{{ template "bashrc-omarchy.sh" . }}
+{{ end -}}
+
 # Aliases.
 if [ -f "{{ .chezmoi.homeDir }}/.bash_aliases" ]; then
-    # shellcheck source=/home/bogge/.bash_aliases
-	. "{{ .chezmoi.homeDir }}/.bash_aliases"
+	source "{{ .chezmoi.homeDir }}/.bash_aliases"
 fi
 
 # .bashrc.d
 if [ -d "{{ .chezmoi.homeDir }}/.bashrc.d" ]; then
     for config in "{{ .chezmoi.homeDir }}/.bashrc.d"/*.sh; do
-        # shellcheck source=/home/bogge/.bashrc.d/1-bws.sh
         [ -r "$config" ] && source "$config"
     done
 fi
+
+{{- if ne .chezmoi.osRelease.id "omarchy" }}
+# Not Omarchy
+eval "$(mise activate bash)"
+{{- end }}

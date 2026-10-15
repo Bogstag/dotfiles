@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent.parent
-BASELINE = ROOT / ".config/hk-coverage-baseline.json"
+BASELINE = ROOT/"tests/hk-coverage-baseline.json"
 GENERAL_STEPS = {
     "hk-coverage",
     "hk_test",
