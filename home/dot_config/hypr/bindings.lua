@@ -38,3 +38,20 @@
 hl.unbind("SUPER + SHIFT + A")
 o.bind("SUPER + SHIFT + A", "ChatGPT app", { launch = "chatgpt" })
 --
+--
+-- KeyHint hl.unbind("CTRL + F1")
+o.bind("CTRL + F1", "KeyHint", { launch = "keyhint" })
+--
+--
+-- >>> omanta-switch managed block, do not edit by hand
+hl.unbind("SUPER + SHIFT + F")
+hl.unbind("SUPER + ALT + SHIFT + F")
+o.bind("SUPER + SHIFT + F", "File manager", "omanta-launch")
+o.bind("SUPER + ALT + SHIFT + F", "File manager (cwd)", "omanta-launch-cwd")
+o.window("^omanta-picker$", {
+  float = true,
+  center = true,
+  tag = "-default-opacity",
+  opacity = "1 override 1 override 1 override",
+})
+-- <<< omanta-switch managed block

@@ -13,7 +13,7 @@ git:
 {{ end -}}
 
 {{/* Load dracula theme */ -}}
-{{ $theme := include (joinPath .chezmoi.homeDir ".config/lazygit/dracula.yml") | fromYaml -}}
+{{ $theme := include (joinPath .chezmoi.destDir ".config/lazygit/dracula.yml") | fromYaml -}}
 
 {{/* Set dracula theme */ -}}
 {{ $output := setValueAtPath "gui" $theme $config  -}}
