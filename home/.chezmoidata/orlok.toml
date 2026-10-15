@@ -1,0 +1,23 @@
+[orlok]
+  current_branch = "quattro"
+  themed_tpl = [
+    "alacritty.toml.tpl",
+    "btop.theme.tpl",
+    "chromium.theme.tpl",
+    "claude.json.tpl",
+    "foot.ini.tpl",
+    "ghostty.conf.tpl",
+    "gum_env.lua.tpl",
+    "helix.toml.tpl",
+    "hermes.yaml.tpl",
+    "hyprland-preview-share-picker.css.tpl",
+    "hyprland.lua.tpl",
+    "keyboard.rgb.tpl",
+    "kitty.conf.tpl",
+    "neovim.lua.tpl",
+    "obsidian.css.tpl",
+    "pi.json.tpl",
+    "shell.toml.tpl",
+    "t3code.json.tpl",
+    "vscode-theme.json.tpl",
+  ]

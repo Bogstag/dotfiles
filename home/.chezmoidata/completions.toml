@@ -6,10 +6,11 @@
     { name = "crush", cmd = "completion" },
     { name = "gh", cmd = "completion -s" },
     { name = "hk", cmd = "completion" },
-    { name = "opencode", cmd = "completion" },
+    { name = "opencode", cmd = "--completions" },
     { name = "pkl", cmd = "shell-completion " },
     { name = "ryl", cmd = "--generate-completions" },
     { name = "tombi", cmd = "completion" },
+    { name = "chezit", cmd = "completion" },
 
     # TODO: Ej kollade
     # { name = "claude", cmd = "completion" },
