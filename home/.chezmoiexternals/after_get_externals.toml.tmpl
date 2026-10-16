@@ -1,0 +1,15 @@
+
+{{- $branch := default ""  }}
+{{- if hasKey .orlok "current_branch" }}
+{{-   $branch = deepCopy .orlok.current_branch }}
+{{- end }}
+
+{{- if hasKey .orlok "themed_tpl" }}
+{{- range .orlok.themed_tpl }}
+{{- $tpl := deepCopy . }}
+[".config/MyThemes/tpl/{{ $tpl }}"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/omacom/omarchy/{{ $branch }}/default/themed/{{ $tpl }}"
+  refreshPeriod = "672h"
+{{- end }}
+{{- end }}
