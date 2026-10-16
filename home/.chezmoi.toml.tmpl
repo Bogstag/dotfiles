@@ -1,9 +1,9 @@
 #:schema https://www.schemastore.org/chezmoi.json
 # ~/.config/chezmoi/chezmoi.toml
 
-{{- $is_wsl := false }}
+{{/* {{- $is_wsl := false }}
 {{- if and .chezmoi.kernel (hasKey .chezmoi.kernel "osrelease") }}
-	{{- $is_wsl = (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{-   $is_wsl = (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 {{- end }}
 
 {{- $chassisType := (output "hostnamectl" "--json=short" | fromJson).Chassis }}
@@ -20,10 +20,15 @@
 	{{- if eq .chezmoi.osRelease.id "omarchy" }}
 		# Omarchy
 	{{- end }}
-{{- end }}
+{{- end }} */}}
 
 [scriptEnv]
-HOME = "{{ .chezmoi.homeDir }}"
+  HOME = "{{ .chezmoi.destDir }}"
+  XDG_CACHE_HOME="{{ .chezmoi.destDir }}/.cache"
+  XDG_CONFIG_HOME="{{ .chezmoi.destDir }}/.config"
+  XDG_DATA_HOME="{{ .chezmoi.destDir }}/.local/share"
+  XDG_DESKTOP_DIR="{{ .chezmoi.destDir }}/"
+  XDG_STATE_HOME="{{ .chezmoi.destDir }}/.local/state"
 
 [data]
 {{- if eq .chezmoi.os "linux" }}
@@ -48,7 +53,7 @@ command = "code"
 args = ["--wait"]
 
 [diff]
-exclude = ["externals"]
+# exclude = ["externals"]
 pager = "delta"
 
 # TODO: Detta fungerar inte
@@ -59,4 +64,4 @@ pager = "delta"
 {{- end }}
 
 [template]
-options = ["missingkey=zero"]
+  options = ["missingkey=zero"]

@@ -198,25 +198,35 @@ Planen visar filval, inte om kontrollerna har körts tidigare.
 ## mise Tasks
 
 <!-- mise-tasks -->
+## `Check`
+
+- **Usage:** `Check`
+
 ## `Chezmoi-edit-config`
 
 - **Usage:** `Chezmoi-edit-config`
+
+## `Fix`
+
+- **Usage:** `Fix`
 
 ## `Get-all-file-ext-in-dir`
 
 - **Usage:** `Get-all-file-ext-in-dir`
 
-## `Install-newer-versions`
+## `List-gotmpl-diff`
 
-- **Usage:** `Install-newer-versions`
+- **Usage:** `List-gotmpl-diff`
 
-## `check`
+List files whose formatting differs from gotmplfmt's
 
-- **Usage:** `check`
+## `Stage-unstaged`
 
-## `fix`
+- **Usage:** `Stage-unstaged`
 
-- **Usage:** `fix`
+## `Update-schema-ryl`
+
+- **Usage:** `Update-schema-ryl`
 
 ## `format:gotmpl:write`
 
@@ -224,11 +234,9 @@ Planen visar filval, inte om kontrollerna har körts tidigare.
 
 Format go templates
 
-## `list-gotmpl-diff`
+## `install-newer-versions`
 
-- **Usage:** `list-gotmpl-diff`
-
-List files whose formatting differs from gotmplfmt's
+- **Usage:** `install-newer-versions`
 
 ## `pre-commit`
 
@@ -239,8 +247,4 @@ List files whose formatting differs from gotmplfmt's
 - **Usage:** `render:tasks`
 
 Generate tasks documentation
-
-## `stage`
-
-- **Usage:** `stage`
 <!-- /mise-tasks -->

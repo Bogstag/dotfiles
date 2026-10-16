@@ -1,19 +1,29 @@
-#!/bin/bash
-{{ if eq .chezmoi.os "linux" -}}
-    {{ $shell := "bash" -}}
-	{{ range .completions.mise -}}
-        {{ $current := . }}
-        {{ $file := list "~/.local/share/bash-completion/completions/" $current.name | join "" -}}
-        echo "Adding completion for {{ $current.name }}"
-        {{ $current.name }} {{ $current.cmd }} {{ $shell }} > {{ $file }}
-    {{ end -}}
-{{ end -}}
-{{ if eq .chezmoi.os "windows" -}}
-# TODO: Not implemented
-    {{ $shell := "powershell" -}}
-	{{ range .completions.mise -}}
-        {{ $current := . }}
-        {{ $file := list "~/.local/share/bash-completion/completions/" $current.name | join "" -}}
-        #{{ $current.name }} {{ $current.cmd }} {{ $shell }} > {{ $file }}
-    {{ end -}}
-{{ end -}}
+#!/usr/bin/env bash
+# chezmoi:template:left-delimiter="# {{" right-delimiter=}}
+
+# {{- if eq .chezmoi.os "linux" }}
+# {{- $shell := "bash" }}
+# {{- range .completions.mise }}
+# {{- $current := . }}
+# {{- $file := list "~/.local/share/bash-completion/completions/" $current.name | join "" }}
+# It is assigned inte chezmoi template, not in bash.
+# shellcheck disable=SC2154
+# shellcheck disable=SC2250
+echo "Adding completion for # {{ $current.name }}"
+# {{ $current.name }} # {{ $current.cmd }} # {{ $shell }} > # {{ $file }}
+# {{ end }}
+# {{- end }}
+
+# common
+# chezmoi_os=# {{- .chezmoi.os }}
+# shell=# {{ "bash" -}}
+# completions_mise=# {{ .completions.mise -}}
+
+# Linux
+# if [[ "$chezmoi_os" == "linux" ]]; then
+#   for completion in "${!completions_mise[@]}"; do
+#     file="$HOME/.local/share/bash-completion/completions/${completion[name]}"
+#     echo "Adding completion for ${completion[name]}"
+#     "${completion[name]}" "${completion[cmd]}" "$shell " >"$file"
+#   done
+# fi

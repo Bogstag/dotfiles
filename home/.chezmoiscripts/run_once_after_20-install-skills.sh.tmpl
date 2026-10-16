@@ -1,24 +1,32 @@
 #!/bin/bash
+# shellcheck shell=sh
+# chezmoi:template:left-delimiter="# {{" right-delimiter=}}
+
 set -eu
-if ! command -v npx > /dev/null 2>&1; then
-    echo "npx saknas; installera Node.js innan Codex-skills installeras." >&2
-    exit 1
+if ! command -v npx >/dev/null 2>&1; then
+	echo "npx saknas; installera Node.js innan Codex-skills installeras." >&2
+	exit 1
 fi
 
-{{ $agents :=  .skills.agents | join " " -}}
+agents="# {{- .skills.agents | join " " }}"
 
-{{ range .skills.global -}}
-{{ $sourceUrl := .sourceUrl -}}
-{{ range .skill -}}
-if [ -d ~/.agents/skills/{{ . }} ]; then
-    npx -y skills update -g {{ . }}
+# {{ range .skills.global }}
+sourceUrl="# {{- .sourceUrl }}"
+# {{- range .skill }}
+skill="# {{ . }}"
+if [ -d ~/.agents/skills/"${skill}" ]; then
+	echo "Update ${skill}"
+	npx --yes \
+		skills update --global "${skill}"
 else
-    npx -y skills add -g {{ $sourceUrl }} \
-        --skill {{ . }} \
-        --agent {{ $agents }} -y
+	echo "Add ${skill}"
+	npx --yes \
+		skills add --global \
+		--skill "${skill}" \
+		--agent "${agents}" \
+		"${sourceUrl}"
 fi
-{{ "" }}
-{{ end -}}
-{{ end -}}
+# {{- end }}
+# {{- end }}
 
 # TODO: Complete with project add and update

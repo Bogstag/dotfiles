@@ -15,5 +15,6 @@
   enabled = true
 
 [tools]
+  go = "latest"
   hk = { version = "latest", workflow = "release.yml" }
   pkl = "latest"

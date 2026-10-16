@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/bin/sh
+
+# -e: exit on error
+# -u: exit on unset variables
 set -eu
 if ! command -v omarchy > /dev/null 2>&1; then
     echo "Omarchy saknas; hoppar över installation av Omarchy-applikationer." >&2
@@ -6,8 +9,8 @@ if ! command -v omarchy > /dev/null 2>&1; then
 fi
 
 # Syncthing
-if [ ! -d "$HOME/Sync" ]; then
-    mkdir -p "$HOME/Sync"
+if [[ ! -d "${HOME}/Sync" ]]; then
+    mkdir -p "${HOME}/Sync"
 fi
 if ! (systemctl is-enabled --quiet syncthing.service --user); then
     systemctl --user enable --now syncthing.service

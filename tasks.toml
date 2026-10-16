@@ -1,24 +1,16 @@
 #:schema https://mise.jdx.dev/schema/mise-task.json
-# tombi: format.rules.table-keys-order = "ascending"
+
+["Check"]
+  run = "hk check --all"
+
+["Stage-unstaged"]
+  run = "hk fix --stage --unstaged"
+
+["Fix"]
+  run = "hk fix --all"
 
 [Chezmoi-edit-config]
   run = "chezmoi edit-config"
-
-[Get-all-file-ext-in-dir]
-  run = '''
-  #!/usr/bin/env bash
-  find . -type f | sed -rn 's|.*/[^/]+\.([^/.]+)$|\1|p' | sort -u
-  '''
-
-[Install-newer-versions]
-  # Use mise upgrade to install newer versions within the configured ranges and update the lockfile.
-  run = "mise upgrade --bump"
-
-[check]
-  run = "hk check --all"
-
-[fix]
-  run = "hk fix --all"
 
 # tombi: format.rules.table-keys-order = "ascending"
 ["format:gotmpl:write"]
@@ -28,15 +20,22 @@
   # run = "gotmplfmt -w ${file}"
   sources = ["gotmplfmt"]
 
+[Get-all-file-ext-in-dir]
+  run = '''
+  #!/usr/bin/env bash
+  find . -type f | sed -rn 's|.*/[^/]+\.([^/.]+)$|\1|p' | sort -u
+  '''
+
+[install-newer-versions]
+  # Use mise upgrade to install newer versions within the configured ranges and update the lockfile.
+  run = "mise upgrade --bump"
+
 # tombi: format.rules.table-keys-order = "ascending"
-["list-gotmpl-diff"]
+["List-gotmpl-diff"]
   description = "List files whose formatting differs from gotmplfmt's"
   raw_args = true
   run = "gotmplfmt -l {{ cwd }}"
   tools = { "go:github.com/gohugoio/gotmplfmt" = "latest" }
-
-[pre-commit]
-  run = "hk run pre-commit"
 
 # tombi: format.rules.table-keys-order = "ascending"
 ["render:tasks"]
@@ -48,5 +47,8 @@
   ]
   sources = ["mise"]
 
-[stage]
-  run = "hk check -stage --sarif ./tests/stage.latest.sarif"
+[Update-schema-ryl]
+  run = "ryl --print-toml-config-schema > $HOME/.config/ryl/ryl.json"
+
+[pre-commit]
+  run = "hk run pre-commit"

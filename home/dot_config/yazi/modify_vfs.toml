@@ -2,7 +2,7 @@
 {{/* chezmoi:modify-template */}}
 
 {{/* Load default configuration */ -}}
-{{ $default_file := (joinPath .chezmoi.homeDir ".config/yazi/vfs-default.toml") }}
+{{ $default_file := (joinPath .chezmoi.destDir ".config/yazi/vfs-default.toml") }}
 {{ $default := (include $default_file) | fromToml -}}
 
 {{/* Load existing configuration */ -}}

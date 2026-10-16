@@ -8,9 +8,9 @@ import "package://github.com/jdx/hk/releases/download/v2.5.0/hk@2.5.0#/Builtins.
 steps {
   ["Special_Purpose"] = new Group {
     steps {
-      //   ["hk-coverage"] = new Step {
-      //     check = "python3 .utils/check-hk-coverage.py"
-      //   }
+      // ["hk-coverage"] = new Step {
+      //   check = "python3 .utils/check-hk-coverage.py"
+      // }
       ["hk_test"] = (Builtins.hk_test) {
       // description = "Run step-defined hk's tests"
       }
@@ -50,7 +50,7 @@ steps {
   }
 
   ["toml"] = new Group {
-    // exclude = List("**/modify_*.toml")
+    exclude = List("**/modify_*.toml")
     // exclude = List("**/modify_*.toml", "mise.toml")
     steps {
       ["tombi"] = (Builtins.tombi) {
@@ -93,34 +93,32 @@ steps {
     }
   }
 
-  // ["lua"] = new Group {
-  //   steps {
-  //     ["luacheck"] = (Builtins.luacheck) {
-  //     // description = "Lua linter"
-  //     }
-  //   }
-  // }
-
-  ["editorconfig-checker"] = new Group {
+  ["special"] = new Group {
     steps {
       ["editorconfig-checker"] = (Builtins.editorconfig_checker) {
       // description = "Validate files against EditorConfig rules"
       }
+      ["betterleaks"] = (Builtins.betterleaks) {
+      // description = "A Better Secrets Scanner built for configurability and speed"
+      }
+      ["render:tasks"] = new Step {
+        glob = List("mise.toml", "tasks.toml", "tasks.md")
+        check = ".utils/check-task-docs.sh"
+        fix = "mise run --force render:tasks"
+        output_summary = "hide"
+      }
     }
   }
-
-  ["betterleaks"] = (Builtins.betterleaks) {
-  // description = "A Better Secrets Scanner built for configurability and speed"
-  }
-
-  //   ["mise"] = (Builtins.mise) {
-  //   // description = "mise-en-place's built-in formatter and linter"
-  //   }
-
-  ["render:tasks"] = new Step {
-    glob = List("mise.toml", "tasks.toml", "tasks.md")
-    check = ".utils/check-task-docs.sh"
-    fix = "mise run --force render:tasks"
-    output_summary = "hide"
-  }
 }
+
+// ["lua"] = new Group {
+//   steps {
+//     ["luacheck"] = (Builtins.luacheck) {
+//     // description = "Lua linter"
+//     }
+//   }
+// }
+
+//   ["mise"] = (Builtins.mise) {
+//   // description = "mise-en-place's built-in formatter and linter"
+//   }

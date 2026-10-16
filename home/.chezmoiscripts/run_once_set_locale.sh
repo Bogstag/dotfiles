@@ -4,7 +4,7 @@
 # Script to add locales de_DE and en_US to Raspberry Pi OS (Bookworm)
 
 # Ensure script is run without sudo to avoid permission issues
-if [ "$(id -u)" = "0" ]; then
+if [[ "$(id -u)" == "0" ]]; then
     echo "Please do not run this script with sudo. Exiting."
     exit 1
 fi

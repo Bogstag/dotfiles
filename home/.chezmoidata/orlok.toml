@@ -5,6 +5,7 @@
     "btop.theme.tpl",
     "chromium.theme.tpl",
     "claude.json.tpl",
+    "fcitx5-theme.conf.tpl",
     "foot.ini.tpl",
     "ghostty.conf.tpl",
     "gum_env.lua.tpl",
