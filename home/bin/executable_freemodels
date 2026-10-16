@@ -9,12 +9,12 @@ google_excluded_argjson=$(jq -cn '$ARGS.positional' --args "${google_deprecated[
 provider=""
 debug=false
 for arg in "$@"; do
-	case "$arg" in
+	case "${arg}" in
 	-d | --debug)
 		debug=true
 		;;
 	*)
-		if [ "$provider" = "" ]; then
+		if [[ "${provider}" = "" ]]; then
 			provider="${arg#--}"
 		fi
 		;;
@@ -22,30 +22,30 @@ for arg in "$@"; do
 done
 jq_args=()
 
-case "$provider" in
+case "${provider}" in
 groq)
 	url="https://api.groq.com/openai/v1/models"
 	jq_filter="[.data[].id]"
-	key="$GROQ_API_KEY"
+	key="${GROQ_API_KEY}"
 	;;
 google-generate | gog)
-	url="https://generativelanguage.googleapis.com/v1beta/models?key=$GEMINI_API_KEY"
+	url="https://generativelanguage.googleapis.com/v1beta/models?key=${GEMINI_API_KEY}"
 	# shellcheck disable=SC2016
 	jq_filter='[.models[].name | sub("^models/"; "")] | map(select(. as $name | $excluded | index($name) | not)) | sort'
-	jq_args=(--argjson excluded "$google_excluded_argjson")
+	jq_args=(--argjson excluded "${google_excluded_argjson}")
 	key=""
 	;;
 google-openai | goa)
 	url="https://generativelanguage.googleapis.com/v1beta/openai/models"
 	# shellcheck disable=SC2016
 	jq_filter='[.data[].id | sub("^models/"; "")] | map(select(. as $name | $excluded | index($name) | not)) | sort'
-	jq_args=(--argjson excluded "$google_excluded_argjson")
-	key="$GEMINI_API_KEY"
+	jq_args=(--argjson excluded "${google_excluded_argjson}")
+	key="${GEMINI_API_KEY}"
 	;;
 mistral)
 	url="https://api.mistral.ai/v1/models"
 	jq_filter='[.data[].id] | sort'
-	key="$MISTRAL_API_KEY"
+	key="${MISTRAL_API_KEY}"
 	;;
 openrouter)
 	url="https://openrouter.ai/api/v1/models"
@@ -63,14 +63,14 @@ opencode-zen | zen)
 	exit 1
 	;;
 esac
-if [ "$debug" = true ]; then
+if [[ "${debug}" = true ]]; then
 	printf '\033[31m%s\033[0m\n' '-----##### DEBUG START #####-----'
-	printf '%s' 'jq' "${jq_args[@]}" "$jq_filter" | bat --language=JQ
+	printf '%s' 'jq' "${jq_args[@]}" "${jq_filter}" | bat --language=JQ
 	printf '\033[31m%s\033[0m\n' '-----##### DEBUG END #####-----'
 fi
 
-if [ "$key" == "" ]; then
-	curl -s "$url" | jq "${jq_args[@]}" "$jq_filter"
+if [[ "${key}" == "" ]]; then
+	curl -s "${url}" | jq "${jq_args[@]}" "${jq_filter}"
 else
-	curl -s "$url" -H "Authorization: Bearer $key" | jq "${jq_args[@]}" "$jq_filter"
+	curl -s "${url}" -H "Authorization: Bearer ${key}" | jq "${jq_args[@]}" "${jq_filter}"
 fi
