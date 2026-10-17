@@ -34,8 +34,8 @@ toml-version = "v1.1.0"
   include = [
     "$HOME/.codex/config.toml",
     "$HOME/.codex/*.config.toml",
-    "$HOME/.local/share/chezmoi/home/private_dot_codex/private_aperture.config.toml",
-    "$HOME/.local/share/chezmoi/home/private_dot_codex/private_config.toml"
+    "$XDG_DATA_HOME/chezmoi/home/private_dot_codex/private_openai.config",
+    "$XDG_DATA_HOME/chezmoi/home/private_dot_codex/private_config.toml"
   ]
 
 [[schemas]]

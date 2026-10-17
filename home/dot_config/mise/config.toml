@@ -9,8 +9,6 @@
   experimental = true
   color_theme = "dracula"
   lockfile = false
-  idiomatic_version_file_enable_tools = ["python"]
-  python.uv_venv_auto = "create|source"
 
 [settings.packslip]
   exec = true
@@ -52,6 +50,7 @@
   opencode = "latest"
   oxfmt = "latest"
   oxlint = "latest"
+  pi = "latest"
   pkl = "latest"
   playwright = "latest"
   python = "latest"

@@ -15,14 +15,17 @@
         },
         {
           "id": "tornikegomareli.spaces",
-          "showApps": "all",
-          "groupApps": false,
-          "dimUnfocused": true,
           "activeStyle": "accent",
-          "pillBackground": true,
-          "labelStyle": "number",
           "density": "roomy",
-          "previewSize": "small"
+          "dimUnfocused": true,
+          "groupApps": false,
+          "hideEmpty": false,
+          "iconSize": 16,
+          "labelStyle": "number",
+          "pillBackground": true,
+          "previews": false,
+          "previewSize": "small",
+          "showApps": "all"
         }
       ],
       "center": [
@@ -55,9 +58,7 @@
       "right": [
         {
           "id": "omarchy.tray",
-          "pinned": [
-            "chrome_status_icon_1"
-          ],
+          "pinned": ["chrome_status_icon_1"],
           "hidden": []
         },
         {

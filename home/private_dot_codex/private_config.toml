@@ -10,8 +10,12 @@ model_reasoning_effort = "medium"
 model_verbosity = "low"
 sandbox_mode = "workspace-write"
 
+[agents]
+  max_depth = 2
+  max_concurrent_threads_per_session = 4
+
 [apps.connector_20205bf7d4e99a89d7154bb849718324]
-  enabled = true
+  enabled = false
 
 [apps.connector_openai_chatgpt_pets]
   enabled = false
@@ -48,12 +52,18 @@ sandbox_mode = "workspace-write"
   hooks = true
   login_shell_package_path = true
   memories = true
+  multi_agent = true
 
 [features.guardianv2]
   enabled = false
 
 [hooks.state."/home/bogge/.codex/hooks.json:session_start:0:0"]
   trusted_hash = "sha256:25c9ca70d3148d3004ea3982a4b1f9e085528cb65790f18ec2f91c3af7df687d"
+
+[marketplaces.engram]
+  source_type = "git"
+  source = "https://github.com/Gentleman-Programming/engram.git"
+  ref = "main"
 
 [marketplaces.openai-bundled]
   source_type = "local"
@@ -70,6 +80,13 @@ sandbox_mode = "workspace-write"
 [mcp_servers.aperture]
   url = "http://ai.goldeye-monster.ts.net/v1/mcp"
 
+[mcp_servers.codegraph]
+  command = "codegraph"
+  args = ["serve", "--mcp"]
+
+[mcp_servers.context7]
+  url = "https://mcp.context7.com/mcp"
+
 [mcp_servers.hk]
   args = ["mcp", "--root", "."]
   command = "hk"
@@ -78,6 +95,7 @@ sandbox_mode = "workspace-write"
   args = []
   command = "/usr/lib/chatgpt/resources/cua_node/bin/node_repl"
   startup_timeout_sec = 120
+  enabled = false
 
 [mcp_servers.node_repl.env]
   NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
@@ -90,8 +108,8 @@ sandbox_mode = "workspace-write"
   NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
   NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
   BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-  BROWSER_USE_CODEX_APP_VERSION = "26.1007.21434"
-  NODE_REPL_TRUSTED_SERVICES = '{"browser":"/home/bogge/.codex/plugins/cache/openai-bundled/browser/26.1007.21434/scripts/browser-service.mjs"}'
+  BROWSER_USE_CODEX_APP_VERSION = "26.1013.40934"
+  NODE_REPL_TRUSTED_SERVICES = '{"browser":"/home/bogge/.codex/plugins/cache/openai-bundled/browser/26.1013.40934/scripts/browser-service.mjs"}'
   CODEX_CLI_PATH = "/usr/lib/chatgpt/resources/codex"
 
 [memories]
@@ -114,6 +132,9 @@ sandbox_mode = "workspace-write"
   enabled = true
 
 [plugins."documents@openai-primary-runtime"]
+  enabled = true
+
+[plugins."engram@engram"]
   enabled = true
 
 [plugins."hk@plugins"]
@@ -148,6 +169,18 @@ sandbox_mode = "workspace-write"
 
 [sandbox_workspace_write]
   network_access = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/find-skills/SKILL.md"
+  enabled = false
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/fnox/SKILL.md"
+  enabled = false
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/writing-for-agents/SKILL.md"
+  enabled = false
 
 [tui]
   fullscreen_transcript = true

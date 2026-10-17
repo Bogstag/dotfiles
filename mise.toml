@@ -1,12 +1,13 @@
 #:schema https://mise.jdx.dev/schema/mise.json
+# tombi: format.rules.table-keys-order = "ascending"
+
+[settings.packslip]
+  exec = true
 
 [settings.skills]
   dir = ".agents/skills"
   auto_sync = true
   prune = true
-
-[settings.packslip]
-  exec = true
 
 [task_config]
   includes = ["tasks.toml"]
