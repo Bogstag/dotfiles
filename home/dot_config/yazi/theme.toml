@@ -1,14 +1,20 @@
 #:schema https://yazi-rs.github.io/schemas/theme.json
 # default file:///home/bogge/.config/yazi/theme-dark.toml
+# used file:///home/bogge/.config/yazi/theme.toml
 
 [flavor]
   dark = "dracula"
 
 [icon]
   prepend_dirs = [
+    { name = ".vscode", text = "", fg = "#21a2f1" },
+    { name = "go", text = "", fg = "#0a667f" },
+  ]
+
+  prepend_files = [
     { name = ".shellcheckrc", text = "", fg = "#89e051" },
   ]
 
-  append_exts = [
+  prepend_exts = [
     { name = "yaml", text = "", fg = "#6d8086" },
   ]

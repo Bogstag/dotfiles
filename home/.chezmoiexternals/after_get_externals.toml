@@ -7,3 +7,8 @@
   type = "file"
   url = "https://raw.githubusercontent.com/dracula/delta/main/dracula.gitconfig"
   refreshPeriod = "672h"
+
+[".config/eza/dracula.yml"]
+  type = "file"
+  url = "https://raw.githubusercontent.com/eza-community/eza-themes/main/themes/dracula.yml"
+  refreshPeriod = "672h"

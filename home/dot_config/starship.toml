@@ -29,6 +29,7 @@ scan_timeout = 10
 format = """
 [](bg:blue fg:crust)\
 $shell\
+${env_var.yazi_level}\
 [](bg:purple fg:blue)\
 $os\
 [](bg:cyan fg:purple)\
@@ -160,6 +161,15 @@ $character"""
 
 [elixir]
   disabled = true
+
+[env_var.yazi_level]
+  description = "Indicate the shell was launched by `yazi`"
+  variable = "YAZI_LEVEL"
+  style = "bg:blue fg:crust"
+  # 🦆: U+1f986 Duck
+  # Alternatively: " ": U+E795 <Private Use>
+  symbol = " "
+  format = "[ $symbol ]($style)"
 
 [fill]
   symbol = " "

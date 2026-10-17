@@ -45,21 +45,8 @@
     "action": "omarchy launch webapp https://devdocs.io/"
   },
   "Skuggsidan.keyhint": {
-    // TODO: Byt icon
-    "icon": "",
+    "icon": "󰌌",
     "label": "KeyHint",
     "action": "keyhint"
-  },
-  "Skuggsidan.omafont": {
-    // TODO: Byt icon
-    "icon": "",
-    "label": "OmaFont",
-    "action": "omafont"
-  },
-  "Skuggsidan.omanta": {
-    // TODO: Byt icon
-    "icon": "",
-    "label": "OmAnta",
-    "action": "omanta"
   }
 }
