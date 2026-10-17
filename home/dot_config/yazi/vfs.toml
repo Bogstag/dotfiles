@@ -1,0 +1,2 @@
+#:schema https://yazi-rs.github.io/schemas/vfs.json
+# default file:///$HOME/.config/yazi/vfs-default.toml
