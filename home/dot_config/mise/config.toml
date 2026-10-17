@@ -9,6 +9,8 @@
   experimental = true
   color_theme = "dracula"
   lockfile = false
+  idiomatic_version_file_enable_tools = ["python"]
+  python.uv_venv_auto = "create|source"
 
 [settings.packslip]
   exec = true
@@ -60,4 +62,5 @@
   shellharden = "latest"
   shfmt = "latest"
   tombi = "latest"
+  uv = "latest"
   yazi = "latest"

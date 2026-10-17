@@ -9,29 +9,15 @@
       skills = [
         {
           sourceUrl = "https://github.com/terrylica/cc-skills",
-          skill = [
-            "chezmoi-sync",
-            "chezmoi-workflows",
-            "mise-configuration",
-            "mise-tasks"
-          ]
+          skill = ["chezmoi-sync", "chezmoi-workflows", "mise-configuration", "mise-tasks"]
         },
         {
           sourceUrl = "https://github.com/kunchenguid/chrome-devtools-axi",
           skill = ["chrome-devtools-axi"]
         },
-        {
-          sourceUrl = "https://github.com/kunchenguid/gh-axi",
-          skill = ["gh-axi"]
-        },
-        {
-          sourceUrl = "https://github.com/SSBrouhard/npm-axi",
-          skill = ["npm-axi"]
-        },
-        {
-          sourceUrl = "https://github.com/thatdudealso/docker-axi",
-          skill = ["docker-axi"]
-        },
+        { sourceUrl = "https://github.com/kunchenguid/gh-axi", skill = ["gh-axi"] },
+        { sourceUrl = "https://github.com/SSBrouhard/npm-axi", skill = ["npm-axi"] },
+        { sourceUrl = "https://github.com/thatdudealso/docker-axi", skill = ["docker-axi"] },
         {
           sourceUrl = "https://github.com/AndersHoffmann/obsidian-axi",
           skill = ["obsidian-axi"]
@@ -40,14 +26,8 @@
           sourceUrl = "https://github.com/masculinecache/chezmoi-axi",
           skill = ["chezmoi-axi"]
         },
-        {
-          sourceUrl = "https://github.com/masculinecache/bws-axi",
-          skill = ["bws-axi"]
-        },
-        {
-          sourceUrl = "https://github.com/batamire/ha-axi",
-          skill = ["ha-axi"]
-        }
+        { sourceUrl = "https://github.com/masculinecache/bws-axi", skill = ["bws-axi"] },
+        { sourceUrl = "https://github.com/batamire/ha-axi", skill = ["ha-axi"] }
       ]
     }
   ]
@@ -81,13 +61,7 @@
         "writing-for-agents"
       ]
     },
-    {
-      sourceUrl = "https://github.com/vercel-labs/skills",
-      skill = ["find-skills"]
-    },
+    { sourceUrl = "https://github.com/vercel-labs/skills", skill = ["find-skills"] },
     { sourceUrl = "https://github.com/jdx/fnox", skill = ["fnox"] },
-    {
-      sourceUrl = "https://github.com/tailscale/tailscale-skill",
-      skill = ["tailscale"]
-    },
+    { sourceUrl = "https://github.com/tailscale/tailscale-skill", skill = ["tailscale"] },
   ]

@@ -1,2 +1,4 @@
 require("full-border"):setup()
--- require("mime-ext"):setup()
+require("smart-enter"):setup {
+    open_multi = true,
+}
