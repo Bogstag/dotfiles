@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "codegraph": {
+      "args": [
+        "serve",
+        "--mcp"
+      ],
+      "command": "codegraph",
+      "type": "stdio"
+    }
+  },
+  "security": {
+    "auth": {
+      "selectedType": "gemini-api-key"
+    }
+  }
+}
