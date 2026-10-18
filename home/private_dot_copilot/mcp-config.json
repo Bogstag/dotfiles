@@ -3,9 +3,14 @@
     "aperture": {
       "type": "http",
       "url": "https://ai.goldeye-monster.ts.net/v1/mcp",
-      "tools": [
-        "*"
-      ]
+      "tools": ["*"]
+    },
+    "codegraph": {
+      "type": "stdio",
+      "command": "codegraph",
+      "args": ["serve", "--mcp"],
+      "tools": ["*"],
+      "deferTools": "never"
     }
   }
 }

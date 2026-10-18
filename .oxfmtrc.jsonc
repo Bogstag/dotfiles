@@ -1,7 +1,4 @@
 {
-  "$schema": "https://raw.githubusercontent.com/oxc-project/oxc/refs/heads/main/npm/oxfmt/configuration_schema.json",
+  "$schema": "/home/bogge/.local/share/mise/installs/oxfmt/latest/node_modules/oxfmt/configuration_schema.json",
   "ignorePatterns": [],
-  "trailingComma": "none",
-  "bracketSameLine": false,
-  "experimentalOperatorPosition": "end"
 }

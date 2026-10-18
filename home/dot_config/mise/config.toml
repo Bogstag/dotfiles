@@ -1,9 +1,6 @@
 #:schema https://mise.jdx.dev/schema/mise.json
 # tombi: format.rules.table-keys-order = "ascending"
 
-[env]
-  _.path = "~/bin"
-
 [settings]
   upgrade.auto_prune = false
   experimental = true
@@ -32,6 +29,7 @@
   betterleaks = "latest"
   biome = "latest"
   bitwarden-secrets-manager = "latest"
+  codegraph = "latest"
   codex = "latest"
   copilot = "latest"
   crush = "latest"
@@ -62,4 +60,5 @@
   shfmt = "latest"
   tombi = "latest"
   uv = "latest"
+  vp = "latest"
   yazi = "latest"

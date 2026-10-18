@@ -20,7 +20,6 @@
       run = "plugin diff",
       desc = "Diff the selected with the hovered file"
     },
-    { on = "f", run = "plugin smart-filter", desc = "Smart filter" },
     {
       on = "p",
       run = "plugin smart-paste",
