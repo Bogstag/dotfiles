@@ -6,7 +6,7 @@
 
 [settings.skills]
   dir = ".agents/skills"
-  auto_sync = true
+  auto_sync = false
   prune = true
 
 [task_config]
