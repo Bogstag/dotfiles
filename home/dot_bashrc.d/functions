@@ -1,0 +1,2 @@
+# shellcheck source=${HOME}/.bashrc.d/fns/null
+for f in "${HOME}"/.bashrc.d/fns/*; do source "${f}"; done
