@@ -3,7 +3,7 @@
 toml-version = "v1.1.0"
 
 [files]
-  exclude = [".cache/**/*.toml", "**/modify_*.toml"]
+  exclude = [".cache/**/*.toml", "**/modify_*.toml", "/home/bogge/Projects/Orlok/source"]
 
 [format]
   rules = {

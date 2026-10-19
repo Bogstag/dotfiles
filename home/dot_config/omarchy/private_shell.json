@@ -33,6 +33,12 @@
           "id": "omarchy.indicators"
         },
         {
+          "id": "njpatel.omapager",
+          "displayMode": "all",
+          "showCountdown": true,
+          "alwaysShow": true
+        },
+        {
           "id": "promaa.clock",
           "enableMeetingLinks": false,
           "format": "dddd @ d MMMM HH:mm ('v'ww)",
@@ -43,13 +49,10 @@
           "notifyMinutesBefore": 5
         },
         {
-          "id": "omarchy.keyboard-layout"
-        },
-        {
           "id": "omarchy.weather"
         },
         {
-          "id": "omarchy.spacer"
+          "id": "omarchy.keyboard-layout"
         },
         {
           "id": "omarchy.system-update"
@@ -114,6 +117,9 @@
     },
     {
       "id": "akitaonrails.ai-usagebar"
+    },
+    {
+      "id": "njpatel.omapager"
     }
   ],
   "disabledPlugins": [
@@ -137,6 +143,9 @@
     },
     {
       "id": "omarchy.workspaces"
+    },
+    {
+      "id": "omarchy.notifications"
     }
   ]
 }

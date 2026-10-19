@@ -17,7 +17,7 @@
   description = "Format go templates"
   env = { CLICOLOR_FORCE = "0" }
   outputs = [""]
-  # run = "gotmplfmt -w ${file}"
+  run = "gotmplfmt -w ${file}"
   sources = ["gotmplfmt"]
 
 [Get-all-file-ext-in-dir]

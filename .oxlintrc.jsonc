@@ -1,10 +1,14 @@
 {
   "$schema": "https://raw.githubusercontent.com/oxc-project/oxc/refs/heads/main/npm/oxlint/configuration_schema.json",
-  "plugins": ["typescript", "unicorn", "oxc"],
+  "plugins": ["oxc", "node", "jsdoc"],
   "categories": {
     "correctness": "error",
   },
-  "rules": {},
+  "rules": {
+    "sort-keys": ["allow", "asc", { "caseSensitive": true, "minKeys": 2, "natural": true }],
+    "sort-vars": "allow",
+    "sort-imports": "allow",
+  },
   "env": {
     "builtin": true,
   },
