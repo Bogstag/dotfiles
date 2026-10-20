@@ -1,0 +1,12 @@
+api.github.com:
+    git_protocol: https
+    user: Bogstag
+gist.github.com:
+    git_protocol: https
+    user: Bogstag
+github.com:
+    git_protocol: ssh
+    user: Bogstag
+www.github.com:
+    git_protocol: https
+    user: Bogstag

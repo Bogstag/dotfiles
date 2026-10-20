@@ -1,4 +1,5 @@
-tests/*
 .vscode/*
-**/chezmoi.code-workspace
 **Trash**
+chezmoi.code-workspace
+notes.md
+tests/*
