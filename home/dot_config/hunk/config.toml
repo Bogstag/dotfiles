@@ -1,0 +1,19 @@
+theme = "dracula"
+line_numbers = false
+
+[open]
+
+[vcs]
+  watch = true
+
+[show]
+
+[stash-show]
+
+[diff]
+
+[patch]
+
+[difftool]
+
+[extensions]
