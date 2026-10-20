@@ -1,4 +1,6 @@
-#!{{ lookPath "bash" }}
+#!/usr/bin/bash
+# shellcheck shell=bash
+# chezmoi:template:left-delimiter="# {{" right-delimiter=}}
 
 # Omarchy environment (OMARCHY_PATH + PATH), needed even for non-interactive shells
 [[ -r /usr/share/omarchy/default/bash/env-bootstrap ]] && source /usr/share/omarchy/default/bash/env-bootstrap
@@ -8,27 +10,29 @@
 
 # All the default Omarchy aliases and functions
 # (don't mess with these directly, just overwrite them here!)
-if [ -f "$OMARCHY_PATH/default/bash/rc" ]; then
-    # shellcheck source=/usr/share/omarchy/default/bash/rc
-    source "$OMARCHY_PATH/default/bash/rc"
+if [[ -f "${OMARCHY_PATH}/default/bash/rc" ]]; then
+	# shellcheck source=/usr/share/omarchy/default/bash/rc
+	source "${OMARCHY_PATH}/default/bash/rc"
 fi
 
 # Omarchy defaults can be found here:
 # /usr/share/omarchy/default/bash
 
 # Aliases.
-if [ -f "$HOME/.bash_aliases" ]; then
-	source "$HOME/.bash_aliases"
+if [[ -f "${HOME}/.bash_aliases" ]]; then
+	# shellcheck source=/home/bogge/.bash_aliases
+	source "${HOME}/.bash_aliases"
 fi
 
 # .bashrc.d
-if [ -d "$HOME/.bashrc.d" ]; then
-    for config in "$HOME/.bashrc.d"/*.sh; do
-        [ -r "$config" ] && source "$config"
-    done
+if [[ -d "${HOME}/.bashrc.d" ]]; then
+	for config in "${HOME}/.bashrc.d"/*.sh; do
+		# shellcheck source=/home/bogge/.bashrc.d/1-envs.sh
+		[[ -r "${config}" ]] && source "${config}"
+	done
 fi
 
-{{- if ne .chezmoi.osRelease.id "omarchy" }}
+# {{- if ne .chezmoi.osRelease.id "omarchy" }}
 # Not Omarchy
 eval "$(mise activate bash)"
-{{- end }}
+# {{- end }}

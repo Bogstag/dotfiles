@@ -8,7 +8,8 @@ if ! command -v npx >/dev/null 2>&1; then
 	exit 1
 fi
 
-agents="# {{- .skills.agents | join " " }}"
+# TODO: Cant add new skills, invalid agents.
+agents='# {{- .skills.agents | toStrings | join " " }}'
 
 # {{ range .skills.global }}
 sourceUrl="# {{- .sourceUrl }}"
@@ -21,10 +22,9 @@ if [ -d ~/.agents/skills/"${skill}" ]; then
 else
 	echo "Add ${skill}"
 	npx --yes \
-		skills add --global \
-		--skill "${skill}" \
-		--agent "${agents}" \
-		"${sourceUrl}"
+		skills add "${sourceUrl}" --global \
+		--skill "${skill}" --agent "${agents}" --yes
+
 fi
 # {{- end }}
 # {{- end }}

@@ -29,6 +29,8 @@ sandbox_mode = "workspace-write"
   external-agent-import-sync-enabled = false
   followUpQueueMode = "steer"
   sansFontSize = 14
+  autoArchiveAfterDays = 90
+  default-workspace-full-view = true
 
 [desktop.appearanceDarkChromeTheme]
   accent = "#f077af"
@@ -77,6 +79,10 @@ sandbox_mode = "workspace-write"
   source_type = "local"
   source = "/home/bogge/Projects/plugins"
 
+[marketplaces.revdiff]
+  source_type = "git"
+  source = "https://github.com/umputun/revdiff.git"
+
 [mcp_servers.aperture]
   url = "http://ai.goldeye-monster.ts.net/v1/mcp"
 
@@ -95,7 +101,6 @@ sandbox_mode = "workspace-write"
   args = []
   command = "/usr/lib/chatgpt/resources/cua_node/bin/node_repl"
   startup_timeout_sec = 120
-  enabled = false
 
 [mcp_servers.node_repl.env]
   NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
@@ -134,9 +139,6 @@ sandbox_mode = "workspace-write"
 [plugins."documents@openai-primary-runtime"]
   enabled = true
 
-[plugins."engram@engram"]
-  enabled = true
-
 [plugins."hk@plugins"]
   enabled = true
 
@@ -148,6 +150,12 @@ sandbox_mode = "workspace-write"
 
 [plugins."presentations@openai-primary-runtime"]
   enabled = false
+
+[plugins."revdiff-planning@revdiff"]
+  enabled = true
+
+[plugins."revdiff@revdiff"]
+  enabled = true
 
 [plugins."spreadsheets@openai-primary-runtime"]
   enabled = false
@@ -165,6 +173,9 @@ sandbox_mode = "workspace-write"
   trust_level = "trusted"
 
 [projects."/home/bogge/Projects/ObsidianRnDVault"]
+  trust_level = "trusted"
+
+[projects."/home/bogge/Projects/Orlok"]
   trust_level = "trusted"
 
 [sandbox_workspace_write]

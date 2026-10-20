@@ -15,6 +15,7 @@
 	algorithm = histogram    # Clearer diffs on moved/edited lines
 	colorMoved = plain       # Highlight moved blocks in diffs
 	mnemonicPrefix = true    # More intuitive refs in diff output
+	tool = hunk				 # Not default
 [commit]
 	verbose = true           # Include diff comment in commit message template
 	gpgsign = true
@@ -31,7 +32,8 @@
 
 [core]
     excludesfile = {{ .chezmoi.destDir }}/.gitignore_global
-    pager = delta
+    pager = "hunk pager"
+    # pager = delta
 
 [credential "https://github.com"]
 	helper =
@@ -53,6 +55,12 @@
   features = dracula
   side-by-side = true
   line-numbers = false
+
+[difftool]
+prompt = false
+
+[difftool "hunk"]
+cmd = hunk difftool \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 
 [gpg]
 	format = ssh
