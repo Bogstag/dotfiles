@@ -18,14 +18,19 @@
           "activeStyle": "accent",
           "density": "roomy",
           "dimUnfocused": true,
-          "groupApps": false,
+          "groupApps": true,
           "hideEmpty": false,
           "iconSize": 16,
           "labelStyle": "number",
           "pillBackground": true,
-          "previews": false,
           "previewSize": "small",
-          "showApps": "all"
+          "previews": false,
+          "showApps": "all",
+          "perMonitor": false,
+          "persistentWorkspaces": 6,
+          "focusedTitle": false,
+          "tooltips": true,
+          "iconStyle": "color"
         }
       ],
       "center": [
@@ -34,9 +39,10 @@
         },
         {
           "id": "njpatel.omapager",
+          "alwaysShow": true,
           "displayMode": "all",
           "showCountdown": true,
-          "alwaysShow": true
+          "fullscreenOverlay": "steam"
         },
         {
           "id": "promaa.clock",
@@ -123,29 +129,14 @@
     }
   ],
   "disabledPlugins": [
-    {
-      "id": "omarchy.active-window"
-    },
-    {
-      "id": "omarchy.agents"
-    },
-    {
-      "id": "omarchy.clock"
-    },
-    {
-      "id": "omarchy.dropbox"
-    },
-    {
-      "id": "omarchy.media"
-    },
-    {
-      "id": "omarchy.microphone"
-    },
-    {
-      "id": "omarchy.workspaces"
-    },
-    {
-      "id": "omarchy.notifications"
-    }
+    "omarchy.active-window",
+    "omarchy.agents",
+    "omarchy.clock",
+    "omarchy.dropbox",
+    "omarchy.media",
+    "omarchy.microphone",
+    "omarchy.nightlight",
+    "omarchy.notifications",
+    "omarchy.workspaces"
   ]
 }
