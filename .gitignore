@@ -3,3 +3,4 @@
 chezmoi.code-workspace
 notes.md
 tests/*
+bin/*
