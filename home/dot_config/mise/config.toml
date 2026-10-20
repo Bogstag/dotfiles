@@ -1,29 +1,50 @@
 #:schema https://mise.jdx.dev/schema/mise.json
 # tombi: format.rules.table-keys-order = "ascending"
 
+[env]
+  _.path = [
+    "go/bin",
+    ".bin",
+  ]
+  GOPATH = "${XDG_DESKTOP_DIR:-$HOME}/go"                            # Controls where various files are stored. See: 'go help gopath'.
+  GOBIN = "${GOPATH:-$HOME/go}/bin"                                  # The directory where 'go install' will install a command.
+  GOMODCACHE = "${GOPATH:-$HOME/go}/pkg/mod"                         # The directory where the go command will store downloaded modules.
+  GOENV = "${XDG_CONFIG_HOME:-$HOME/.config}/go/env"                 # The location of the Go environment configuration file.
+  GOTELEMETRY = "off"                                                # The current Go telemetry mode ("off", "local", or "on").
+  GOTELEMETRYDIR = "${XDG_CONFIG_HOME:-$HOME/.config}/go/telemetry"  # The directory Go telemetry data is written is written to.
+
 [settings]
   upgrade.auto_prune = false
   experimental = true
   color_theme = "dracula"
   lockfile = false
 
+[settings.github]
+  credential_command = "gh auth token"
+  use_git_credentials = true
+
+[settings.go]
+  set_goroot = true  # # The root of the go tree. GOROOT='/home/bogge/.local/share/mise/installs/go/1.27.2'
+  set_gobin = false  # GOBIN='/home/bogge/.local/share/mise/installs/go/1.27.2/bin'
+
 [settings.packslip]
   exec = true
-
-  # [settings.github]
-  # credential_command = "gh auth token"
-  # use_git_credentials = true
 
 [settings.skills]
   dir = ".agents/skills"
   auto_sync = true
   prune = true
 
+[settings.status]
+  show_env = false
+  show_tools = false
+
 [task_config]
   includes = ["tasks.toml"]
 
 # tombi: format.rules.table-keys-order = "ascending"
 [tools]
+  age = "latest"
   "aqua:owenlamont/ryl" = "latest"
   betterleaks = "latest"
   biome = "latest"
@@ -33,16 +54,18 @@
   copilot = "latest"
   crush = "latest"
   editorconfig-checker = "latest"
+  fnox = { version = "latest", workflow = "release.yml" }
   gemini = { version = "latest", allow_builds = ["@github/keytar", "node-pty"] }
   gh = "latest"
   "github:daptify14/chezit" = { version = "latest", os = ["linux"] }
   go = "latest"
   "go:github.com/gohugoio/gotmplfmt" = "latest"
+  "go:mvdan.cc/sh/v3/cmd/shfmt" = "latest"
   hk = "latest"
   hunk = "latest"
   java = "latest"
   lua = "latest"
-  node = "26.7.0"
+  node = ["lts", "26"]
   "npm:@masculinecache/mem-axi" = "latest"
   opencode = "latest"
   oxfmt = "latest"
@@ -56,7 +79,6 @@
   ripgrep = "latest"
   shellcheck = "latest"
   shellharden = "latest"
-  shfmt = "latest"
   tombi = "latest"
   uv = "latest"
   vp = "latest"
