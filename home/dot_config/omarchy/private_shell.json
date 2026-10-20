@@ -58,7 +58,20 @@
           "id": "omarchy.weather"
         },
         {
+          "id": "crmne.hyprmoncfg"
+        },
+        {
           "id": "omarchy.keyboard-layout"
+        },
+        {
+          "id": "io.github.juancasanueva.plugin-manager",
+          "openAs": "overlay"
+        },
+        {
+          "id": "dizziee.system-updates",
+          "refreshIntervalSec": 14400,
+          "alwaysShow": true,
+          "autoRefresh": true
         },
         {
           "id": "omarchy.system-update"
@@ -126,17 +139,44 @@
     },
     {
       "id": "njpatel.omapager"
+    },
+    {
+      "id": "io.github.juancasanueva.plugin-manager"
+    },
+    {
+      "id": "dizziee.system-updates"
+    },
+    {
+      "id": "crmne.hyprmoncfg"
     }
   ],
   "disabledPlugins": [
-    "omarchy.active-window",
-    "omarchy.agents",
-    "omarchy.clock",
-    "omarchy.dropbox",
-    "omarchy.media",
-    "omarchy.microphone",
-    "omarchy.nightlight",
-    "omarchy.notifications",
-    "omarchy.workspaces"
+    {
+      "id": "omarchy.active-window"
+    },
+    {
+      "id": "omarchy.agents"
+    },
+    {
+      "id": "omarchy.clock"
+    },
+    {
+      "id": "omarchy.dropbox"
+    },
+    {
+      "id": "omarchy.media"
+    },
+    {
+      "id": "omarchy.microphone"
+    },
+    {
+      "id": "omarchy.nightlight"
+    },
+    {
+      "id": "omarchy.notifications"
+    },
+    {
+      "id": "omarchy.workspaces"
+    }
   ]
 }
