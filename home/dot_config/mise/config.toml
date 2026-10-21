@@ -54,7 +54,6 @@
   gemini = { version = "latest", allow_builds = ["@github/keytar", "node-pty"] }
   gh = "latest"
   "github:daptify14/chezit" = { version = "latest", os = ["linux"] }
-  go = "latest"
   "go:github.com/gohugoio/gotmplfmt" = "latest"
   "go:mvdan.cc/sh/v3/cmd/shfmt" = "latest"
   hk = "latest"

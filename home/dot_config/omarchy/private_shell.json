@@ -58,20 +58,17 @@
           "id": "omarchy.weather"
         },
         {
-          "id": "crmne.hyprmoncfg"
+          "id": "io.github.twiking.omacontrol",
+          "showActiveSwitchCount": false,
+          "showNetworkWarning": false,
+          "showBatteryWarnings": false
         },
         {
-          "id": "omarchy.keyboard-layout"
+          "id": "yoyo.system-tidy"
         },
         {
           "id": "io.github.juancasanueva.plugin-manager",
           "openAs": "overlay"
-        },
-        {
-          "id": "dizziee.system-updates",
-          "refreshIntervalSec": 14400,
-          "alwaysShow": true,
-          "autoRefresh": true
         },
         {
           "id": "omarchy.system-update"
@@ -88,7 +85,8 @@
         },
         {
           "id": "io.github.dadofsambonzuki.chezmoi-hound",
-          "whenClean": "Show"
+          "whenClean": "Show",
+          "checkSeconds": 3000
         },
         {
           "id": "omarchy.spacer"
@@ -105,6 +103,9 @@
         },
         {
           "id": "omarchy.tailscale"
+        },
+        {
+          "id": "omarchy.keyboard-layout"
         },
         {
           "id": "omarchy.bluetooth"
@@ -144,10 +145,13 @@
       "id": "io.github.juancasanueva.plugin-manager"
     },
     {
-      "id": "dizziee.system-updates"
+      "id": "yoyo.system-tidy"
     },
     {
-      "id": "crmne.hyprmoncfg"
+      "id": "io.github.sirjul1337.lock-explorer"
+    },
+    {
+      "id": "io.github.twiking.omacontrol"
     }
   ],
   "disabledPlugins": [
@@ -177,6 +181,10 @@
     },
     {
       "id": "omarchy.workspaces"
+    },
+    {
+      "id": "omarchy.lock"
     }
-  ]
+  ],
+  "cloneSourceRestores": ["io.github.sirjul1337.lock-explorer"]
 }
