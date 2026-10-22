@@ -1,2 +1,30 @@
+# [bar]
+# Cross-axis size at font base-size 12. size-horizontal is the height of top/bottom bars; size-vertical is the width of left/right bars.
+#   With scale-with-font enabled, these grow/shrink with [font] base-size.
+#   scale-with-font  = true # true
+#   size-horizontal  = 26 # 26, top/bottom bar height at base-size 12
+#   size-vertical    = 28 # 28, left/right bar width at base-size 12
+# Widget sizes at base-size 12, scaled the same way. Uncomment to change.
+#   icon-slot   = 27   # 27, length of one icon slot along the bar
+#   icon-canvas = 16   # 16, the square an icon is drawn in
+#   icon-size   = 12   # 12, the icon itself, at most icon-canvas
+#   icon-font   = 13   # 13, glyph size of a font icon on an icon button
+#   status-slot = 21   # 21, length of a status indicator slot along the bar
+
+# [spacing]
+#   scale = 1.0 # 1.0
+#   scale-with-font = true # true
+
 [font]
-  base-size = 12
+  base-size = 12  # 12
+  # caption = 10        # 10 Notifications / Indicators
+  # body-small = 11     # 11 AI / Chezmoi icons
+  # body = 12           # 12 Workspace icons
+  # subtitle = 13       # 13
+  # title = 14          # 14
+  # heading = 16        # 16
+  # display = 24        # 24
+  # display-large = 28  # 28
+  # icon-small = 11     # 11
+  # icon = 14           # 14
+  # icon-large = 38     # 18

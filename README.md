@@ -195,7 +195,24 @@ som bara får allmänna kontroller, inte väljs alls eller är symboliska länka
 att steget misslyckas tills en kontroll lagts till eller baslinjen granskats.
 Planen visar filval, inte om kontrollerna har körts tidigare.
 
-## mise Tasks
+## chezmoi symlinks
+
+Att skapa dessa har egentligen inte varit så svårt, men det har alltid varit något trots den fina beskriningen. Här kommer minnes anteckning på hur jag ska tänka för att få till dessa.
+
+I detta exempel så ska jag symlinka vscode keybindings:
+
+```sh
+# Copy file you whant symlinked to dotfiles
+cp $(chezmoi target-path)/.config/Code/User/keybindings.json  $(chezmoi source-path)/dot_config/private_Code/User/keybindings.json
+
+# Add the file to chezmoi ignore, path from your home not from dotfiles.
+echo .config/Code/User/keybindings.json >> $(chezmoi source-path)/.chezmoiignore
+
+# create the symlink template
+echo -n "{{ .chezmoi.sourceDir }}/dot_config/private_Code/User/keybindings.json" > $(chezmoi source-path)/dot_config/private_Code/User/symlink_skeybindings.json.tmpl
+```
+
+### mise Tasks
 
 <!-- mise-tasks -->
 ## `Check`

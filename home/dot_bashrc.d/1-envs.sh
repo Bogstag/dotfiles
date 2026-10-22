@@ -1,6 +1,38 @@
 export LANG=en_GB.UTF-8
 export BAT_THEME=Dracula
 
+# Skip if HOME is set
+# if [[ -n "${HOME:-}" ]]; then
+# XDG_CACHE_HOME=$HOME/.cache
+# XDG_CONFIG_HOME=$HOME/.config
+# XDG_DATA_HOME=$HOME/.local/share
+# XDG_DESKTOP_DIR=$HOME
+# XDG_STATE_HOME=$HOME/.local/state
+# XDG_TEMPLATES_DIR=$HOME
+# XDG_PUBLICSHARE_DIR=$HOME
+# XDG_DOWNLOAD_DIR=$HOME/Downloads
+# XDG_DOCUMENTS_DIR=$HOME/Documents
+# XDG_MUSIC_DIR=$HOME/Music
+# XDG_PICTURES_DIR=$HOME/Pictures
+# XDG_VIDEOS_DIR=$HOME/Videos
+# XDG_PROJECTS_DIR=$HOME/Projects
+# fi
+# ${XDG_CACHE_HOME:-$HOME/.cache}
+# ${XDG_CONFIG_HOME:-$HOME/.config}
+# ${XDG_DATA_HOME:-$HOME/.local/share"}
+# ${XDG_DESKTOP_DIR:-$HOME}
+# ${XDG_STATE_HOME:-$HOME/.local/state}
+# ${XDG_TEMPLATES_DIR:-$HOME
+# ${XDG_PUBLICSHARE_DIR:-$HOME}
+# ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
+# ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+# ${XDG_MUSIC_DIR:-$HOME/Music"}
+# ${XDG_PICTURES_DIR:-$HOME/Pictures}
+# ${XDG_VIDEOS_DIR:-$HOME/Videos}
+# ${XDG_PROJECTS_DIR:-$HOME/Projects}
+
+# HOME = $HOME
+
 # Telemetry opt out
 export ANONYMIZED_TELEMETRY=false                   # https://cookbook.chromadb.dev/core/configuration/
 export ASPIRE_CLI_TELEMETRY_OPTOUT=true             # https://aspire.dev/reference/cli/microsoft-collected-cli-telemetry/

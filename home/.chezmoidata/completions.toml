@@ -11,6 +11,7 @@
     { name = "ryl", cmd = "--generate-completions" },
     { name = "tombi", cmd = "completion" },
     { name = "chezit", cmd = "completion" },
+    { name = "hunk", cmd = "completion" },
 
     # TODO: Ej kollade
     # { name = "claude", cmd = "completion" },

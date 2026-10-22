@@ -1,19 +1,28 @@
-theme = "dracula"
-line_numbers = false
+# Shared settings go before any table headers
+theme = "terminal"        # terminal follows terminal palette
+line_numbers = true
+mode = "auto"
+wrap_lines = true
+hunk_headers = true
+menu_bar = true
+agent_notes = false
+copy_decorations = false
+cursor_line = "row"
 
-[open]
+[open]  # complete documents and directory browsing (hunk open)
 
-[vcs]
+[vcs]  # working-tree and target reviews (hunk diff)
   watch = true
 
-[show]
+[show]  # commit and target display reviews (hunk show)
 
-[stash-show]
+[stash-show]  # stash reviews (hunk stash show)
 
-[diff]
+[diff]  # two-file comparisons (hunk diff --files <left> <right>)
 
-[patch]
+[patch]  # patch-file reviews (hunk patch)
 
-[difftool]
+[difftool]  # Git difftool pair reviews (hunk difftool)
 
-[extensions]
+[extensions]  #
+  enabled = true

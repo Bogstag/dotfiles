@@ -1,6 +1,6 @@
 #:schema https://yazi-rs.github.io/schemas/keymap.json
 # default file://$HOME/.config/yazi/keymap-default.toml
-# Kay Modifiers
+# Key Modifiers
 # <S-…>	Shift key.
 # <C-…>	Ctrl key.
 # <A-…>	Alt key.
@@ -10,27 +10,10 @@
   prepend_keymap = [
     # Plugins
     { on = ["c", "m"], run = "plugin chmod", desc = "" },
-    {
-      on = "l",
-      run = "plugin smart-enter",
-      desc = "Enter the child directory, or open the file"
-    },
-    {
-      on = ["C", "d"],
-      run = "plugin diff",
-      desc = "Diff the selected with the hovered file"
-    },
-    {
-      on = "p",
-      run = "plugin smart-paste",
-      desc = "Paste into the hovered directory or CWD"
-    },
-    {
-      for = "windows",
-      on = "!",
-      run = "shell 'powershell.exe' --block",
-      desc = "Open PowerShell here"
-    },
+    { on = "l", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+    { on = ["C", "d"], run = "plugin diff", desc = "Diff the selected with the hovered file" },
+    { on = "p", run = "plugin smart-paste", desc = "Paste into the hovered directory or CWD" },
+    { for = "windows", on = "!", run = "shell 'powershell.exe' --block", desc = "Open PowerShell here" },
     {
       for = "unix",
       on = "!",
@@ -42,6 +25,7 @@
     { on = ["g", "l"], run = "cd ~/.local", desc = "Go to ~/.local" },
     { on = ["g", "p"], run = "cd ~/Projects", desc = "Go to ~/Projects" },
     { on = ["g", "w"], run = "cd ~/Work", desc = "Go to ~/Work" },
+    { on = ["g", "o"], run = "cd /usr/share/omarchy", desc = "Go to /usr/share/omarchy" },
 
     # Templates
     # { on = "", run = "", desc = "" },

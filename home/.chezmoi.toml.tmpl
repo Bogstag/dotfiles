@@ -53,14 +53,15 @@
 	args = ["--wait"]
 
 [diff]
-	pager = "delta"
+	# command = "hunk"
+	# args = ["diff", "--files", "{{ `{{ .Destination }}` }}", "{{ `{{ .Target }}` }}"]
+	# pager = "delta"
+	pager = "hunk pager"
 
-# TODO: Detta fungerar inte
-# [merge]
-{{- if eq .chezmoi.os "linux" }}
-	# command = "meld"
-	# args = ["{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
-{{- end }}
+[merge]
+	#command = "meld"
+	command = "hunk difftool"
+	args = ["{{ `{{ .Destination }}` }}", "{{ `{{ .Source }}` }}", "{{ `{{ .Target }}` }}"]
 
 [template]
   options = ["missingkey=zero"]
