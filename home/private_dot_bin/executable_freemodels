@@ -14,7 +14,7 @@ for arg in "$@"; do
 		debug=true
 		;;
 	*)
-		if [[ "${provider}" = "" ]]; then
+		if [[ ${provider} == "" ]]; then
 			provider="${arg#--}"
 		fi
 		;;
@@ -49,12 +49,12 @@ mistral)
 	;;
 openrouter)
 	url="https://openrouter.ai/api/v1/models"
-	jq_filter="[.data[] | select(.id | endswith(\"free\")) | .id]"
+	jq_filter='[.data[] | select(.id | endswith("free")) | .id]'
 	key=""
 	;;
 opencode-zen | zen)
 	url="https://opencode.ai/zen/v1/models"
-	jq_filter="[.data[] | select(.id | endswith(\"free\")) | .id]"
+	jq_filter='[.data[] | select(.id | endswith("free")) | .id]'
 	key=""
 	;;
 *)
@@ -63,13 +63,13 @@ opencode-zen | zen)
 	exit 1
 	;;
 esac
-if [[ "${debug}" = true ]]; then
+if [[ ${debug} == true ]]; then
 	printf '\033[31m%s\033[0m\n' '-----##### DEBUG START #####-----'
 	printf '%s' 'jq' "${jq_args[@]}" "${jq_filter}" | bat --language=JQ
 	printf '\033[31m%s\033[0m\n' '-----##### DEBUG END #####-----'
 fi
 
-if [[ "${key}" == "" ]]; then
+if [[ ${key} == "" ]]; then
 	curl -s "${url}" | jq "${jq_args[@]}" "${jq_filter}"
 else
 	curl -s "${url}" -H "Authorization: Bearer ${key}" | jq "${jq_args[@]}" "${jq_filter}"
