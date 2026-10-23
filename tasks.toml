@@ -1,54 +1,56 @@
 #:schema https://mise.jdx.dev/schema/mise-task.json
 
 ["Check"]
-  run = "hk check --all"
-
-["Stage-unstaged"]
-  run = "hk fix --stage --unstaged"
+run = "hk check"
+description = "Checks modified files"
 
 ["Fix"]
-  run = "hk fix --all"
+run = "hk fix --all"
+
+["Stage-unstaged"]
+run = "hk fix --stage --unstaged"
+description = "Fix changed files and stage them if ok"
 
 [Chezmoi-edit-config]
-  run = "chezmoi edit-config"
+run = "chezmoi edit-config"
 
 # tombi: format.rules.table-keys-order = "ascending"
 ["format:gotmpl:write"]
-  description = "Format go templates"
-  env = { CLICOLOR_FORCE = "0" }
-  outputs = [""]
-  run = "gotmplfmt -w ${file}"
-  sources = ["gotmplfmt"]
+description = "Format go templates"
+env = { CLICOLOR_FORCE = "0" }
+outputs = [""]
+run = "gotmplfmt -w ${file}"
+sources = ["gotmplfmt"]
 
 [Get-all-file-ext-in-dir]
-  run = '''
+run = '''
   #!/usr/bin/env bash
   find . -type f | sed -rn 's|.*/[^/]+\.([^/.]+)$|\1|p' | sort -u
   '''
 
 [install-newer-versions]
-  # Use mise upgrade to install newer versions within the configured ranges and update the lockfile.
-  run = "mise upgrade --bump"
+# Use mise upgrade to install newer versions within the configured ranges and update the lockfile.
+run = "mise upgrade --bump"
 
 # tombi: format.rules.table-keys-order = "ascending"
 ["List-gotmpl-diff"]
-  description = "List files whose formatting differs from gotmplfmt's"
-  raw_args = true
-  run = "gotmplfmt -l {{ cwd }}"
-  tools = { "go:github.com/gohugoio/gotmplfmt" = "latest" }
+description = "List files whose formatting differs from gotmplfmt's"
+raw_args = true
+run = "gotmplfmt -l {{ cwd }}"
+tools = { "go:github.com/gohugoio/gotmplfmt" = "latest" }
 
 # tombi: format.rules.table-keys-order = "ascending"
 ["render:tasks"]
-  description = "Generate tasks documentation"
-  env = { CLICOLOR_FORCE = "0" }
-  outputs = ["README.md"]
-  run = [
-    "mise generate task-docs --output README.md --style detailed --inject ",
-  ]
-  sources = ["mise"]
+description = "Generate tasks documentation"
+env = { CLICOLOR_FORCE = "0" }
+outputs = ["README.md"]
+run = [
+  "mise generate task-docs --output README.md --style detailed --inject ",
+]
+sources = ["mise"]
 
 [Update-schema-ryl]
-  run = "ryl --print-toml-config-schema > $HOME/.config/ryl/ryl.json"
+run = "ryl --print-toml-config-schema > $HOME/.config/ryl/ryl.json"
 
 [pre-commit]
-  run = "hk run pre-commit"
+run = "hk run pre-commit"

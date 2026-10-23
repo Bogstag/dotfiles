@@ -209,12 +209,13 @@ cp $(chezmoi target-path)/.config/Code/User/keybindings.json  $(chezmoi source-p
 echo .config/Code/User/keybindings.json >> $(chezmoi source-path)/.chezmoiignore
 
 # create the symlink template
-echo -n "{{ .chezmoi.sourceDir }}/dot_config/private_Code/User/keybindings.json" > $(chezmoi source-path)/dot_config/private_Code/User/symlink_skeybindings.json.tmpl
+echo -n "{{ .chezmoi.sourceDir }}/dot_config/private_Code/User/keybindings.json" > $(chezmoi source-path)/dot_config/private_Code/User/symlink_keybindings.json.tmpl
 ```
 
 ### mise Tasks
 
 <!-- mise-tasks -->
+
 ## `Check`
 
 - **Usage:** `Check`

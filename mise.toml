@@ -1,21 +1,32 @@
 #:schema https://mise.jdx.dev/schema/mise.json
 # tombi: format.rules.table-keys-order = "ascending"
 
+[env]
+_.path = ["node_modules/.bin"]
+
 [settings.packslip]
-  exec = true
+exec = true
 
 [settings.skills]
-  dir = ".agents/skills"
-  auto_sync = false
-  prune = true
+dir = ".agents/skills"
+auto_sync = false
+prune = true
 
 [task_config]
-  includes = ["tasks.toml"]
+includes = ["tasks.toml"]
 
 [task_config.cache]
-  enabled = true
+enabled = true
 
 [tools]
-  go = "latest"
-  hk = { version = "latest", workflow = "release.yml" }
-  pkl = "latest"
+"aqua:owenlamont/ryl" = "latest"
+age = "latest"
+betterleaks = "latest"
+editorconfig-checker = "latest"
+go = "latest"
+hk = { version = "latest", workflow = "release.yml" }
+lua = "latest"
+oxfmt = "latest"
+oxlint = "latest"
+pkl = "latest"
+tombi = "latest"
