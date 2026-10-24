@@ -1,19 +1,13 @@
-// amends "/home/bogge/.config/hk.pkl"
-amends "package://github.com/jdx/hk/releases/download/v2.5.0/hk@2.5.0#/Config.pkl"
+amends "package://github.com/jdx/hk/releases/download/v2.8.0/hk@2.8.0#/Config.pkl"
 
-import "package://github.com/jdx/hk/releases/download/v2.5.0/hk@2.5.0#/Builtins.pkl"
+import "package://github.com/jdx/hk/releases/download/v2.8.0/hk@2.8.0#/Builtins.pkl"
 
+// Using a coding agent? See https://hk.jdx.dev/agents
 // Groups can provide dir, prefix, workspace_indicator, shell, stage, and exclude.
 
 steps {
   ["Special_Purpose"] = new Group {
     steps {
-      // ["hk-coverage"] = new Step {
-      //   check = "python3 .utils/check-hk-coverage.py"
-      // }
-      ["hk_test"] = (Builtins.hk_test) {
-      // description = "Run step-defined hk's tests"
-      }
       ["trailing-whitespace"] = (Builtins.trailing_whitespace) {
       // description = "Detect and remove trailing whitespace"
       }
@@ -93,10 +87,26 @@ steps {
     }
   }
 
+  ["lua"] = new Group {
+    steps {
+      ["stylua"] = (Builtins.stylua) {
+      // description = "Lua formatter"
+      }
+      ["selene"] = (Builtins.selene) {
+      // description = "Lua linter"
+      }
+    }
+  }
+
   ["special"] = new Group {
     steps {
+      ["mise"] = (Builtins.mise) {
+      // description = "mise-en-place's built-in formatter and linter"
+      }
+
       ["editorconfig-checker"] = (Builtins.editorconfig_checker) {
-      // description = "Validate files against EditorConfig rules"
+        // description = "Validate files against EditorConfig rules"
+        glob = List("**/.editorconfig", "**/dot_editorconfig")
       }
       ["betterleaks"] = (Builtins.betterleaks) {
       // description = "A Better Secrets Scanner built for configurability and speed"
@@ -111,14 +121,4 @@ steps {
   }
 }
 
-// ["lua"] = new Group {
-//   steps {
-//     ["luacheck"] = (Builtins.luacheck) {
-//     // description = "Lua linter"
-//     }
-//   }
-// }
-
-//   ["mise"] = (Builtins.mise) {
-//   // description = "mise-en-place's built-in formatter and linter"
-//   }
+warnings = List("missing-profiles")

@@ -1,0 +1,20 @@
+amends "package://github.com/jdx/hk/releases/download/v2.8.0/hk@2.8.0#/Config.pkl"
+
+import "package://github.com/jdx/hk/releases/download/v2.8.0/hk@2.8.0#/Builtins.pkl"
+// Using a coding agent? See https://hk.jdx.dev/agents
+
+// https://github.com/jdx/hk/releases/download/v2.8.0/hk@2.8.0#/Builtins.pkl
+// https://github.com/jdx/hk/releases/download/v2.8.0/hk@2.8.0#/Config.pkl
+
+local linters = new Mapping {
+  ["hk_test"] = (Builtins.hk_test) {
+  // description = "Run step-defined hk's tests"
+  }
+  ["hk-coverage"] = new Step {
+  //   check = "python3 .utils/check-hk-coverage.py"
+  }
+}
+
+steps = linters
+
+warnings = List("missing-profiles")

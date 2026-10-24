@@ -1,0 +1,10 @@
+###### Contains secrets #######
+.config/fnox/config.toml
+###############################
+
+##### May contain secrets #####
+.codex/auth.json
+.config/ai-usagebar/config.toml
+.config/omarchy/calendars.json
+.local/share/opencode/auth.json
+###############################

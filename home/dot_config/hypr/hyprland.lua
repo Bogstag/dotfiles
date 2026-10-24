@@ -22,17 +22,36 @@ require("hypr.bindings")
 require("hypr.looknfeel")
 require("hypr.autostart")
 
+-- Toggle config flags dynamically.
+require("default.hypr.toggles")
+-- Add any other personal Hyprland configuration below.
+
 -- Load settings written by OmaControl (omacontrol:managed).
 -- It belongs above the toggles below: those turn the laptop
 -- display off with a monitor rule, and a rule of ours read
 -- afterwards would replace it and put the display back on.
 require("hypr.omacontrol")
 
--- Toggle config flags dynamically.
-require("default.hypr.toggles")
-
 -- Add any other personal Hyprland configuration below.
 -- o.window("qemu", { workspace = "5" })
 
 -- Added by hyprmoncfg: its generated monitor rules load last, so nothing before this can override the applied layout.
-do local path = os.getenv("HOME") .. "/.config/hypr/hyprmoncfg-monitors.lua"; local file = io.open(path, "r"); if file then file:close(); dofile(path) end end
+do
+	local path = os.getenv("HOME") .. "/.config/hypr/hyprmoncfg-monitors.lua"
+	local file = io.open(path, "r")
+	if file then
+		file:close()
+		dofile(path)
+	end
+end
+
+-- Added by the Omarchy Workspace Layout plugin: registers its Lua tiling layouts.
+do
+	local path = (os.getenv("XDG_CONFIG_HOME") or os.getenv("HOME") .. "/.config")
+		.. "/hypr/omarchy-workspace-layout.lua"
+	local file = io.open(path, "r")
+	if file then
+		file:close()
+		dofile(path)
+	end
+end

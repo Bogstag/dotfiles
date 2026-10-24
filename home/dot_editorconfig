@@ -1,0 +1,90 @@
+# EditorConfig is awesome: https://editorconfig.org
+# top-most EditorConfig file
+# Unix-style newlines with a newline ending every file
+root = true
+
+[*]
+# Matches multiple files with brace expansion notation
+# Set default charset
+charset     = utf-8
+end_of_line = lf
+
+[*.{html}]
+# 4 space indent
+indent_style = space
+indent_size    = 4,
+
+[*.{cs,csx,vb,vbx,h,cpp,idl}]
+indent_size              = 4
+insert_final_newline     = true
+trim_trailing_whitespace = true
+
+[*.{js,ts,mjs,mts}]
+# 4 space indent
+indent_style = space
+indent_size    = 4,
+
+[*.json]
+indent_size  = 2
+indent_style = space
+
+[*.jsonc]
+indent_size  = 2
+indent_style = space
+
+[*.{ruleset,config,nuspec,resx,vsixmanifest,vsct,runsettings}]
+indent_size  = 2
+indent_style = space
+
+[*.{yaml,yml}]
+indent_size  = 2
+indent_style = space
+
+[*.lua]
+# see https://github.com/CppCXY/EmmyLuaCodeStyle
+indent_size  = 4
+indent_style = spacef
+
+[*.ps1]
+indent_size  = 4
+indent_style = space
+
+[*.py]
+charset      = utf-8
+indent_size  = 4
+indent_style = space
+
+[*.sh]
+# like -i=4
+binary_next_line            = true
+block_next_line             = true
+case_indent                 = true
+charset                     = utf-8
+function_next_line          = true
+indent_size                 = 4
+indent_style                = space
+insert_final_newline        = true
+keep_padding                = true
+language_dialect            = auto
+minify                      = false
+shellcheck.external-sources = true
+shellcheck.shell            = bash
+simplify                    = true
+space_redirects             = true
+
+[Makefile]
+indent_style = tab
+
+[package.json]
+indent_size  = 2
+indent_style = space
+
+[renovate.json*]
+indent_style = tab
+
+[third_party/**]
+# Ignore the entire "third_party" directory when calling shfmt on directories,
+# such as "shfmt -l -w .". When formatting files directly,
+# like "shfmt -w third_party/foo.sh" or "shfmt --filename=third_party/foo.sh",
+# the ignore logic is applied only when the --apply-ignore flag is given.
+ignore = true

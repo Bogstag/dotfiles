@@ -1,0 +1,10 @@
+{
+  "$schema": {
+    "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+    "allowTrailingCommas": true,
+  },
+  "runtime.version": "Lua 5.5",
+  "format": {
+    "defaultConfig": { "indent_style": "space", "indent_size": "4" },
+  },
+}

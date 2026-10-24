@@ -1,5 +1,10 @@
 {
+  "version": 1,
+  "idle": { "lock": 300, "screensaver": 150 },
   "bar": {
+    "id": "omarchy.bar",
+    "position": "top",
+    "transparent": false,
     "centerAnchor": "promaa.clock",
     "layout": {
       "center": [
@@ -52,16 +57,16 @@
           "perMonitor": false,
           "persistentWorkspaces": 6,
           "pillBackground": true,
-          "previews": false,
           "previewSize": "small",
+          "previews": false,
           "showApps": "all",
           "tooltips": true
         },
         { "id": "bjarneo.workspace-layout" },
         {
-          "id": "io.github.sirjul1337.lock-explorer",
-          "boot": "snapshot:editorial",
-          "openAs": "full"
+          "id": "lock-explorer",
+          "source": "~/.config/omarchy/plugins/io.github.sirjul1337.lock-explorer/BarWidget.qml",
+          "type": "qml"
         }
       ],
       "right": [
@@ -93,9 +98,7 @@
         { "id": "omarchy.monitor" },
         { "id": "omarchy.power" }
       ]
-    },
-    "position": "top",
-    "transparent": false
+    }
   },
   "disabledPlugins": [
     "omarchy.active-window",
@@ -109,19 +112,33 @@
     "omarchy.notifications",
     "omarchy.workspaces"
   ],
-  "idle": { "lock": 300, "screensaver": 150 },
   "plugins": [
     "akitaonrails.ai-usagebar",
     "bjarneo.workspace-layout",
     "io.github.dadofsambonzuki.chezmoi-hound",
     "io.github.juancasanueva.plugin-manager",
     "io.github.momostifler96.omarchy-cleaner",
-    "io.github.sirjul1337.lock-explorer",
     "io.github.twiking.omacontrol",
     "njpatel.omapager",
     "promaa.clock",
     "tornikegomareli.spaces",
-    "yoyo.system-tidy"
-  ],
-  "version": 1
+    "yoyo.system-tidy",
+    {
+      "id": "io.github.sirjul1337.lock-explorer",
+      "mediaControls": true,
+      "openAs": "panel",
+      "tourSeen": true,
+      "design": "poster",
+      "favorites": [
+        "editorial",
+        "poster",
+        "dock",
+        "island",
+        "cinema",
+        "frame",
+        "dayline",
+        "metro"
+      ]
+    }
+  ]
 }

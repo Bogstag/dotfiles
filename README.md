@@ -215,10 +215,11 @@ echo -n "{{ .chezmoi.sourceDir }}/dot_config/private_Code/User/keybindings.json"
 ### mise Tasks
 
 <!-- mise-tasks -->
-
 ## `Check`
 
 - **Usage:** `Check`
+
+Checks modified files
 
 ## `Chezmoi-edit-config`
 
@@ -241,6 +242,14 @@ List files whose formatting differs from gotmplfmt's
 ## `Stage-unstaged`
 
 - **Usage:** `Stage-unstaged`
+
+Fix changed files and stage them if ok
+
+## `Stage-unstaged-plan`
+
+- **Usage:** `Stage-unstaged-plan`
+
+Generate plan for Stage-unstaged task
 
 ## `Update-schema-ryl`
 

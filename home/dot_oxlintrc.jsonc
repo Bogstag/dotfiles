@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oxc-project/oxc/main/npm/oxlint/configuration_schema.json",
+  // "plugins": ["eslint", "typescript", "unicorn", "oxc"], // Default
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "pedantic": "error",
+    "perf": "error",
+    "style": "error",
+    "restriction": "error",
+  },
+  "rules": {
+    "sort-imports": "error",
+    "sort-keys": [
+      "error",
+      "asc",
+      { "caseSensitive": true, "minKeys": 2, "natural": false },
+    ],
+    "sort-vars": "error",
+  },
+}

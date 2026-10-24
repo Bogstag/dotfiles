@@ -3,7 +3,7 @@
 toml-version = "v1.1.0"
 
 [files]
-  exclude = [".cache/**/*.toml", "**/modify_*.toml", "/home/bogge/Projects/Orlok/source"]
+  exclude = [".cache/**/*.toml", "**/modify_*.toml"]
 
 [format]
   rules = {
@@ -29,6 +29,23 @@ toml-version = "v1.1.0"
     #   trailing-comment-space-width = 2,
   }
 
+  # [schema]
+  # enabled = true
+  # strict = true
+  # catalog = {
+  #   paths = [
+  #     "tombi://www.schemastore.org/api/json/catalog.json",
+  #     "https://www.schemastore.org/api/json/catalog.json",
+  #   ],
+  # }
+  # format.rules = {
+  #   array-values-order.enabled = true,
+  #   table-keys-order.enabled = true,
+  # }
+  # lint.rules = {
+  #   deprecated = "warn",
+  # }
+
 [[schemas]]
   path = "https://learn.chatgpt.com/docs/config-schema.json"
   include = [
@@ -41,54 +58,164 @@ toml-version = "v1.1.0"
 [[schemas]]
   path = "https://www.schemastore.org/tombi.json"
   include = ["$HOME/.config/tombi/config.toml", "**/tombi/config.toml", "**/.tombi.toml"]
+  overrides = [
+    {
+      targets = ["*"],
+      format.rules.array-values-order = "ascending",
+      format.rules.table-keys-order = "ascending",
+      lint.rules.deprecated = "warn",
+    },
+  ]
 
 [[schemas]]
   path = "https://www.schemastore.org/chezmoi.json"
   include = ["$HOME/.config/chezmoi.toml", "**/.chezmoi.toml", "**/chezmoi.toml"]
+  overrides = [
+    {
+      targets = ["*"],
+      format.rules.array-values-order = "ascending",
+      format.rules.table-keys-order = "ascending",
+      lint.rules.deprecated = "warn",
+    },
+  ]
 
 [[schemas]]
   path = "https://starship.rs/config-schema.json"
   include = ["$HOME/.config/starship.toml", "**/starship.toml"]
+  overrides = [
+    {
+      targets = ["*"],
+      format.rules.array-values-order = "ascending",
+      format.rules.table-keys-order = "ascending",
+      lint.rules.deprecated = "warn",
+    },
+  ]
 
 [[schemas]]
   path = "https://yazi-rs.github.io/schemas/keymap.json"
   include = ["$HOME/.config/yazi/keymap.toml", "**/yazi/keymap.toml"]
+  overrides = [
+    {
+      targets = ["*"],
+      format.rules.array-values-order = "ascending",
+      format.rules.table-keys-order = "ascending",
+      lint.rules.deprecated = "warn",
+    },
+  ]
 
 [[schemas]]
   path = "https://yazi-rs.github.io/schemas/yazi.json"
   include = ["$HOME/.config/yazi/yazi.toml", "**/yazi/yazi.toml"]
+  overrides = [
+    {
+      targets = ["*"],
+      format.rules.array-values-order = "ascending",
+      format.rules.table-keys-order = "ascending",
+      lint.rules.deprecated = "warn",
+    },
+  ]
 
 [[schemas]]
   path = "https://yazi-rs.github.io/schemas/vfs.json"
   include = ["$HOME/.config/yazi/vfs.toml", "**/yazi/vfs.toml"]
+  overrides = [
+    {
+      targets = ["*"],
+      format.rules.array-values-order = "ascending",
+      format.rules.table-keys-order = "ascending",
+      lint.rules.deprecated = "warn",
+    },
+  ]
 
 [[schemas]]
   path = "https://yazi-rs.github.io/schemas/theme.json"
   include = ["$HOME/.config/yazi/theme.toml", "**/yazi/theme.toml"]
+  overrides = [
+    {
+      targets = ["*"],
+      format.rules.array-values-order = "ascending",
+      format.rules.table-keys-order = "ascending",
+      lint.rules.deprecated = "warn",
+    },
+  ]
 
 [[schemas]]
   path = "https://yazi-rs.github.io/schemas/package.json"
   include = ["$HOME/.config/yazi/package.toml", "**/yazi/package.toml"]
+  overrides = [
+    {
+      targets = ["*"],
+      format.rules.array-values-order = "ascending",
+      format.rules.table-keys-order = "ascending",
+      lint.rules.deprecated = "warn",
+    },
+  ]
 
 [[schemas]]
   path = "https://www.schemastore.org/ryl.json"
   include = ["**/ryl/.ryl.toml", "$HOME/.config/ryl/.ryl.toml"]
+  overrides = [
+    {
+      targets = ["*"],
+      format.rules.array-values-order = "ascending",
+      format.rules.table-keys-order = "ascending",
+      lint.rules.deprecated = "warn",
+    },
+  ]
 
 [[schemas]]
   path = "https://mise.jdx.dev/schema/mise-task.json"
-  include = ["**/tasks.toml"]
+  include = [
+    "**/tasks.toml",
+    "**/config.toml",
+    "**/mise.toml",
+    "**/miserc.toml",
+    "**/tasks.toml.tmpl"
+  ]
+  overrides = [
+    {
+      targets = ["*"],
+      format.rules.array-values-order = "ascending",
+      format.rules.table-keys-order = "ascending",
+      lint.rules.deprecated = "warn",
+    },
+  ]
 
 [[schemas]]
   path = "https://mise.jdx.dev/schema/mise.json"
   include = ["**/mise.toml", "$HOME/.config/mise/config.toml", "**/mise/config.toml"]
+  overrides = [
+    {
+      targets = ["*"],
+      format.rules.array-values-order = "ascending",
+      format.rules.table-keys-order = "ascending",
+      lint.rules.deprecated = "warn",
+    },
+  ]
 
 [[schemas]]
   path = "https://www.schemastore.org/cargo.json"
   include = ["**/Cargo.toml"]
+  overrides = [
+    {
+      targets = ["*"],
+      format.rules.array-values-order = "ascending",
+      format.rules.table-keys-order = "ascending",
+      lint.rules.deprecated = "warn",
+    },
+  ]
 
 [[schemas]]
   path = "https://www.schemastore.org/pyproject.json"
   include = ["**/pyproject.toml"]
+  overrides = [
+    {
+      targets = ["*"],
+      format.rules.array-values-order = "ascending",
+      format.rules.table-keys-order = "ascending",
+      lint.rules.deprecated = "warn",
+    },
+  ]
 
 [[overrides]]
   files.include = ["**/yazi/yazi.toml", "**/yazi/keymap.toml", "**/yazi/theme.toml"]

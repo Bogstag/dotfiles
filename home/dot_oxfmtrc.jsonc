@@ -1,0 +1,10 @@
+{
+  "$schema": "/home/bogge/.local/share/mise/installs/oxfmt/latest/node_modules/oxfmt/configuration_schema.json",
+  "embeddedLanguageFormatting": "auto",
+  "ignorePatterns": [],
+  "objectWrap": "collapse",
+  "printWidth": 70, // with colapse 100 is to long
+  "sortImports": true,
+  "sortPackageJson": { "sortScripts": true },
+  "sortTailwindcss": true,
+}

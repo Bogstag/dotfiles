@@ -1,6 +1,8 @@
-.vscode/*
 **Trash**
+/.codex
+/.ryl_cache
+/.vscode
+/bin
+/tests
 chezmoi.code-workspace
 notes.md
-tests/*
-bin/*
