@@ -1,10 +1,20 @@
 ###### Contains secrets #######
-.config/fnox/config.toml
+**/fnox/config*.*
 ###############################
 
-##### May contain secrets #####
-.codex/auth.json
-.config/ai-usagebar/config.toml
-.config/omarchy/calendars.json
-.local/share/opencode/auth.json
+###### May contain secrets ####
+**/fnox/config.*
+**/auth*.*
+**/ai-usagebar/config*.*
+**/omarchy/calendars*.*
+**/share/opencode/auth*.*
+###############################
+
+###### Preemptive measures ####
+**/secret*/**
+###############################
+
+###### Normal ignores #########
+**/temp/**
+**/ignore*/**
 ###############################

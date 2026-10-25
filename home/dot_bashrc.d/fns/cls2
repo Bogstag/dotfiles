@@ -1,0 +1,4 @@
+# Does nothing
+cls2() {
+	clear
+}

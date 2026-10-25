@@ -1,8 +1,11 @@
-**Trash**
+# Folders
 /.codex
 /.ryl_cache
 /.vscode
 /bin
 /tests
+
+# Files
 chezmoi.code-workspace
 notes.md
+ascii-fonts-figlets.md

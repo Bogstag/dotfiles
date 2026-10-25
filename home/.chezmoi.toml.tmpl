@@ -55,7 +55,7 @@
 [diff]
 	# command = "hunk"
 	# args = ["diff", "--files", "{{ `{{ .Destination }}` }}", "{{ `{{ .Target }}` }}"]
-	pager = "delta"
+	pager = "delta --paging never"
 	# pager = "hunk pager"
 
 [merge]
@@ -65,3 +65,19 @@
 
 [template]
   options = ["missingkey=zero"]
+
+[hooks]
+read-source-state.pre = {command = "echo", args = ["pre-read-source-state-hook"]}
+apply.post = {command = "echo", args = ["post-apply-hook"]}
+add.post = {command = "echo", args = ["post-add-hook"]}
+
+# [hooks.read-source-state.pre]
+# command = "echo"
+# args = ["pre-read-source-state-hook"]
+
+# [hooks.apply.post]
+# command = "echo"
+# args = ["post-apply-hook"]
+
+# [hooks.add.post]
+# script = "post-add-hook.ps1"

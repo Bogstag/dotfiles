@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# shellcheck shell=bash
+# chezmoi:template:left-delimiter="# {{" right-delimiter=}}
+
+# {{ template "ScriptUtils" }}
+true || . ../.chezmoitemplates/ScriptUtils
+
+# {{ range .vscode.default.extensions }}
+extensions+=("# {{ . }}")
+# {{ end }}
+
+install_missing_vscode_extensions() {
+	local extension
+	local installed_extensions
+
+	installed_extensions=$(code --list-extensions) || return 1
+
+	for extension in "${extensions[@]}"; do
+		# Skip locally installed extensions
+		[[ ${extension} == local.* ]] && continue
+		if ! grep -Fxqi -- "${extension}" <<<"${installed_extensions}"; then
+			log_task "Installing VS Code extension: ${extension}"
+			code --install-extension "${extension}"
+		fi
+	done
+}
+
+install_missing_vscode_extensions

@@ -1,4 +1,6 @@
+#:tombi lint.disabled = true
 # Shared settings go before any table headers
+
 theme = "terminal"        # terminal follows terminal palette
 line_numbers = true
 mode = "auto"

@@ -1,0 +1,233 @@
+#:schema https://learn.chatgpt.com/docs/config-schema.json
+# https://github.com/openai/codex/blob/main/codex-rs/models-manager/models.json
+# tombi: format.rules.table-keys-order = "ascending"
+
+# Codex loads ~/.codex/config.toml, then overlays ~/.codex/profile-name.config.toml.
+
+# Primary model used by Codex. Example when available: "gpt-6.1-sol".
+model = "gpt-6-luna"
+
+# Optional model override for /review. Default: unset (uses current session model).
+review_model = "gpt-6-luna"
+
+# Provider id selected from [model_providers]. Default: "openai".
+model_provider = "aperture"
+
+# Default OSS provider for --oss sessions. When unset, Codex prompts. Default: unset.
+# oss_provider = "ollama"
+
+# Reasoning effort advertised by the selected model; supported levels vary by model and client.
+model_reasoning_effort = "medium"
+
+# Text verbosity for GPT-5 family (Responses API): low | medium | high
+model_verbosity = "low"
+
+# Who reviews eligible approval prompts: user (default) | auto_review
+approvals_reviewer = "auto_review"
+
+# Allow login-shell semantics for shell-based tools when they request `login = true`.
+# Default: true. Set false to force non-login shells and reject explicit login-shell requests.
+# allow_login_shell = true
+
+# Filesystem/network sandbox policy for tool calls:
+# - read-only (default)
+# - workspace-write
+# - danger-full-access (no sandbox; extremely risky)
+sandbox_mode = "workspace-write"
+
+# Named permissions profile to apply by default. Built-ins:
+# :read-only | :workspace | :danger-full-access
+
+# Use a custom name such as "workspace" only when you also define [permissions.workspace].
+# default_permissions = ":workspace"
+
+[agents]
+  # Enable or disable multi-agent tools. Default: true
+  # enabled = true
+
+  # Maximum concurrently open spawned-agent threads, excluding the primary thread. When unset, Codex chooses the default.
+  max_concurrent_threads_per_session = 6
+
+[desktop]
+  ambient-suggestions-enabled = false
+  appearanceDarkCodeThemeId = "dracula"
+  appearanceTheme = "dark"
+  codeFontSize = 13
+  conversationDetailMode = "STEPS_COMMANDS"
+  external-agent-import-sync-enabled = false
+  followUpQueueMode = "steer"
+  sansFontSize = 14
+  autoArchiveAfterDays = 90
+  default-workspace-full-view = true
+
+[desktop.appearanceDarkChromeTheme]
+  accent = "#f077af"
+  accentSource = "chatgpt"
+  contrast = 60
+  ink = "#f8f8f2"
+  opaqueWindows = false
+  surface = "#282a36"
+
+[desktop.appearanceDarkChromeTheme.fonts]
+
+[desktop.appearanceDarkChromeTheme.semanticColors]
+  diffAdded = "#50fa7b"
+  diffRemoved = "#ff5555"
+  skill = "#ff79c6"
+
+# tombi: format.rules.table-keys-order = "ascending"
+[features]
+  analytics_plan_history = true
+  fast_mode = false
+  hooks = true
+  login_shell_package_path = true
+  memories = true
+  multi_agent = true
+
+[features.guardianv2]
+  enabled = false
+
+[hooks.state."/home/bogge/.codex/hooks.json:session_start:0:0"]
+  trusted_hash = "sha256:25c9ca70d3148d3004ea3982a4b1f9e085528cb65790f18ec2f91c3af7df687d"
+
+[marketplaces.plugins]
+  source_type = "local"
+  source = "/home/bogge/Projects/plugins"
+
+[mcp_servers.aperture]
+  url = "http://ai.goldeye-monster.ts.net/v1/mcp"
+
+[mcp_servers.codegraph]
+  command = "codegraph"
+  args = ["serve", "--mcp"]
+
+[mcp_servers.context7]
+  url = "https://mcp.context7.com/mcp"
+
+[mcp_servers.hk]
+  args = ["mcp", "--root", "."]
+  command = "hk"
+
+[memories]
+  generate_memories = true
+  use_memories = true
+
+[model_providers.aperture]
+  name = "Aperture Proxy"
+  base_url = "http://ai.goldeye-monster.ts.net/codex"
+  wire_api = "responses"
+  requires_openai_auth = true
+
+[plugins."hk@plugins"]
+  enabled = true
+
+[plugins."homelab@plugins"]
+  enabled = true
+
+[plugins."visualize@openai-bundled"]
+  enabled = true
+
+[projects."/home/bogge/.local/share/chezmoi"]
+  trust_level = "trusted"
+
+[projects."/home/bogge/Projects/ObsidianRnDVault"]
+  trust_level = "trusted"
+
+[projects."/home/bogge/Projects/Orlok"]
+  trust_level = "trusted"
+
+[sandbox_workspace_write]
+  network_access = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/archify/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/archify-review/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/code-review/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/diagnose-crash/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/find-skills/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/fnox/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/go-testing/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/grill-me/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/grill-with-docs/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/grill-with-docs/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/hunk-review/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/omarchy/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/skill-creator/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/skill-improver/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/skill-registry/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/tailscale/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/wayfinder/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path = "/home/bogge/.agents/skills/writing-for-agents/SKILL.md"
+  enabled = true
+
+[tui]
+  fullscreen_transcript = true
+  resume_cwd = "session"
+  screen_reader_detection_done = true
+
+  # tombi: format.rules.array-values-order = { disabled = true }
+  status_line = [
+    "model-with-reasoning",
+    "project-root",
+    "current-dir",
+    "git-branch",
+    "context-remaining",
+    "five-hour-limit",
+    "weekly-limit"
+  ]
+  status_line_use_colors = true
+  theme = "dracula"
+
+[tui.model_availability_nux]
+  "gpt-6.1-sol" = 4

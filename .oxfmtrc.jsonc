@@ -3,9 +3,10 @@
   "embeddedLanguageFormatting": "auto",
   "ignorePatterns": [],
   "objectWrap": "collapse",
-  "printWidth": 70,
+  "printWidth": 70, // with colapse 100 is to long
   "sortImports": true,
   "sortPackageJson": { "sortScripts": true },
   "sortTailwindcss": true,
-  "trailingComma": "all",
+  // Valid languages: "javascript", "jsx", "typescript", "tsx", "json", "jsonc", "json5", "css", "scss", "less", "graphql", "yaml", "markdown", "toml", "html", "angular-html", "vue", "svelte", "astro", "handlebars", "mdx"
+  "associations": [{ "files": ["*.toml.tmpl"], "language": "toml" }],
 }

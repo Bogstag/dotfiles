@@ -1,144 +1,13 @@
 #:schema https://learn.chatgpt.com/docs/config-schema.json
 # https://github.com/openai/codex/blob/main/codex-rs/models-manager/models.json
-# tombi: format.rules.table-keys-order = "ascending"
 
-# Codex example configuration (config.toml)
-#
-# This file lists the main keys Codex reads from config.toml, along with default
-# behaviors, recommended examples, and concise explanations. Adjust as needed.
-#
-# Notes
-# - Root keys must appear before tables in TOML.
-# - Optional keys that default to "unset" are shown commented out with notes.
-# - MCP servers, profile files, and model providers are examples; remove or edit.
-
-################################################################################
-# Core Model Selection
-################################################################################
-
-# Primary model used by Codex. Example when available: "gpt-6.1-sol".
-model = "gpt-6-luna"
-
+model_provider = "openai"
 # Optional model override for /review. Default: unset (uses current session model).
-# review_model = "gpt-6.1-sol"
-
-# Provider id selected from [model_providers]. Default: "openai".
-model_provider = "aperture"
-
-# Default OSS provider for --oss sessions. When unset, Codex prompts. Default: unset.
-# oss_provider = "ollama"
-
-# Optional manual model metadata. When unset, Codex uses model or preset defaults.
-# model_context_window = 128000 # tokens; default: auto for model
-# model_auto_compact_token_limit = 64000 # tokens; unset uses model defaults
-# model_auto_compact_token_limit_scope = "total" # total | body_after_prefix; default: total
-# tool_output_token_limit = 12000 # tokens stored per tool output
-# model_catalog_json = "/absolute/path/to/models.json" # optional startup-only model catalog override
-# background_terminal_max_timeout = 300000 # ms; max empty write_stdin poll window (default 5m)
-# log_dir = "/absolute/path/to/codex-logs" # log directory; setting explicitly enables codex-tui.log; default: "$CODEX_HOME/log"
-# sqlite_home = "/absolute/path/to/codex-state" # optional SQLite-backed runtime state directory
-
-################################################################################
-# Reasoning & Verbosity (Responses API capable models)
-################################################################################
-
-# Reasoning effort advertised by the selected model; supported levels vary by model and client.
+model = "gpt-6-luna"
 model_reasoning_effort = "medium"
-
-# Optional reasoning effort override for Plan mode; use a level supported by the selected model.
-# plan_mode_reasoning_effort = "high"
-
-# Reasoning summary: auto | concise | detailed | none
-# model_reasoning_summary = "auto"
-
 # Text verbosity for GPT-5 family (Responses API): low | medium | high
 model_verbosity = "low"
-
-# Force enable or disable reasoning summaries for current model.
-# model_supports_reasoning_summaries = true
-
-################################################################################
-# Instruction Overrides
-################################################################################
-
-# Additional user instructions are injected before AGENTS.md. Default: unset.
-# developer_instructions = ""
-
-# Inline override for the history compaction prompt. Default: unset.
-# compact_prompt = ""
-
-# Override built-in base instructions with a file path. Default: unset.
-# model_instructions_file = "/absolute/or/relative/path/to/instructions.txt"
-
-# Load the compact prompt override from a file. Default: unset.
-# experimental_compact_prompt_file = "/absolute/or/relative/path/to/compact_prompt.txt"
-
-################################################################################
-# Notifications
-################################################################################
-
-# External notifier program (argv array). When unset: disabled.
-# notify = ["notify-send", "Codex"]
-
-################################################################################
-# Approval & Sandbox
-################################################################################
-
-# When to ask for command approval:
-# - on-request: model decides when to ask (default)
-# - never: never prompt (risky)
-# - { granular = { ... } }: allow or auto-reject selected prompt categories
-# approval_policy = "on-request"
-
-# Who reviews eligible approval prompts: user (default) | auto_review
-approvals_reviewer = "auto_review"
-# Example granular policy:
-# approval_policy = { granular = {
-# sandbox_approval = true,
-# rules = true,
-# mcp_elicitations = true,
-# request_permissions = false,
-# skill_approval = false
-# } }
-
-# Allow login-shell semantics for shell-based tools when they request `login = true`.
-# Default: true. Set false to force non-login shells and reject explicit login-shell requests.
-# allow_login_shell = true
-
-# Filesystem/network sandbox policy for tool calls:
-# - read-only (default)
-# - workspace-write
-# - danger-full-access (no sandbox; extremely risky)
-sandbox_mode = "workspace-write"
-
-# Named permissions profile to apply by default. Built-ins:
-# :read-only | :workspace | :danger-full-access
-
-# Use a custom name such as "workspace" only when you also define [permissions.workspace].
-# default_permissions = ":workspace"
-
-################################################################################
-# Agents (multi-agent roles and limits)
-################################################################################
-[agents]
-  # Enable or disable multi-agent tools. Default: true
-  # enabled = true
-
-  # Maximum concurrently open spawned-agent threads, excluding the primary thread. When unset, Codex chooses the default.
-  max_concurrent_threads_per_session = 6
-
-  # Default model for spawned agents. An explicit spawn model takes precedence.
-  # default_subagent_model = "gpt-6.1-sol"
-
-  # Default reasoning effort for spawned agents. An explicit spawn effort takes precedence.
-  # default_subagent_reasoning_effort = "medium"
-
-  # Record a model-visible message when an agent turn is interrupted. Default: true
-  # interrupt_message = true
-
-  # [agents.reviewer]
-  # description = "Find correctness, security, and test risks in code."
-  # config_file = "./agents/reviewer.toml" # relative to the config.toml that defines it
+sandbox_mode = "read-only"
 
 [apps.connector_20205bf7d4e99a89d7154bb849718324]
   enabled = false
@@ -158,29 +27,9 @@ sandbox_mode = "workspace-write"
   autoArchiveAfterDays = 90
   default-workspace-full-view = true
 
-[desktop.appearanceDarkChromeTheme]
-  accent = "#f077af"
-  accentSource = "chatgpt"
-  contrast = 60
-  ink = "#f8f8f2"
-  opaqueWindows = false
-  surface = "#282a36"
-
-[desktop.appearanceDarkChromeTheme.fonts]
-
-[desktop.appearanceDarkChromeTheme.semanticColors]
-  diffAdded = "#50fa7b"
-  diffRemoved = "#ff5555"
-  skill = "#ff79c6"
-
-# tombi: format.rules.table-keys-order = "ascending"
-[features]
-  analytics_plan_history = true
-  fast_mode = false
-  hooks = true
-  login_shell_package_path = true
-  memories = true
-  multi_agent = true
+[memories]
+  generate_memories = true
+  use_memories = true
 
 [features.guardianv2]
   enabled = false
@@ -196,27 +45,14 @@ sandbox_mode = "workspace-write"
   source_type = "local"
   source = "/home/bogge/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
-[marketplaces.plugins]
-  source_type = "local"
-  source = "/home/bogge/Projects/plugins"
-
-[mcp_servers.aperture]
-  url = "http://ai.goldeye-monster.ts.net/v1/mcp"
-
-[mcp_servers.codegraph]
-  command = "codegraph"
-  args = ["serve", "--mcp"]
-
-[mcp_servers.context7]
-  url = "https://mcp.context7.com/mcp"
-
-[mcp_servers.hk]
-  args = ["mcp", "--root", "."]
-  command = "hk"
-
 [mcp_servers.node_repl]
   args = []
   command = "/usr/lib/chatgpt/resources/cua_node/bin/node_repl"
+  env_vars = [
+    "BROWSER_USE_ACCESS_EXECUTOR_ID",
+    "BROWSER_USE_ACCESS_PIPE_PATH",
+    "BROWSER_USE_ACCESS_VERIFYING_IDENTITY"
+  ]
   startup_timeout_sec = 120
 
 [mcp_servers.node_repl.env]
@@ -230,19 +66,9 @@ sandbox_mode = "workspace-write"
   NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
   NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
   BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-  BROWSER_USE_CODEX_APP_VERSION = "26.1013.40934"
-  NODE_REPL_TRUSTED_SERVICES = '{"browser":"/home/bogge/.codex/plugins/cache/openai-bundled/browser/26.1013.40934/scripts/browser-service.mjs"}'
+  BROWSER_USE_CODEX_APP_VERSION = "26.1021.22027"
+  NODE_REPL_TRUSTED_SERVICES = '{"browser":"/home/bogge/.codex/plugins/cache/openai-bundled/browser/26.915.31029/scripts/browser-service.mjs"}'
   CODEX_CLI_PATH = "/usr/lib/chatgpt/resources/codex"
-
-[memories]
-  generate_memories = true
-  use_memories = true
-
-[model_providers.aperture]
-  name = "Aperture Proxy"
-  base_url = "http://ai.goldeye-monster.ts.net/codex"
-  wire_api = "responses"
-  requires_openai_auth = true
 
 [plugins."browser@openai-bundled"]
   enabled = true
@@ -256,12 +82,6 @@ sandbox_mode = "workspace-write"
 [plugins."documents@openai-primary-runtime"]
   enabled = true
 
-[plugins."hk@plugins"]
-  enabled = true
-
-[plugins."homelab@plugins"]
-  enabled = true
-
 [plugins."pdf@openai-primary-runtime"]
   enabled = false
 
@@ -272,113 +92,18 @@ sandbox_mode = "workspace-write"
   enabled = false
 
 [plugins."template-creator@openai-primary-runtime"]
-  enabled = true
+  enabled = false
 
 [plugins."unified-computer-use@openai-bundled"]
-  enabled = true
+  enabled = false
 
 [plugins."visualize@openai-bundled"]
-  enabled = true
-
-[projects."/home/bogge/.local/share/chezmoi"]
-  trust_level = "trusted"
-
-[projects."/home/bogge/Projects/ObsidianRnDVault"]
-  trust_level = "trusted"
-
-[projects."/home/bogge/Projects/Orlok"]
-  trust_level = "trusted"
-
-[sandbox_workspace_write]
-  network_access = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/archify/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/archify-review/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/code-review/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/diagnose-crash/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/find-skills/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/fnox/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/go-testing/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/grill-me/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/grill-with-docs/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/grill-with-docs/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/hunk-review/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/omarchy/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/skill-creator/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/skill-improver/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/skill-registry/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/tailscale/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/wayfinder/SKILL.md"
-  enabled = true
-
-[[skills.config]]
-  path = "/home/bogge/.agents/skills/writing-for-agents/SKILL.md"
   enabled = true
 
 [tui]
   fullscreen_transcript = true
   resume_cwd = "session"
   screen_reader_detection_done = true
-
-  # tombi: format.rules.array-values-order = { disabled = true }
-  status_line = [
-    "model-with-reasoning",
-    "project-root",
-    "current-dir",
-    "git-branch",
-    "context-remaining",
-    "five-hour-limit",
-    "weekly-limit"
-  ]
   status_line_use_colors = true
   theme = "dracula"
 

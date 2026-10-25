@@ -1,26 +1,18 @@
 [vscode]
-  extensions = [
+  profiles = ["Default", "Chezmoi", "Clean", "Node.js"]
+
+  default.extensions = [
     "davidanson.vscode-markdownlint",
-    "dracula-theme.theme-dracula",
-    "editorconfig.editorconfig",
-    "emilast.logfilehighlighter",
-    "fanaticpythoner.better-todo-tree",
-    "foxundermoon.shell-format",
-    "hashicorp.terraform",
     "he0119.aperture-for-copilot",
     "hverlin.mise-vscode",
-    "ibm.output-colorizer",
+    "local.omarchy-theme",
     "mads-hartmann.bash-ide-vscode",
-    "ms-azuretools.vscode-containers",
-    "ms-sarifvscode.sarif-viewer",
-    "ms-vscode-remote.remote-containers",
-    "ms-vscode.vscode-chat-customizations-evaluations",
+    "oderwat.indent-rainbow",
     "owenlamont.ryl",
+    "oxc.oxc-vscode",
     "pkl.pkl-vscode",
     "redhat.vscode-xml",
     "redhat.vscode-yaml",
-    "sumneko.lua",
-    "timonwong.shellcheck",
+    "smcpeak.default-keys-windows",
     "tombi-toml.tombi",
-    "xembly.gomplate",
   ]
