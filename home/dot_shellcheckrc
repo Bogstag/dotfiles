@@ -1,13 +1,16 @@
 shell=auto
 external-sources=true
+enable=all
 
 # In POSIX sh, [[ ]] is undefined.
 #disable=SC3010
 
+# Dont work with chezmoi:
+# chezmoi:template:left-delimiter="# {{" right-delimiter=}}
 # You need a space after the {.
 disable=SC1054
 
-#Optional checks
+# All below is Optional checks
 # To list all: shellcheck --list-optional
 
 enable=add-default-case
@@ -53,7 +56,7 @@ enable=quote-safe-variables
 # example: var=hello; echo $var
 # fix:     var=hello; echo "$var"
 
-enable=require-double-brackets
+enable=require-double-brackets # SC2250
 # desc:    Require [[ and warn about [ in Bash/Ksh
 # example: [ -e /etc/issue ]
 # fix:     [[ -e /etc/issue ]]

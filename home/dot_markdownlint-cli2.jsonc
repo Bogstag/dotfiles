@@ -1,13 +1,26 @@
 {
-    "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint-cli2/refs/heads/main/schema/markdownlint-cli2-config-schema.json",
-    "gitignore": true,
-    "config": {
-        "default": true,
-        "code-block-style": {
-            "style": "fenced"
-        },
-        "hr-style": {
-            "style": "---"
-        }
-    }
+  "$schema": {
+    "schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint-cli2/refs/heads/main/schema/markdownlint-cli2-config-schema.json",
+    "allowTrailingCommas": true,
+  },
+  "gitignore": true,
+  "config": {
+    "default": true,
+    "code-block-style": { "style": "fenced" },
+    "hr-style": { "style": "---" },
+    "headings": [
+      "# ?",
+      "*",
+      "## ?",
+      "*",
+      "### ?",
+      "*",
+      "#### ?",
+      "*",
+      "##### ?",
+      "*",
+      "###### ?",
+    ],
+    "no-inline-htm": { "allowed_elements": ["details", "summary"] },
+  },
 }

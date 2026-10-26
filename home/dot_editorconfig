@@ -1,6 +1,5 @@
 # EditorConfig is awesome: https://editorconfig.org
 # top-most EditorConfig file
-# Unix-style newlines with a newline ending every file
 root = true
 
 [*]
@@ -24,10 +23,12 @@ trim_trailing_whitespace = true
 indent_style = space
 indent_size    = 4,
 
+[[json]]
 [*.json]
 indent_size  = 2
 indent_style = space
 
+[[jsonc]]
 [*.jsonc]
 indent_size  = 2
 indent_style = space
@@ -54,23 +55,70 @@ charset      = utf-8
 indent_size  = 4
 indent_style = space
 
-[*.sh]
+[Dockerfile]
+indent_size = 4
+indent_style = space
+binary_next_line = true
+
+[[shell]]
 # like -i=4
-binary_next_line            = true
-block_next_line             = true
-case_indent                 = true
+indent_style = space
+indent_size = 4
 charset                     = utf-8
-function_next_line          = true
-indent_size                 = 4
-indent_style                = space
 insert_final_newline        = true
-keep_padding                = true
-language_dialect            = auto
-minify                      = false
+# shfmt
+language_dialect   = auto
+simplify           = true
+binary_next_line   = true
+case_indent        = true
+space_redirects    = true
+keep_padding       = false
+function_next_line = false
+block_next_line    = true
+minify             = false
+# shellcheck
 shellcheck.external-sources = true
 shellcheck.shell            = bash
-simplify                    = true
-space_redirects             = true
+
+[[bash]]
+# like -i=4
+indent_style = space
+indent_size = 4
+charset                     = utf-8
+insert_final_newline        = true
+# shfmt
+language_dialect   = bash
+simplify           = true
+binary_next_line   = true
+case_indent        = true
+space_redirects    = true
+keep_padding       = false
+function_next_line = false
+block_next_line    = true
+minify             = false
+# shellcheck
+shellcheck.external-sources = true
+shellcheck.shell            = bash
+
+[*.{sh,inc,bash,command}]
+# like -i=4
+indent_style = space
+indent_size = 4
+charset                     = utf-8
+insert_final_newline        = true
+# shfmt
+language_dialect   = auto
+simplify           = true
+binary_next_line   = true
+case_indent        = true
+space_redirects    = true
+keep_padding       = false
+function_next_line = false
+block_next_line    = true
+minify             = false
+# shellcheck
+shellcheck.external-sources = true
+shellcheck.shell            = bash
 
 [Makefile]
 indent_style = tab

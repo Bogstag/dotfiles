@@ -90,6 +90,7 @@
           "showValue": false
         },
         { "id": "omarchy.spacer" },
+        { "id": "nav-guide" },
         { "id": "omarchy.tailscale" },
         { "id": "omarchy.keyboard-layout" },
         { "id": "omarchy.bluetooth" },
@@ -139,7 +140,8 @@
         "dayline",
         "metro"
       ],
-      "boot": "snapshot:poster"
+      "boot": "snapshot:poster",
+      "avatar": "/home/bogge/Pictures/2841.png"
     }
   ]
 }

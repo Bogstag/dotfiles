@@ -1,28 +1,25 @@
-###### Contains secrets #######
+# ░█▀▀░█▀█░█▀█░▀█▀░█▀█░▀█▀░█▀█░█▀▀░░░█▀▀░█▀▀░█▀▀░█▀▄░█▀▀░▀█▀░█▀▀
+# ░█░░░█░█░█░█░░█░░█▀█░░█░░█░█░▀▀█░░░▀▀█░█▀▀░█░░░█▀▄░█▀▀░░█░░▀▀█
+# ░▀▀▀░▀▀▀░▀░▀░░▀░░▀░▀░▀▀▀░▀░▀░▀▀▀░░░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░░▀░░▀▀▀
 .config/fnox/config.toml
-###############################
+################################################################
 
-##### May contain secrets #####
+# ░█▄█░█▀█░█░█░░░█▀▀░█▀█░█▀█░▀█▀░█▀█░▀█▀░█▀█░░░█▀▀░█▀▀░█▀▀░█▀▄░█▀▀░▀█▀░█▀▀
+# ░█░█░█▀█░░█░░░░█░░░█░█░█░█░░█░░█▀█░░█░░█░█░░░▀▀█░█▀▀░█░░░█▀▄░█▀▀░░█░░▀▀█
+# ░▀░▀░▀░▀░░▀░░░░▀▀▀░▀▀▀░▀░▀░░▀░░▀░▀░▀▀▀░▀░▀░░░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░░▀░░▀▀▀
 .codex/auth.json
 .config/ai-usagebar/config.toml
 .config/omarchy/calendars.json
 .local/share/opencode/auth.json
-###############################
+##########################################################################
 
-########## Symlinks ###########
-# TODO: symlink settings.json
-# cp $(chezmoi target-path)/.config/Code/User/settings.json  $(chezmoi source-path)/dot_config/private_Code/User/settings.json
-# .config/Code/User/settings.json
-# echo -n "{{ .chezmoi.sourceDir }}/dot_config/private_Code/User/settings.json" > $(chezmoi source-path)/dot_config/private_Code/User/symlink_settings.json.tmpl
-# TODO: symlink mcp.json
-# cp $(chezmoi target-path)/.config/Code/User/mcp.json  $(chezmoi source-path)/dot_config/private_Code/User/mcp.json
-# .config/Code/User/mcp.json
-# echo -n "{{ .chezmoi.sourceDir }}/dot_config/private_Code/User/mcp.json" > $(chezmoi source-path)/dot_config/private_Code/User/symlink_smcp.json.tmpl
-.config/Code/User/keybindings.json
+# ░█▀▀░█░█░█▄█░█░░░▀█▀░█▀█░█░█░█▀▀
+# ░▀▀█░░█░░█░█░█░░░░█░░█░█░█▀▄░▀▀█
+# ░▀▀▀░░▀░░▀░▀░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀
 .config/mise/config.toml
 .config/MyThemes/orlok
 .config/MyThemes/tpl
-###############################
+##################################
 
 # Ignore files i tell you to ignore
 ignore*
@@ -31,9 +28,11 @@ ignore*
 AppData
 .config/powershell
 
-
+# Ignore docs
+.bin/fig.md
 
 # Unmanaged dotfiles to ignore
+.chezmoiscripts/20-install-skills.sh # rewrite
 .bash_history
 .claude
 .codex/.ai-usagebar-codex-credentials.lock

@@ -1,8 +1,11 @@
 {
   // Defaults in this file is commented.
-  "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema-strict.json",
+  "$schema": {
+    "schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema-strict.json",
+    "allowTrailingCommas": true,
+  },
   // Default state for all rules
-  // "default": true,
+  "default": true,
   // Path to configuration file to extend
   // "extends": null,
 
@@ -226,12 +229,12 @@
 
   // region MD033 no-inline-htm
   // Inline HTML : https://github.com/DavidAnson/markdownlint/blob/main/doc/md033.md
-  /*   "MD033": {
+  "MD033": {
     // Allowed elements
-    "allowed_elements": [],
+    "allowed_elements": ["details", "summary"],
     // Allowed elements in tables
     "table_allowed_elements": [],
-  }, */
+  },
   // endregion
 
   // region MD034 no-bare-url
@@ -239,7 +242,7 @@
   // "MD034": true,
   // endregion
 
-  // region MD035 hr-styl
+  // region MD035 hr-style
   // Horizontal rule style : https://github.com/DavidAnson/markdownlint/blob/main/doc/md035.md
   "MD035": {
     // Horizontal rule style
@@ -299,12 +302,24 @@
 
   // region MD043 required-heading
   // Required heading structure : https://github.com/DavidAnson/markdownlint/blob/main/doc/md043.md
-  /*   "MD043": {
+  "MD043": {
     // List of headings
-    "headings": [],
+    "headings": [
+      "# ?",
+      "*",
+      "## ?",
+      "*",
+      "### ?",
+      "*",
+      "#### ?",
+      "*",
+      "##### ?",
+      "*",
+      "###### ?",
+    ],
     // Match case of headings
     "match_case": false,
-  }, */
+  },
   // endregion
 
   // region MD044 proper-name
