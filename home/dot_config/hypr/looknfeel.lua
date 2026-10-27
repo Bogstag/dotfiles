@@ -1,3 +1,4 @@
+-- Source: file:///home/bogge/.config/hypr/looknfeel.lua
 -- Change the default Omarchy look'n'feel.
 
 -- https://wiki.hypr.land/Configuring/Basics/Variables/#general

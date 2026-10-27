@@ -44,6 +44,7 @@
       "left": [
         { "id": "omarchy.menu" },
         {
+          "id": "tornikegomareli.spaces",
           "activeStyle": "accent",
           "density": "roomy",
           "dimUnfocused": true,
@@ -52,7 +53,6 @@
           "hideEmpty": false,
           "iconSize": 16,
           "iconStyle": "color",
-          "id": "tornikegomareli.spaces",
           "labelStyle": "number",
           "perMonitor": false,
           "persistentWorkspaces": 6,
@@ -126,10 +126,9 @@
     "yoyo.system-tidy",
     {
       "id": "io.github.sirjul1337.lock-explorer",
-      "mediaControls": true,
       "openAs": "panel",
       "tourSeen": true,
-      "design": "poster",
+      "design": "my-deer-standing-in-foggy-forest-1080p-20261027003241",
       "favorites": [
         "editorial",
         "poster",
@@ -140,8 +139,12 @@
         "dayline",
         "metro"
       ],
-      "boot": "snapshot:poster",
-      "avatar": "/home/bogge/Pictures/2841.png"
+      "boot": "follow",
+      "avatar": "/home/bogge/Pictures/2841.png",
+      "unlock": "zoom",
+      "clipWallpaper": true,
+      "blankMs": 60000,
+      "unlockMs": 800
     }
   ]
 }

@@ -1,0 +1,20 @@
+amends "/home/bogge/.config/hk/config.pkl"
+
+// local linters = new Mapping {
+//   ["hk_test"] = (Builtins.hk_test) {
+//   // description = "Run step-defined hk's tests"
+//   }
+//   ["hk-coverage"] = new Step {
+//   //   check = "python3 .utils/check-hk-coverage.py"
+//   }
+
+// }
+
+// steps = linters
+
+// steps {
+//   ["trailing_whitespace"] = Builtins.trailing_whitespace
+//   ["newlines"] = Builtins.newlines
+// }
+
+jobs = 0

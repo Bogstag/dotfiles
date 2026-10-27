@@ -124,7 +124,10 @@ omarchy install service tailscale
 Kommandot startar tjänsten, aktiverar Taildropoch lägger till Tailscale i panelen.
 Tailscales maskinidentitet och autentisering är lokala och sparas inte i dotfiles.
 
-## Sätta korrekt locale
+## Konfiguration
+
+<details>
+<summary>Sätta korrekt locale</summary>
 
 Ange vilka språk som ska genereras.
 
@@ -185,8 +188,12 @@ LC_TELEPHONE=sv_SE.UTF-8
 LC_TIME=sv_SE.UTF-8
 ```
 
-## hk-täckning
+</details>
 
+## Testning
+
+<details>
+<summary>hk-täckning</summary>
 `hk check --all --plan` visar vilka steg hk väljer. Kör
 `python3 .utils/check-hk-coverage.py --report` för att se spårade filer
 som bara får allmänna kontroller, inte väljs alls eller är symboliska länkar.
@@ -194,9 +201,12 @@ som bara får allmänna kontroller, inte väljs alls eller är symboliska länka
 `tests/hk-coverage-baseline.json` listar befintliga luckor; nya luckor gör
 att steget misslyckas tills en kontroll lagts till eller baslinjen granskats.
 Planen visar filval, inte om kontrollerna har körts tidigare.
+</details>
 
-## chezmoi symlinks
+## chezmoi
 
+<details>
+<summary>Symlinks</summary>
 Att skapa dessa har egentligen inte varit så svårt, men det har alltid varit något trots den fina beskriningen. Här kommer minnes anteckning på hur jag ska tänka för att få till dessa.
 
 I detta exempel så ska jag symlinka vscode keybindings:
@@ -212,14 +222,30 @@ echo .config/Code/User/keybindings.json >> $(chezmoi source-path)/.chezmoiignore
 echo -n "{{ .chezmoi.sourceDir }}/dot_config/private_Code/User/keybindings.json" > $(chezmoi source-path)/dot_config/private_Code/User/symlink_keybindings.json.tmpl
 ```
 
-### mise Tasks
+</details>
 
+### mise-en-place
+
+<details>
+<summary>Tasks docs</summary>
 <!-- mise-tasks -->
 ## `Check`
 
 - **Usage:** `Check`
 
 Checks modified files
+
+## `Check-Stage-Unstaged`
+
+- **Usage:** `Check-Stage-Unstaged`
+
+Check changed files and stage them if ok
+
+## `Check-Stage-unstaged-plan`
+
+- **Usage:** `Check-Stage-unstaged-plan`
+
+Generate plan for Check-Stage-unstaged task
 
 ## `Chezmoi-edit-config`
 
@@ -228,6 +254,18 @@ Checks modified files
 ## `Fix`
 
 - **Usage:** `Fix`
+
+## `Fix-Stage-Unstaged`
+
+- **Usage:** `Fix-Stage-Unstaged`
+
+Fix changed files and stage them if ok
+
+## `Fix-Stage-unstaged-plan`
+
+- **Usage:** `Fix-Stage-unstaged-plan`
+
+Generate plan for Fix-Stage-unstaged task
 
 ## `Get-all-file-ext-in-dir`
 
@@ -238,18 +276,6 @@ Checks modified files
 - **Usage:** `List-gotmpl-diff`
 
 List files whose formatting differs from gotmplfmt's
-
-## `Stage-unstaged`
-
-- **Usage:** `Stage-unstaged`
-
-Fix changed files and stage them if ok
-
-## `Stage-unstaged-plan`
-
-- **Usage:** `Stage-unstaged-plan`
-
-Generate plan for Stage-unstaged task
 
 ## `Update-schema-ryl`
 
@@ -275,3 +301,4 @@ Format go templates
 
 Generate tasks documentation
 <!-- /mise-tasks -->
+</details>

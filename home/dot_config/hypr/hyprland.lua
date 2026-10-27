@@ -1,50 +1,33 @@
+-- Source: file:///home/bogge/.config/hypr/hyprland.lua
 -- Learn how to configure Hyprland: https://wiki.hypr.land/Configuring/Start/
-
--- Omarchy's bootstrap keeps path setup out of this user config.
 dofile((os.getenv("OMARCHY_PATH") or "/usr/share/omarchy") .. "/default/hypr/bootstrap.lua")
-
--- Disable all Omarchy default bindings. Add your own in hypr/bindings.lua.
--- omarchy_default_bindings = false
---
--- Or disable only bindings for Omarchy's preinstalled apps/web apps while
--- keeping core window-manager bindings:
--- omarchy_preinstalled_bindings = false
-
 -- Load Omarchy defaults.
 require("default.hypr.omarchy")
-
--- Put your personal overrides in these files. They're loaded after Omarchy's
--- defaults so package updates can improve the defaults without rewriting your
--- ~/.config/hypr files.
-require("hypr.monitors")
-require("hypr.input")
-require("hypr.bindings")
-require("hypr.looknfeel")
-require("hypr.autostart")
-
+--
+-- Put your personal overrides in these files. They're loaded after Omarchy's defaults.
+require("hypr.monitors") -- file:///home/bogge/.config/hypr/monitors.lua
+require("hypr.input") -- file:///home/bogge/.config/hypr/input.lua
+require("hypr.bindings") -- file:///home/bogge/.config/hypr/bindings.lua
+require("hypr.looknfeel") -- file:///home/bogge/.config/hypr/looknfeel.lua
+require("hypr.autostart") -- file:///home/bogge/.config/hypr/autostart.lua
+--
+-- >>> omacontrol:managed >>>
+-- Load settings written by OmaControl (omacontrol:managed). It belongs above the toggles below.
+require("hypr.omacontrol")
+-- <<< omacontrol:managed <<<
+--
 -- Toggle config flags dynamically.
 require("default.hypr.toggles")
--- Add any other personal Hyprland configuration below.
-
--- Load settings written by OmaControl (omacontrol:managed).
--- It belongs above the toggles below: those turn the laptop
--- display off with a monitor rule, and a rule of ours read
--- afterwards would replace it and put the display back on.
-require("hypr.omacontrol")
-
--- Add any other personal Hyprland configuration below.
--- o.window("qemu", { workspace = "5" })
-
--- Added by hyprmoncfg: its generated monitor rules load last, so nothing before this can override the applied layout.
-do
-	local path = os.getenv("HOME") .. "/.config/hypr/hyprmoncfg-monitors.lua"
-	local file = io.open(path, "r")
-	if file then
-		file:close()
-		dofile(path)
-	end
-end
-
+--
+--
+--
+-- >>> me:managed >>>
+--
+-- <<< me:managed <<<
+--
+--
+--
+-- >>> OmarchyWorkspaceLayoutPlugin:managed >>>
 -- Added by the Omarchy Workspace Layout plugin: registers its Lua tiling layouts.
 do
 	local path = (os.getenv("XDG_CONFIG_HOME") or os.getenv("HOME") .. "/.config")
@@ -55,3 +38,5 @@ do
 		dofile(path)
 	end
 end
+-- <<< OmarchyWorkspaceLayoutPlugin:managed <<<
+--

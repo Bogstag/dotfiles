@@ -1,0 +1,165 @@
+#!/bin/bash
+# shellcheck shell=bash
+
+fontdir="${XDG_DATA_HOME:-${HOME}/.local/share}/figlet/fonts"
+default_font=pagga
+create_md_demo() {
+    local LC_ALL=C
+    local filename file fontfile figlet output_file
+
+    # Make a lowercase, ASCII-safe filename from the input text.
+    filename=${1,,}
+    filename=${filename// /_}
+    filename=${filename//[^a-z0-9_-]/}
+    output_file="figlet-demo-${filename}.md"
+
+    # Start a new demo, with first header and some text
+    printf '# FIGlet demo\n\nAll FIGlets generated with this text: %s\n\n' "$1" > "${output_file}"
+
+    for fontfile in "${fontdir}"/*.flf "${fontdir}"/*.tlf; do
+        [[ -f ${fontfile} ]] || continue
+        file=${fontfile##*/}
+        file=${file%.*}
+
+        # Generate the FIGlet
+        figlet=$(figlet -f "${fontfile}" "$1")
+
+        # Write to file
+        {
+            printf '## %s\n\n```text\n' "${file}"
+            printf '%s\n' "${figlet}"
+            printf '```\n\n'
+        } >> "${output_file}"
+    done
+
+}
+
+list_fonts() {
+    local file name
+    for file in "${fontdir}"/*.flf "${fontdir}"/*.tlf; do
+        [[ -f ${file} ]] || continue
+        name=${file##*/}
+        printf '%s\n' "${name%.*}"
+    done
+}
+
+usage() {
+    cat << EOF
+Usage: ${0##*/} [options] [text...]
+       ${0##*/} [options] <font> <text...>
+
+With no -f option, a first argument matching an installed font selects it;
+otherwise all arguments are rendered with the default font (${default_font}).
+
+Options:
+  -f FONT       Select a font by name
+  -l, --list-fonts
+                List available fonts
+      --show-fonts [WORD]
+                Show a sample of each font
+      --chess   Display a chessboard
+      --demo [TEXT...]
+                Create a Markdown file with every font rendered
+                using TEXT (default: "Hello, World!")
+  -c            Center the output
+  -m MODE       Set FIGlet layout mode
+  -w WIDTH      Set output width
+  -C FILE       Set FIGlet control file
+  -h, --help    Show this help
+EOF
+}
+
+figlet_options=()
+font=${default_font}
+font_was_set=false
+text=()
+
+while (($#)); do
+    case $1 in
+    -h | --help)
+        usage
+        exit 0
+        ;;
+    -l | --list-fonts)
+        figlist -d "${fontdir}"
+        exit $?
+        ;;
+    --show-fonts)
+        shift
+        if (($#)) && [[ $1 != -* ]]; then
+            showfigfonts -d "${fontdir}" "$1"
+        else
+            showfigfonts -d "${fontdir}"
+        fi
+        exit $?
+        ;;
+    --demo)
+        shift
+        if (($#)) && [[ $1 != -* ]]; then
+            create_md_demo "$*"
+        else
+            create_md_demo "Hello, World!"
+        fi
+        exit $?
+        ;;
+    --chess)
+        echo 08a7z6y5Y4y3Y2Z1A | figlet -d "${fontdir}" -f eftichess
+        exit $?
+        ;;
+    -f)
+        if (($# < 2)); then
+            printf 'Option -f requires a font name.\n' >&2
+            exit 2
+        fi
+        font=$2
+        font_was_set=true
+        shift 2
+        ;;
+    -c)
+        figlet_options+=(-c)
+        shift
+        ;;
+    -m | -w | -C)
+        if (($# < 2)); then
+            printf 'Option %s requires a value.\n' "$1" >&2
+            exit 2
+        fi
+        figlet_options+=("$1" "$2")
+        shift 2
+        ;;
+    --)
+        shift
+        text+=("$@")
+        break
+        ;;
+    -*)
+        printf 'Unknown option: %s\n' "$1" >&2
+        usage >&2
+        exit 2
+        ;;
+    *)
+        text+=("$1")
+        shift
+        ;;
+    esac
+done
+
+if [[ ${font_was_set} == false && -n ${text[0]:-} ]]; then
+    if [[ -f "${fontdir}/${text[0]}.flf" || -f "${fontdir}/${text[0]}.tlf" ]]; then
+        font=${text[0]}
+        text=("${text[@]:1}")
+    fi
+fi
+
+if [[ ! -f "${fontdir}/${font}.flf" && ! -f "${fontdir}/${font}.tlf" ]]; then
+    printf 'Font not found: %s\n' "${font}" >&2
+    printf 'Use %s --list-fonts to see available fonts.\n' "${0##*/}" >&2
+    exit 1
+fi
+
+if ((${#text[@]} == 0)); then
+    usage >&2
+    exit 2
+fi
+
+figlet "${figlet_options[@]}" -d "${fontdir}" -f "${font}" "${text[*]}"

@@ -1,12 +1,25 @@
--- See https://wiki.hypr.land/Configuring/Basics/Monitors/
--- List current monitors and supported resolutions with: hyprctl monitors all
+-- Source: file:///home/bogge/.config/hypr/monitors.lua
+-- See: https://wiki.hypr.land/Configuring/Basics/Monitors/
+-- List current monitors: hyprctl monitors all
 
-local omarchy_gdk_scale = 1
+hl.monitor({
+	output = "desc:Eizo Nanao Corporation FG2421 20707093",
+	mode = "1920x1080@60",
+	position = "0x0",
+	scale = 1,
+	vrr = 0,
+	cm = "auto",
+	sdr_min_luminance = 0.2,
+	sdr_max_luminance = 80,
+})
 
-hl.env("GDK_SCALE", tostring(omarchy_gdk_scale))
-
--- Centered layout: DP-2 above eDP-2
--- DP-2 (external, 1920x1080, scale 1)
-hl.monitor({ output = "DP-2", mode = "1920x1080@60", position = "0x0", scale = 1 })
--- eDP-2 (laptop, 1920x1080, scale 1.25, offset x=192)
-hl.monitor({ output = "eDP-2", mode = "1920x1080@60", position = "192x1080", scale = 1.25 })
+hl.monitor({
+	output = "desc:Najing CEC Panda FPD Technology CO. ltd 0x004D",
+	mode = "1920x1080@60",
+	position = "192x1080",
+	scale = 1,
+	vrr = 1,
+	cm = "auto",
+	sdr_min_luminance = 0.2,
+	sdr_max_luminance = 80,
+})

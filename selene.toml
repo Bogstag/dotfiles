@@ -1,14 +1,13 @@
-std = "lua55"
+# [std]
 
-[runtime]
-  version = "Lua 5.5"
-
-[format.defaultConfig]
-  indent_size = 4
-
-[workspace]
-  library = ["/usr/share/hypr/stubs"]
+[config]
   checkThirdParty = false
+  globals         = ["hl", "o"]
+  library         = ["/usr/share/hypr/stubs"]
+  version         = "Lua 5.5"
 
-[diagnostics]
-  globals = ["hl", "o"]
+  # [lints]
+
+  # [exclude]
+
+  # [roblox-std-source]

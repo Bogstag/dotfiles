@@ -1,11 +1,11 @@
 #!/bin/bash
-# shellcheck shell=sh
+# shellcheck shell=bash
 # chezmoi:template:left-delimiter="# {{" right-delimiter=}}
 
 set -eu
-if ! command -v npx >/dev/null 2>&1; then
-	echo "npx saknas; installera Node.js innan Codex-skills installeras." >&2
-	exit 1
+if ! command -v npx > /dev/null 2>&1; then
+    echo "npx saknas; installera Node.js innan Codex-skills installeras." >&2
+    exit 1
 fi
 
 # TODO: Cant add new skills, invalid agents.
@@ -15,15 +15,15 @@ agents='# {{- .skills.agents | toStrings | join " " }}'
 sourceUrl="# {{- .sourceUrl }}"
 # {{- range .skill }}
 skill="# {{ . }}"
-if [ -d ~/.agents/skills/"${skill}" ]; then
-	echo "Update ${skill}"
-	npx --yes \
-		skills update --global "${skill}"
+if [[ -d ~/.agents/skills/"${skill}" ]]; then
+    echo "Update ${skill}"
+    npx --yes \
+        skills update --global "${skill}"
 else
-	echo "Add ${skill}"
-	npx --yes \
-		skills add "${sourceUrl}" --global \
-		--skill "${skill}" --agent "${agents}" --yes
+    echo "Add ${skill}"
+    npx --yes \
+        skills add "${sourceUrl}" --global \
+        --skill "${skill}" --agent "${agents}" --yes
 
 fi
 # {{- end }}

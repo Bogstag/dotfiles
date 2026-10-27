@@ -7,7 +7,7 @@
     { name = "gh", cmd = "completion -s" },
     { name = "hk", cmd = "completion" },
     { name = "opencode", cmd = "--completions" },
-    { name = "pkl", cmd = "shell-completion " },
+    { name = "pkl", cmd = "shell-completion" },
     { name = "ryl", cmd = "--generate-completions" },
     { name = "tombi", cmd = "completion" },
     { name = "chezit", cmd = "completion" },

@@ -2,18 +2,26 @@
 
 ["Check"]
   description = "Checks modified files"
-  run = "hk check"
+  run         = "hk check"
 
 ["Fix"]
   run = "hk fix --all"
 
-["Stage-unstaged"]
-  description = "Fix changed files and stage them if ok"
-  run = "mise exec -- hk fix --no-fail-fast --stage --unstaged --junit-xml ./tests/stage-unstaged_latest.xml"
+["Check-Stage-Unstaged"]
+  description = "Check changed files and stage them if ok"
+  run         = "mise exec -- hk check --no-fail-fast --unstaged  --stage --junit-xml ./tests/check-stage-unstaged_latest.xml"
 
-["Stage-unstaged-plan"]
-  description = "Generate plan for Stage-unstaged task"
-  run = "mise run Stage-unstaged --plan"
+["Check-Stage-unstaged-plan"]
+  description = "Generate plan for Check-Stage-unstaged task"
+  run         = "mise run Check-Stage-Unstaged --plan"
+
+["Fix-Stage-Unstaged"]
+  description = "Fix changed files and stage them if ok"
+  run         = "mise exec -- hk fix --no-fail-fast --unstaged  --stage --junit-xml ./tests/fix-stage-unstaged_latest.xml"
+
+["Fix-Stage-unstaged-plan"]
+  description = "Generate plan for Fix-Stage-unstaged task"
+  run         = "mise run Fix-Stage-Unstaged --plan"
 
 [Chezmoi-edit-config]
   run = "chezmoi edit-config"
@@ -21,10 +29,10 @@
 # tombi: format.rules.table-keys-order = "ascending"
 ["format:gotmpl:write"]
   description = "Format go templates"
-  env = { CLICOLOR_FORCE = "0" }
-  outputs = [""]
-  run = "gotmplfmt -w ${file}"
-  sources = ["gotmplfmt"]
+  env         = { CLICOLOR_FORCE = "0" }
+  outputs     = [""]
+  run         = "gotmplfmt -w ${file}"
+  sources     = ["gotmplfmt"]
 
 [Get-all-file-ext-in-dir]
   run = '''
@@ -39,19 +47,19 @@
 # tombi: format.rules.table-keys-order = "ascending"
 ["List-gotmpl-diff"]
   description = "List files whose formatting differs from gotmplfmt's"
-  raw_args = true
-  run = "gotmplfmt -l {{ cwd }}"
-  tools = { "go:github.com/gohugoio/gotmplfmt" = "latest" }
+  raw_args    = true
+  run         = "gotmplfmt -l {{ cwd }}"
+  tools       = { "go:github.com/gohugoio/gotmplfmt" = "latest" }
 
 # tombi: format.rules.table-keys-order = "ascending"
 ["render:tasks"]
   description = "Generate tasks documentation"
-  env = { CLICOLOR_FORCE = "0" }
-  outputs = ["README.md"]
-  run = [
+  env         = { CLICOLOR_FORCE = "0" }
+  outputs     = ["README.md"]
+  run         = [
     "mise generate task-docs --output README.md --style detailed --inject ",
   ]
-  sources = ["mise"]
+  sources     = ["mise"]
 
 [Update-schema-ryl]
   run = "ryl --print-toml-config-schema > $HOME/.config/ryl/ryl.json"

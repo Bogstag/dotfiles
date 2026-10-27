@@ -1,0 +1,3 @@
+-- Source: file:///home/bogge/.config/hypr/autostart.lua
+-- Extra autostart processes.
+-- o.launch_on_start("my-service")
