@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Notifications from OmaLint
+
+# It is installed it with:
+# `omarchy hook install post-update .bin/omalint-after-update`
+# To stop it, delete: `~/.config/omarchy/hooks/post-update.d/omalint-after-update`.
+
+omalint --skip health > /dev/null \
+    || omarchy-notification-send "OmaLint found plugin errors" "Run omalint for the report"

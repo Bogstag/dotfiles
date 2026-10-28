@@ -1,0 +1,22 @@
+GOROOT = /home/bogge/.local/share/mise/installs/go/latest                          # Controls where various files are stored. See: 'go help gopath'.
+GOBIN = ${GOROOT}/bin                                       # Controls where various files are stored. See: 'go help gopath'.
+GOENV = ${XDG_CONFIG_HOME:-$HOME/.config}/go/env            # The location of the Go environment configuration file.
+
+GOTELEMETRYDIR = ${XDG_CONFIG_HOME:-$HOME/.config}/go/telemetry # The directory Go telemetry data is written is written to.
+GOTELEMETRY = off                                               # The current Go telemetry mode ("off", "local", or "on").
+
+# Är den rätt? GOMODCACHE = "${GOPATH:-$HOME/go/pkg}/mod"                    # The directory where the go command will store downloaded modules.
+
+# If the environment variable is unset, GOPATH defaults to a subdirectory named "go" in the user's home directory ($HOME/go on Unix, %USERPROFILE%\go on Windows),
+
+# Result
+# GOROOT=     '/home/bogge/.local/share/mise/installs/go/latest'
+# GOBIN=      '/home/bogge/.local/share/mise/installs/go/latest/bin'
+# GOTOOLDIR=  '/home/bogge/.local/share/mise/installs/go/latest/pkg/tool/linux_amd64'
+
+# Är den rätt? GOMODCACHE='/home/bogge/go/pkg/mod'
+
+# GOENV=          '/home/bogge/.config/go/env'
+# GOTELEMETRYDIR= '/home/bogge/.config/go/telemetry'
+
+# GOCACHE='/home/bogge/.cache/go-build'

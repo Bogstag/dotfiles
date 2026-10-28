@@ -7,81 +7,55 @@
     "transparent": false,
     "centerAnchor": "promaa.clock",
     "layout": {
+      "left": [
+        { "id": "omarchy.menu" },
+        { "id": "omarchy.workspaces" },
+        { "id": "omarchy.spacer" }
+      ],
       "center": [
         { "id": "omarchy.indicators" },
+        { "id": "omarchy.weather" },
+        { "id": "io.github.davidgudovic.omalint" },
         {
-          "alwaysShow": true,
-          "displayMode": "all",
-          "fullscreenOverlay": "steam",
-          "id": "njpatel.omapager",
-          "showCountdown": true
-        },
-        {
+          "id": "promaa.clock",
           "enableMeetingLinks": false,
           "format": "dddd @ d MMMM HH:mm ('v'ww)",
           "formatAlt": "d MMMM 'W'ww yyyy",
-          "id": "promaa.clock",
           "notifyMinutesBefore": 5,
           "notifyUpcomingEvents": true,
           "syncIntervalMinutes": 60,
           "verticalFormat": "HH\n—\nmm"
         },
-        { "id": "omarchy.weather" },
-        { "id": "io.github.momostifler96.omarchy-cleaner" },
-        {
-          "id": "io.github.twiking.omacontrol",
-          "showActiveSwitchCount": false,
-          "showBatteryWarnings": false,
-          "showNetworkWarning": false
-        },
-        { "id": "yoyo.system-tidy" },
         {
           "id": "io.github.juancasanueva.plugin-manager",
-          "openAs": "overlay"
+          "openAs": "window",
+          "watching": [
+            "chyld.mise-radar",
+            "filipharald.oma-mise",
+            "firstpick.skill-manager",
+            "io.github.davidgudovic.omalint",
+            "io.github.ferc10110.runbook",
+            "io.github.iainfreestone.toolroll",
+            "oliwier.agent-skills-manager",
+            "raavail.mise-manager"
+          ]
         },
+        { "id": "yoyo.system-tidy" },
+        { "id": "raavail.mise-manager" },
         { "id": "omarchy.system-update" }
       ],
-      "left": [
-        { "id": "omarchy.menu" },
-        {
-          "id": "tornikegomareli.spaces",
-          "activeStyle": "accent",
-          "density": "roomy",
-          "dimUnfocused": true,
-          "focusedTitle": false,
-          "groupApps": true,
-          "hideEmpty": false,
-          "iconSize": 16,
-          "iconStyle": "color",
-          "labelStyle": "number",
-          "perMonitor": false,
-          "persistentWorkspaces": 6,
-          "pillBackground": true,
-          "previewSize": "small",
-          "previews": false,
-          "showApps": "all",
-          "tooltips": true
-        },
-        { "id": "bjarneo.workspace-layout" },
-        {
-          "id": "lock-explorer",
-          "source": "~/.config/omarchy/plugins/io.github.sirjul1337.lock-explorer/BarWidget.qml",
-          "type": "qml"
-        }
-      ],
       "right": [
+        { "id": "omarchy.spacer" },
         {
-          "hidden": [],
           "id": "omarchy.tray",
+          "hidden": [],
           "pinned": ["chrome_status_icon_1"]
         },
-        { "id": "omarchy.spacer" },
         {
-          "checkSeconds": 3000,
           "id": "io.github.dadofsambonzuki.chezmoi-hound",
+          "checkSeconds": 3000,
           "whenClean": "Show"
         },
-        { "id": "omarchy.spacer" },
         {
           "id": "akitaonrails.ai-usagebar",
           "lastSelectedEntryId": "openai",
@@ -89,8 +63,6 @@
           "showProvider": false,
           "showValue": false
         },
-        { "id": "omarchy.spacer" },
-        { "id": "nav-guide" },
         { "id": "omarchy.tailscale" },
         { "id": "omarchy.keyboard-layout" },
         { "id": "omarchy.bluetooth" },
@@ -102,49 +74,21 @@
     }
   },
   "disabledPlugins": [
-    "omarchy.active-window",
-    "omarchy.agents",
-    "omarchy.clock",
-    "omarchy.dropbox",
-    "omarchy.lock",
-    "omarchy.media",
-    "omarchy.microphone",
-    "omarchy.nightlight",
-    "omarchy.notifications",
-    "omarchy.workspaces"
+    { "id": "omarchy.active-window" },
+    { "id": "omarchy.agents" },
+    { "id": "omarchy.clock" },
+    { "id": "omarchy.dropbox" },
+    { "id": "omarchy.media" },
+    { "id": "omarchy.microphone" },
+    { "id": "omarchy.nightlight" }
   ],
   "plugins": [
-    "akitaonrails.ai-usagebar",
-    "bjarneo.workspace-layout",
-    "io.github.dadofsambonzuki.chezmoi-hound",
-    "io.github.juancasanueva.plugin-manager",
-    "io.github.momostifler96.omarchy-cleaner",
-    "io.github.twiking.omacontrol",
-    "njpatel.omapager",
-    "promaa.clock",
-    "tornikegomareli.spaces",
-    "yoyo.system-tidy",
-    {
-      "id": "io.github.sirjul1337.lock-explorer",
-      "openAs": "panel",
-      "tourSeen": true,
-      "design": "my-deer-standing-in-foggy-forest-1080p-20261027003241",
-      "favorites": [
-        "editorial",
-        "poster",
-        "dock",
-        "island",
-        "cinema",
-        "frame",
-        "dayline",
-        "metro"
-      ],
-      "boot": "follow",
-      "avatar": "/home/bogge/Pictures/2841.png",
-      "unlock": "zoom",
-      "clipWallpaper": true,
-      "blankMs": 60000,
-      "unlockMs": 800
-    }
+    { "id": "akitaonrails.ai-usagebar" },
+    { "id": "io.github.dadofsambonzuki.chezmoi-hound" },
+    { "id": "io.github.juancasanueva.plugin-manager" },
+    { "id": "omarchy.lock" },
+    { "id": "omarchy.notifications" },
+    { "id": "promaa.clock" },
+    { "id": "yoyo.system-tidy" }
   ]
 }
