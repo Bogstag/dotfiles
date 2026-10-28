@@ -1,16 +1,74 @@
-if command -v chezmoi &>/dev/null; then
-	alias cz=chezmoi
-	alias czd="chezmoi diff"
-	alias cza="chezmoi apply"
+if command -v chezmoi &> /dev/null; then
+    alias cz=chezmoi
+    alias czd="chezmoi diff"
+    alias cza="chezmoi apply"
 fi
 
-if command -v eza &>/dev/null; then
-	# overwrite Omarchy default alias
-	# alias ls='eza -lh --group-directories-first --icons=auto'
-	alias ls='eza --group-directories-first --icons=auto'
-	# alias lt='eza --tree --level=2 --long --icons --git'
-	alias lt='eza --tree --level=3 --icons --git'
-	# alias lsa='ls -a'
-	# alias lta='lt -a'
-	alias lsh='eza -lh --all --group-directories-first --icons=auto --octal-permissions'
+if command -v eza &> /dev/null; then
+    # eza List Alias
+    #
+    # Base Command
+    # base eza --color-scale=all --icons=always --group-directories-first --color=auto(default) --color-scale-mode=gradient(default)
+    base=" eza --color-scale=all --icons=always --group-directories-first"
+    #
+    # [LiSt]:
+    # 			[base]  --grid(default)
+    alias ls=' ${base}'
+    #
+    # [ListAll]:
+    # 			[base]  --all
+    alias la=' ${base}  --all'
+    #
+    # [List+Long]:
+    # 			[base]  --long --time-style=relative --octal-permissions
+    alias ll=' ${base}  --long --time-style=relative --octal-permissions'
+    #
+    # [List+Long+All]:
+    # 			[base]  --long --all --time-style=relative --octal-permissions
+    alias lla='${base}  --long --all --time-style=relative --octal-permissions'
+    #
+    # [List+Tree]:
+    # 			[base]  --tree --level=3
+    alias lt=' ${base}  --tree --level=3'
+    #
+    # [List+Tree+All]:
+    # 			[base]  --tree --level=3 --all
+    alias lta='${base}  --tree --level=3 --all'
+    #
+    # [List+Long+Tree]:
+    # 			[base]  --long --tree --level=3 --no-time --no-permissions --octal-permissions --header
+    alias llt='${base}  --long --tree --level=3 --no-time --no-permissions --octal-permissions --header'
+    #
+    # [List+Long+Tree+All]:
+    # 			 [base] --long --tree --level=3 --all --no-time --no-permissions --octal-permissions --header
+    alias llta='${base} --long --tree --level=3 --all --no-time --no-permissions --octal-permissions --header'
+    #
+    # eza Help
+    # LAYOUT OPTIONS:
+    #   -l, --long             		display extended file metadata as a table
+    #   -G, --grid             		display entries as a grid (default)
+    #   -R, --recurse          		recurse into directories
+    #   -T, --tree             		recurse into directories as a tree
+    #   -L, --level <DEPTH>    		limit the depth of recursion
+    #
+    # DISPLAY OPTIONS:
+    #   --color [<WHEN>]            When to use colours. [default: auto] [possible values: always, auto, never]
+    #	--color-scale [<FIELDS>...] highlight value of FIELDS distinctly [possible values: all, age, size]
+    #   --color-scale-mode <MODE>   mode for --color-scale [default: gradient] [possible values: fixed, gradient]
+    # 	--icons [<WHEN>]            when to display icons [possible values: always, auto, never]
+    #
+    # FILTERING OPTIONS:
+    #   -a, --all...               	show hidden files.
+    #
+    # SORTING OPTIONS:
+    #	--group-directories-first  	list directories before other files
+    #
+    # LONG VIEW OPTIONS:
+    # 	-h, --header               	add a header row to each column
+    #  	-o, --octal-permissions    	list each file's permission in octal format
+    #	--time-style <STYLE>   		Format timestamps [possible values: default, iso, long-iso, full-iso, relative, "+<CUSTOM_FORMAT>"]
+    # 	--no-permissions       		suppress the permissions field
+    #   --no-filesize          		suppress the filesize field
+    #   --no-user              		suppress the user field
+    #   --no-time              		suppress the time field
 fi
