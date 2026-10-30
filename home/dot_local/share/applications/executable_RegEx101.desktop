@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=RegEx101
+Comment=RegEx101
+Exec=omarchy-launch-webapp "https://regex101.com/"
+Terminal=false
+Type=Application
+Icon=regex101
+StartupNotify=true

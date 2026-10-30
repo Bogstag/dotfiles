@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=CheatSheets
+Comment=CheatSheets
+Exec=omarchy-launch-webapp "https://cheatsheets.zip"
+Terminal=false
+Type=Application
+Icon=cheatsheets
+StartupNotify=true

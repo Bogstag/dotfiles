@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Notifications from OmaLint
+# Source: https://github.com/davidgudovic/omalint
 
 # It is installed it with:
 # `omarchy hook install post-update .bin/omalint-after-update`

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=LazyJournal
+Comment=LazyJournal
+Exec=xdg-terminal-exec --app-id=TUI.tile -e lazyjournal
+Terminal=false
+Type=Application
+Icon=lazyjournal
+StartupNotify=true

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=ai-usagebar
+Comment=LazyGit
+Exec=xdg-terminal-exec --app-id=TUI.tile -e ai-usagebar-tui
+Terminal=false
+Type=Application
+Icon=gpt4free
+StartupNotify=true
