@@ -3,7 +3,7 @@
 # chezmoi:template:left-delimiter="# {{" right-delimiter=}}
 
 set -eu
-command -v npx > /dev/null 2>&1 || fail "npx is not installed"
+command -v npx >/dev/null 2>&1 || fail "npx is not installed"
 
 # TODO: Cant add new skills, invalid agents.
 agents='# {{- .skills.agents | toStrings | join " " }}'
@@ -15,14 +15,14 @@ sourceUrl="# {{- .sourceUrl }}"
 skill="# {{ . }}"
 
 if [[ -d ~/.agents/skills/"${skill}" ]]; then
-    echo "Update ${skill}"
-    npx --yes \
-        skills update --global "${skill}"
+	echo "Update ${skill}"
+	npx --yes \
+		skills update --global "${skill}"
 else
-    echo "Add ${skill}"
-    npx --yes \
-        skills add "${sourceUrl}" --global \
-        --skill "${skill}" --agent "${agents}" --yes
+	echo "Add ${skill}"
+	npx --yes \
+		skills add "${sourceUrl}" --global \
+		--skill "${skill}" --agent "${agents}" --yes
 
 fi
 # {{- end }}
