@@ -302,24 +302,25 @@
 
   // region MD043 required-heading
   // Required heading structure : https://github.com/DavidAnson/markdownlint/blob/main/doc/md043.md
-  "MD043": {
-    // List of headings
-    "headings": [
-      "# ?",
-      "*",
-      "## ?",
-      "*",
-      "### ?",
-      "*",
-      "#### ?",
-      "*",
-      "##### ?",
-      "*",
-      "###### ?",
-    ],
-    // Match case of headings
-    "match_case": false,
-  },
+  "MD043": false,
+  // "MD043": {
+  //   // List of headings
+  //   "headings": [
+  //     "# ?",
+  //     "*",
+  //     "## ?",
+  //     "*",
+  //     "### ?",
+  //     "*",
+  //     "#### ?",
+  //     "*",
+  //     "##### ?",
+  //     "*",
+  //     "###### ?",
+  //   ],
+  //   // Match case of headings
+  //   "match_case": false,
+  // },
   // endregion
 
   // region MD044 proper-name
@@ -452,9 +453,9 @@
   // Table column style : https://github.com/DavidAnson/markdownlint/blob/main/doc/md060.md
   "MD060": {
     // Table column style
-    "style": "compact",
+    "style": "aligned",
     // Aligned delimiter columns
-    "aligned_delimiter": false,
+    "aligned_delimiter": true,
   },
   // endregion
 }

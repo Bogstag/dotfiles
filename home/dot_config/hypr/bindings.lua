@@ -1,38 +1,33 @@
 -- Source: file:///home/bogge/.config/hypr/bindings.lua
--- Keep only your personal keybinding overrides here. Add new bindings or unbind defaults before replacing them.
--- To disable all preinstalled app/webapp bindings, set: omarchy_preinstalled_bindings = false
--- See current bindings and descriptions: omarchy menu keybindings --print
--- To disable every Omarchy default binding, set this in ~/.config/hypr/hyprland.lua before require("default.hypr.omarchy"), then add only the bindings you want below: omarchy_default_bindings = false
+-- Extend: file:///usr/share/omarchy/default/hypr/bindings/applications.lua
+-- Extend: file:///usr/share/omarchy/default/hypr/bindings/clipboard.lua
+-- Extend: file:///usr/share/omarchy/default/hypr/bindings/media.lua
+-- Extend: file:///usr/share/omarchy/default/hypr/bindings/tiling.lua
+-- Extend: file:///usr/share/omarchy/default/hypr/bindings/utilities.lua
+-- Extend: file:///usr/share/omarchy/default/hypr/bindings/voxtype.lua
+-- Add new bindings or unbind defaults before replacing them.
+-- ("hyprctl reload" to activate settings after changes)
+-- Keep only your personal keybinding overrides here.
 --
 --
 --
--- >>> me:managed >>> ("hyprctl reload" to activate settings after changes)
+--#region MARK: >>> me:managed >>>
+--
+--
 -- Open the installed ChatGPT desktop app instead of the default web app.
 hl.unbind("SUPER + SHIFT + A")
 o.bind("SUPER + SHIFT + A", "ChatGPT app", { launch = "chatgpt" })
--- <<< me:managed <<<
 --
 --
+-- Open Omafile more windows like
+o.bind("SUPER + E", "Omafile", "omarchy-shell shell toggle xyzlab.omafile '{}'")
 --
--- >>> omanta-switch managed block, do not edit by hand >>>
+-- Rebind the new file to the default keybinding, so when im pressing wrong combo it still works.
 hl.unbind("SUPER + SHIFT + F")
-hl.unbind("SUPER + ALT + SHIFT + F")
-o.bind("SUPER + SHIFT + F", "File manager", "omanta-launch")
-o.bind("SUPER + ALT + SHIFT + F", "File manager (cwd)", "omanta-launch-cwd")
-o.window("^omanta-picker$", {
-	float = true,
-	center = true,
-	tag = "-default-opacity",
-	opacity = "1 override 1 override 1 override",
-})
--- <<< omanta-switch managed block <<<
+o.bind("SUPER + SHIFT + F", "File manager Omafile", "omarchy-shell shell toggle xyzlab.omafile '{}'")
 --
--- >>> nav-guide managed >>>
--- [nav-guide-keybind]
--- Enhanced Super+K window for Omarchy
-hl.unbind("SUPER + K")
-o.bind("SUPER + K", "Super+K Alternative", "omarchy-shell nav-guide toggle")
--- Preserve the classic keybindings menu on a dedicated fallback shortcut
-o.bind("SUPER + SHIFT + K", "Classic Keybindings Menu", "omarchy-menu-keybindings")
--- [/nav-guide-keybind]
--- <<< nav-guide managed <<<
+--
+--#endregion <<< me:managed <<<
+--
+--
+--

@@ -1,1 +1,5 @@
 tests/*
+
+# Apps in menu
+.local/share/applications/Google Maps.desktop
+.local/share/applications/HEY.desktop

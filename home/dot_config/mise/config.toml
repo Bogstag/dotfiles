@@ -14,10 +14,11 @@
   ]
 
 [settings]
-  color_theme        = "dracula"
-  experimental       = true
-  lockfile           = false
-  upgrade.auto_prune = false
+  color_theme         = "dracula"
+  experimental        = true
+  lockfile            = false
+  upgrade.auto_prune  = false
+  minimum_release_age = "1d"
 
 [settings.github]
   credential_command  = "gh auth token"

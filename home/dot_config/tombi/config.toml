@@ -168,7 +168,7 @@ toml-version = "v1.1.0"
   path      = "https://mise.jdx.dev/schema/mise-task.json"
   include   = [
     "**/tasks.toml",
-    "**/config.toml",
+    "**/mise/config.toml",
     "**/mise.toml",
     "**/miserc.toml",
     "**/tasks.toml.tmpl"

@@ -10,15 +10,16 @@ fi
 
 # Syncthing
 if [[ ! -d "${HOME}/Sync" ]]; then
+    echo "Creating Sync directory"
     mkdir -p "${HOME}/Sync"
 fi
 if ! (systemctl is-enabled --quiet syncthing.service --user); then
+    echo "Enable Syncthing service"
     systemctl --user enable --now syncthing.service
 fi
 
 # Tailscale
-if command omarchy-installed-service-tailscale; then
-    echo "Tailscale service installed"
-else
+if ! (command omarchy-installed-service-tailscale); then
+    echo "Installing Tailscale service"
     omarchy-install-service-tailscale
 fi

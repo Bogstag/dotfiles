@@ -1,123 +1,98 @@
-amends "package://github.com/jdx/hk/releases/download/v2.8.0/hk@2.8.0#/Config.pkl"
+amends "package://github.com/jdx/hk/releases/download/v2.9.0/hk@2.9.0#/Config.pkl"
 
-import "package://github.com/jdx/hk/releases/download/v2.8.0/hk@2.8.0#/Builtins.pkl"
+import "package://github.com/jdx/hk/releases/download/v2.9.0/hk@2.9.0#/Builtins.pkl"
 
 // Using a coding agent? See https://hk.jdx.dev/agents
 // Groups can provide dir, prefix, workspace_indicator, shell, stage, and exclude.
-
 steps {
-  ["Special_Purpose"] = new Group {
-    steps {
-      ["trailing-whitespace"] = (Builtins.trailing_whitespace) {
-      // description = "Detect and remove trailing whitespace"
-      }
-      ["newlines"] = (Builtins.newlines) {
-      // description = "Ensure files end with newline"
-      }
-      ["check_executables_have_shebangs"] = (Builtins.check_executables_have_shebangs) {
-      // description = "Verify executable files have shebang lines"
-      }
-      ["check_shebang_scripts_are_executable"] = (Builtins.check_shebang_scripts_are_executable) {
-        // description = "Verify files with shebang lines are executable"
-        // Bash startup files are sourced; executable_ sets the target's executable mode.
-        exclude =
-          List(
-            "**/*.ps1",
-            "**/*.tmpl",
-            "**/executable_*",
-            "home/dot_bash_profile",
-            "home/dot_bashrc.d/**",
-          )
-      }
-    }
+  ["trailing_whitespace"] = (Builtins.trailing_whitespace) {
+  // description = "Detect and remove trailing whitespace"
+  }
+  ["newlines"] = (Builtins.newlines) {
+  // description = "Ensure files end with newline"
+  }
+  ["check_shebang_scripts_are_executable"] = (Builtins.check_shebang_scripts_are_executable) {
+    // description = "Verify files with shebang lines are executable"
+    // Bash startup files are sourced; executable_ sets the target's executable mode.
+    exclude =
+      List(
+        "**/*.ps1",
+        "**/*.tmpl",
+        "**/executable_*",
+        "home/dot_bash_profile",
+        "home/dot_bashrc.d/**",
+      )
   }
 
-  ["pkl"] = new Group {
-    steps {
-      ["pkl"] = (Builtins.pkl) {
-      // description = "Pkl configuration language"
-      }
-      ["pkl-format"] = (Builtins.pkl_format) {
-      // description = "Pkl formatter"
-      }
-    }
+  ["pkl"] = (Builtins.pkl) {
+  // description = "Pkl configuration language"
+  }
+  ["pkl_format"] = (Builtins.pkl_format) {
+  // description = "Pkl formatter"
   }
 
-  ["toml"] = new Group {
+  // exclude = List("**/modify_*.toml", "mise.toml")
+
+  ["tombi"] = (Builtins.tombi) {
+    // description = "TOML linter"description = "Shell formatter"
     exclude = List("**/modify_*.toml")
-    // exclude = List("**/modify_*.toml", "mise.toml")
-    steps {
-      ["tombi"] = (Builtins.tombi) {
-      // description = "TOML linter"description = "Shell formatter"
-      }
-      ["tombi-format"] = (Builtins.tombi_format) {
-      // description = "TOML formatter"
-      }
-    }
+  }
+  ["tombi_format"] = (Builtins.tombi_format) {
+    // description = "TOML formatter"
+    exclude = List("**/modify_*.toml")
   }
 
-  ["yaml"] = new Group {
-    steps {
-      ["ryl"] = (Builtins.ryl) {
-      // description = "Re-implementation of yamllint in Rust"
-      }
-      ["ryl-markdown"] = (Builtins.ryl_markdown) {
-      // description = "Lint YAML embedded in Markdown (front matter + fenced yaml blocks) with ryl"
-      }
-    }
+  ["ryl"] = (Builtins.ryl) {
+  // description = "Re-implementation of yamllint in Rust"
+  }
+  ["ryl_markdown"] = (Builtins.ryl_markdown) {
+  // description = "Lint YAML embedded in Markdown (front matter + fenced yaml blocks) with ryl"
   }
 
-  ["shell"] = new Group {
+  ["shellharden"] = (Builtins.shellharden) {
+    // description = "The corrective bash syntax highlighter"
+    // types = List("bash", "sh")
     exclude = List("**/*.tmpl")
-    steps {
-      ["shellharden"] = (Builtins.shellharden) {
-      // description = "The corrective bash syntax highlighter"
-      // types = List("bash", "sh")
-      }
-      ["shellcheck"] = (Builtins.shellcheck) {
-      // description = "Shell script analyzer"
-      // FileSelector { glob = List("**/*.sh", "**/*.bash") }
-      // FileSelector { types = List("sh", "bash") }
-      }
-      ["shfmt"] = (Builtins.shfmt) {
-      // description = "Shell formatter"
-      // FileSelector { glob = List("**/*.sh", "**/*.bash", "**/*.mksh", "**/*.bats", "**/*.zsh") }
-      // FileSelector { types = List("sh", "bash") }
-      }
-    }
+  }
+  ["shellcheck"] = (Builtins.shellcheck) {
+    // description = "Shell script analyzer"
+    // FileSelector { glob = List("**/*.sh", "**/*.bash") }
+    // FileSelector { types = List("sh", "bash") }
+    exclude = List("**/*.tmpl")
+  }
+  ["shfmt"] = (Builtins.shfmt) {
+    // description = "Shell formatter"
+    // FileSelector { glob = List("**/*.sh", "**/*.bash", "**/*.mksh", "**/*.bats", "**/*.zsh") }
+    // FileSelector { types = List("sh", "bash") }
+    exclude = List("**/*.tmpl")
   }
 
-  ["lua"] = new Group {
-    steps {
-      ["stylua"] = (Builtins.stylua) {
-      // description = "Lua formatter"
-      }
-      ["selene"] = (Builtins.selene) {
-      // description = "Lua linter"
-      }
-    }
+  // ["stylua"] = (Builtins.stylua) {
+  // // description = "Lua formatter"
+  // }
+  // ["selene"] = (Builtins.selene) {
+  // // description = "Lua linter"
+  // }
+
+  ["editorconfig_checker"] = (Builtins.editorconfig_checker) {
+    // description = "Validate files against EditorConfig rules"
+    glob = List("**/.editorconfig", "**/dot_editorconfig")
+  }
+  ["betterleaks"] = (Builtins.betterleaks) {
+  // description = "A Better Secrets Scanner built for configurability and speed"
+  }
+  ["render:tasks"] = new Step {
+    glob = List("mise.toml", "tasks.toml", "tasks.md")
+    check = ".utils/check-task-docs.sh"
+    fix = "mise run --force render:tasks"
+    output_summary = "hide"
   }
 
-  ["special"] = new Group {
-    steps {
-      ["mise"] = (Builtins.mise) {
-      // description = "mise-en-place's built-in formatter and linter"
-      }
-
-      ["editorconfig-checker"] = (Builtins.editorconfig_checker) {
-        // description = "Validate files against EditorConfig rules"
-        glob = List("**/.editorconfig", "**/dot_editorconfig")
-      }
-      ["betterleaks"] = (Builtins.betterleaks) {
-      // description = "A Better Secrets Scanner built for configurability and speed"
-      }
-      ["render:tasks"] = new Step {
-        glob = List("mise.toml", "tasks.toml", "tasks.md")
-        check = ".utils/check-task-docs.sh"
-        fix = "mise run --force render:tasks"
-        output_summary = "hide"
-      }
-    }
+  ["mise_config_dir"] = (Builtins.mise_config_dir) {
+  // description = "mise formatter for a global config"
+  }
+  ["mise"] = (Builtins.mise) {
+  // description = "mise-en-place's built-in formatter and linter"
   }
 }
 
