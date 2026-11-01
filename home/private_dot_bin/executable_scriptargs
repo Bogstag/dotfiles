@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Initialize our own variables
+OPTIND=1 # Reset in case getopts has been used previously in the shell.
+verbose=0
+name=""
+
+while getopts "h?vn:" opt; do
+	case "$opt" in
+	h | \?)
+		echo "Usage: $0 [-v] [-n name]"
+		exit 0
+		;;
+	v)
+		verbose=1
+		;;
+	n)
+		name=${OPTARG}
+		;;
+	*)
+		echo "Error, ppick soething that works"
+		exit 1
+		;;
+	esac
+done
+
+shift $((OPTIND - 1))
+
+[[ ${1:-} == "--" ]] && shift
+
+echo "verbose=${verbose}, name='${name}', Leftovers: $*{@}"

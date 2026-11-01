@@ -4,12 +4,12 @@
 [skills]
   projects = [
     {
-      name = "chezmoi",
-      path = "$HOME/.local/share/chezmoi",
+      name   = "chezmoi",
+      path   = "$HOME/.local/share/chezmoi",
       skills = [
         {
           sourceUrl = "terrylica/cc-skills",
-          skill = ["chezmoi-sync", "chezmoi-workflows", "mise-configuration", "mise-tasks"]
+          skill     = ["chezmoi-sync", "chezmoi-workflows", "mise-configuration", "mise-tasks"]
         },
         { sourceUrl = "kunchenguid/chrome-devtools-axi", skill = ["chrome-devtools-axi"] },
         { sourceUrl = "kunchenguid/gh-axi", skill = ["gh-axi"] },
@@ -36,14 +36,14 @@
   global = [
     {
       sourceUrl = "tt-a1i/archify",
-      skill = [
+      skill     = [
         "archify-review",
         "archify",
       ]
     },
     {
       sourceUrl = "mattpocock/skills",
-      skill = [
+      skill     = [
         "code-review",
         "grill-me",
         "grill-with-docs",

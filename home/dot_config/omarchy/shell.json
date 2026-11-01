@@ -1,0 +1,182 @@
+{
+  "version": 1,
+  "idle": { "lock": 300, "screensaver": 150 },
+  "position": "top",
+  "transparent": false,
+  "bar": {
+    "id": "omarchy.bar",
+    "centerAnchor": "promaa.clock",
+    "layout": {
+      "left": [
+        { "id": "omarchy.menu" },
+        {
+          "id": "tornikegomareli.spaces",
+          "activeIcon": "",
+          "activeStyle": "accent",
+          "animations": false,
+          "density": "compact",
+          "dimUnfocused": true,
+          "focusedTitle": false,
+          "groupApps": true,
+          "labelStyle": "custom",
+          "persistentWorkspaces": 6,
+          "pillBackground": true,
+          "pillHeight": 0,
+          "pillPadding": 0,
+          "previewLive": false,
+          "previewSize": "small",
+          "scrollSwitch": false,
+          "showApps": "all",
+          "tooltips": false,
+          "wsIcon1": "",
+          "wsIcon2": "",
+          "wsIcon3": ""
+        }
+      ],
+      "center": [
+        { "id": "omarchy.indicators" },
+        { "id": "omarchy.weather" },
+        {
+          "id": "promaa.clock",
+          "enableMeetingLinks": false,
+          "format": "dddd @ d MMMM HH:mm ('v'ww)",
+          "formatAlt": "d MMMM 'W'ww yyyy",
+          "notifyMinutesBefore": 5,
+          "notifyUpcomingEvents": true,
+          "syncIntervalMinutes": 3600,
+          "verticalFormat": "HH\n—\nmm"
+        },
+        {
+          "id": "io.github.juancasanueva.plugin-manager",
+          "openAs": "overlay",
+          "allowUnverifiedUpdates": true,
+          "allowUnverifiedInstalls": true,
+          "watching": [
+            "akitaonrails.ai-usagebar",
+            "chyld.mise-radar",
+            "crmne.hyprmoncfg",
+            "cynricantao.system-monitor",
+            "filipharald.oma-mise",
+            "firstpick.skill-manager",
+            "hass",
+            "io.github.dadofsambonzuki.chezmoi-hound",
+            "io.github.davidgudovic.omalint",
+            "io.github.ferc10110.runbook",
+            "io.github.juancasanueva.plugin-manager",
+            "io.github.momostifler96.omarchy-cleaner",
+            "io.github.sirjul1337.lock-explorer",
+            "luca.obsidian-daily",
+            "mateus.omaplug",
+            "oliwier.agent-skills-manager",
+            "omarchy.notifications",
+            "othavi0.agent-bar",
+            "promaa.clock",
+            "tornikegomareli.spaces",
+            "tyrsolution.app-launcher",
+            "xyzlab.omafile",
+            "xyzlab.pigeon",
+            "yoyo.system-tidy"
+          ]
+        },
+        { "id": "oliwier.agent-skills-manager" },
+        {
+          "id": "io.github.davidgudovic.omalint",
+          "alwaysShow": true,
+          "refreshIntervalSec": 3600
+        },
+        { "id": "yoyo.system-tidy" },
+        {
+          "id": "io.github.dadofsambonzuki.chezmoi-hound",
+          "checkSeconds": 3600,
+          "whenClean": "Hide"
+        },
+        { "id": "omarchy.system-update" }
+      ],
+      "right": [
+        { "id": "omarchy.tray", "hidden": [], "pinned": [] },
+        {
+          "id": "xyzlab.pigeon",
+          "allowHttpActions": false,
+          "auth": "none",
+          "backfill": "all",
+          "glyph": "",
+          "maxMessages": 20,
+          "password": "",
+          "server": "https://ntfy.sh",
+          "showCount": true,
+          "showZero": false,
+          "sound": false,
+          "toastMinPriority": 2,
+          "toasts": true,
+          "token": "",
+          "topics": "Skuggsidan,Skuggsidan-alerts",
+          "username": ""
+        },
+        {
+          "id": "xyzlab.omafile",
+          "confirmTrash": false,
+          "confirmDelete": false,
+          "editor": "code",
+          "editorChoice": "omarchy",
+          "glyph": "󰙅",
+          "rememberFolderViews": true,
+          "showHidden": true,
+          "windowMode": "popup",
+          "sortDirsFirst": true,
+          "useTrash": true
+        },
+        {
+          "id": "akitaonrails.ai-usagebar",
+          "colorCodeUsage": true,
+          "hiddenBarEntries": ["anthropic", "zai"],
+          "hiddenMetrics": { "copilot": ["Premium requests"] },
+          "lastSelectedEntryId": "anthropic",
+          "showAll": true,
+          "showAntigravityClaudeGpt": false,
+          "showAntigravityGemini": true,
+          "showProvider": false,
+          "showValue": false
+        },
+        { "id": "omarchy.tailscale" },
+        { "id": "omarchy.keyboard-layout" },
+        { "id": "omarchy.bluetooth" },
+        { "id": "omarchy.network" },
+        { "id": "omarchy.audio" },
+        { "id": "omarchy.monitor" },
+        { "id": "omarchy.power" }
+      ]
+    }
+  },
+  "disabledPlugins": [
+    { "id": "omarchy.active-window" },
+    { "id": "omarchy.agents" },
+    { "id": "omarchy.clock" },
+    { "id": "omarchy.dropbox" },
+    { "id": "omarchy.media" },
+    { "id": "omarchy.microphone" },
+    { "id": "omarchy.nightlight" },
+    { "id": "omarchy.speedtest" },
+    { "id": "omarchy.workspaces" },
+    { "id": "xyzlab.alienware" },
+    { "id": "omarchy.lock" }
+  ],
+  "plugins": [
+    { "id": "akitaonrails.ai-usagebar" },
+    { "id": "io.github.dadofsambonzuki.chezmoi-hound" },
+    { "id": "io.github.davidgudovic.omalint" },
+    { "id": "io.github.juancasanueva.plugin-manager" },
+    {
+      "id": "io.github.sirjul1337.lock-explorer",
+      "tourSeen": true,
+      "openAs": "panel"
+    },
+    { "id": "omarchy.notifications" },
+    { "id": "promaa.clock" },
+    { "id": "tornikegomareli.spaces" },
+    { "id": "xyzlab.omafile" },
+    { "id": "xyzlab.pigeon" },
+    { "id": "yoyo.system-tidy" },
+    { "id": "dizziee.system-updates" }
+  ],
+  "cloneSourceRestores": ["io.github.sirjul1337.lock-explorer"]
+}

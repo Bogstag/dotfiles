@@ -1,5 +1,6 @@
 amends "/home/bogge/.config/hk/config.pkl"
 
+// Extend: file:///home/bogge/.config/hk/config.pkl
 // local linters = new Mapping {
 //   ["hk_test"] = (Builtins.hk_test) {
 //   // description = "Run step-defined hk's tests"

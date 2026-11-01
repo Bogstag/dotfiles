@@ -1,60 +1,5 @@
-[packages]
-  mise = [
-    "agy",
-    "aqua:owenlamont/ryl",
-    "betterleaks",
-    "bitwarden-secrets-manager",
-    "codex",
-    "copilot",
-    "crush",
-    "editorconfig-checker",
-    "gemini",
-    "gh",
-    "github:daptify14/chezit",
-    "go:mvdan.cc/sh/v3/cmd/shfmt",
-    "hk",
-    "java",
-    "lua",
-    "node",
-    "npm:@kitlangton/ghui",
-    "opencode",
-    "oxfmt",
-    "oxlint",
-    "pkl",
-    "python",
-    "rg",
-    "ripgrep",
-    "shellcheck",
-    "shellharden",
-    "tombi",
-    "yazi",
-  ]
-
-  mise2 = [
-    "aqua-modem-dev-hunk",
-    "biome",
-    "claude",
-    "codegraph",
-    "go",
-    "go-github-com-gohugoio-gotmplfmt",
-    "hunk",
-    "npm",
-    "npm-biomejs-biome",
-    "npm-masculinecache-mem-axi",
-    "npm-obsidian",
-    "npm-tsx",
-    "npm-types-node",
-    "npm-typescript",
-    "pi",
-    "playwright",
-    "resvg",
-    "shfmt",
-    "uv",
-    "vp",
-  ]
-
 [packages.linux]
-  pacman = [
+  pacman  = [
     "bat",
     "bitwarden-cli",
     "bitwarden",
@@ -311,7 +256,7 @@
     "PwshSpectreConsole",
     "SimplySql"
   ]
-  winget = [
+  winget    = [
     "Microsoft.AdministrativeTemplates",
     "Microsoft.AppInstaller",
     "Microsoft.DotNet.DesktopRuntime.6",
@@ -330,7 +275,7 @@
     "Microsoft.WindowsAppRuntime.2",
     "Tailscale.Tailscale"
   ]
-  scoop = [
+  scoop     = [
     "extras/advancedrenamer",
     "extras/ariang-native",
     "extras/audacity",

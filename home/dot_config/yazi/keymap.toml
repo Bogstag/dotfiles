@@ -15,9 +15,9 @@
     { on = "p", run = "plugin smart-paste", desc = "Paste into the hovered directory or CWD" },
     { for = "windows", on = "!", run = "shell 'powershell.exe' --block", desc = "Open PowerShell here" },
     {
-      for = "unix",
-      on = "!",
-      run = 'shell "$SHELL" --block',
+      for  = "unix",
+      on   = "!",
+      run  = 'shell "$SHELL" --block',
       desc = "Open $SHELL here",
     },
 

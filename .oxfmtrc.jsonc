@@ -8,5 +8,5 @@
   "sortPackageJson": { "sortScripts": true },
   "sortTailwindcss": true,
   // Valid languages: "javascript", "jsx", "typescript", "tsx", "json", "jsonc", "json5", "css", "scss", "less", "graphql", "yaml", "markdown", "toml", "html", "angular-html", "vue", "svelte", "astro", "handlebars", "mdx"
-  "associations": [{ "files": ["*.toml.tmpl"], "language": "toml" }],
+  // "associations": [{ "files": ["*.toml.tmpl"], "language": "toml" }],
 }

@@ -1,15 +1,14 @@
-#:tombi lint.disabled = true
 # Shared settings go before any table headers
 
-theme = "terminal"        # terminal follows terminal palette
-line_numbers = true
-mode = "auto"
-wrap_lines = true
-hunk_headers = true
-menu_bar = true
-agent_notes = false
+theme            = "terminal"  # terminal follows terminal palette
+line_numbers     = true
+mode             = "auto"
+wrap_lines       = true
+hunk_headers     = true
+menu_bar         = true
+agent_notes      = false
 copy_decorations = false
-cursor_line = "row"
+cursor_line      = "row"
 
 [open]  # complete documents and directory browsing (hunk open)
 

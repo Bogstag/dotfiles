@@ -1,0 +1,218 @@
+# file:///home/bogge/.config/ai-usagebar/config.toml
+# ai-usagebar configuration.
+# Every section and field is optional — missing config = defaults below.
+
+[ui]
+  primary = "openai"
+
+  # Which vendors the Overview lists (the TUI's first tab / the macOS menu-bar's
+  # top section), in this order. The TUI tab bar leads with the same list;
+  # enabled vendors left off it follow in the canonical order. A repeated slug
+  # keeps its first occurrence. An empty list is set; omit the key for every
+  # enabled vendor, in the canonical order.
+  # overview_vendors = ["anthropic", "cursor", "openai"]
+  # Presentation of vendor tab navigation: sidebar (vertical box) | navbar (top strip) | none (hidden).
+  # Default sidebar (falls back to navbar on narrow terminals).
+  # vendor_box = "sidebar"
+
+  # Custom providers: any HTTP endpoint that answers a GET with a JSON document,
+  # authenticated with a static token. One [[custom]] table per provider; each
+  # gets a TUI tab and a `usage --json` entry (`custom:<id>`) next to the
+  # built-in vendors, so every frontend that reads `usage --json` shows it.
+  # Values are read from the response with RFC 6901 JSON Pointers ("/a/b/0").
+  # OAuth, token refresh, request bodies and pagination are NOT supported — a
+  # static key in one header is the whole contract. Not in the Waybar widget's
+  # `--vendor` list, the TUI Settings overlay, `[ui] primary`, or `vendors`.
+  # [[custom]]
+  # id = "mytool"                  # [a-z0-9][a-z0-9_-]{0,31}; unique; not a built-in name
+  # name = "My Tool"               # display name, up to 48 chars; defaults to id
+  # short_name = "myt"             # exactly 3 lowercase letters; unique across all vendors
+  # brand = "deepseek"             # optional built-in slug for supported UIs; unset keeps the short_name tag
+  # enabled = true
+  # url = "https://api.example.com/v1/usage"  # https:// unless allow_http; no user:pass@
+  # allow_http = false             # permit http:// (localhost / LAN only)
+  # api_key_env = "MYTOOL_API_KEY" # env var checked first; "" = inline api_key only
+  # api_key = "..."                # inline fallback; chmod 600 the file if you use it
+  # auth_header = "Authorization"  # header that carries the key
+  # auth_scheme = "Bearer"         # sent as "<scheme> <key>"; "" sends the bare key
+  # plan = "Pro"                   # literal plan label...
+  # plan_path = "/plan/name"       # ...or a pointer to one (wins over `plan`)
+  # cache_ttl_secs = 60            # 10..=3600
+  # [custom.headers]               # extra non-secret headers
+  # X-Org = "org_123"
+  # [[custom.metrics]]             # a percentage row; at least one metric or text is required
+  # label = "Requests"
+  # used = "/requests/used"        # used + limit → "used of limit" under the bar...
+  # limit = "/requests/limit"
+  # # percent = "/requests/pct"    # ...or a ready-made percentage instead of both
+  # # currency = "USD"             # optional 3-letter uppercase code; formats both as money
+  # resets_at = "/requests/reset"  # RFC 3339 string, or epoch seconds / milliseconds
+  # window_secs = 3600             # window length for pacing (>= 60)
+  # [[custom.texts]]               # a free-text row
+  # label = "Tier"
+  # value = "/account/tier"        # string, number or boolean
+  # # currency = "USD"             # optional 3-letter uppercase code; numeric values only
+  #
+  # [[custom]]
+  # id = "aperture"                # [a-z0-9][a-z0-9_-]{0,31}; unique; not a built-in name
+  # name = "Aperture"              # display name, up to 48 chars; defaults to id
+  # short_name = "apt"             # exactly 3 lowercase letters; unique across all vendors
+  # brand = "deepseek"             # optional built-in slug for supported UIs; unset keeps the short_name tag
+  # enabled = true
+
+  # Windows/macOS tray. The macOS menu bar also writes its options here from the
+  # popover Settings → Menu Bar.
+  # [tray]
+  # Global shortcut that opens and closes the popover from any window.
+  # Ctrl / Alt / Win plus a key; Shift may be added. Omit for none. On macOS the
+  # Command and Option keys are accepted as Cmd/Command and Option, and shown as
+  # Cmd/Option.
+  # shortcut = "Ctrl+Shift+U"
+  # How often the tray re-reads every provider: 1, 5, 10, 15, 30 or 60 minutes; the panel's
+  # Refresh button is always immediate.
+  # refresh_minutes = 5
+  # New releases: auto (download, verify and restart unattended) | notify
+  # (banner with an Install button; default) | off (no background checks).
+  # updates = "notify"
+  # macOS menu bar: "bars" (default) draws the usage chart; "provider" draws each
+  # provider's logo followed by its value; "quattro" draws one chip, the logo, the
+  # short name (cld, cdx, …) and the highest percentage among all the windows of
+  # the provider selected in the popover, like the Quattro bar, leaving out any
+  # metric hidden in the popover's Customize. Chart shows up to two starred
+  # metrics per provider. Logos shows one value per starred provider: the highest
+  # used percentage across visible quota windows, just like Name and Quattro auto.
+  # In the Left reading this is the lowest remaining percentage. Hidden metrics
+  # are excluded. Settings → Menu Bar → Menu Bar Shows sets it.
+  # menu_bar_style = "bars"
+  # "name", the 1.32.0 spelling of "quattro", is still read as it.
+  # The "quattro" chip's short name; false leaves just the logo and the value. A
+  # provider with no logo keeps its name. Settings → Menu Bar → Show Short Name.
+  # menu_bar_short_name = true
+
+  # Quota-threshold desktop notifications, fired after a fresh fetch when a
+  # window crosses the threshold (Linux notify-send or macOS Notification Center;
+  # Windows delivery follows). One notification per crossing: a window re-arms only when
+  # usage drops 7 points below the threshold or the window's reset moves later by
+  # more than an hour and a half — a smaller move is the same window reported
+  # again, with the sub-second drift the vendors' reset instants carry.
+  # Banked reset credits (Codex, SuperGrok) also notify 48h before they expire.
+  # [notifications]
+  # enabled = true    # false turns every quota/expiry notification off
+  # threshold = 97    # 1..=100; at 100 only an exhausted window notifies
+
+[openai]
+  enabled = true
+
+[copilot]
+  enabled = true
+  # Disabled by default. GitHub Copilot quota comes from the private endpoint
+  # used by VS Code. Sign in with the official GitHub CLI first:
+  #   gh auth login --web
+  # ai-usagebar obtains the OAuth token only by running `gh auth token`; it never
+  # reads, copies, or stores a GitHub CLI, editor, or browser credential.
+  # Set GITHUB_COPILOT_TOKEN only as an optional explicit environment override.
+  # In Omarchy Settings, select GitHub Copilot as Primary Provider to enable it.
+  #
+  # Path to the official GitHub CLI. Unset looks `gh` up on PATH, which is how it
+  # is normally installed; set this to pin the executable that runs on every
+  # refresh.
+  # gh_binary = "/usr/bin/gh"
+  # Several GitHub accounts, each with its own Copilot plan. `gh` already keeps
+  # more than one login for a host; these entries just name them, so ai-usagebar
+  # still never stores a token itself. `user` is the login name shown by
+  # `gh auth status` (not an email), resolved with `gh auth token --user <user>`.
+  # Select one with `--account <label>`; each gets its own tab and cache.
+  # GITHUB_COPILOT_TOKEN names no account, so combining it with `--account` is an
+  # error rather than a guess about which was meant.
+  # [[copilot.accounts]]
+  # label = "work"
+  # user = "my-work-login"
+  # [[copilot.accounts]]
+  # label = "personal"
+  # user = "my-personal-login"
+  # Hide the unnamed entry (the account `gh` has active) once every account is
+  # named above. Ignored while `accounts` is empty, so Copilot never loses its
+  # only tab.
+  # show_default_account = true
+  # GitHub Enterprise is deliberately unsupported here: `gh` can hold a GHES
+  # login, but the quota endpoint is github.com-only, so a `hostname` field would
+  # promise something the fetch cannot deliver.
+
+[openrouter]
+  enabled     = true
+  api_key_env = "OPENROUTER_API_KEY"
+  #
+  # api_key = "sk-or-v1-..."
+  # Optional management key: unlocks the "Recent models" block, which reads
+  # /api/v1/activity — an endpoint that rejects the regular inference key.
+  # Create one at https://openrouter.ai/settings/management-keys. Unset, the
+  # activity request is skipped and the block stays hidden.
+  # management_api_key_env = "OPENROUTER_MANAGEMENT_API_KEY"
+  # Which number goes on the bar. OpenRouter reports credits purchased against
+  # credits used, so it has a denominator of its own and defaults to "percent";
+  # "amount" puts the dollar balance there instead. There is deliberately no
+  # display_limit here — see the "Account-balance vendors" note below.
+  # headline = "percent"           # "percent" | "amount"
+  # Named keys appear as separate TUI/report entries and use isolated caches.
+  # One entry per workspace is the pattern; keys inside one workspace share its
+  # billing account, so the split is per login session, not per key within a bill.
+  # The default key above stays visible unless this is false. It is always kept
+  # when no named accounts exist.
+  # show_default_account = false
+  # [[openrouter.accounts]]
+  # label = "work"
+  # api_key_env = "OPENROUTER_WORK_API_KEY"
+  # api_key = "sk-or-v1-..."  # optional fallback; chmod 600 when inline
+  # management_api_key_env = "OPENROUTER_WORK_MANAGEMENT_API_KEY"  # optional
+
+[ollama]
+  enabled = false
+  # Disabled by default. https://ollama.com/api/balance automatically reports
+  # monthly credits (e.g. Pro's $60 included usage) or legacy session/weekly
+  # quotas. No plan-mode switch is needed. This is not the local Ollama daemon
+  # (127.0.0.1:11434 has no quota route). Mint an API key at
+  # https://ollama.com/settings/keys; the CLI's Ed25519 registry key in
+  # ~/.ollama is never read. `plan` below is only a display label.
+  #
+  # api_key_env = "OLLAMA_API_KEY" # checked first; if set + non-empty, used
+  # api_key = "..."               # fallback; chmod 600 the file if you use it
+  # plan = "pro"                  # label shown in tooltips; the API reports none
+
+[antigravity]
+  enabled = true
+  #
+  # Google Antigravity. Usage is read from a usable local Antigravity product.
+  # The `agy` CLI requires a CSRF token it does not publish, so it uses the saved
+  # Google session fallback described below. All products share one account-wide
+  # quota. Set ANTIGRAVITY_LS_ADDRESS to
+  # "host:port" only if auto-discovery of that local server ever fails. It is
+  # tried first, not exclusively: if that address is dead — a stale port after a
+  # restart, say — discovery still runs and its ports are probed as fallbacks.
+  #
+  #
+  # With no local product — or when `agy` cannot supply its CSRF token — quota
+  # comes from `agy` itself when it is installed (`agy -p "/quota"`, at most every
+  # two minutes), and otherwise from Google's Cloud Code API using the session
+  # Antigravity saved in the OS keyring or in
+  # `~/.gemini/antigravity-cli/antigravity-oauth-token`.
+  # By default `agy` is discovered on PATH and in ~/.local/bin. Pin the exact
+  # executable when the refresh process must not trust the ambient PATH:
+  # agy_binary = "~/.local/bin/agy"
+  # Renewing that session needs Antigravity's own OAuth client (a public
+  # installed-app client; it is not shipped in source). Without it the fallback
+  # works only while the saved access token lasts (about an hour after the CLI
+  # last used it).
+  # oauth_client_id = "<client id>"
+  # oauth_client_secret = "<client secret>"   # chmod 600 the file if you set this
+  # Set to false when the Antigravity IDE is installed but its sign-in is
+  # managed separately: its language server otherwise answers signed-out and
+  # that 401/403 outranks — masks — a working `agy` session (#405). Has no
+  # effect on Windows, where the IDE's server cannot be told apart on disk.
+  # Default: true.
+  # ide_language_server = false
+
+[anthropic]
+  enabled = false
+
+[zai]
+  enabled = false
