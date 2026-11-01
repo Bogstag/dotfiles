@@ -1,26 +1,18 @@
 [completions]
   mise = [
     { name = "betterleaks", cmd = "completion" },
+    { name = "bws", cmd = "completions" },
+    { name = "chezit", cmd = "completion" },
     { name = "codex", cmd = "completion" },
     { name = "copilot", cmd = "completion" },
     { name = "crush", cmd = "completion" },
     { name = "gh", cmd = "completion -s" },
     { name = "hk", cmd = "completion" },
+    { name = "hunk", cmd = "completion" },
     { name = "opencode", cmd = "--completions" },
     { name = "pkl", cmd = "shell-completion" },
     { name = "ryl", cmd = "--generate-completions" },
     { name = "tombi", cmd = "completion" },
-    { name = "chezit", cmd = "completion" },
-    { name = "hunk", cmd = "completion" },
-
-    # TODO: Ej kollade
-    # { name = "claude", cmd = "completion" },
-    # { name = "go", cmd = "completion" },
-    # { name = "grok", cmd = "completion" },
-    # { name = "hermes", cmd = "completion" },
-    # { name = "muse", cmd = "completion" },
-    # { name = "omp", cmd = "completion" },
-    # { name = "pi", cmd = "completion" },
   ]
   # Finns redan:
   # { name = "delta", cmd = "--generate-completion" }, # /usr/share/bash-completion/completions/delta

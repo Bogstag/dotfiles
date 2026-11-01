@@ -1,6 +1,8 @@
 #!/bin/bash
 # shellcheck shell=bash
 
+command -v figlet > /dev/null 2>&1 || fail "figlet is not installed"
+
 fontdir="${XDG_DATA_HOME:-${HOME}/.local/share}/figlet/fonts"
 default_font=pagga
 create_md_demo() {

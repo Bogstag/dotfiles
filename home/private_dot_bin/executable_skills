@@ -3,10 +3,7 @@
 # chezmoi:template:left-delimiter="# {{" right-delimiter=}}
 
 set -eu
-if ! command -v npx > /dev/null 2>&1; then
-    echo "npx saknas; installera Node.js innan Codex-skills installeras." >&2
-    exit 1
-fi
+command -v npx > /dev/null 2>&1 || fail "npx is not installed"
 
 # TODO: Cant add new skills, invalid agents.
 agents='# {{- .skills.agents | toStrings | join " " }}'
