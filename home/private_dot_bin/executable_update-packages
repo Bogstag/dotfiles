@@ -1,0 +1,16 @@
+#!/bin/bash
+
+mkdir -p .bin
+cat <<'EOF' >.bin/update-packages.sh
+#!/bin/bash
+# Path to your packages TOML
+TOML_FILE="$(chezmoi source-path)/.chezmoidata/packages-test.toml"
+
+echo "# Generated automatically by update-packages.sh" > "$TOML_FILE"
+echo "foreign_packages = [" >> "$TOML_FILE"
+
+# Format pacman output into quoted TOML array items
+pacman -Qmq | awk '{print "  \"" $1 "\","}' >> "$TOML_FILE"
+
+echo "]" >> "$TOML_FILE"
+EOF

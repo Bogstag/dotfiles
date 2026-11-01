@@ -1,0 +1,8 @@
+#!/bin/bash
+# chezmoi:template:left-delimiter="# {{" right-delimiter=}}
+# hash: {{ include "home/.chezmoidata/packages.toml" | sha256sum }}
+
+echo "Installing missing foreign packages..."
+# {{ range .foreign_packages -}}
+# yay -S --noconfirm --needed # {{ . }}
+# {{ end -}}
