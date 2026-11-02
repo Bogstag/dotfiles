@@ -34,7 +34,7 @@
         }
       ],
       "center": [
-        { "id": "omarchy.indicators" },
+        { "id": "omarchy.indicators", "alwaysShow": true },
         { "id": "omarchy.weather" },
         {
           "id": "promaa.clock",
@@ -45,6 +45,19 @@
           "notifyUpcomingEvents": true,
           "syncIntervalMinutes": 3600,
           "verticalFormat": "HH\n—\nmm"
+        },
+        {
+          "id": "xyzlab.omafile",
+          "confirmTrash": false,
+          "confirmDelete": false,
+          "editor": "code",
+          "editorChoice": "omarchy",
+          "glyph": "󰙅",
+          "rememberFolderViews": true,
+          "showHidden": true,
+          "windowMode": "popup",
+          "sortDirsFirst": true,
+          "useTrash": true
         },
         {
           "id": "io.github.juancasanueva.plugin-manager",
@@ -75,16 +88,24 @@
             "tyrsolution.app-launcher",
             "xyzlab.omafile",
             "xyzlab.pigeon",
-            "yoyo.system-tidy"
+            "yoyo.system-tidy",
+            "ggregoro.quick-reference",
+            "paudelsamir.newsdash",
+            "io.github.nobledoodle.omarchroma",
+            "tiertek.ytm",
+            "rosakodu.dock",
+            "dansmith888.synology-drive",
+            "ac.control-panel",
+            "io.github.charlie0113-t.omarchy-nas",
+            "evindor.keystroke",
+            "io.github.maajix.spotlight"
           ]
         },
-        { "id": "oliwier.agent-skills-manager" },
         {
           "id": "io.github.davidgudovic.omalint",
           "alwaysShow": true,
           "refreshIntervalSec": 3600
         },
-        { "id": "yoyo.system-tidy" },
         {
           "id": "io.github.dadofsambonzuki.chezmoi-hound",
           "checkSeconds": 3600,
@@ -93,13 +114,40 @@
         { "id": "omarchy.system-update" }
       ],
       "right": [
-        { "id": "omarchy.tray", "hidden": [], "pinned": [] },
+        {
+          "id": "so.den",
+          "widget": ["chrome_status_icon_1"],
+          "captureOverflow": true,
+          "icon": "",
+          "icons": {},
+          "widgets": [
+            "omarchy.audio",
+            "omarchy.bluetooth",
+            "omarchy.keyboard-layout",
+            "omarchy.monitor",
+            "omarchy.network",
+            "omarchy.power",
+            "yoyo.system-tidy"
+          ]
+        },
+        {
+          "id": "akitaonrails.ai-usagebar",
+          "colorCodeUsage": true,
+          "hiddenBarEntries": ["anthropic", "zai"],
+          "hiddenMetrics": { "copilot": ["Premium requests"] },
+          "lastSelectedEntryId": "openai",
+          "showAll": true,
+          "showAntigravityClaudeGpt": false,
+          "showAntigravityGemini": true,
+          "showProvider": false,
+          "showValue": false
+        },
         {
           "id": "xyzlab.pigeon",
           "allowHttpActions": false,
           "auth": "none",
           "backfill": "all",
-          "glyph": "",
+          "glyph": "󰍢",
           "maxMessages": 20,
           "password": "",
           "server": "https://ntfy.sh",
@@ -109,41 +157,10 @@
           "toastMinPriority": 2,
           "toasts": true,
           "token": "",
-          "topics": "Skuggsidan,Skuggsidan-alerts",
+          "topics": "Skuggsidan-alerts",
           "username": ""
         },
-        {
-          "id": "xyzlab.omafile",
-          "confirmTrash": false,
-          "confirmDelete": false,
-          "editor": "code",
-          "editorChoice": "omarchy",
-          "glyph": "󰙅",
-          "rememberFolderViews": true,
-          "showHidden": true,
-          "windowMode": "popup",
-          "sortDirsFirst": true,
-          "useTrash": true
-        },
-        {
-          "id": "akitaonrails.ai-usagebar",
-          "colorCodeUsage": true,
-          "hiddenBarEntries": ["anthropic", "zai"],
-          "hiddenMetrics": { "copilot": ["Premium requests"] },
-          "lastSelectedEntryId": "anthropic",
-          "showAll": true,
-          "showAntigravityClaudeGpt": false,
-          "showAntigravityGemini": true,
-          "showProvider": false,
-          "showValue": false
-        },
-        { "id": "omarchy.tailscale" },
-        { "id": "omarchy.keyboard-layout" },
-        { "id": "omarchy.bluetooth" },
-        { "id": "omarchy.network" },
-        { "id": "omarchy.audio" },
-        { "id": "omarchy.monitor" },
-        { "id": "omarchy.power" }
+        { "id": "omarchy.tailscale" }
       ]
     }
   },
@@ -157,8 +174,12 @@
     { "id": "omarchy.nightlight" },
     { "id": "omarchy.speedtest" },
     { "id": "omarchy.workspaces" },
-    { "id": "xyzlab.alienware" },
-    { "id": "omarchy.lock" }
+    { "id": "omarchy.lock" },
+    {
+      "id": "omarchy.tray",
+      "pinned": [],
+      "hidden": ["chrome_status_icon_1"]
+    }
   ],
   "plugins": [
     { "id": "akitaonrails.ai-usagebar" },
@@ -174,9 +195,13 @@
     { "id": "promaa.clock" },
     { "id": "tornikegomareli.spaces" },
     { "id": "xyzlab.omafile" },
-    { "id": "xyzlab.pigeon" },
     { "id": "yoyo.system-tidy" },
-    { "id": "dizziee.system-updates" }
+    { "id": "omarchy.bluetooth" },
+    { "id": "omarchy.audio" },
+    { "id": "omarchy.keyboard-layout" },
+    { "id": "omarchy.monitor" },
+    { "id": "omarchy.network" },
+    { "id": "omarchy.power" }
   ],
   "cloneSourceRestores": ["io.github.sirjul1337.lock-explorer"]
 }

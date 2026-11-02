@@ -92,4 +92,3 @@
   7zip                               = "latest"
   rust                               = "latest"
   cargo-binstall                     = "latest"
-  "cargo:keybinds-tui"               = { version = "latest", bin = "kb" }

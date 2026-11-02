@@ -218,6 +218,19 @@ toml-version = "v1.1.0"
     },
   ]
 
+[[schemas]]
+  path      = "https://raw.githubusercontent.com/distinction-dev/alacritty-schema/main/alacritty/reference.json"
+  include   = ["**/alacritty.toml"]
+  strict    = false
+  overrides = [
+    {
+      targets                         = ["*"],
+      format.rules.array-values-order = "ascending",
+      format.rules.table-keys-order   = "ascending",
+      lint.rules.deprecated           = "warn",
+    },
+  ]
+
 [[overrides]]
   files.include = ["**/yazi/yazi.toml", "**/yazi/keymap.toml", "**/yazi/theme.toml"]
   format.rules  = {

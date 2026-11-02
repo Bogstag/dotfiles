@@ -1,83 +1,73 @@
 #:schema https://www.schemastore.org/chezmoi.json
-# ~/.config/chezmoi/chezmoi.toml
-
-{{/* {{- $is_wsl := false }}
-{{- if and .chezmoi.kernel (hasKey .chezmoi.kernel "osrelease") }}
-{{-   $is_wsl = (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+# file:///home/bogge/.config/chezmoi/chezmoi.toml
+{{- /* Is it? */}}
+{{- $is_wsl := false }}
+{{- $is_windows := false }}
+{{- $is_linux := false }}
+{{- $is_omarchy := false }}
+{{- /* It is? */}}
+{{- if .chezmoi.kernel.osrelease | lower | contains "microsoft" }}
+{{- 	$is_wsl = true }}
 {{- end }}
-
+{{- if eq .chezmoi.os "windows" }}
+{{- 	$is_windows = true }}
+{{- end }}
+{{- if eq .chezmoi.os "linux" }}
+{{- 	$is_linux = true }}
+{{- 	if eq .chezmoi.osRelease.id "omarchy" }}
+{{- 		$is_omarchy = true }}
+{{- 	end }}
+{{- end }}
 {{- $chassisType := (output "hostnamectl" "--json=short" | fromJson).Chassis }}
 
-{{- if eq .chezmoi.os "windows" }}
-	# Windows
-	follow = true
-{{- end }}
-{{- if .chezmoi.kernel.osrelease | lower | contains "microsoft" }}
-	# WSL
-{{- end }}
-{{- if eq .chezmoi.os "linux" }}
-	# Linux
-	{{- if eq .chezmoi.osRelease.id "omarchy" }}
-		# Omarchy
-	{{- end }}
-{{- end }} */}}
-
 [scriptEnv]
-  HOME = "{{ .chezmoi.destDir }}"
-  XDG_CACHE_HOME="{{ .chezmoi.destDir }}/.cache"
-  XDG_CONFIG_HOME="{{ .chezmoi.destDir }}/.config"
-  XDG_DATA_HOME="{{ .chezmoi.destDir }}/.local/share"
-  XDG_DESKTOP_DIR="{{ .chezmoi.destDir }}/"
-  XDG_STATE_HOME="{{ .chezmoi.destDir }}/.local/state"
+  HOME            = "{{- .chezmoi.destDir }}"
+  XDG_CACHE_HOME  = "{{- .chezmoi.destDir }}/.cache"
+  XDG_CONFIG_HOME = "{{- .chezmoi.destDir }}/.config"
+  XDG_DATA_HOME   = "{{- .chezmoi.destDir }}/.local/share"
+  XDG_DESKTOP_DIR = "{{- .chezmoi.destDir }}/"
+  XDG_STATE_HOME  = "{{- .chezmoi.destDir }}/.local/state"
+  computerType	  = "{{- $chassisType }}"
+  is_linux	 	  = "{{- $is_linux }}"
+  is_omarchy	  = "{{- $is_omarchy }}"
+  is_windows	  = "{{- $is_windows }}"
+  is_wsl		  = "{{- $is_wsl }}"
 
 [data]
-{{- if eq .chezmoi.os "linux" }}
-	bws_access_token = {{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" | quote }}
-	shell = "/usr/bin/bash"
+{{- if $is_linux }}
+  bws_access_token = {{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" | quote }}
 {{- end }}
-{{- if eq .chezmoi.os "windows" }}
-	shell = "PowerShell"
-	shellexe = "pwsh.exe"
-
-	[cd]
-	command = "pwsh"
-	args = ["-NoProfile", "-NoLogo"]
-
-	[interpreters.ps1]
-	command = "pwsh"
-	args = ["-NoLogo", "-NoProfile"]
+  is_linux         = "{{- $is_linux }}"
+  is_omarchy	   = "{{- $is_omarchy }}"
+  is_windows	   = "{{- $is_windows }}"
+  is_wsl		   = "{{- $is_wsl }}"
+{{- if $is_windows }}
+  shellexe = "pwsh.exe"
+  [cd]
+  command = "pwsh"
+  args = ["-NoProfile", "-NoLogo"]
+  [interpreters.ps1]
+  command = "pwsh"
+  args = ["-NoLogo", "-NoProfile"]
 {{- end }}
 
 [edit]
-	command = "code"
-	args = ["--wait"]
+  args    = ["--wait"]
+  command = "code"
 
 [diff]
-	# command = "hunk"
-	# args = ["diff", "--files", "{{ `{{ .Destination }}` }}", "{{ `{{ .Target }}` }}"]
-	pager = "delta --paging never"
-	# pager = "hunk pager"
+  pager = "delta --paging never"
 
 [merge]
-	#command = "meld"
-	command = "hunk difftool"
-	args = ["{{ `{{ .Destination }}` }}", "{{ `{{ .Source }}` }}", "{{ `{{ .Target }}` }}"]
+  args    = ["{{ `{{ .Destination }}` }}", "{{ `{{ .Source }}` }}", "{{ `{{ .Target }}` }}"]
+  command = "hunk difftool"
 
 [template]
   options = ["missingkey=zero"]
 
 [hooks]
-read-source-state.pre = {command = "echo", args = ["pre-read-source-state-hook"]}
-apply.post = {command = "echo", args = ["post-apply-hook"]}
-add.post = {command = "echo", args = ["post-add-hook"]}
-
-# [hooks.read-source-state.pre]
-# command = "echo"
-# args = ["pre-read-source-state-hook"]
-
-# [hooks.apply.post]
-# command = "echo"
-# args = ["post-apply-hook"]
-
-# [hooks.add.post]
-# script = "post-add-hook.ps1"
+{{- if $is_linux }}
+  add.post              = { command = "echo", args = ["post-add-hook"] }
+  apply.post            = { command = "echo", args = ["post-apply-hook"] }
+  read-source-state.pre = { command = "echo", args = ["pre-read-source-state-hook"] }
+{{- end }}
