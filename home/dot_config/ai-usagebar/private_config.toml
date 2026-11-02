@@ -1,6 +1,5 @@
 # file:///home/bogge/.config/ai-usagebar/config.toml
 # ai-usagebar configuration.
-# Every section and field is optional — missing config = defaults below.
 
 [ui]
   primary = "openai"
@@ -60,110 +59,25 @@
   # brand = "deepseek"             # optional built-in slug for supported UIs; unset keeps the short_name tag
   # enabled = true
 
-  # Windows/macOS tray. The macOS menu bar also writes its options here from the
-  # popover Settings → Menu Bar.
-  # [tray]
-  # Global shortcut that opens and closes the popover from any window.
-  # Ctrl / Alt / Win plus a key; Shift may be added. Omit for none. On macOS the
-  # Command and Option keys are accepted as Cmd/Command and Option, and shown as
-  # Cmd/Option.
-  # shortcut = "Ctrl+Shift+U"
-  # How often the tray re-reads every provider: 1, 5, 10, 15, 30 or 60 minutes; the panel's
-  # Refresh button is always immediate.
-  # refresh_minutes = 5
-  # New releases: auto (download, verify and restart unattended) | notify
-  # (banner with an Install button; default) | off (no background checks).
-  # updates = "notify"
-  # macOS menu bar: "bars" (default) draws the usage chart; "provider" draws each
-  # provider's logo followed by its value; "quattro" draws one chip, the logo, the
-  # short name (cld, cdx, …) and the highest percentage among all the windows of
-  # the provider selected in the popover, like the Quattro bar, leaving out any
-  # metric hidden in the popover's Customize. Chart shows up to two starred
-  # metrics per provider. Logos shows one value per starred provider: the highest
-  # used percentage across visible quota windows, just like Name and Quattro auto.
-  # In the Left reading this is the lowest remaining percentage. Hidden metrics
-  # are excluded. Settings → Menu Bar → Menu Bar Shows sets it.
-  # menu_bar_style = "bars"
-  # "name", the 1.32.0 spelling of "quattro", is still read as it.
-  # The "quattro" chip's short name; false leaves just the logo and the value. A
-  # provider with no logo keeps its name. Settings → Menu Bar → Show Short Name.
-  # menu_bar_short_name = true
-
-  # Quota-threshold desktop notifications, fired after a fresh fetch when a
-  # window crosses the threshold (Linux notify-send or macOS Notification Center;
-  # Windows delivery follows). One notification per crossing: a window re-arms only when
-  # usage drops 7 points below the threshold or the window's reset moves later by
-  # more than an hour and a half — a smaller move is the same window reported
-  # again, with the sub-second drift the vendors' reset instants carry.
-  # Banked reset credits (Codex, SuperGrok) also notify 48h before they expire.
-  # [notifications]
-  # enabled = true    # false turns every quota/expiry notification off
-  # threshold = 97    # 1..=100; at 100 only an exhausted window notifies
+[notifications]
+  enabled   = true  # false turns every quota/expiry notification off
+  threshold = 97    # 1..=100; at 100 only an exhausted window notifies
 
 [openai]
   enabled = true
 
 [copilot]
   enabled = true
-  # Disabled by default. GitHub Copilot quota comes from the private endpoint
-  # used by VS Code. Sign in with the official GitHub CLI first:
-  #   gh auth login --web
-  # ai-usagebar obtains the OAuth token only by running `gh auth token`; it never
-  # reads, copies, or stores a GitHub CLI, editor, or browser credential.
-  # Set GITHUB_COPILOT_TOKEN only as an optional explicit environment override.
-  # In Omarchy Settings, select GitHub Copilot as Primary Provider to enable it.
-  #
-  # Path to the official GitHub CLI. Unset looks `gh` up on PATH, which is how it
-  # is normally installed; set this to pin the executable that runs on every
-  # refresh.
-  # gh_binary = "/usr/bin/gh"
-  # Several GitHub accounts, each with its own Copilot plan. `gh` already keeps
-  # more than one login for a host; these entries just name them, so ai-usagebar
-  # still never stores a token itself. `user` is the login name shown by
-  # `gh auth status` (not an email), resolved with `gh auth token --user <user>`.
-  # Select one with `--account <label>`; each gets its own tab and cache.
-  # GITHUB_COPILOT_TOKEN names no account, so combining it with `--account` is an
-  # error rather than a guess about which was meant.
-  # [[copilot.accounts]]
-  # label = "work"
-  # user = "my-work-login"
-  # [[copilot.accounts]]
-  # label = "personal"
-  # user = "my-personal-login"
-  # Hide the unnamed entry (the account `gh` has active) once every account is
-  # named above. Ignored while `accounts` is empty, so Copilot never loses its
-  # only tab.
-  # show_default_account = true
-  # GitHub Enterprise is deliberately unsupported here: `gh` can hold a GHES
-  # login, but the quota endpoint is github.com-only, so a `hostname` field would
-  # promise something the fetch cannot deliver.
 
 [openrouter]
   enabled     = true
   api_key_env = "OPENROUTER_API_KEY"
-  #
-  # api_key = "sk-or-v1-..."
+
   # Optional management key: unlocks the "Recent models" block, which reads
   # /api/v1/activity — an endpoint that rejects the regular inference key.
   # Create one at https://openrouter.ai/settings/management-keys. Unset, the
   # activity request is skipped and the block stays hidden.
   # management_api_key_env = "OPENROUTER_MANAGEMENT_API_KEY"
-  # Which number goes on the bar. OpenRouter reports credits purchased against
-  # credits used, so it has a denominator of its own and defaults to "percent";
-  # "amount" puts the dollar balance there instead. There is deliberately no
-  # display_limit here — see the "Account-balance vendors" note below.
-  # headline = "percent"           # "percent" | "amount"
-  # Named keys appear as separate TUI/report entries and use isolated caches.
-  # One entry per workspace is the pattern; keys inside one workspace share its
-  # billing account, so the split is per login session, not per key within a bill.
-  # The default key above stays visible unless this is false. It is always kept
-  # when no named accounts exist.
-  # show_default_account = false
-  # [[openrouter.accounts]]
-  # label = "work"
-  # api_key_env = "OPENROUTER_WORK_API_KEY"
-  # api_key = "sk-or-v1-..."  # optional fallback; chmod 600 when inline
-  # management_api_key_env = "OPENROUTER_WORK_MANAGEMENT_API_KEY"  # optional
 
 [ollama]
   enabled = false
@@ -180,36 +94,6 @@
 
 [antigravity]
   enabled = true
-  #
-  # Google Antigravity. Usage is read from a usable local Antigravity product.
-  # The `agy` CLI requires a CSRF token it does not publish, so it uses the saved
-  # Google session fallback described below. All products share one account-wide
-  # quota. Set ANTIGRAVITY_LS_ADDRESS to
-  # "host:port" only if auto-discovery of that local server ever fails. It is
-  # tried first, not exclusively: if that address is dead — a stale port after a
-  # restart, say — discovery still runs and its ports are probed as fallbacks.
-  #
-  #
-  # With no local product — or when `agy` cannot supply its CSRF token — quota
-  # comes from `agy` itself when it is installed (`agy -p "/quota"`, at most every
-  # two minutes), and otherwise from Google's Cloud Code API using the session
-  # Antigravity saved in the OS keyring or in
-  # `~/.gemini/antigravity-cli/antigravity-oauth-token`.
-  # By default `agy` is discovered on PATH and in ~/.local/bin. Pin the exact
-  # executable when the refresh process must not trust the ambient PATH:
-  # agy_binary = "~/.local/bin/agy"
-  # Renewing that session needs Antigravity's own OAuth client (a public
-  # installed-app client; it is not shipped in source). Without it the fallback
-  # works only while the saved access token lasts (about an hour after the CLI
-  # last used it).
-  # oauth_client_id = "<client id>"
-  # oauth_client_secret = "<client secret>"   # chmod 600 the file if you set this
-  # Set to false when the Antigravity IDE is installed but its sign-in is
-  # managed separately: its language server otherwise answers signed-out and
-  # that 401/403 outranks — masks — a working `agy` session (#405). Has no
-  # effect on Windows, where the IDE's server cannot be told apart on disk.
-  # Default: true.
-  # ide_language_server = false
 
 [anthropic]
   enabled = false

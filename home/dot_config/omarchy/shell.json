@@ -137,7 +137,7 @@
           "hiddenMetrics": { "copilot": ["Premium requests"] },
           "lastSelectedEntryId": "openai",
           "showAll": true,
-          "showAntigravityClaudeGpt": false,
+          "showAntigravityClaudeGpt": true,
           "showAntigravityGemini": true,
           "showProvider": false,
           "showValue": false

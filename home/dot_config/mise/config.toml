@@ -55,13 +55,6 @@
   crush                              = "latest"
   editorconfig-checker               = "latest"
   fnox                               = { version = "latest", workflow = "release.yml" }
-  gemini                             = {
-    version      = "latest",
-    allow_builds = [
-      "@github/keytar",
-      "node-pty",
-    ]
-  }
   gh                                 = "latest"
   "github:daptify14/chezit"          = { version = "latest", os = ["linux"] }
   "go:github.com/gohugoio/gotmplfmt" = "latest"

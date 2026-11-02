@@ -30,6 +30,10 @@ exclude = ["**/modify_*.yml", "**/modify_*.toml"]
   document-end   = "disable"
   document-start = "disable"  # default on
 
+  # [lint.rules.yaml-directive]
+  #   level   = "error"
+  #   present = true
+
 [lint.rules.quoted-strings]
   level                            = "error"
   quote-type                       = "double"
