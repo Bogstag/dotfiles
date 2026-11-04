@@ -98,7 +98,12 @@
             "ac.control-panel",
             "io.github.charlie0113-t.omarchy-nas",
             "evindor.keystroke",
-            "io.github.maajix.spotlight"
+            "io.github.maajix.spotlight",
+            "typecraft.omacast",
+            "io.github.mattwolfgang.clock",
+            "cj.focus-garden",
+            "io.github.fatihaydost.houra",
+            "liambeck99.update-center"
           ]
         },
         {
@@ -186,11 +191,6 @@
     { "id": "io.github.dadofsambonzuki.chezmoi-hound" },
     { "id": "io.github.davidgudovic.omalint" },
     { "id": "io.github.juancasanueva.plugin-manager" },
-    {
-      "id": "io.github.sirjul1337.lock-explorer",
-      "tourSeen": true,
-      "openAs": "panel"
-    },
     { "id": "omarchy.notifications" },
     { "id": "promaa.clock" },
     { "id": "tornikegomareli.spaces" },
@@ -201,7 +201,21 @@
     { "id": "omarchy.keyboard-layout" },
     { "id": "omarchy.monitor" },
     { "id": "omarchy.network" },
-    { "id": "omarchy.power" }
+    { "id": "omarchy.power" },
+    {
+      "id": "io.github.sirjul1337.lock-explorer",
+      "tourSeen": true,
+      "openAs": "full",
+      "design": "poster",
+      "clipWallpaper": true,
+      "followTheme": true,
+      "themeDesigns": { "orlok": "poster" },
+      "blankMs": 60000,
+      "powerActions": true,
+      "mediaControls": true,
+      "boot": "follow",
+      "avatar": "/home/bogge/Pictures/rclone/profile/2841.png"
+    }
   ],
   "cloneSourceRestores": ["io.github.sirjul1337.lock-explorer"]
 }

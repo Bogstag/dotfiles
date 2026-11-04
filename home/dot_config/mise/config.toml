@@ -10,8 +10,11 @@
   _.path         = [
     "go/bin",
     ".bin",
+    ".lib",
+    "/home/bogge/.lib/qt6/bin",
     "/home/bogge/.local/share/mise/installs/go/latest/bin",
   ]
+  UV_PYTHON      = { value = "{{ tools.python.path }}", tools = true }
 
 [settings]
   color_theme         = "dracula"

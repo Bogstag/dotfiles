@@ -153,14 +153,15 @@ toml-version = "v1.1.0"
   ]
 
 [[schemas]]
-  path      = "https://www.schemastore.org/ryl.json"
+  path      = "https://json.schemastore.org/ryl.json"
   include   = ["**/ryl/.ryl.toml", "$HOME/.config/ryl/.ryl.toml"]
+  strict    = false
   overrides = [
     {
       targets                         = ["*"],
       format.rules.array-values-order = "ascending",
       format.rules.table-keys-order   = "ascending",
-      lint.rules.deprecated           = "warn",
+      lint.rules.deprecated           = "warn"
     },
   ]
 

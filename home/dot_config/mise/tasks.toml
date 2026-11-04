@@ -1,0 +1,15 @@
+#:schema https://mise.jdx.dev/schema/mise-task.json
+
+[lint]
+  depends     = ["lint:*"]
+  description = "Run all lint checks"
+
+[uv-global-intall]
+  # To uninstall replace install with uninstall
+  description = "Install pkg with exec globally"
+  run         = "uv tool install"
+
+[uv-global-intall-no-exec]
+  # To uninstall replace install with uninstall
+  description = "Install pkg w/o exec globally"
+  run         = "uv pip install --system"
