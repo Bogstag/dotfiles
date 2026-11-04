@@ -1,0 +1,77 @@
+#!/bin/bash
+
+# TODO: I dont like to mix like this, but see it as a POC
+# Example:
+# get-vscode-settings > $HOME/.local/share/chezmoi/home/.chezmoidata/vscode.settings.jsonc
+# Hard coded export, no other usage
+
+command -v python > /dev/null 2>&1 || fail "python is not installed"
+
+storage="${HOME}/.config/Code/User/globalStorage/storage.json"
+if ! [[ -f ${storage} ]]; then
+    echo "Missing ${storage}"
+fi
+
+settings="${HOME}/.config/Code/User/settings.json"
+if ! [[ -f ${settings} ]]; then
+    echo "Missing ${settings}"
+fi
+
+python3 -c '
+import json, pathlib, re
+
+home = pathlib.Path.home()
+storage_path = home / ".config/Code/User/globalStorage/storage.json"
+default_settings_path = home / ".config/Code/User/settings.json"
+profiles_dir = home / ".config/Code/User/profiles"
+
+combined_settings = {}
+
+def clean_and_load_jsonc(path):
+    if not path.exists(): return {}
+    with open(path, "r") as f:
+        content = f.read()
+    # 1. Remove single-line comments (//...)
+    content = re.sub(r"^\s*//.*$", "", content, flags=re.MULTILINE)
+    content = re.sub(r"\s*//.*$", "", content)
+    # 2. Remove trailing commas before closing braces/brackets
+    content = re.sub(r",(\s*[}\]])", r"\1", content)
+    try:
+        return json.loads(content)
+    except Exception as e:
+        # If it still fails, print the error so you can see which file is broken
+        print(f"# Error parsing {path.name}: {e}")
+        return {}
+
+# 1. Grab Default Profile Settings
+combined_settings["Default"] = clean_and_load_jsonc(default_settings_path)
+
+# 2. Grab Custom Profile Settings
+if storage_path.exists():
+    storage_data = clean_and_load_jsonc(storage_path)
+    profiles = storage_data.get("userDataProfiles", [])
+    for p in profiles:
+        p_name = p.get("name")
+        p_loc = p.get("location")
+        if p_name and p_loc:
+            custom_path = profiles_dir / p_loc / "settings.json"
+            combined_settings[p_name] = clean_and_load_jsonc(custom_path)
+
+# Output the combined file cleanly
+# print(json.dumps(combined_settings, indent=2))
+# print("{\n" + "\"vscode\":\n" + json.dumps(combined_settings, indent=4) + "\n}")
+
+# # pre
+# {
+#     "vscode": {
+#         "profiles": {
+prejson = "{\n\t\"vscode\": {\n\t\t\"profiles\": "
+
+# # post
+#         }
+#     }
+# }
+postjson = "\n\t}\n}"
+
+print(prejson + json.dumps(combined_settings, indent=4) + postjson)
+' > "${HOME}/.local/share/chezmoi/home/.chezmoidata/vscode.settings.jsonc"

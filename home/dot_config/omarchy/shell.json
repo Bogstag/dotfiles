@@ -121,9 +121,7 @@
       "right": [
         {
           "id": "so.den",
-          "widget": ["chrome_status_icon_1"],
           "captureOverflow": true,
-          "icon": "",
           "icons": {},
           "widgets": [
             "omarchy.audio",
@@ -132,7 +130,8 @@
             "omarchy.monitor",
             "omarchy.network",
             "omarchy.power",
-            "yoyo.system-tidy"
+            "yoyo.system-tidy",
+            "chrome_status_icon_1"
           ]
         },
         {
@@ -182,8 +181,8 @@
     { "id": "omarchy.lock" },
     {
       "id": "omarchy.tray",
-      "pinned": [],
-      "hidden": ["chrome_status_icon_1"]
+      "pinned": ["chrome_status_icon_1"],
+      "hidden": []
     }
   ],
   "plugins": [
