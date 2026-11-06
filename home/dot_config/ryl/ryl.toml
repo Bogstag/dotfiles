@@ -8,7 +8,9 @@ exclude = ["**/modify_*.yml", "**/modify_*.toml"]
 
 # tombi: format.rules.table-keys-order = "ascending"
 [lint.rules]
-  ALL          = "enable"
+  ALL            = "enable"
+  document-end   = "disable"
+  document-start = "disable"  # default on
   # empty-values = "disable"
   # anchors = "enable"
   # braces = "enable"
@@ -26,12 +28,7 @@ exclude = ["**/modify_*.yml", "**/modify_*.toml"]
   # octal-values = "disable"
   # quoted-strings = "disable"
   # trailing-spaces = "enable"
-  document-end = "disable"
-  # document-start = "disable"  # default on
-
-  # [lint.rules.yaml-directive]
-  # level   = "error"
-  #   present = true
+  yaml-directive = "disable"
 
 [lint.rules.quoted-strings]
   level                            = "error"

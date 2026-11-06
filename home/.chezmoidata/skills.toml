@@ -11,14 +11,6 @@
           sourceUrl = "terrylica/cc-skills",
           skill     = ["chezmoi-sync", "chezmoi-workflows", "mise-configuration", "mise-tasks"]
         },
-        { sourceUrl = "kunchenguid/chrome-devtools-axi", skill = ["chrome-devtools-axi"] },
-        { sourceUrl = "kunchenguid/gh-axi", skill = ["gh-axi"] },
-        { sourceUrl = "SSBrouhard/npm-axi", skill = ["npm-axi"] },
-        { sourceUrl = "thatdudealso/docker-axi", skill = ["docker-axi"] },
-        { sourceUrl = "AndersHoffmann/obsidian-axi", skill = ["obsidian-axi"] },
-        { sourceUrl = "masculinecache/chezmoi-axi", skill = ["chezmoi-axi"] },
-        { sourceUrl = "masculinecache/bws-axi", skill = ["bws-axi"] },
-        { sourceUrl = "batamire/ha-axi", skill = ["ha-axi"] },
       ]
     }
   ]

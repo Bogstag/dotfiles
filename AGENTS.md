@@ -4,44 +4,24 @@ This is Bogstag's public dotfiles repository. It is managed with chezmoi and is
 used primarily on Omarchy Linux. Keep this file concise and update it when an
 important repository convention changes.
 
-Read [docs/decisions.md](docs/decisions.md) for the user's package policy,
 Bitwarden constraints, approval boundaries, and verified versus pending facts.
 Those decisions govern agent execution; setup examples do not grant approval.
 
 ## Safety and privacy
 
-- Never commit passwords, tokens, private keys, recovery codes, authentication
-  URLs, device identities, or other secrets.
-- Bitwarden is the intended secret store. Chezmoi may retrieve secrets through
-  templates, but rendered secrets must never be written to this repository.
-- Treat Syncthing identities and configuration, Obsidian vaults, Tailscale state,
-  application sessions, caches, and account data as local machine data.
-- Do not inspect or modify `~/Sync`, `~/SyncB`, Obsidian vault contents, or
-  Syncthing configuration unless the user explicitly requests it.
-- This repository is public. Review staged changes for sensitive information
-  before every commit.
+- Never commit passwords, tokens, private keys, recovery codes, authentication URLs, device identities, or other secrets.
+- Bitwarden and bws is the intended secret store. Chezmoi may retrieve secrets through templates, but rendered secrets must never be written to this repository.
+- Treat Syncthing identities and configuration, Obsidian vaults, Tailscale state, application sessions, caches, and account data as local machine data.
+- Do not inspect or modify `~/Sync`, `~/SyncB`, Obsidian vault contents, or Syncthing configuration unless the user explicitly requests it.
+- This repository is public. Review staged changes for sensitive information before every commit.
 
 ## CLI Tools
 
 Prefer this tools over other methods
 
-### AXI (Agent eXperience Interface) defines 10 ergonomic principles for building CLI tools that AI agents use via shell execution
-
-This repo contains:
-
-| AXI | Domain | What it does |
-| -------------------------------------------- | --------- | -------------------------------------------------------- |
-| [`gh-axi`](https://github.com/kunchenguid/gh-axi) | GitHub | Issues, PRs, workflow runs, releases, and more. Wraps the official `gh` CLI with agent-ergonomic output. |
-| [`chrome-devtools-axi`](https://github.com/kunchenguid/chrome-devtools-axi) | Browser automation | Navigate, click, fill, and extract with combined operations and query filtering. Wraps chrome-devtools-mcp. |
-| [`chezmoi-axi`](https://github.com/masculinecache/chezmoi-axi) | Dotfiles | List, diff, add, re-add, apply, verify, and sync chezmoi-managed dotfiles with compact TOON output - template-aware re-add verdicts, preview dry-runs, and idempotent operations. |
-| [`mem-axi`](https://github.com/masculinecache/axi-memory) | Agent memory | Durable cross-session agent memory as markdown + YAML frontmatter in a git repo - typed memories, priority-ranked search with L0 abstracts, OS-side dedup, and cross-machine sync. |
-| [`bws-axi`](https://github.com/masculinecache/bws-axi) | Bitwarden Secrets Manager | Agent-ergonomic Bitwarden Secrets Manager CLI - TOON output, values redacted by default, project/key scoped listings. |
-
 ## Skills
 
 Project skills is installed in .agents/skills (~/.local/share/chezmoi/.agents). This are the skills installed:
-.agents/skills/chrome-devtools-axi/SKILL.md
-.agents/skills/gh-axi/SKILL.md
 .agents/skills/hk-configure/SKILL.md
 .agents/skills/hk-debug/SKILL.md
 
@@ -56,38 +36,27 @@ Project skills is installed in .agents/skills (~/.local/share/chezmoi/.agents). 
 
 ## Repository conventions
 
-- The chezmoi source directory is this Git repository. Resolve it with
-  `chezmoi source-path` instead of assuming a fixed path.
+- The chezmoi source directory is this Git repository. Resolve it with `chezmoi source-path` instead of assuming a fixed path.
 - `README.md` contains user-facing setup and maintenance instructions.
-- Omarchy and Hyprland configuration is Linux-specific and must remain excluded
-  on other operating systems through `.chezmoiignore`.
+- Omarchy and Hyprland configuration is Linux-specific and must remain excluded on other operating systems through `.chezmoiignore`.
 - Starship configuration should remain cross-platform and fast to initialize.
 - Windows 11 implementation is pending; follow the package decisions linked above.
-- Keep machine enrollment and interactive authentication manual. In particular,
-  do not automate Tailscale login or store its state in chezmoi.
+- Keep machine enrollment and interactive authentication manual. In particular, do not automate Tailscale login or store its state in chezmoi.
 
 ## Working method
 
-1. Inspect `git status`, relevant source files, and the rendered chezmoi diff
-   before editing.
+1. Inspect `git status`, relevant source files, and the rendered chezmoi diff before editing.
 2. Preserve unrelated user changes. Do not reset or discard them.
-3. Edit source-state files, not rendered files in the home directory, unless the
-   user explicitly wants to test a local change first.
-4. Validate shell scripts with `bash -n`, Git changes with `git diff --check`,
-   and configuration with the relevant application validator when available.
-5. Review `chezmoi diff` before applying changes. Avoid running an altered
-   `run_once_` script merely to preview it.
-6. Show the user the result and let them test visible desktop or shell changes
-   before committing when practical.
+3. Edit source-state files, not rendered files in the home directory, unless the user explicitly wants to test a local change first.
+4. Validate shell scripts with `bash -n`, Git changes with `git diff --check`, and configuration with the relevant application validator when available.
+5. Review `chezmoi diff` before applying changes. Avoid running an altered `run_once_` script merely to preview it.
+6. Show the user the result and let them test visible desktop or shell changes before committing when practical.
 7. Do not push to GitHub without explicit user approval.
 
 ## Codex sandbox on Omarchy 4
 
-- System files owned by root may appear as `nobody:nobody` inside the Codex
-  sandbox. Do not diagnose incorrect ownership from that sandbox-only view.
-- Use a normal `git push`. If sandbox networking or SSH blocks it, report the
-  sandbox limitation and let the user push locally; do not bypass the system
-  SSH configuration with `ssh -F /dev/null`.
+- System files owned by root may appear as `nobody:nobody` inside the Codex sandbox. Do not diagnose incorrect ownership from that sandbox-only view.
+- Use a normal `git push`. If sandbox networking or SSH blocks it, report the sandbox limitation and let the user push locally; do not bypass the system SSH configuration with `ssh -F /dev/null`.
 
 ## Current managed scope
 
@@ -95,12 +64,8 @@ Project skills is installed in .agents/skills (~/.local/share/chezmoi/.agents). 
 - Omarchy/Hyprland monitor configuration.
 - Bitwarden SSH-agent integration for GitHub and Git SSH-signing configuration.
 - GitHub noreply email stored as reusable chezmoi template data.
-- Codex Aperture connection bootstrap, while mutable Codex preferences remain
-  local.
-- Linux application bootstrap for Bitwarden, Steam, Syncthing, Tailscale, and
-  Visual Studio Code.
-- Creation of `~/Sync` and activation of the Syncthing user service. Folder and
-  device pairing remain manual.
+- Codex Aperture connection bootstrap, while mutable Codex preferences remain local.
+- Linux application bootstrap for Bitwarden, Steam, Syncthing, Tailscale, and Visual Studio Code.
+- Creation of `~/Sync` and activation of the Syncthing user service. Folder and device pairing remain manual.
 
-Use the Omarchy-specific Codex skill whenever changing Omarchy, Hyprland,
-terminal, display, bar, theme, or related desktop configuration.
+Use the Omarchy-specific Codex skill whenever changing Omarchy, Hyprland, terminal, display, bar, theme, or related desktop configuration.

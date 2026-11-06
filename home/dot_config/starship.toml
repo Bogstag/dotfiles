@@ -27,25 +27,23 @@ scan_timeout        = 10
 # [ ▒▓] 
 # [ ░▒▓](#a3aed2)\ [](purple)\
 format = """
-[](bg:blue fg:crust)\
+[](fg:crust bg:blue)\
 $shell\
 ${env_var.yazi_level}\
-[](bg:purple fg:blue)\
+[](fg:blue bg:purple)\
 $os\
-[](bg:cyan fg:purple)\
+[](fg:purple bg:cyan)\
 $directory\
-[](bg:pink fg:cyan)\
+[](fg:cyan bg:pink)\
 $git_branch\
 $git_status\
-[](fg:pink bg:pink)\
+[](fg:pink bg:comment)\
 $nodejs\
 $golang\
 $python\
 $docker_context\
 $terraform\
-[](fg:pink bg:crust)\
-$fill\
-[](fg:crust bg:pink)\
+[](fg:comment bg:pink)\
 $mise\
 [](fg:pink bg:red)\
 $jobs\
@@ -175,7 +173,7 @@ $character"""
   symbol = " "
 
 [git_branch]
-  format = "[[$symbol $branch](fg:crust bg:pink)]($style)"
+  format = "[[ $symbol $branch](fg:crust bg:pink)]($style)"
   style  = "bg:pink"
   symbol = ""
 
@@ -183,7 +181,7 @@ $character"""
   ahead     = "⇡ ${count} "
   behind    = "⇣ ${count} "
   deleted   = " ${count} "
-  format    = "[[$all_status $ahead_behind](fg:crust bg:pink)]($style)"
+  format    = "[[ $all_status $ahead_behind](fg:crust bg:pink)]($style)"
   modified  = " ${count} "
   staged    = " ${count} "
   style     = "bg:pink"
@@ -209,12 +207,12 @@ $character"""
   format           = "[ $symbol $health ]($style)"
   healthy_symbol   = ""
   style            = "fg:crust bg:pink"
-  symbol           = ""
+  symbol           = "󰭼"
   unhealthy_symbol = ""
 
 [nodejs]
-  format = "[[ $symbol( $version) ](fg:crust bg:green)]($style)"
-  style  = "bg:green"
+  format = "[[ $symbol( $version) ](fg:green bg:comment)]($style)"
+  # style  = "bg:comment"
   symbol = ""
 
 [os]

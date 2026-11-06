@@ -3,6 +3,7 @@ Version=1.0
 Name=RegEx101
 Comment=RegEx101
 Exec=omarchy-launch-webapp "https://regex101.com/"
+StartupWMClass=chrome-regex101.com__-Default
 Terminal=false
 Type=Application
 Icon=regex101

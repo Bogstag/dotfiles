@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=AI Usage TUI
-Comment=TUI from ai-usagebar
-Exec=xdg-terminal-exec --app-id=TUI.tile -e ai-usagebar-tui
-Terminal=false
-Type=Application
-Icon=🤖
-StartupNotify=true

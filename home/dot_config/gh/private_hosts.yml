@@ -1,6 +1,3 @@
-%YAML 1.2
----
-
 api.github.com:
   git_protocol: https
   user: Bogstag

@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=AI Usage Bar
+Comment=Monitor status of Claude, ChatGPT, Google Gemini/Antigravity and other AI plans
+Exec=xdg-terminal-exec --app-id=TUI.tile -e ai-usagebar-tui
+Terminal=false
+Type=Application
+Icon=ai-usagebar
+StartupNotify=true
+# Extra
+GenericName=AI Usage Monitor
+Categories=Utility;
+Keywords=AI;Usage;Claude;Gemini;OpenAI;Antigravity;Tray;
+Actions=TUI;Tray;

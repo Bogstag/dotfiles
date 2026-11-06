@@ -17,7 +17,7 @@
 
 ["Fix-Stage-Unstaged"]
   description = "Fix changed files and stage them if ok"
-  run         = "mise exec -- hk fix --no-fail-fast --unstaged  --stage --junit-xml ./tests/fix-stage-unstaged_latest.xml"
+  run         = "mise exec -- hk fix --no-fail-fast --unstaged --stage --junit-xml ./tests/fix-stage-unstaged_latest.xml"
 
 ["Fix-Stage-unstaged-plan"]
   description = "Generate plan for Fix-Stage-unstaged task"

@@ -1,22 +1,47 @@
-GOROOT = /home/bogge/.local/share/mise/installs/go/latest                          # Controls where various files are stored. See: 'go help gopath'.
-GOBIN = ${GOROOT}/bin                                       # Controls where various files are stored. See: 'go help gopath'.
-GOENV = ${XDG_CONFIG_HOME:-$HOME/.config}/go/env            # The location of the Go environment configuration file.
-
-GOTELEMETRYDIR = ${XDG_CONFIG_HOME:-$HOME/.config}/go/telemetry # The directory Go telemetry data is written is written to.
-GOTELEMETRY = off                                               # The current Go telemetry mode ("off", "local", or "on").
-
-# Är den rätt? GOMODCACHE = "${GOPATH:-$HOME/go/pkg}/mod"                    # The directory where the go command will store downloaded modules.
-
-# If the environment variable is unset, GOPATH defaults to a subdirectory named "go" in the user's home directory ($HOME/go on Unix, %USERPROFILE%\go on Windows),
-
-# Result
-# GOROOT=     '/home/bogge/.local/share/mise/installs/go/latest'
-# GOBIN=      '/home/bogge/.local/share/mise/installs/go/latest/bin'
-# GOTOOLDIR=  '/home/bogge/.local/share/mise/installs/go/latest/pkg/tool/linux_amd64'
-
-# Är den rätt? GOMODCACHE='/home/bogge/go/pkg/mod'
-
-# GOENV=          '/home/bogge/.config/go/env'
-# GOTELEMETRYDIR= '/home/bogge/.config/go/telemetry'
-
+# AR='ar'
+# CC='gcc'
+# CGO_CFLAGS='-O2 -g'
+# CGO_CPPFLAGS=''
+# CGO_CXXFLAGS='-O2 -g'
+# CGO_ENABLED='1'
+# CGO_FFLAGS='-O2 -g'
+# CGO_LDFLAGS='-O2 -g'
+# CXX='g++'
+# GCCGO='gccgo'
+# GO111MODULE=''
+# GOAMD64='v1'
+# GOARCH='amd64'
+# GOAUTH='netrc'
+# GOBIN='/home/bogge/go/bin'
 # GOCACHE='/home/bogge/.cache/go-build'
+# GOCACHEPROG=''
+# GODEBUG=''
+# GOENV='/home/bogge/.config/go/env'
+# GOEXE=''
+# GOEXPERIMENT=''
+# GOFIPS140='off'
+# GOFLAGS=''
+# GOGCCFLAGS='-fPIC -m64 -pthread -Wl,--no-gc-sections -fmessage-length=0 -ffile-prefix-map=/tmp/go-build1902638182=/tmp/go-build -gno-record-gcc-switches'
+# GOHOSTARCH='amd64'
+# GOHOSTOS='linux'
+# GOINSECURE=''
+# GOMOD='/dev/null'
+# GOMODCACHE='/home/bogge/go/pkg/mod'
+# GONOPROXY=''
+# GONOSUMDB=''
+# GOOS='linux'
+# GOPACKAGESDRIVER=''
+# GOPATH='/home/bogge/go'
+# GOPRIVATE=''
+# GOPROXY='https://proxy.golang.org,direct'
+# GOROOT='/home/bogge/.local/share/mise/installs/go/1.27.3'
+# GOSUMDB='sum.golang.org'
+GOTELEMETRY='off'
+# GOTELEMETRYDIR='/home/bogge/.config/go/telemetry'
+# GOTMPDIR=''
+# GOTOOLCHAIN='auto'
+# GOTOOLDIR='/home/bogge/.local/share/mise/installs/go/1.27.3/pkg/tool/linux_amd64'
+# GOVCS=''
+# GOVERSION='go1.27.3'
+# GOWORK=''
+# PKG_CONFIG='pkg-config'

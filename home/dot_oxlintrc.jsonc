@@ -7,15 +7,15 @@
     "pedantic": "error",
     "perf": "error",
     "style": "error",
-    "restriction": "error",
+    "restriction": "error"
   },
   "rules": {
     "sort-imports": "error",
     "sort-keys": [
       "error",
       "asc",
-      { "caseSensitive": true, "minKeys": 2, "natural": false },
+      { "caseSensitive": true, "minKeys": 2, "natural": false }
     ],
-    "sort-vars": "error",
-  },
+    "sort-vars": "error"
+  }
 }

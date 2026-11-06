@@ -1,42 +1,53 @@
 #:schema https://mise.jdx.dev/schema/mise.json
 
 [env]
-  GOBIN          = "${GOROOT:/home/bogge/.local/share/mise/installs/go/latest}/bin"  # The directory where 'go install' will install a command.
-  GOENV          = "${XDG_CONFIG_HOME:-$HOME/.config}/go/env"                        # The location of the Go environment configuration file.
-  GOROOT         = "/home/bogge/.local/share/mise/installs/go/latest"                # Controls where various files are stored. See: 'go help gopath'.
-  GOTELEMETRY    = "off"
-  GOTELEMETRYDIR = "${XDG_CONFIG_HOME:-$HOME/.config}/go/telemetry"                  # The directory Go telemetry data is written is written to.
-  HK_MISE        = 1                                                                 # The current Go telemetry mode ("off", "local", or "on").
-  _.path         = [
-    "go/bin",
+  _.path    = [
+    "${GOPATH:-$HOME/go}",
     ".bin",
     ".lib",
     "/home/bogge/.lib/qt6/bin",
     "/home/bogge/.local/share/mise/installs/go/latest/bin",
   ]
-  UV_PYTHON      = { value = "{{ tools.python.path }}", tools = true }
+  HK_MISE   = 1
+  UV_PYTHON = { value = "{{ tools.python.path }}", tools = true }
+
+[bootstrap.mise_shell_activate]
+  bash = true
 
 [settings]
-  color_theme         = "dracula"
-  experimental        = true
-  lockfile            = false
-  upgrade.auto_prune  = false
-  minimum_release_age = "1d"
+  color_theme                         = "dracula"
+  experimental                        = true
+  lockfile                            = false
+  minimum_release_age                 = "1d"
+  upgrade.auto_prune                  = false
+  idiomatic_version_file_enable_tools = [
+    "chezmoi",
+    "go",
+    "golangci-lint",
+    "goreleaser",
+    "node",
+    "npm",
+    "opentofu",
+    "pre-commit",
+    "python",
+    "ruff",
+    "terraform"
+  ]
+
+[settings.go]
+  set_gobin  = false
+  set_goroot = true
 
 [settings.github]
   credential_command  = "gh auth token"
   use_git_credentials = true
 
-[settings.go]
-  # set_goroot = true  # The root of the go tree. GOROOT='/home/bogge/.local/share/mise/installs/go/1.27.2'
-  # set_gobin = true   # GOBIN='/home/bogge/.local/share/mise/installs/go/1.27.2/bin'
-
 [settings.packslip]
   exec = false
 
 [settings.skills]
-  dir       = ".agents/skills"
   auto_sync = false
+  dir       = ".agents/skills"
   prune     = true
 
 [settings.status]
@@ -47,44 +58,37 @@
   includes = ["tasks.toml"]
 
 [tools]
-  age                                = "latest"
-  "aqua:Kampfkarren/selene"          = "latest"
-  "aqua:owenlamont/ryl"              = "latest"
-  betterleaks                        = "latest"
-  bitwarden-secrets-manager          = "latest"
-  codegraph                          = "latest"
-  codex                              = "latest"
-  copilot                            = "latest"
-  crush                              = "latest"
-  editorconfig-checker               = "latest"
-  fnox                               = { version = "latest", workflow = "release.yml" }
-  gh                                 = "latest"
-  "github:daptify14/chezit"          = { version = "latest", os = ["linux"] }
-  "go:github.com/gohugoio/gotmplfmt" = "latest"
-  hk                                 = { version = "latest", workflow = "release.yml" }
-  hunk                               = "latest"
-  java                               = "latest"
-  lua                                = "latest"
-  lua-language-server                = "latest"
-  node                               = ["lts", "26"]
-  "npm:@masculinecache/mem-axi"      = "latest"
-  opencode                           = "latest"
-  oxfmt                              = "latest"
-  oxlint                             = "latest"
-  pi                                 = "latest"
-  pkl                                = "latest"
-  playwright                         = "latest"
-  python                             = "latest"
-  resvg                              = "latest"
-  ripgrep                            = "latest"
-  shellcheck                         = "latest"
-  shellharden                        = "latest"
-  shfmt                              = "latest"
-  stylua                             = "latest"
-  tombi                              = "latest"
-  uv                                 = "latest"
-  yazi                               = "latest"
-  vp                                 = "latest"
-  7zip                               = "latest"
-  rust                               = "latest"
-  cargo-binstall                     = "latest"
+  "aqua:Kampfkarren/selene"     = "latest"
+  "aqua:owenlamont/ryl"         = "latest"
+  "github:daptify14/chezit"     = { version = "latest", os = ["linux"] }
+  "go:golang.org/x/tools/gopls" = "latest"
+  "npm:@masculinecache/mem-axi" = "latest"
+  7zip                          = "latest"
+  age                           = "latest"
+  betterleaks                   = "latest"
+  bitwarden-secrets-manager     = "latest"
+  cargo-binstall                = "latest"
+  codegraph                     = "latest"
+  editorconfig-checker          = "latest"
+  fnox                          = { version = "latest", workflow = "release.yml" }
+  go                            = "latest"
+  hk                            = { version = "latest", workflow = "release.yml" }
+  java                          = "latest"
+  lua                           = "latest"
+  lua-language-server           = "latest"
+  node                          = ["lts", "26"]
+  oxfmt                         = "latest"
+  oxlint                        = "latest"
+  pkl                           = "latest"
+  python                        = "latest"
+  resvg                         = "latest"
+  ripgrep                       = "latest"
+  rust                          = "latest"
+  shellcheck                    = "latest"
+  shellharden                   = "latest"
+  shfmt                         = "latest"
+  stylua                        = "latest"
+  tombi                         = "latest"
+  uv                            = "latest"
+  vp                            = "latest"
+  yazi                          = "latest"

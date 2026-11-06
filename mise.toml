@@ -20,20 +20,3 @@ enabled = true
 
 # tombi: format.rules.table-keys-order = "ascending"
 [tools]
-"aqua:Kampfkarren/selene" = "latest"
-"aqua:owenlamont/ryl" = "latest"
-betterleaks = "latest"
-bitwarden-secrets-manager = "latest"
-editorconfig-checker = "latest"
-fnox = { version = "latest", workflow = "release.yml" }
-go = "latest"
-hunk = "latest"
-lua = "latest"
-lua-language-server = "latest"
-oxfmt = "latest"
-oxlint = "latest"
-pkl = "latest"
-shellcheck = "latest"
-shellharden = "latest"
-shfmt = "latest"
-stylua = "latest"

@@ -3,6 +3,7 @@ Version=1.0
 Name=CheatSheets
 Comment=CheatSheets
 Exec=omarchy-launch-webapp "https://cheatsheets.zip"
+StartupWMClass=chrome-cheatsheets.zip__-Default
 Terminal=false
 Type=Application
 Icon=cheatsheets

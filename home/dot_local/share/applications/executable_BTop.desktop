@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=btop
+Comment=A monitor of resources
+Exec=xdg-terminal-exec --app-id=TUI.tile -e btop
+Terminal=false
+Type=Application
+Icon=btop
+StartupNotify=false
