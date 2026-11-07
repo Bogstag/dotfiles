@@ -1,8 +1,147 @@
-[vscode]
-  profiles = ["Default", "Chezmoi", "Clean", "Node.js"]
+[vscode.profiles.Agents]
+  extensions = []
 
-  default.extensions = [
+[vscode.profiles.Chezmoi]
+  extensions = [
+    "antfu.iconify",
+    "chaliy.handlebars-preview",
+    "danielroedl.meld-diff",
+    "delgan.qml-format",
+    "dracula-theme.theme-dracula",
+    "editorconfig.editorconfig",
+    "emilast.logfilehighlighter",
+    "fanaticpythoner.better-todo-tree",
+    "gohugoio.gotmplfmt",
+    "golang.go",
+    "he0119.aperture-for-copilot",
+    "helixquar.asciidecorator",
+    "hverlin.mise-vscode",
+    "ibm.output-colorizer",
+    "local.omarchy-theme",
+    "lumirelle.shell-format-rev",
+    "mads-hartmann.bash-ide-vscode",
+    "mkhl.shfmt",
+    "ms-python.debugpy",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.vscode-python-envs",
+    "naumovs.color-highlight",
+    "owenlamont.ryl",
+    "oxc.oxc-vscode",
+    "pflannery.vscode-versionlens",
+    "pkl.pkl-vscode",
+    "redhat.vscode-xml",
+    "redhat.vscode-yaml",
+    "rogalmic.bash-debug",
+    "smcpeak.default-keys-windows",
+    "spmeesseman.vscode-taskexplorer",
+    "sumneko.lua",
+    "theqtcompany.qt-core",
+    "theqtcompany.qt-qml",
+    "timheuer.econfigedit",
+    "timonwong.shellcheck",
+    "tombi-toml.tombi",
+    "xembly.gomplate",
+    "xshrim.txt-syntax",
+  ]
+
+[vscode.profiles.Chezmoi.settings]
+  # [astro] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode"}
+  # [css] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.suggest.insertMode": "replace"}
+  # [handlebars] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.suggest.insertMode": "replace"}
+  # [html] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.suggest.insertMode": "replace"}
+  # [ini] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit"}, "editor.defaultFormatter": "mads-hartmann.bash-ide-vscode", "editor.formatOnSave": true}
+  # [javascript] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.maxTokenizationLineLength": 2500}
+  # [json] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.quickSuggestions": {"strings": true}, "editor.suggest.insertMode": "replace"}
+  # [json5] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.quickSuggestions": {"strings": true}, "editor.suggest.insertMode": "replace"}
+  # [jsonc] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.quickSuggestions": {"strings": true}, "editor.suggest.insertMode": "replace"}
+  # [jsx] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.maxTokenizationLineLength": 2500}
+  # [less] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.suggest.insertMode": "replace"}
+  # [lua] = {"editor.codeActionsOnSave": {"source.doc": "explicit", "source.fixAll": "explicit"}, "editor.defaultFormatter": "sumneko.lua", "editor.formatOnPaste": true, "editor.formatOnSave": true}
+  # [markdown] = {"diffEditor.ignoreTrimWhitespace": false, "editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnPaste": true, "editor.formatOnSave": true, "editor.quickSuggestions": {"comments": "off", "other": "off", "strings": "off"}, "editor.unicodeHighlight.ambiguousCharacters": false, "editor.unicodeHighlight.invisibleCharacters": false, "editor.wordWrap": "on"}
+  # [mdx] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode"}
+  # [mjml] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode"}
+  # [scss] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.suggest.insertMode": "replace"}
+  # [shellscript] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit"}, "editor.defaultColorDecorators": "never", "editor.defaultFormatter": "mads-hartmann.bash-ide-vscode", "editor.formatOnSave": true, "files.eol": "\n"}
+  # [svelte] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode"}
+  # [toml] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit"}, "editor.defaultFormatter": "tombi-toml.tombi", "editor.formatOnPaste": true, "editor.formatOnSave": true, "editor.quickSuggestions": {"strings": "on"}, "editor.suggest.showKeywords": true, "editor.wordBasedSuggestions": "off"}
+  # [tsx] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.maxTokenizationLineLength": 2500}
+  # [typescript] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.maxTokenizationLineLength": 2500}
+  # [vue] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode"}
+  # [xml] = {"editor.autoClosingBrackets": "never", "editor.defaultFormatter": "redhat.vscode-xml", "files.trimFinalNewlines": true}
+  # [xsl] = {"editor.autoClosingBrackets": "never", "editor.defaultFormatter": "redhat.vscode-xml", "files.trimFinalNewlines": true}
+  # [yaml] = {"diffEditor.ignoreTrimWhitespace": false, "editor.autoIndent": "full", "editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.fixAll.ryl": "explicit", "source.fixAll.oxc": "explicit", "source.fixAllDangerous.oxc": "explicit"}, "editor.defaultColorDecorators": "never", "editor.defaultFormatter": "owenlamont.ryl", "editor.formatOnPaste": true, "editor.formatOnSave": true, "editor.insertSpaces": true, "editor.quickSuggestions": {"comments": false, "other": true, "strings": true}, "editor.tabSize": 2}
+  "better-todo-tree.filtering.includeHiddenFiles" = true
+  "better-todo-tree.general.statusBar"            = "total"
+  "better-todo-tree.tree.expanded"                = true
+  "chat.agentHost.byokModels.enabled"             = true
+  "diffEditor.ignoreTrimWhitespace"               = true
+  "editor.allowVariableFonts"                     = false
+  "editor.formatOnPaste"                          = true
+  "editor.inlineSuggest.minShowDelay"             = 3000
+  "editor.semanticHighlighting.enabled"           = true
+  # "files.associations" = {".chezmoiignore": "ignore", "**/*.toml.tmpl": "gomplate", "**/dot_bash_aliases": "shellscript", "**/fontconfig/fonts.conf": "xml", "**/modify_*.{yaml,yml}": "goyaml", "**/modify_*.toml": "gomplate", "dot_editorconfig": "editorconfig"}
+  "git.confirmSync"                               = false
+  "git.postCommitCommand"                         = "push"
+  "github.copilot.chat.tools.viewImage.enabled"   = false
+  "github.copilot.nextEditSuggestions.eagerness"  = "low"
+  "github.gitProtocol"                            = "ssh"
+  "meld-diff.cleanUpTempFilesOnCodeClose"         = false
+  "mise.enableBootstrapCodeLens"                  = false
+  "oxc.fixKind"                                   = "all"
+  "redhat.telemetry.enabled"                      = false
+  "taskexplorer.useGradleProvider"                = false
+  "workbench.colorTheme"                          = "Dracula Theme"
+  "yaml.disableDefaultProperties"                 = true
+  "ryl.fixOnSave"                                 = true
+  "ryl.diagnosticMode"                            = "workspace"
+  # "workbench.editorAssociations" = {"*.copilotmd": "vscode.markdown.preview.editor", "{git,gitlens,chat-editing-snapshot-text-model,copilot,git-graph,git-graph-3}:/**/*.qrc": "default", "{git}:/**/*.{editorconfig}": "default", "*.qrc": "qt-core.qrcEditor"}
+  "qt-python.preferUv"                            = true
+
+[vscode.profiles.Clean]
+  extensions = []
+
+[vscode.profiles.Clean.settings]
+  # [shellscript] = {"editor.defaultFormatter": "mkhl.shfmt"}
+  "bashIde.shfmt.path"                         = ""
+  "chat.agentHost.byokModels.enabled"          = true
+  "chat.viewSessions.orientation"              = "stacked"
+  "chatCustomizationsEvaluations.waza.command" = "/home/bogge/.config/Code/User/globalStorage/ms-vscode.vscode-chat-customizations-evaluations/bin/waza"
+  "chatgpt.cliExecutable"                      = "/home/bogge/.local/bin/codex"
+  "chatgpt.followUpQueueMode"                  = "steer"
+  "chatgpt.reviewDelivery"                     = "detached"
+  "containers.containerClient"                 = "com.microsoft.visualstudio.containers.docker"
+  "containers.orchestratorClient"              = "com.microsoft.visualstudio.orchestrators.dockercompose"
+  # "debug.javascript.defaultRuntimeExecutable" = {"pwa-node": "node"}
+  "diffEditor.ignoreTrimWhitespace"            = false
+  "editor.formatOnPaste"                       = true
+  "editor.inlineSuggest.minShowDelay"          = 3000
+  "editor.semanticHighlighting.enabled"        = true
+  "git.confirmSync"                            = false
+  "git.openRepositoryInParentFolders"          = "never"
+  "git.postCommitCommand"                      = "push"
+  "github.gitProtocol"                         = "ssh"
+  "mise.configureExtensionsAutomatically"      = true
+  "pkl.cli.path"                               = "pkl"
+  "pkl.projects.excludedDirectories"           = ["**/.pkl/cache/*"]
+  "redhat.telemetry.enabled"                   = false
+  "shellcheck.executablePath"                  = "shellcheck"
+  "shellcheck.run"                             = "onSave"
+  "shellcheck.useWorkspaceRootAsCwd"           = true
+  "telemetry.editStats.enabled"                = false
+  "telemetry.feedback.enabled"                 = false
+  "telemetry.telemetryLevel"                   = "off"
+  # "github.copilot.enable" = {"*": false, "plaintext": false, "markdown": false, "scminput": false}
+  # [toml] = {"editor.defaultFormatter": "tombi-toml.tombi"}
+  # [json] = {"editor.defaultFormatter": "oxc.oxc-vscode"}
+
+[vscode.profiles.default]
+  extensions = [
+    "arcticicestudio.nord-visual-studio-code",
+    "catppuccin.catppuccin-vsc",
     "davidanson.vscode-markdownlint",
+    "dracula-theme.theme-dracula",
+    "enkia.tokyo-night",
     "he0119.aperture-for-copilot",
     "hverlin.mise-vscode",
     "local.omarchy-theme",
@@ -16,3 +155,77 @@
     "smcpeak.default-keys-windows",
     "tombi-toml.tombi",
   ]
+
+[vscode.profiles.Node.js]
+  extensions = [
+    "christian-kohler.npm-intellisense",
+    "davidanson.vscode-markdownlint",
+    "dracula-theme.theme-dracula",
+    "editorconfig.editorconfig",
+    "he0119.aperture-for-copilot",
+    "hverlin.mise-vscode",
+    "local.omarchy-theme",
+    "mikestead.dotenv",
+    "oxc.oxc-vscode",
+    "pflannery.vscode-versionlens",
+    "redhat.vscode-yaml",
+    "spmeesseman.vscode-taskexplorer",
+    "tombi-toml.tombi",
+    "webpro.vscode-knip",
+    "xabikos.javascriptsnippets",
+  ]
+
+[vscode.profiles.Node.js.settings]
+  # [css] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.suggest.insertMode": "replace"}
+  # [handlebars] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.suggest.insertMode": "replace"}
+  # [html] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.suggest.insertMode": "replace"}
+  # [javascript] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.fixAll.oxc": "explicit", "source.format.oxc": "explicit", "source.fixAllDangerous.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.maxTokenizationLineLength": 2500}
+  # [json] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.quickSuggestions": {"strings": true}, "editor.suggest.insertMode": "replace"}
+  # [json5] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.quickSuggestions": {"strings": true}, "editor.suggest.insertMode": "replace"}
+  # [jsonc] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.quickSuggestions": {"strings": true}, "editor.suggest.insertMode": "replace"}
+  # [markdown] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit"}, "diffEditor.ignoreTrimWhitespace": false, "editor.defaultFormatter": "DavidAnson.vscode-markdownlint", "editor.formatOnPaste": true, "editor.formatOnSave": true, "editor.quickSuggestions": {"comments": "off", "other": "off", "strings": "off"}, "editor.unicodeHighlight.ambiguousCharacters": false, "editor.unicodeHighlight.invisibleCharacters": false, "editor.wordWrap": "on"}
+  # [toml] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultFormatter": "tombi-toml.tombi", "editor.formatOnPaste": true, "editor.formatOnSave": true, "editor.quickSuggestions": {"strings": "on"}, "editor.suggest.showKeywords": true, "editor.wordBasedSuggestions": "off"}
+  # [tsx] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.fixAll.oxc": "explicit", "source.format.oxc": "explicit", "source.fixAllDangerous.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.maxTokenizationLineLength": 2500}
+  # [typescript] = {"editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.fixAll.oxc": "explicit", "source.format.oxc": "explicit", "source.fixAllDangerous.oxc": "explicit"}, "editor.defaultFormatter": "oxc.oxc-vscode", "editor.formatOnSave": true, "editor.maxTokenizationLineLength": 2500, "js/ts.preferences.quoteStyle": "double", "js/ts.format.semicolons": "remove", "js/ts.implementationsCodeLens.enabled": true, "js/ts.implementationsCodeLens.showOnAllClassMethods": true, "js/ts.implementationsCodeLens.showOnInterfaceMethods": true, "js/ts.referencesCodeLens.enabled": true, "js/ts.referencesCodeLens.showOnAllFunctions": true, "js/ts.inlayHints.parameterTypes.enabled": true, "js/ts.inlayHints.parameterNames.enabled": "literals", "js/ts.inlayHints.functionLikeReturnTypes.enabled": true, "js/ts.inlayHints.enumMemberValues.enabled": true}
+  # [yaml] = {"diffEditor.ignoreTrimWhitespace": false, "editor.autoIndent": "full", "editor.codeActionsOnSave": {"source.fixAll": "explicit", "source.format.oxc": "explicit"}, "editor.defaultColorDecorators": "never", "editor.defaultFormatter": "owenlamont.ryl", "editor.formatOnPaste": true, "editor.formatOnSave": true, "editor.insertSpaces": true, "editor.quickSuggestions": {"comments": false, "other": true, "strings": true}, "editor.tabSize": 2}
+  "chat.agentHost.byokModels.enabled"   = true
+  "diffEditor.ignoreTrimWhitespace"     = true
+  "editor.formatOnPaste"                = true
+  "editor.inlineSuggest.minShowDelay"   = 3000
+  "editor.semanticHighlighting.enabled" = true
+  "oxc.fixKind"                         = "all"
+  "taskexplorer.useGradleProvider"      = false
+  "explorer.fileNesting.expand"         = false
+  "explorer.fileNesting.enabled"        = true
+  "workbench.iconTheme"                 = "vscode-modern-icons"
+  "editor.hover.delay"                  = 600
+  "workbench.colorTheme"                = "Dracula Theme"
+  "oxc.path.oxfmt"                      = "/home/bogge/.local/share/mise/shims/oxfmt"
+  "oxc.path.oxlint"                     = "/home/bogge/.local/share/mise/shims/oxlint"
+
+[vscode.profiles.Python]
+  extensions = [
+    "charliermarsh.ruff",
+    "local.omarchy-theme",
+    "ms-azuretools.vscode-containers",
+    "ms-python.debugpy",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.vscode-python-envs",
+    "ms-toolsai.datawrangler",
+    "ms-toolsai.jupyter",
+    "ms-toolsai.jupyter-keymap",
+    "ms-toolsai.jupyter-renderers",
+    "ms-toolsai.vscode-jupyter-cell-tags",
+    "ms-toolsai.vscode-jupyter-slideshow",
+    "njpwerner.autodocstring",
+  ]
+
+[vscode.profiles.Python.settings]
+  "dataWrangler.experiments.autoDetectCsvDelimiter"             = true
+  "dataWrangler.experiments.datatypes.pyspark"                  = true
+  "dataWrangler.experiments.fastCsvParsing"                     = true
+  "dataWrangler.defaultViewingFilterOptions"                    = "advanced"
+  "dataWrangler.outputRenderer.columnInsights.displayByDefault" = true
+  "dataWrangler.outputRenderer.enabled"                         = true
+  "dataWrangler.experiments.copilot.enabled"                    = true

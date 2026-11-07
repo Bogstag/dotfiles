@@ -28,19 +28,19 @@
   XDG_DESKTOP_DIR = "{{- .chezmoi.destDir }}/"
   XDG_STATE_HOME  = "{{- .chezmoi.destDir }}/.local/state"
   computerType	  = "{{- $chassisType }}"
-  is_linux	 	  = "{{- $is_linux }}"
-  is_omarchy	  = "{{- $is_omarchy }}"
-  is_windows	  = "{{- $is_windows }}"
-  is_wsl		  = "{{- $is_wsl }}"
+  is_linux	 	    = "{{- $is_linux }}"
+  is_omarchy	    = "{{- $is_omarchy }}"
+  is_windows	    = "{{- $is_windows }}"
+  is_wsl		      = "{{- $is_wsl }}"
 
 [data]
 {{- if $is_linux }}
   bws_access_token = {{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" | quote }}
 {{- end }}
-  is_linux         = "{{- $is_linux }}"
-  is_omarchy	   = "{{- $is_omarchy }}"
-  is_windows	   = "{{- $is_windows }}"
-  is_wsl		   = "{{- $is_wsl }}"
+  is_linux        = "{{- $is_linux }}"
+  is_omarchy	    = "{{- $is_omarchy }}"
+  is_windows	    = "{{- $is_windows }}"
+  is_wsl		      = "{{- $is_wsl }}"
 {{- if $is_windows }}
   shellexe = "pwsh.exe"
   [cd]

@@ -1,11 +1,10 @@
 {
   "workspace": {
-    "library": [
-      "/usr/share/hypr/stubs"
-    ],
+    "runtime.version": "Lua 5.5",
+    "library": ["/usr/share/hypr/stubs"],
     "checkThirdParty": false
   },
   "diagnostics": {
-    "globals": ["hl", "o"]
+    "globals": ["hl", "o", "omarchy_monitor_panel_settings"]
   }
 }

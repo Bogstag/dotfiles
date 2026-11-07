@@ -2,10 +2,8 @@
 -- See: https://wiki.hypr.land/Configuring/Basics/Monitors/
 -- List current monitors: hyprctl monitors all
 --
-local omarchy_gdk_scale = 2
-local omarchy_monitor_scale = "auto"
 --
-hl.env("GDK_SCALE", tostring(omarchy_gdk_scale))
+hl.env("GDK_SCALE", "1")
 --
 --
 -- DP-4 (external) Centered layout above eDP-2
@@ -13,11 +11,9 @@ hl.monitor({
 	output = "DP-4",
 	mode = "1920x1080@60",
 	position = "auto-center-up",
-	scale = omarchy_monitor_scale,
-	vrr = 0,
-	cm = "auto",
-	sdr_min_luminance = 0.2,
-	sdr_max_luminance = 80,
+	scale = 1,
+	vrr = false,
+	cm = "auto"
 })
 -- DP-4 (external) not all availableModes:
 -- - 1920x1080@60.00Hz
@@ -28,14 +24,12 @@ hl.monitor({
 --
 -- eDP-2 (internal) pos 0 (if needed offset x=192, scale 1.25)
 hl.monitor({
-	output = "eDP-2",
+	output = "eDP-1",
 	mode = "1920x1080@60",
 	position = "0x0",
-	scale = omarchy_monitor_scale,
-	vrr = 0,
-	cm = "auto",
-	sdr_min_luminance = 0.2,
-	sdr_max_luminance = 80,
+	scale = 1.5,
+	vrr = false,
+	cm = "auto"
 })
 -- eDP-2 (laptop) all availableModes:
 -- - 1920x1080@144.00Hz

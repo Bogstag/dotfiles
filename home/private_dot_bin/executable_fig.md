@@ -4,9 +4,14 @@ fig is a FIGlet wrapper, with some functionallity added.
 
 FIGlet stands for "Frank, Ian and Glenn's LETters".
 
-FIGlet prints its input using  large  characters a.k.a FIGcharacters. Made  up  of  ordinary  screen  characters a.k.a sub-characters.
+FIGlet prints its input using large characters a.k.a FIGcharacters. Made up of ordinary screen characters a.k.a sub-characters.
 
-Source: [figlet.org](https://www.figlet.org/), [cmatsuoka/figlet (github)](https://github.com/cmatsuoka/figlet), [The TOIlet project](http://caca.zoy.org/wiki/toilet)
+Source:
+
+- [figlet.org](https://www.figlet.org/)
+- [cmatsuoka/figlet](https://github.com/cmatsuoka/figlet)
+- [The TOIlet project](http://caca.zoy.org/wiki/toilet)
+
 Everything you ever whanted to know aout FIGlets: [figfont.txt](https://github.com/cmatsuoka/figlet/blob/master/figfont.txt)
 
 ## Command
@@ -55,11 +60,11 @@ Usage: figlet [ -cklnoprstvxDELNRSWX ] [ -d fontdirectory ]
 
 ## Files and Font Formats
 
-| Name | Ext | Format |
-| ------------------- | ------- | --------------------- |
-| FIGlet font file | `*.flf` | `flf2` FIGfont V2 |
-| FIGlet control file | `*.flc` | |
-| TOIlet | `*.tlf` | `tlf2` |
+| Name                | Ext     | Format            |
+| ------------------- | ------- | ----------------- |
+| FIGlet font file    | `*.flf` | `flf2` FIGfont V2 |
+| FIGlet control file | `*.flc` |                   |
+| TOIlet              | `*.tlf` | `tlf2`            |
 
 ## Software
 

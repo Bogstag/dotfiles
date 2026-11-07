@@ -45,6 +45,4 @@ LC_TELEPHONE=sv_SE.UTF-8
 LC_TIME=sv_SE.UTF-8
 EOF'
 
-echo "The system will now reboot to apply changes."
-
-sudo reboot
+echo "Reboot to apply changes. > sudo reboot"
