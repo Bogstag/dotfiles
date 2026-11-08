@@ -1,13 +1,13 @@
 # [std]
 
 [config]
-  checkThirdParty = false
+  checkThirdParty = true
   globals         = ["hl", "o"]
   library         = ["/usr/share/hypr/stubs"]
   version         = "Lua 5.5"
 
-  # [lints]
-
+[lints]
+  undefined_variable = "allow"
   # [exclude]
 
   # [roblox-std-source]

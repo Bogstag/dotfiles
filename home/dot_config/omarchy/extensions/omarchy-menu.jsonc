@@ -22,18 +22,18 @@
   "Skuggsidan.devdocs": {
     "icon": "",
     "label": "Dev Docs",
-    "action": "omarchy launch webapp https://devdocs.io/",
+    "action": "omarchy launch webapp https://devdocs.io/"
   },
   "Skuggsidan.keyhint": {
     "icon": "󰌌",
     "label": "KeyHint",
-    "action": "keyhint",
+    "action": "keyhint"
   },
   "style.lockscreen": {
     "icon": "󰌾",
     "label": "Lock Screen",
     "aliases": ["lockscreen", "lock-screen"],
     "description": "Preview and choose a lock screen design",
-    "action": "omarchy-shell lock explore",
-  },
+    "action": "omarchy-shell lock explore"
+  }
 }

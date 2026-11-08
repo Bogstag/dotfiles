@@ -207,7 +207,8 @@ Planen visar filval, inte om kontrollerna har körts tidigare.
 
 <details>
 <summary>Symlinks</summary>
-Att skapa dessa har egentligen inte varit så svårt, men det har alltid varit något trots den fina beskriningen. Här kommer minnes anteckning på hur jag ska tänka för att få till dessa.
+Att skapa dessa har egentligen inte varit så svårt, men det har alltid varit något trots den fina beskriningen.
+Här kommer minnes anteckning på hur jag ska tänka för att få till dessa.
 
 I detta exempel så ska jag symlinka vscode keybindings:
 
@@ -270,12 +271,6 @@ Generate plan for Fix-Stage-unstaged task
 ## `Get-all-file-ext-in-dir`
 
 - **Usage:** `Get-all-file-ext-in-dir`
-
-## `List-gotmpl-diff`
-
-- **Usage:** `List-gotmpl-diff`
-
-List files whose formatting differs from gotmplfmt's
 
 ## `Update-schema-ryl`
 

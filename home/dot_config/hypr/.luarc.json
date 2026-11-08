@@ -1,0 +1,8 @@
+{
+  "workspace": {
+    "runtime.version": "Lua 5.5",
+    "library": ["/usr/share/hypr/stubs"],
+    "checkThirdParty": false
+  },
+  "diagnostics": { "globals": ["hl", "o"] }
+}

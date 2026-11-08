@@ -68,6 +68,6 @@
 [hooks]
 {{- if $is_linux }}
   add.post              = { command = "echo", args = ["post-add-hook"] }
-  apply.post            = { command = "echo", args = ["post-apply-hook"] }
-  read-source-state.pre = { command = "echo", args = ["pre-read-source-state-hook"] }
+  {{/* apply.post            = { command = "echo", args = ["post-apply-hook"] } */}}
+  {{/* read-source-state.pre = { command = "echo", args = ["pre-read-source-state-hook"] } */}}
 {{- end }}

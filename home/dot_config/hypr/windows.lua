@@ -10,31 +10,28 @@
 --#region Mark: >>> me:managed >>>
 --
 -- omafile window
-o.window(
-    { class = "^org.quickshell$", title = "^Omafile$" },
-    { float = true, size = { 1100, 720 }, center = true }
-)
-o.window(
-    { class = "^org.quickshell$", title = "^Omafile$" },
-    { tag = "-default-opacity", opacity = "1 1" }
-)
+o.window({ class = "^org.quickshell$", title = "^Omafile$" }, { float = true, size = { 1100, 720 }, center = true })
+-- o.window(
+--     { class = "^org.quickshell$", title = "^Omafile$" },
+--     { tag = "-default-opacity", opacity = "1 1" }
+-- )
 --
 --
 -- Chrome window on laptop to the left side with good width
-o.window(
-    { class = "google-chrome" },
-    { move = { 0, 60 }, size = { 1024, 800 }, tag = "+myspace" }
-)
+-- o.window(
+--     { class = "google-chrome" },
+--     { move = { 0, 60 }, size = { 1024, 800 }, tag = "+myspace" }
+-- )
 --
 --
 --
-hl.window_rule({
-    name = "position-chrome",
-    match = { class = "google-chrome" },
-    move = { 0, 60 },
-    size = { 1024, 800 },
-    tag = "+myspace"
-})
+-- hl.window_rule({
+--     name = "position-chrome",
+--     match = { class = "google-chrome" },
+--     move = { 0, 60 },
+--     size = { 1024, 800 },
+--     tag = "+myspace"
+-- })
 --
 --
 --

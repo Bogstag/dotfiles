@@ -1,0 +1,80 @@
+#
+[core]
+    pager = delta
+
+[delta]
+    dark = true
+    features = orlok
+    hyperlinks = true
+    hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+    line-numbers = true
+    navigate = true  # use n and N to move between diff sections
+    side-by-side = true
+    true-color = always
+
+
+# [include]
+#     path = /home/bogge/.local/state/omarchy/current/theme/delta-orlok.gitconfig
+
+[interactive]
+    diffFilter = delta --color-only
+
+[merge]
+    conflictStyle = zdiff3
+
+[pager]
+    diff = delta
+
+[delta "orlok"]
+    dark = true
+    syntax-theme = "orlok"
+    #
+    keep-plus-minus-markers = true
+    line-numbers = true
+    #
+    file-style = "#ff79c6"
+    file-decoration-style = "#ea4592" box ol
+    file-added-label = 
+    file-copied-label = 
+    file-modified-label = 
+    file-removed-label = 
+    file-renamed-label = 
+    #
+    line-numbers-left-format = "{nm:>3} "
+    line-numbers-left-style = "#FFB86C"
+    line-numbers-minus-style = "#F1FA8C" bold
+    line-numbers-plus-style = "#50fa7b" bold
+    line-numbers-right-format = " {np:>3} "
+    line-numbers-right-style = "#FFB86C"
+    line-numbers-zero-style = "#FFB86C"
+    #
+    # right-arrow = ""
+    # zero-style = syntax
+    #
+    hunk-header-style = line-number syntax
+    hunk-header-line-number-style = "#ff79c6"
+    hunk-header-file-style = "#ff79c6"
+    hunk-header-decoration-style = "#ea4592" ul
+    hunk-label = "  "
+    #
+    blame-separator-format = "┊{n:>3}┊"
+    blame-separator-style = "#ea4592"
+    blame-palette = "#0e0e11 #18181b #202025 #343746 #30323a"
+
+
+# A viewer for git and diff output
+
+# Usage: delta [OPTIONS] [MINUS_FILE] [PLUS_FILE]
+
+# Arguments:
+#   [MINUS_FILE]
+#           First file to be compared when delta is being used to diff two
+#           files.
+
+#           `delta file1 file2` is equivalent to `diff -u file1 file2 | delta`.
+
+#   [PLUS_FILE]
+#           Second file to be compared when delta is being used to diff two
+#           files
+
+#   For a short help summary, please use delta -h.
