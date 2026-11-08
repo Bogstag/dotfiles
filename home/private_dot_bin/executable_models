@@ -1,10 +1,11 @@
 #!/bin/bash
 
 set -eu
-checks="cat jq bat"
-for check in "${checks[@]}"; do
-	command -v "$check" >/dev/null 2>&1 || fail "${check} is not installed"
-done
+# checks="cat jq bat"
+# for check in "${checks[@]}"; do
+# # TODO: This dont work
+# 	command -v "${check}" >/dev/null2>&1 || fail "${check} is not installed"
+# done
 
 OPTIND=1 # Reset in case getopts has been used previously in the shell.
 debug=false
@@ -13,34 +14,34 @@ debug=false
 provider=""
 debug=false
 for arg in "$@"; do
-	case "$arg" in
-	-d | --debug)
-		debug=true
-		;;
-	*)
-		if [[ ${provider} == "" ]]; then
-			provider="${arg#--}"
-		fi
-		;;
-	esac
+    case "${arg}" in
+    -d | --debug)
+        debug=true
+        ;;
+    *)
+        if [[ ${provider} == "" ]]; then
+            provider="${arg#--}"
+        fi
+        ;;
+    esac
 done
 jq_args=()
 
-case "$provider" in
+case "${provider}" in
 chatgpt | codex)
-	path="${HOME}/.codex/models_cache.json"
-	jq_filter="[ .models[].slug ] | sort"
-	;;
+    path="${HOME}/.codex/models_cache.json"
+    jq_filter="[ .models[].slug ] | sort"
+    ;;
 *)
-	echo "Fel: Okänd eller saknad leverantör."
-	echo "Användning: models [chatgpt | codex]"
-	exit 1
-	;;
+    echo "Fel: Okänd eller saknad leverantör."
+    echo "Användning: models [chatgpt | codex]"
+    exit 1
+    ;;
 esac
 if [[ ${debug} == true ]]; then
-	printf '\033[31m%s\033[0m\n' '-----##### DEBUG START #####-----'
-	printf '%s' 'jq' "${jq_args[@]}" "$jq_filter" | bat --language=JQ
-	printf '\033[31m%s\033[0m\n' '-----##### DEBUG END #####-----'
+    printf '\033[31m%s\033[0m\n' '-----##### DEBUG START #####-----'
+    printf '%s' 'jq' "${jq_args[@]}" "${jq_filter}" | bat --language=JQ
+    printf '\033[31m%s\033[0m\n' '-----##### DEBUG END #####-----'
 fi
 
-<"$path" jq "$jq_filter"
+< "${path}" jq "${jq_filter}"
