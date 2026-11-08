@@ -1,5 +1,6 @@
 {
   "$schema": "/home/bogge/.local/share/mise/installs/oxfmt/latest/node_modules/oxfmt/configuration_schema.json",
+  // "extends": ["/home/bogge/.oxfmtrc.jsonc"],
   "objectWrap": "collapse",
   "printWidth": 70, // with colapse 100 is to long
   "sortImports": true,

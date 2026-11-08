@@ -1,7 +1,7 @@
 {
   "$schema": {
     "schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint-cli2/refs/heads/main/schema/markdownlint-cli2-config-schema.json",
-    "allowTrailingCommas": true,
+    "allowTrailingCommas": true
   },
   "gitignore": true,
   "config": {
@@ -19,8 +19,8 @@
       "*",
       "##### ?",
       "*",
-      "###### ?",
+      "###### ?"
     ],
-    "no-inline-htm": { "allowed_elements": ["details", "summary"] },
-  },
+    "no-inline-htm": { "allowed_elements": ["details", "summary"] }
+  }
 }

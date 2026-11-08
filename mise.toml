@@ -20,3 +20,6 @@ enabled = true
 
 # tombi: format.rules.table-keys-order = "ascending"
 [tools]
+betterleaks = "latest"
+oxfmt = "latest"
+oxlint = "latest"

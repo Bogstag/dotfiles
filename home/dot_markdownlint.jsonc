@@ -2,7 +2,7 @@
   // Defaults in this file is commented.
   "$schema": {
     "schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema-strict.json",
-    "allowTrailingCommas": true,
+    "allowTrailingCommas": true
   },
   // Default state for all rules
   "default": true,
@@ -101,7 +101,7 @@
     // Include code blocks
     // "code_blocks": true,
     // Include tables
-    "tables": false,
+    "tables": false
     // Include headings
     // "headings": true,
     // Strict length checking
@@ -233,7 +233,7 @@
     // Allowed elements
     "allowed_elements": ["details", "summary"],
     // Allowed elements in tables
-    "table_allowed_elements": [],
+    "table_allowed_elements": []
   },
   // endregion
 
@@ -246,7 +246,7 @@
   // Horizontal rule style : https://github.com/DavidAnson/markdownlint/blob/main/doc/md035.md
   "MD035": {
     // Horizontal rule style
-    "style": "---",
+    "style": "---"
   },
   // endregion
 
@@ -344,7 +344,7 @@
   // Code block style : https://github.com/DavidAnson/markdownlint/blob/main/doc/md046.md
   "MD046": {
     // Block style
-    "style": "fenced",
+    "style": "fenced"
   },
   // endregion
 
@@ -455,7 +455,7 @@
     // Table column style
     "style": "aligned",
     // Aligned delimiter columns
-    "aligned_delimiter": true,
-  },
+    "aligned_delimiter": true
+  }
   // endregion
 }

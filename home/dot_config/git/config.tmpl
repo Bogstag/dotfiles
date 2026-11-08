@@ -15,7 +15,7 @@
 	algorithm = histogram    # Clearer diffs on moved/edited lines
 	colorMoved = plain       # Highlight moved blocks in diffs
 	mnemonicPrefix = true    # More intuitive refs in diff output
-	tool = hunk				 # Not default
+	# tool = hunk				 # Not default
 [commit]
 	verbose = true           # Include diff comment in commit message template
 	gpgsign = true
@@ -31,30 +31,21 @@
 # All above is default
 
 [core]
-    excludesfile = {{ .chezmoi.destDir }}/.gitignore_global
-    pager = "hunk pager"
-    # pager = delta
+	excludesfile = {{ .chezmoi.destDir }}/.gitignore_global
+	# pager = "hunk pager"
 
-# [credential "https://github.com"]
-# 	helper =
-# 	helper = !gh auth git-credential
-# [credential "https://www.github.com"]
-# 	helper =
-# 	helper = !gh auth git-credential
-# [credential "https://api.github.com"]
-# 	helper =
-# 	helper = !gh auth git-credential
-# [credential "https://gist.github.com"]
-# 	helper =
-# 	helper = !gh auth git-credential
-
-[delta]
-  hyperlinks = true
-  hyperlinks-file-link-format = "vscode://file/{path}:{line}"
-  navigate = true  # use n and N to move between diff sections
-  features = dracula
-  side-by-side = true
-  line-numbers = false
+[credential "https://github.com"]
+	helper =
+	helper = !gh auth git-credential
+[credential "https://www.github.com"]
+	helper =
+	helper = !gh auth git-credential
+[credential "https://api.github.com"]
+	helper =
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !gh auth git-credential
 
 [difftool]
 	prompt = false
@@ -81,17 +72,11 @@
 	event = prepare-commit-msg
 
 [include]
-    path = ~/.local/share/delta/dracula.gitconfig
-
-[interactive]
-    diffFilter = delta --color-only
+	path = /home/bogge/.config/delta/delta.gitconfig
 
 [merge]
-  conflictStyle = zdiff3
-  guitool = "meld"
-
-[pager]
-	diff = delta
+	conflictStyle = zdiff3
+	guitool = "meld"
 
 [user]
 	name = {{ .github.name }}
