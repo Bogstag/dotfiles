@@ -28,14 +28,14 @@ continuation_prompt = " "
 # #644ac9
 #
 format              = """
-[╭─](fg:#9a348e bg:#1a1b1f)\
+[╭─](fg:#9a348e bg:#2b2d36)\
 $shell\
 ${env_var.yazi_level}\
 [](fg:#9a348e bg:#da627d)\
 $os\
-[](fg:#da627d bg:#fca17d)\
+[](fg:#da627d bg:#bd93f9)\
 $directory\
-[](fg:#fca17d bg:#86bbd8)\
+[](fg:#bd93f9 bg:#86bbd8)\
 $git_branch\
 $git_status\
 [](fg:#86bbd8 bg:#ff79c6)\
@@ -48,17 +48,48 @@ $terraform\
 $mise\
 [](fg:#06969a bg:#33658a)\
 $jobs\
-[](fg:#33658a bg:#bd93f9)\
+[](fg:#33658a bg:#fca17d)\
 $cmd_duration\
-[](fg:#bd93f9 bg:#50fa7b)\
+[](fg:#fca17d bg:#50fa7b)\
 $time\
-[](fg:#50fa7b bg:#1a1b1f)\
+[](fg:#50fa7b bg:#2b2d36)\
 $line_break\
-[╰─](fg:#9a348e bg:#1a1b1f)\
+[╰─](fg:#9a348e bg:#2b2d36)\
 $character"""
+
+# format              = """
+# [╭─](fg:#9a348e bg:#2b2d36)\
+# $shell\
+# ${env_var.yazi_level}\
+# [](fg:#9a348e bg:#da627d)\
+# $os\
+# [](fg:#da627d bg:#fca17d)\
+# $directory\
+# [](fg:#fca17d bg:#86bbd8)\
+# $git_branch\
+# $git_status\
+# [](fg:#86bbd8 bg:#ff79c6)\
+# $nodejs\
+# $golang\
+# $python\
+# $docker_context\
+# $terraform\
+# [](fg:#ff79c6 bg:#06969a)\
+# $mise\
+# [](fg:#06969a bg:#33658a)\
+# $jobs\
+# [](fg:#33658a bg:#bd93f9)\
+# $cmd_duration\
+# [](fg:#bd93f9 bg:#50fa7b)\
+# $time\
+# [](fg:#50fa7b bg:#2b2d36)\
+# $line_break\
+# [╰─](fg:#9a348e bg:#2b2d36)\
+# $character"""
+
 # Use the color palette
-palette             = "dracula"
-scan_timeout        = 10
+palette      = "dracula"
+scan_timeout = 10
 
 [aws]
   disabled = true
@@ -87,75 +118,73 @@ scan_timeout        = 10
   min_time_to_notify = 45000
   show_milliseconds  = false
   show_notifications = false
-  style              = "fg:#000000 bg:#bd93f9"
+  style              = "fg:#000000 bg:#fca17d"
 
 [directory]
   format            = "[ $path ]($style)"
-  style             = "fg:#000000 bg:#fca17d"
+  repo_root_format  = "[$before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+  style             = "fg:#000000 bg:#bd93f9"
+  substitutions     = [
+    { from = "(/).?[Bb]at(/?)", to = "$1󰭟 $2", regex = true },
+    { from = "(/).git(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Dd]elta(/?)", to = "$1󰇂 $2", regex = true },
+    { from = "(/).config(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Aa]pi(/?)", to = "$1󱂛 $2", regex = true },
+    { from = "(/).?[Aa]nsible(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Aa]stro(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Dd]esktop(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Dd]ocker(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Dd]ocuments(/?)", to = "$1󰈙 $2", regex = true },
+    { from = "(/).?[Dd]ownloads(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Ll]inks(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Mm]usic(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Pp]erl(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Pp]ictures(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Pp]owershell(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Pp]rojects(/?)", to = "$1󰲋 $2", regex = true },
+    { from = "(/).?[Pp]ython(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Ss]coop(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Ss]ync(/?)", to = "$1󱈖 $2", regex = true },
+    { from = "(/).?[Ss]yncb(/?)", to = "$1󱦕 $2", regex = true },
+    { from = "(/).?[Uu]buntu(/?)", to = "$1󰕈 $2", regex = true },
+    { from = "(/).?[Bb]ash(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Cc]loudflare(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Dd]beaver(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Dd]ev(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Ee]leventy(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Ee]slint(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Gg]it(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Jj]avascript(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Jj]son(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Ll]ess(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Ll]inux(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Mm]arkdown(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Mm]d(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Nn]ginx(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Nn]ode(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Nn]pm(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Nn]uxt(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Rr]epos(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Ss]sh(/?)", to = "$1󰣀 $2", regex = true },
+    { from = "(/).?[Uu]nicode(/?)", to = "$1󰻐 $2", regex = true },
+    { from = "(/).?[Vv]ite(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Vv]itejs(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Vv]itess(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Vv]itest(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Vv]scode(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Vv]scode-insider(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Vv]ue(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Vv]uejs(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Vv]uetify(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Ww]indows(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Cc]ezmoi(/?)", to = "$1󰭼 $2", regex = true },
+    { from = "(/).?[Dd]otnet(/?)", to = "$1󰪮 $2", regex = true },
+    { from = "(/).?[Nn]uget(/?)", to = "$1 $2", regex = true },
+    { from = "(/).?[Ss]sh(/?)", to = "$1󰣀 $2", regex = true },
+    # { from = "(/)(/?)", to = "$1$2", regex = true },
+  ]
   truncation_length = 20
   truncation_symbol = "…/"
-
-# tombi: format.rules.table-keys-order = "ascending"
-[directory.substitutions]
-  ".cache"           = "󰃨"
-  ".config"          = ""
-  ".data"            = "󱙋"
-  ".dotfies"         = ""
-  ".dotnet"          = "󰪮"
-  ".git"             = ""
-  ".nuget"           = ""
-  ".ssh"             = "󰣀"
-  ".vscode"          = ""
-  ".vscode-insiders" = ""
-  API                = "󱂛"
-  Ansible            = ""
-  Astro              = ""
-  Desktop            = ""
-  Docker             = ""
-  Documents          = "󰈙 "
-  Downloads          = " "
-  Links              = ""
-  Music              = " "
-  Perl               = ""
-  Pictures           = " "
-  PowerShell         = "_"
-  Projects           = "󰲋 "
-  Python             = ""
-  Scoop              = ""
-  Sync               = "󱈖"
-  SyncB              = "󱦕"
-  Ubuntu             = "󰕈"
-  bash               = ""
-  cloudflare         = ""
-  dbeaver            = ""
-  dev                = ""
-  eleventy           = ""
-  eslint             = ""
-  git                = ""
-  javascript         = ""
-  json               = ""
-  less               = ""
-  linux              = ""
-  markdown           = ""
-  md                 = ""
-  nginx              = ""
-  node               = ""
-  npm                = ""
-  nppWorkspace       = "󰎞"
-  nuxt               = ""
-  repos              = ""
-  ssh                = "󰣀"
-  unicode            = "󰻐"
-  vite               = ""
-  vitejs             = ""
-  vitess             = ""
-  vitest             = ""
-  vscode             = ""
-  vscode-insider     = ""
-  vue                = ""
-  vuejs              = ""
-  vuetify            = ""
-  windows            = ""
 
 [docker_context]
   format = "[ $symbol( $context) ]($style)"
@@ -242,7 +271,7 @@ scan_timeout        = 10
   purple  = "#bd93f9"
   red     = "#ff5555"
   yellow  = "#f1fa8c"
-  # Orginal crust = "#11111b"
+  # Original crust = "#11111b"
 
 [python]
   format = "[ $symbol( $version)( #$virtualenv) ]($style)"

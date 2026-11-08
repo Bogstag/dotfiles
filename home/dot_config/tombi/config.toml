@@ -11,7 +11,7 @@ toml-version = "v1.1.0"
     indent-table-key-value-pairs    = true,  # default: false
     key-value-equals-sign-alignment = true,  # default: false
     line-width                      = 100,   # default: 2
-    trailing-comment-alignment      = true,  # default: false
+    trailing-comment-alignment      = true   # default: false
     # Defaults
     #   array-bracket-space-width = 0,
     #   array-comma-space-width = 1,
@@ -53,30 +53,42 @@ toml-version = "v1.1.0"
     "$HOME/.codex/config.toml",
     "$HOME/.codex/*.config.toml",
     "$XDG_DATA_HOME/chezmoi/home/private_dot_codex/private_openai.config",
-    "$XDG_DATA_HOME/chezmoi/home/private_dot_codex/private_config.toml"
+    "$XDG_DATA_HOME/chezmoi/home/private_dot_codex/private_config.toml",
   ]
 
 [[schemas]]
   path      = "https://www.schemastore.org/tombi.json"
-  include   = ["$HOME/.config/tombi/config.toml", "**/tombi/config.toml", "**/.tombi.toml"]
+  include   = [
+    "$HOME/.config/tombi/config.toml",
+    "**/tombi/config.toml",
+    "**/.tombi.toml",
+  ]
   overrides = [
     {
-      targets                         = ["*"],
+      targets                         = [
+        "*",
+      ],
       format.rules.array-values-order = "ascending",
       format.rules.table-keys-order   = "ascending",
-      lint.rules.deprecated           = "warn",
+      lint.rules.deprecated           = "warn"
     },
   ]
 
 [[schemas]]
   path      = "https://www.schemastore.org/chezmoi.json"
-  include   = ["$HOME/.config/chezmoi.toml", "**/.chezmoi.toml", "**/chezmoi.toml"]
+  include   = [
+    "$HOME/.config/chezmoi.toml",
+    "**/.chezmoi.toml",
+    "**/chezmoi.toml",
+  ]
   overrides = [
     {
-      targets                         = ["*"],
+      targets                         = [
+        "*",
+      ],
       format.rules.array-values-order = "ascending",
       format.rules.table-keys-order   = "ascending",
-      lint.rules.deprecated           = "warn",
+      lint.rules.deprecated           = "warn"
     },
   ]
 
@@ -85,10 +97,12 @@ toml-version = "v1.1.0"
   include   = ["$HOME/.config/starship.toml", "**/starship.toml"]
   overrides = [
     {
-      targets                         = ["*"],
+      targets                         = [
+        "*",
+      ],
       format.rules.array-values-order = "ascending",
       format.rules.table-keys-order   = "ascending",
-      lint.rules.deprecated           = "warn",
+      lint.rules.deprecated           = "warn"
     },
   ]
 
@@ -97,10 +111,12 @@ toml-version = "v1.1.0"
   include   = ["$HOME/.config/yazi/keymap.toml", "**/yazi/keymap.toml"]
   overrides = [
     {
-      targets                         = ["*"],
+      targets                         = [
+        "*",
+      ],
       format.rules.array-values-order = "ascending",
       format.rules.table-keys-order   = "ascending",
-      lint.rules.deprecated           = "warn",
+      lint.rules.deprecated           = "warn"
     },
   ]
 
@@ -109,10 +125,12 @@ toml-version = "v1.1.0"
   include   = ["$HOME/.config/yazi/yazi.toml", "**/yazi/yazi.toml"]
   overrides = [
     {
-      targets                         = ["*"],
+      targets                         = [
+        "*",
+      ],
       format.rules.array-values-order = "ascending",
       format.rules.table-keys-order   = "ascending",
-      lint.rules.deprecated           = "warn",
+      lint.rules.deprecated           = "warn"
     },
   ]
 
@@ -121,10 +139,12 @@ toml-version = "v1.1.0"
   include   = ["$HOME/.config/yazi/vfs.toml", "**/yazi/vfs.toml"]
   overrides = [
     {
-      targets                         = ["*"],
+      targets                         = [
+        "*",
+      ],
       format.rules.array-values-order = "ascending",
       format.rules.table-keys-order   = "ascending",
-      lint.rules.deprecated           = "warn",
+      lint.rules.deprecated           = "warn"
     },
   ]
 
@@ -133,24 +153,27 @@ toml-version = "v1.1.0"
   include   = ["$HOME/.config/yazi/theme.toml", "**/yazi/theme.toml"]
   overrides = [
     {
-      targets                         = ["*"],
+      targets                         = [
+        "*",
+      ],
       format.rules.array-values-order = "ascending",
       format.rules.table-keys-order   = "ascending",
-      lint.rules.deprecated           = "warn",
+      lint.rules.deprecated           = "warn"
     },
   ]
 
-[[schemas]]
-  path      = "https://yazi-rs.github.io/schemas/package.json"
-  include   = ["$HOME/.config/yazi/package.toml", "**/yazi/package.toml"]
-  overrides = [
-    {
-      targets                         = ["*"],
-      format.rules.array-values-order = "ascending",
-      format.rules.table-keys-order   = "ascending",
-      lint.rules.deprecated           = "warn",
-    },
-  ]
+  # [[schemas]]
+  # TODO: schema gone?
+  #   path      = "https://yazi-rs.github.io/schemas/package.json"
+  #   include   = ["$HOME/.config/yazi/package.toml", "**/yazi/package.toml"]
+  #   overrides = [
+  #     {
+  #       targets                         = ["*"],
+  #       format.rules.array-values-order = "ascending",
+  #       format.rules.table-keys-order   = "ascending",
+  #       lint.rules.deprecated           = "warn",
+  #     },
+  #   ]
 
 [[schemas]]
   path      = "https://json.schemastore.org/ryl.json"
@@ -158,7 +181,9 @@ toml-version = "v1.1.0"
   strict    = false
   overrides = [
     {
-      targets                         = ["*"],
+      targets                         = [
+        "*",
+      ],
       format.rules.array-values-order = "ascending",
       format.rules.table-keys-order   = "ascending",
       lint.rules.deprecated           = "warn"
@@ -172,26 +197,34 @@ toml-version = "v1.1.0"
     "**/mise/config.toml",
     "**/mise.toml",
     "**/miserc.toml",
-    "**/tasks.toml.tmpl"
+    "**/tasks.toml.tmpl",
   ]
   overrides = [
     {
-      targets                         = ["*"],
+      targets                         = [
+        "*",
+      ],
       format.rules.array-values-order = "ascending",
       format.rules.table-keys-order   = "ascending",
-      lint.rules.deprecated           = "warn",
+      lint.rules.deprecated           = "warn"
     },
   ]
 
 [[schemas]]
   path      = "https://mise.jdx.dev/schema/mise.json"
-  include   = ["**/mise.toml", "$HOME/.config/mise/config.toml", "**/mise/config.toml"]
+  include   = [
+    "**/mise.toml",
+    "$HOME/.config/mise/config.toml",
+    "**/mise/config.toml",
+  ]
   overrides = [
     {
-      targets                         = ["*"],
+      targets                         = [
+        "*",
+      ],
       format.rules.array-values-order = "ascending",
       format.rules.table-keys-order   = "ascending",
-      lint.rules.deprecated           = "warn",
+      lint.rules.deprecated           = "warn"
     },
   ]
 
@@ -200,10 +233,12 @@ toml-version = "v1.1.0"
   include   = ["**/Cargo.toml"]
   overrides = [
     {
-      targets                         = ["*"],
+      targets                         = [
+        "*",
+      ],
       format.rules.array-values-order = "ascending",
       format.rules.table-keys-order   = "ascending",
-      lint.rules.deprecated           = "warn",
+      lint.rules.deprecated           = "warn"
     },
   ]
 
@@ -212,10 +247,12 @@ toml-version = "v1.1.0"
   include   = ["**/pyproject.toml"]
   overrides = [
     {
-      targets                         = ["*"],
+      targets                         = [
+        "*",
+      ],
       format.rules.array-values-order = "ascending",
       format.rules.table-keys-order   = "ascending",
-      lint.rules.deprecated           = "warn",
+      lint.rules.deprecated           = "warn"
     },
   ]
 
@@ -225,15 +262,19 @@ toml-version = "v1.1.0"
   strict    = false
   overrides = [
     {
-      targets                         = ["*"],
+      targets                         = [
+        "*",
+      ],
       format.rules.array-values-order = "ascending",
       format.rules.table-keys-order   = "ascending",
-      lint.rules.deprecated           = "warn",
+      lint.rules.deprecated           = "warn"
     },
   ]
 
 [[overrides]]
-  files.include = ["**/yazi/yazi.toml", "**/yazi/keymap.toml", "**/yazi/theme.toml"]
-  format.rules  = {
-    line-width = 255,
-  }
+  files.include = [
+    "**/yazi/yazi.toml",
+    "**/yazi/keymap.toml",
+    "**/yazi/theme.toml",
+  ]
+  format.rules  = { line-width = 255 }

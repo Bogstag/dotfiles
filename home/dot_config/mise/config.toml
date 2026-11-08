@@ -31,7 +31,7 @@
     "pre-commit",
     "python",
     "ruff",
-    "terraform"
+    "terraform",
   ]
 
 [settings.go]
@@ -92,3 +92,4 @@
   uv                            = "latest"
   vp                            = "latest"
   yazi                          = "latest"
+  "npm:markdownlint-cli"        = "latest"
