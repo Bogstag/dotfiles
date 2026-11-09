@@ -1,11 +1,9 @@
 # Dotfiles repository instructions
 
-This is Bogstag's public dotfiles repository. It is managed with chezmoi and is
-used primarily on Omarchy Linux. Keep this file concise and update it when an
-important repository convention changes.
+This is Bogstag's public dotfiles repository. It is managed with chezmoi and is used primarily on Omarchy Linux. Keep this file concise and update it when an important repository convention changes.
 
 Bitwarden constraints, approval boundaries, and verified versus pending facts.
-Those decisions govern agent execution; setup examples do not grant approval.
+Those decisions govern agent execution. Setup examples do not grant approval.
 
 ## Safety and privacy
 
@@ -32,7 +30,6 @@ Project skills is installed in .agents/skills (~/.local/share/chezmoi/.agents). 
 - Inspect each planned command's effect. Prefer `--safe`; never run an unknown or destructive command without explicit user approval.
 - Consume normalized diagnostics from JSON/JSONL, preserve raw tool output for debugging, and review the resulting diff after fixes.
 - Use `hk run check --safe --format jsonl` for streaming lifecycle events. A final summary is emitted even when a step fails.
-- MCP clients should use `inspect_project`, `plan`, safe run tools, paged output, and `get_diff` rather than invoking arbitrary shell commands.
 
 ## Repository conventions
 
@@ -67,5 +64,7 @@ Project skills is installed in .agents/skills (~/.local/share/chezmoi/.agents). 
 - Codex Aperture connection bootstrap, while mutable Codex preferences remain local.
 - Linux application bootstrap for Bitwarden, Steam, Syncthing, Tailscale, and Visual Studio Code.
 - Creation of `~/Sync` and activation of the Syncthing user service. Folder and device pairing remain manual.
+- VitePress documentation built from tracked Markdown files, with GitHub Pages deployment started manually.
 
-Use the Omarchy-specific Codex skill whenever changing Omarchy, Hyprland, terminal, display, bar, theme, or related desktop configuration.
+Use the Omarchy-specific Codex skill whenever changing Omarchy, Hyprland, terminal, display, bar, theme, or related
+desktop configuration.

@@ -90,11 +90,11 @@
   // Line length : https://github.com/DavidAnson/markdownlint/blob/main/doc/md013.md
   "MD013": {
     // Number of characters
-    "line_length": 120,
+    "line_length": 666,
     // Number of characters for headings
     // "heading_line_length": 80,
     // Number of characters for code blocks
-    "code_block_line_length": 100,
+    "code_block_line_length": 200,
     // Include code blocks
     // "code_blocks": true,
     // Include tables

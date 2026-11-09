@@ -24,15 +24,26 @@
 #.config/ai-usagebar/config.toml
 ##################################################################
 
+
 # Folders
 .codegraph
 .codex/
 .ryl_cache/
+.vitepress/cache/
+.vitepress/dist/
 .vscode/
 bin/
+node_modules/
 tests/
+.agents/
+.github/
+.jouet/
+
+# These are symlinks into the active tool version's install directory
+.agents/skills/
 
 # Files
 chezmoi.code-workspace
 notes.md
 ascii-fonts-figlets.md
+.agents/skills/.mise-skills.json
