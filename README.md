@@ -105,6 +105,27 @@ chezmoi cd
 
 Kontrollera alltid `chezmoi diff` och `git diff --cached` före commit.
 
+## Dokumentation
+
+Installera Node.js och kör VitePress lokalt:
+
+```sh
+npm ci
+npm run docs:dev
+```
+
+Bygg och förhandsgranska den statiska webbplatsen:
+
+```sh
+npm run docs:build
+npm run docs:preview
+```
+
+Build-workflowen uppdaterar `gh-pages` när `main` ändras. Granska den
+genererade branchen och starta sedan **Publish docs** manuellt med den granskade
+branchens fullständiga commit-SHA. GitHub Pages ska ha **GitHub Actions** valt
+som källa.
+
 ## Installera applikationerna igen
 
 Bootstrap-scriptet är ett `run_once`-script och körs därför automatiskt en gång
@@ -271,6 +292,12 @@ Generate plan for Fix-Stage-unstaged task
 ## `Get-all-file-ext-in-dir`
 
 - **Usage:** `Get-all-file-ext-in-dir`
+
+## `Sync_repo_skills`
+
+- **Usage:** `Sync_repo_skills`
+
+Add or update skills in repo
 
 ## `Update-schema-ryl`
 

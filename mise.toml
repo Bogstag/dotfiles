@@ -8,8 +8,9 @@
   exec = true
 
 [settings.skills]
+  auto_sync = true
   dir       = ".agents/skills"
-  auto_sync = false
+  fetch     = true
   prune     = true
 
 [task_config]
@@ -18,15 +19,21 @@
 [task_config.cache]
   enabled = true
 
-# tombi: format.rules.table-keys-order = "ascending"
 [tools]
   "aqua:Kampfkarren/selene/light" = "latest"
   "aqua:owenlamont/ryl"           = "latest"
-  betterleaks                     = "latest"
   "npm:markdownlint-cli"          = "latest"
+  betterleaks                     = "latest"
+  fnox                            = "latest"
+  hk                              = "latest"
+  jactionlint                     = "latest"
   oxfmt                           = "latest"
   oxlint                          = "latest"
   pkl                             = "latest"
   shellcheck                      = "latest"
   shfmt                           = "latest"
   tombi                           = "latest"
+
+[wrappers.python]
+  command = "uv"
+  args    = ["run", "python"]

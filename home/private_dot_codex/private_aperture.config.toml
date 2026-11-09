@@ -95,18 +95,19 @@ sandbox_mode = "workspace-write"
   source      = "/home/bogge/Projects/plugins"
 
 [mcp_servers.aperture]
-  url = "http://ai.goldeye-monster.ts.net/v1/mcp"
+  url = "https://ai.goldeye-monster.ts.net/v1/mcp"
 
 [mcp_servers.codegraph]
   command = "codegraph"
   args    = ["serve", "--mcp"]
 
-[mcp_servers.context7]
-  url = "https://mcp.context7.com/mcp"
-
 [mcp_servers.hk]
-  args    = ["mcp", "--root", "."]
-  command = "hk"
+  args    = ["mcp", "--root", "/home/bogge/.local/share/chezmoi"]
+  command = "/home/bogge/.local/share/mise/installs/hk/latest/.mise-bins/hk"
+
+[mcp_servers.mise]
+  args    = ["--cd", "/home/bogge/.local/share/chezmoi", "mcp"]
+  command = "/usr/bin/mise"
 
 [memories]
   generate_memories = true
@@ -224,7 +225,7 @@ sandbox_mode = "workspace-write"
     "git-branch",
     "context-remaining",
     "five-hour-limit",
-    "weekly-limit"
+    "weekly-limit",
   ]
   status_line_use_colors = true
   theme                  = "dracula"

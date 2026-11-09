@@ -13,3 +13,7 @@
   # To uninstall replace install with uninstall
   description = "Install pkg w/o exec globally"
   run         = "uv pip install --system"
+
+["sync_global_skills"]
+  description = "Add or update global skills"
+  run         = "mise skills sync --global"

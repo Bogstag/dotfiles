@@ -56,4 +56,8 @@
   run = "ryl --print-toml-config-schema > $HOME/.config/ryl/ryl.json"
 
 [pre-commit]
-  run = "mise exec -- hk run pre-commit --stage --unstaged --junit-xml ./tests/pre-commit.xml"
+  run = "mise exec -- hk run pre-commit --no-stage --junit-xml ./tests/pre-commit.xml"
+
+["Sync_repo_skills"]
+  description = "Add or update skills in repo"
+  run         = "mise skills sync --dir .agents/skills"

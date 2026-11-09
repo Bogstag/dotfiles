@@ -1,13 +1,13 @@
 #:schema https://learn.chatgpt.com/docs/config-schema.json
 # https://github.com/openai/codex/blob/main/codex-rs/models-manager/models.json
 
-model_provider         = "openai"
+model_provider         = "aperture"
 # Optional model override for /review. Default: unset (uses current session model).
 model                  = "gpt-6-luna"
 model_reasoning_effort = "medium"
 # Text verbosity for GPT-5 family (Responses API): low | medium | high
 model_verbosity        = "low"
-sandbox_mode           = "read-only"
+sandbox_mode           = "workspace-write"
 
 [apps.connector_20205bf7d4e99a89d7154bb849718324]
   enabled = false
@@ -34,12 +34,12 @@ sandbox_mode           = "read-only"
 [features.guardianv2]
   enabled = false
 
-[hooks.state]
-[hooks.state."/home/bogge/.codex/hooks.json:session_start:0:0"]
-  trusted_hash = "sha256:25c9ca70d3148d3004ea3982a4b1f9e085528cb65790f18ec2f91c3af7df687d"
-
 [hooks.state."/home/bogge/.codex/hooks.json:stop:0:0"]
   trusted_hash = "sha256:90f4d7917f32abcb69b4f29cc6e7c17f7ead5bfd7061711e579be125a1861e89"
+
+[marketplaces.plugins]
+  source_type = "local"
+  source      = "/home/bogge/Projects/plugins"
 
 [marketplaces.openai-bundled]
   source_type = "local"
@@ -49,13 +49,28 @@ sandbox_mode           = "read-only"
   source_type = "local"
   source      = "/home/bogge/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
 
+[mcp_servers.aperture]
+  url = "https://ai.goldeye-monster.ts.net/v1/mcp"
+
+[mcp_servers.codegraph]
+  command = "codegraph"
+  args    = ["serve", "--mcp"]
+
+[mcp_servers.hk]
+  args    = ["mcp", "--root", "/home/bogge/.local/share/chezmoi"]
+  command = "/home/bogge/.local/share/mise/installs/hk/latest/.mise-bins/hk"
+
+[mcp_servers.mise]
+  args    = ["--cd", "/home/bogge/.local/share/chezmoi", "mcp"]
+  command = "/usr/bin/mise"
+
 [mcp_servers.node_repl]
   args                = []
   command             = "/usr/lib/chatgpt/resources/cua_node/bin/node_repl"
   env_vars            = [
     "BROWSER_USE_ACCESS_EXECUTOR_ID",
     "BROWSER_USE_ACCESS_PIPE_PATH",
-    "BROWSER_USE_ACCESS_VERIFYING_IDENTITY"
+    "BROWSER_USE_ACCESS_VERIFYING_IDENTITY",
   ]
   startup_timeout_sec = 120
 
@@ -77,6 +92,18 @@ sandbox_mode           = "read-only"
 [mcp_servers.cua_repl]
   command = "/usr/lib/chatgpt/ChatGPT"
   enabled = false
+
+[model_providers.aperture]
+  name                 = "Aperture Proxy"
+  base_url             = "http://ai.goldeye-monster.ts.net/codex"
+  wire_api             = "responses"
+  requires_openai_auth = true
+
+[plugins."hk@plugins"]
+  enabled = true
+
+[plugins."homelab@plugins"]
+  enabled = true
 
 [plugins."browser@openai-bundled"]
   enabled = true
@@ -108,12 +135,103 @@ sandbox_mode           = "read-only"
 [plugins."visualize@openai-bundled"]
   enabled = true
 
+[projects."/home/bogge/.local/share/chezmoi"]
+  trust_level = "trusted"
+
+[projects."/home/bogge/Projects/ObsidianRnDVault"]
+  trust_level = "trusted"
+
+[projects."/home/bogge/Projects/Orlok"]
+  trust_level = "trusted"
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/archify/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/archify-review/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/code-review/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/diagnose-crash/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/find-skills/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/fnox/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/go-testing/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/grill-me/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/grill-with-docs/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/grill-with-docs/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/hunk-review/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/omarchy/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/skill-creator/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/skill-improver/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/skill-registry/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/tailscale/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/wayfinder/SKILL.md"
+  enabled = true
+
+[[skills.config]]
+  path    = "/home/bogge/.agents/skills/writing-for-agents/SKILL.md"
+  enabled = true
+
 [tui]
   fullscreen_transcript        = true
   resume_cwd                   = "session"
   screen_reader_detection_done = true
   status_line_use_colors       = true
   theme                        = "dracula"
+  # tombi: format.rules.array-values-order = { disabled = true }
+  status_line                  = [
+    "model-with-reasoning",
+    "project-root",
+    "current-dir",
+    "git-branch",
+    "context-remaining",
+    "five-hour-limit",
+    "weekly-limit",
+  ]
 
 [tui.model_availability_nux]
   "gpt-6.1-sol" = 4

@@ -31,10 +31,10 @@ The go env command exposes [several environment variables](https://go.dev/src/cm
 
 ### 🛠️ Toolchain Paths
 
-| Variable  | Description                                   | Linux Default                | Windows Default               |
-| --------- | --------------------------------------------- | ---------------------------- | ----------------------------- |
-| GOROOT    | Root of the Go SDK/compiler installation.     | /usr/local/go                | C:\Program Files\Go           |
-| GOTOOLDIR | Internal binaries for the compiler toolchain. | $GOROOT/pkg/tool/<os>_<arch> | %GOROOT%\pkg\tool\<os>_<arch> |
+| Variable  | Description                                   | Linux Default                  | Windows Default                 |
+| --------- | --------------------------------------------- | ------------------------------ | ------------------------------- |
+| GOROOT    | Root of the Go SDK/compiler installation.     | /usr/local/go                  | C:\Program Files\Go             |
+| GOTOOLDIR | Internal binaries for the compiler toolchain. | `$GOROOT/pkg/tool/<os>_<arch>` | `%GOROOT%\pkg\tool\<os>_<arch>` |
 
 ### 📊 System & Configuration Paths
 

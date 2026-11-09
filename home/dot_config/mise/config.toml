@@ -1,4 +1,8 @@
 #:schema https://mise.jdx.dev/schema/mise.json
+# tombi: format.rules.table-keys-order = "ascending"
+
+[bootstrap.mise_shell_activate]
+  bash = true
 
 [env]
   _.path    = [
@@ -10,9 +14,6 @@
   ]
   HK_MISE   = 1
   UV_PYTHON = { value = "{{ tools.python.path }}", tools = true }
-
-[bootstrap.mise_shell_activate]
-  bash = true
 
 [settings]
   color_theme                         = "dracula"
@@ -34,20 +35,21 @@
     "terraform",
   ]
 
-[settings.go]
-  set_gobin  = false
-  set_goroot = true
-
 [settings.github]
   credential_command  = "gh auth token"
   use_git_credentials = true
 
+[settings.go]
+  set_gobin  = false
+  set_goroot = true
+
 [settings.packslip]
-  exec = false
+  exec = true
 
 [settings.skills]
-  auto_sync = false
+  auto_sync = true
   dir       = ".agents/skills"
+  fetch     = true
   prune     = true
 
 [settings.status]
@@ -57,28 +59,48 @@
 [task_config]
   includes = ["tasks.toml"]
 
+[tool_alias]
+  go          = "core:go"
+  java        = "core:java"
+  node        = "core:node"
+  python      = "core:python"
+  rust        = "core:rust"
+  #
+  dagu        = "packslip:dagucloud/dagu"
+  fnox        = "packslip:jdx/fnox"
+  hk          = "packslip:jdx/hk"
+  jactionlint = "packslip:jdx/jactionlint"
+  jouet       = "packslip:jdx/jouet"
+  pitchfork   = "packslip:jdx/pitchfork"
+  worktrunk   = "packslip:max-sixty/worktrunk"
+
 [tools]
   "aqua:Kampfkarren/selene"     = "latest"
   "aqua:owenlamont/ryl"         = "latest"
   "github:daptify14/chezit"     = { version = "latest", os = ["linux"] }
+  "github:microsoft/apm"        = "latest"
   "go:golang.org/x/tools/gopls" = "latest"
-  "npm:@masculinecache/mem-axi" = "latest"
+  "npm:markdownlint-cli"        = "latest"
   7zip                          = "latest"
   age                           = "latest"
   betterleaks                   = "latest"
   bitwarden-secrets-manager     = "latest"
   cargo-binstall                = "latest"
   codegraph                     = "latest"
+  dagu                          = "latest"
   editorconfig-checker          = "latest"
-  fnox                          = { version = "latest", workflow = "release.yml" }
+  fnox                          = "latest"
   go                            = "latest"
-  hk                            = { version = "latest", workflow = "release.yml" }
+  hk                            = "latest"
+  jactionlint                   = "latest"
   java                          = "latest"
+  jouet                         = "latest"
   lua                           = "latest"
   lua-language-server           = "latest"
   node                          = ["lts", "26"]
   oxfmt                         = "latest"
   oxlint                        = "latest"
+  pitchfork                     = "latest"
   pkl                           = "latest"
   python                        = "latest"
   resvg                         = "latest"
@@ -91,5 +113,5 @@
   tombi                         = "latest"
   uv                            = "latest"
   vp                            = "latest"
+  worktrunk                     = "latest"
   yazi                          = "latest"
-  "npm:markdownlint-cli"        = "latest"
