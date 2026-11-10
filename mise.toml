@@ -1,39 +1,40 @@
 #:schema https://mise.jdx.dev/schema/mise.json
 # tombi: format.rules.table-keys-order = "ascending"
 
+[deps.npm]
+auto = true
+
 [env]
-  _.path = ["node_modules/.bin"]
+_.path = ["node_modules/.bin"]
 
 [settings.packslip]
-  exec = true
+exec = true
 
 [settings.skills]
-  auto_sync = true
-  dir       = ".agents/skills"
-  fetch     = true
-  prune     = true
+auto_sync = true
+dir = ".agents/skills"
+fetch = true
+prune = true
 
 [task_config]
-  includes = ["tasks.toml"]
-
-[task_config.cache]
-  enabled = true
+includes = ["tasks.toml"]
 
 [tools]
-  "aqua:Kampfkarren/selene/light" = "latest"
-  "aqua:owenlamont/ryl"           = "latest"
-  "npm:markdownlint-cli"          = "latest"
-  betterleaks                     = "latest"
-  fnox                            = "latest"
-  hk                              = "latest"
-  jactionlint                     = "latest"
-  oxfmt                           = "latest"
-  oxlint                          = "latest"
-  pkl                             = "latest"
-  shellcheck                      = "latest"
-  shfmt                           = "latest"
-  tombi                           = "latest"
+"aqua:Kampfkarren/selene/light" = "latest"
+"aqua:owenlamont/ryl" = "latest"
+"npm:markdownlint-cli" = "latest"
+betterleaks = "latest"
+fnox = "latest"
+hk = "latest"
+jactionlint = "latest"
+oxfmt = "latest"
+oxlint = "latest"
+pkl = "latest"
+shellcheck = "latest"
+shfmt = "latest"
+tombi = "latest"
+"github:apple/pkl-lsp" = { version = "latest", bin_path = "bin", bin = "pkl-lsp", rename_exe = { " pkl-lsp-*" = "pkl-lsp" } }
 
 [wrappers.python]
-  command = "uv"
-  args    = ["run", "python"]
+command = "uv"
+args = ["run", "python"]

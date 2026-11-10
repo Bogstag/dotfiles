@@ -136,3 +136,8 @@ indent_style = tab
 # like "shfmt -w third_party/foo.sh" or "shfmt --filename=third_party/foo.sh",
 # the ignore logic is applied only when the --apply-ignore flag is given.
 ignore = true
+
+[[toml]]
+[*.toml]
+indent_size  = 2
+indent_style = space
