@@ -1,8 +1,6 @@
-%YAML 1.2
----
 # https://github.com/daptify14/chezit#configuration
 
-diff_builtin: false  # Do not use built-in diff rendering
-icons: nerdfont  # nerdfont | unicode | none
-mode: write  # write | read_only
-panel: auto  # auto | show | hide
+diff_builtin: false # Do not use built-in diff rendering
+icons: nerdfont # nerdfont | unicode | none
+mode: write # write | read_only
+panel: auto # auto | show | hide

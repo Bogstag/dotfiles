@@ -6,19 +6,26 @@ Bitwarden Secrets Manager är avsedd lagringsplats om framtida mallar behöver h
 SSH-nycklar. Den GitHub-e-postadress som används av mallarna finns i
 `.chezmoidata.toml` under `github.noreply_email`.
 
-## Återskapa en ny Omarchy-installation
-
-Installera chezmoi:
+## Installera på Omarchy
 
 ```sh
+# Installera chezmoi
 omarchy pkg add chezmoi
-```
 
-Hämta repot, applicera konfigurationen och installera hanterade applikationer:
-
-```sh
+#Hämta repot, applicera konfigurationen och installera hanterade applikationer
 chezmoi init --apply Bogstag
 ```
+
+## Hantering av hemligheter
+
+Jag använder dessa sätten att hantera hemligheter.
+
+- [Bitwarden CLI](https://www.chezmoi.io/user-guide/password-managers/bitwarden/)
+- [Bitwarden SSH Agent](https://bitwarden.com/help/ssh-agent/)
+- [Bitwarden Secrets CLI](https://www.chezmoi.io/user-guide/password-managers/bitwarden/#bitwarden-cli)
+- [GitHub CLI](https://cli.github.com/manual/gh)
+
+### Bitwarden Secret Manager (BWS)
 
 Lagra Bitwarden Secrets Manager BWS_TOKEN med hjälp av secret-tool
 
@@ -28,19 +35,14 @@ secret-tool store --label="Bitwarden Secrets Token" "BWS_ACCESS" "TOKEN"
 export BWS_ACCESS_TOKEN="$(secret-tool lookup "BWS_ACCESS" "TOKEN")"
 ```
 
-Sätt Token som data och hämta sedan hemligheterna så här:
+Hämta hemligheterna så här:
 
 ```toml
-[data]
-{{ if eq .chezmoi.os "linux" -}}
-bws_access_token = {{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" | quote }}
-{{- end }}
-
+# Id finns i BWS eller använd bws
 {{ (bitwardenSecrets "0c12859e-ac06-43fd-bec3-b4ce0126fb07" .bws_access_token).value }}
 ```
 
-Inloggningen är lokal för datorn och lagras inte i dotfiles-repot. Den nuvarande
-konfigurationen innehåller inga mallar som läser hemligheter från Bitwarden.
+### GitHub CLI (gh)
 
 Konfigurera GitHub CLI om maskinen även ska kunna pusha ändringar:
 
@@ -51,30 +53,25 @@ gh auth status
 
 ### Bitwarden SSH-agent och GitHub-signering
 
-Bitwarden Desktop ska ha SSH-agenten aktiverad. Mallen för `~/.ssh/config`
-ansluter GitHub till den lokala socketen `~/.bitwarden-ssh-agent.sock`; privata
-nycklar lämnar därför aldrig Bitwarden. Git väljer den agentnyckel vars
-kommentar är `GithubSigningKey` för SSH-signering.
+Bitwarden Desktop ska ha SSH-agenten aktiverad.
+Mallen för `~/.ssh/config` ansluter GitHub till den lokala socketen `~/.bitwarden-ssh-agent.sock` Bitwarden ber om auth för att godkänna signeringen.
 
 ## Daglig användning av chezmoi
 
 Visa hanterade ändringar:
 
 ```sh
-chezmoi status
+# Kontrollera skillnader
 chezmoi diff
-```
-
-Applicera repots version på datorn:
-
-```sh
+# Allt ok, apploicera förändringarna
 chezmoi apply
 ```
 
 Lägg till en ny fil:
 
 ```sh
-chezmoi add ~/.config/program/config
+chezmoi add ~/.config/program/config.yoml
+chezmoi add ~/.config/program/config.yoml --excact
 ```
 
 Synka en fil som redigerats direkt i hemkatalogen tillbaka till chezmoi:
@@ -234,7 +231,7 @@ Här kommer minnes anteckning på hur jag ska tänka för att få till dessa.
 I detta exempel så ska jag symlinka vscode keybindings:
 
 ```sh
-# Copy file you whant symlinked to dotfiles
+# Copy file you want symlinked to dotfiles
 cp $(chezmoi target-path)/.config/Code/User/keybindings.json  $(chezmoi source-path)/dot_config/private_Code/User/keybindings.json
 
 # Add the file to chezmoi ignore, path from your home not from dotfiles.
