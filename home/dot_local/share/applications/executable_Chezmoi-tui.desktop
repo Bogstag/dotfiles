@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Chezmoi-tui
+Comment=chezmoi-tui in rust
+Exec=xdg-terminal-exec --app-id=TUI.tile -e chezmoi-tui --config ~/.config/chezmoi-tui/config.toml
+Terminal=false
+Type=Application
+Icon=chezmoi-tui
+StartupNotify=true

@@ -130,7 +130,6 @@ steps {
   }
   //
   ["oxfmt"] = Builtins.oxfmt
-  //
 
   ["ox_lint"] = Builtins.ox_lint
   //

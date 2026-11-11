@@ -9,11 +9,9 @@ model_reasoning_effort = "medium"
 model_verbosity        = "low"
 sandbox_mode           = "workspace-write"
 
-[apps.connector_20205bf7d4e99a89d7154bb849718324]
-  enabled = false
-
-[apps.connector_openai_chatgpt_pets]
-  enabled = false
+[apps]
+  connector_20205bf7d4e99a89d7154bb849718324 = { enabled = false }
+  connector_openai_chatgpt_pets              = { enabled = false }
 
 [desktop]
   ambient-suggestions-enabled        = false
@@ -27,71 +25,93 @@ sandbox_mode           = "workspace-write"
   autoArchiveAfterDays               = 90
   default-workspace-full-view        = true
 
-[memories]
-  generate_memories = true
-  use_memories      = true
-
 [features.guardianv2]
   enabled = false
 
-[hooks.state."/home/bogge/.codex/hooks.json:stop:0:0"]
-  trusted_hash = "sha256:90f4d7917f32abcb69b4f29cc6e7c17f7ead5bfd7061711e579be125a1861e89"
+[hooks.state]
+  "/home/bogge/.codex/hooks.json:stop:0:0"                               = {
+    trusted_hash = "sha256:a7d36fe48828c335731d21a4c4421bfb28aa19d3e0c3e2bbd769711fb8b0840b"
+  }
+  "/home/bogge/.codex/hooks.json:pre_tool_use:0:0"                       = {
+    trusted_hash = "sha256:cb1e7d757d461b71f022a32369227226e6da78f3f6e68af72e09cbfc56dc902e"
+  }
+  "/home/bogge/.codex/hooks.json:post_tool_use:0:0"                      = {
+    trusted_hash = "sha256:bc94f885d45ef60ad3ed8a68e5759f9c90345508bd0ba22210e9d7c079019bd4"
+  }
+  "/home/bogge/.codex/hooks.json:session_start:0:0"                      = {
+    trusted_hash = "sha256:25c9ca70d3148d3004ea3982a4b1f9e085528cb65790f18ec2f91c3af7df687d"
+  }
+  "/home/bogge/.codex/hooks.json:session_start:1:0"                      = {
+    trusted_hash = "sha256:5849b1ce2c0aa3d2b8ac8f9fede3219f44ddbb394075ff4cb7ff19acfabb7e02"
+  }
+  "/home/bogge/.local/share/chezmoi/.codex/hooks.json:pre_tool_use:0:0"  = {
+    trusted_hash = "sha256:cb1e7d757d461b71f022a32369227226e6da78f3f6e68af72e09cbfc56dc902e"
+  }
+  "/home/bogge/.local/share/chezmoi/.codex/hooks.json:post_tool_use:0:0" = {
+    trusted_hash = "sha256:bc94f885d45ef60ad3ed8a68e5759f9c90345508bd0ba22210e9d7c079019bd4"
+  }
+  "/home/bogge/.local/share/chezmoi/.codex/hooks.json:session_start:0:0" = {
+    trusted_hash = "sha256:25c9ca70d3148d3004ea3982a4b1f9e085528cb65790f18ec2f91c3af7df687d"
+  }
+  "/home/bogge/.local/share/chezmoi/.codex/hooks.json:session_start:1:0" = {
+    trusted_hash = "sha256:5849b1ce2c0aa3d2b8ac8f9fede3219f44ddbb394075ff4cb7ff19acfabb7e02"
+  }
+  "/home/bogge/.local/share/chezmoi/.codex/hooks.json:stop:0:0"          = {
+    trusted_hash = "sha256:a7d36fe48828c335731d21a4c4421bfb28aa19d3e0c3e2bbd769711fb8b0840b"
+  }
 
-[marketplaces.plugins]
-  source_type = "local"
-  source      = "/home/bogge/Projects/plugins"
+[marketplaces]
+  plugins                = { source_type = "local", source = "/home/bogge/Projects/plugins" }
+  openai-bundled         = {
+    source_type = "local",
+    source      = "/home/bogge/.codex/.tmp/bundled-marketplaces/openai-bundled"
+  }
+  openai-primary-runtime = {
+    source_type = "local",
+    source      = "/home/bogge/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+  }
 
-[marketplaces.openai-bundled]
-  source_type = "local"
-  source      = "/home/bogge/.codex/.tmp/bundled-marketplaces/openai-bundled"
+[mcp_servers]
+  aperture  = { url = "https://ai.goldeye-monster.ts.net/v1/mcp" }
+  codegraph = { command = "codegraph", args = ["serve", "--mcp"] }
+  cua_repl  = { command = "/usr/lib/chatgpt/ChatGPT", enabled = false }
+  hk        = {
+    args    = ["mcp", "--root", "/home/bogge/.local/share/chezmoi"],
+    command = "/home/bogge/.local/share/mise/installs/hk/latest/.mise-bins/hk"
+  }
+  mise      = {
+    args    = ["--cd", "/home/bogge/.local/share/chezmoi", "mcp"],
+    command = "/usr/bin/mise"
+  }
+  node_repl = {
+    args                = [],
+    command             = "/usr/lib/chatgpt/resources/cua_node/bin/node_repl",
+    env_vars            = [
+      "BROWSER_USE_ACCESS_EXECUTOR_ID",
+      "BROWSER_USE_ACCESS_PIPE_PATH",
+      "BROWSER_USE_ACCESS_VERIFYING_IDENTITY",
+    ],
+    startup_timeout_sec = 120,
+    env                 = {
+      BROWSER_USE_AVAILABLE_BACKENDS           = "chrome,iab,mcpapps",
+      BROWSER_USE_CODEX_APP_BUILD_FLAVOR       = "prod",
+      BROWSER_USE_CODEX_APP_VERSION            = "26.1103.60933",
+      BROWSER_USE_TINYSKY_ENABLED              = "1",
+      CODEX_CLI_PATH                           = "/usr/lib/chatgpt/resources/codex",
+      CODEX_HOME                               = "/home/bogge/.codex",
+      NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER  = "Control the in-app browser in conjunction with the Browser Plugin.",
+      NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME   = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative.",
+      NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000",
+      NODE_REPL_NODE_MODULE_DIRS               = "/usr/lib/chatgpt/resources/cua_node/lib/node_modules",
+      NODE_REPL_NODE_PATH                      = "/usr/lib/chatgpt/resources/cua_node/bin/node",
+      NODE_REPL_TRUSTED_CODE_PATHS             = "/home/bogge/.codex:/usr/lib/chatgpt/resources/cua_node/lib/node_modules",
+      NODE_REPL_TRUSTED_SERVICES               = '{"browser":"/home/bogge/.codex/plugins/cache/openai-bundled/browser/26.1103.60933/scripts/browser-service.mjs"}'
+    }
+  }
 
-[marketplaces.openai-primary-runtime]
-  source_type = "local"
-  source      = "/home/bogge/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
-
-[mcp_servers.aperture]
-  url = "https://ai.goldeye-monster.ts.net/v1/mcp"
-
-[mcp_servers.codegraph]
-  command = "codegraph"
-  args    = ["serve", "--mcp"]
-
-[mcp_servers.hk]
-  args    = ["mcp", "--root", "/home/bogge/.local/share/chezmoi"]
-  command = "/home/bogge/.local/share/mise/installs/hk/latest/.mise-bins/hk"
-
-[mcp_servers.mise]
-  args    = ["--cd", "/home/bogge/.local/share/chezmoi", "mcp"]
-  command = "/usr/bin/mise"
-
-[mcp_servers.node_repl]
-  args                = []
-  command             = "/usr/lib/chatgpt/resources/cua_node/bin/node_repl"
-  env_vars            = [
-    "BROWSER_USE_ACCESS_EXECUTOR_ID",
-    "BROWSER_USE_ACCESS_PIPE_PATH",
-    "BROWSER_USE_ACCESS_VERIFYING_IDENTITY",
-  ]
-  startup_timeout_sec = 120
-
-[mcp_servers.node_repl.env]
-  NODE_REPL_NATIVE_PIPE_CONNECT_TIMEOUT_MS = "1000"
-  NODE_REPL_NODE_MODULE_DIRS               = "/usr/lib/chatgpt/resources/cua_node/lib/node_modules"
-  NODE_REPL_NODE_PATH                      = "/usr/lib/chatgpt/resources/cua_node/bin/node"
-  NODE_REPL_TRUSTED_CODE_PATHS             = "/home/bogge/.codex:/usr/lib/chatgpt/resources/cua_node/lib/node_modules"
-  CODEX_HOME                               = "/home/bogge/.codex"
-  BROWSER_USE_AVAILABLE_BACKENDS           = "chrome,iab,mcpapps"
-  BROWSER_USE_TINYSKY_ENABLED              = "1"
-  NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER  = "Control the in-app browser in conjunction with the Browser Plugin."
-  NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME   = "Control the Chrome browser in conjunction with the Chrome Plugin. Prefer this method of controlling Chrome over alternatives (such as Computer Use) unless the user explicitly mentions an alternative."
-  BROWSER_USE_CODEX_APP_BUILD_FLAVOR       = "prod"
-  BROWSER_USE_CODEX_APP_VERSION            = "26.1021.22027"
-  NODE_REPL_TRUSTED_SERVICES               = '{"browser":"/home/bogge/.codex/plugins/cache/openai-bundled/browser/26.1021.22027/scripts/browser-service.mjs"}'
-  CODEX_CLI_PATH                           = "/usr/lib/chatgpt/resources/codex"
-
-[mcp_servers.cua_repl]
-  command = "/usr/lib/chatgpt/ChatGPT"
-  enabled = false
+[memories]
+  generate_memories = true
+  use_memories      = true
 
 [model_providers.aperture]
   name                 = "Aperture Proxy"
@@ -99,50 +119,24 @@ sandbox_mode           = "workspace-write"
   wire_api             = "responses"
   requires_openai_auth = true
 
-[plugins."hk@plugins"]
-  enabled = true
+[plugins]
+  "browser@openai-bundled"                  = { enabled = true }
+  "code-review@openai-bundled"              = { enabled = true }
+  "codex-app-tools@openai-bundled"          = { enabled = true }
+  "documents@openai-primary-runtime"        = { enabled = true }
+  "hk@plugins"                              = { enabled = true }
+  "homelab@plugins"                         = { enabled = true }
+  "pdf@openai-primary-runtime"              = { enabled = false }
+  "presentations@openai-primary-runtime"    = { enabled = false }
+  "spreadsheets@openai-primary-runtime"     = { enabled = false }
+  "template-creator@openai-primary-runtime" = { enabled = false }
+  "unified-computer-use@openai-bundled"     = { enabled = false }
+  "visualize@openai-bundled"                = { enabled = true }
 
-[plugins."homelab@plugins"]
-  enabled = true
-
-[plugins."browser@openai-bundled"]
-  enabled = true
-
-[plugins."code-review@openai-bundled"]
-  enabled = true
-
-[plugins."codex-app-tools@openai-bundled"]
-  enabled = true
-
-[plugins."documents@openai-primary-runtime"]
-  enabled = true
-
-[plugins."pdf@openai-primary-runtime"]
-  enabled = false
-
-[plugins."presentations@openai-primary-runtime"]
-  enabled = false
-
-[plugins."spreadsheets@openai-primary-runtime"]
-  enabled = false
-
-[plugins."template-creator@openai-primary-runtime"]
-  enabled = false
-
-[plugins."unified-computer-use@openai-bundled"]
-  enabled = false
-
-[plugins."visualize@openai-bundled"]
-  enabled = true
-
-[projects."/home/bogge/.local/share/chezmoi"]
-  trust_level = "trusted"
-
-[projects."/home/bogge/Projects/ObsidianRnDVault"]
-  trust_level = "trusted"
-
-[projects."/home/bogge/Projects/Orlok"]
-  trust_level = "trusted"
+[projects]
+  "/home/bogge/.local/share/chezmoi"      = { trust_level = "trusted" }
+  "/home/bogge/Projects/ObsidianRnDVault" = { trust_level = "trusted" }
+  "/home/bogge/Projects/Orlok"            = { trust_level = "trusted" }
 
 [[skills.config]]
   path    = "/home/bogge/.agents/skills/archify/SKILL.md"
@@ -218,6 +212,7 @@ sandbox_mode           = "workspace-write"
 
 [tui]
   fullscreen_transcript        = true
+  model_availability_nux       = { "gpt-6.1-sol" = 4 }
   resume_cwd                   = "session"
   screen_reader_detection_done = true
   status_line_use_colors       = true
@@ -232,6 +227,3 @@ sandbox_mode           = "workspace-write"
     "five-hour-limit",
     "weekly-limit",
   ]
-
-[tui.model_availability_nux]
-  "gpt-6.1-sol" = 4

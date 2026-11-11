@@ -11,5 +11,6 @@
       "files": ["**/*.jsonc", "[jsonc]", "**/*.json5", "[json5]"],
       "options": { "trailingComma": "none" }
     }
-  ]
+  ],
+  "ignorePatterns": ["*.toml"] // Keeps undoing tombi format
 }

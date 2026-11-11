@@ -1,0 +1,17 @@
+[ui]
+  default_view      = "status"
+  auto_preview      = true
+  show_base_context = true
+  show_notices      = true
+  default_layout    = "detail-max"  # normal, detail-max, log-max
+  list_ratio        = 25
+  detail_ratio      = 75
+  footer_help       = true
+
+[safety]
+  require_two_step_confirmation = true
+  show_apply_plan               = true
+
+[tools]
+  editor        = "nvim"
+  external_diff = "delta"

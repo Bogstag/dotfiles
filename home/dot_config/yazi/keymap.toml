@@ -1,5 +1,6 @@
 #:schema https://yazi-rs.github.io/schemas/keymap.json
-# default file://$HOME/.config/yazi/keymap-default.toml
+# default file:///home/bogge/.config/yazi/keymap-default.toml
+# file:///home/bogge/.config/yazi/keymap.toml
 # Key Modifiers
 # <S-…>	Shift key.
 # <C-…>	Ctrl key.
@@ -26,6 +27,7 @@
     { on = ["g", "p"], run = "cd ~/Projects", desc = "Go to ~/Projects" },
     { on = ["g", "w"], run = "cd ~/Work", desc = "Go to ~/Work" },
     { on = ["g", "o"], run = "cd /usr/share/omarchy", desc = "Go to /usr/share/omarchy" },
+    { on = ["g", "q"], run = 'shell -- ya emit cd "$(zoxide query --interactive)', desc = "Jump interactively" },
 
     # Templates
     # { on = "", run = "", desc = "" },

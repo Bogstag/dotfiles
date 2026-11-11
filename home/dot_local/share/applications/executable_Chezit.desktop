@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=Chezit
-Comment=Chezit
+Comment=Chezit in go
 Exec=xdg-terminal-exec --app-id=TUI.tile -e chezit
 Terminal=false
 Type=Application

@@ -39,14 +39,25 @@ docs/**
 # ░▀█▀░█▀▀░█▀█░█▀█░█▀▄░█▀▀░█▀▀░░░▀█▀░░░▀█▀░█▀▀░█▀█░█▀█░█▀▄░█▀▀   #
 # ░░█░░█░█░█░█░█░█░█▀▄░█▀▀░▀▀█░░░░█░░░░░█░░█░█░█░█░█░█░█▀▄░█▀▀   #
 # ░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀▀▀░░░▀▀▀░░░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀░▀▀▀   #
-README.md
+**/*_cache.*
+**/*_history
+**/*-backup*
+**/*-lock
+**/*-lock.*
+**/*-locks
+**/*.bak
+**/*.cache
+**/*.lock
+**/*.sqlite
+**/*.tmp*
+**/*ignore*
+**/backup*
+**/cache
+**/tmp
 AGENTS.md
-**/*tmp/**
-**/*cache/**
-**/*.sqlite/**
-**/*.src.ini
-# Ignore files i tell you to ignore
-**/ignore*/**
+README.md
+# Ignore files i dotn want to ignore
+!**/lock-*
 
 ############################################################################
 # ░▀█▀░█▀▀░█▀█░█▀█░█▀▄░█▀▀░░░█▀█░█▀█░░░█░░░▀█▀░█▀█░█░█░█░█░ also known as  #
@@ -59,41 +70,31 @@ AppData
 # ░█░░░█▀█░█▀▀░▄▀░░█░█░█░█░░█░░░░█░█░█░█░█░█░█▀█░█░█░█▀█░█░█░█▀▀░█░█       #
 # ░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀▀▀░░░▀▀▀░▀░▀░▀░▀░▀░▀░▀░▀░▀░▀░▀▀▀░▀▀▀░▀▀░       #
 # From the command chezmoi unmanaged i dont want to manage 🙅
+.codex
+!.codex/
+!.codex/aperture.config.toml
+!.codex/config.toml
+!.codex/hooks.json
+!.codex/openai.config.toml
+.codex/*
+#
+.cargo
+!.cargo/
+!.cargo/binstall.toml
+.cargo/*
+#
+.config/yazi/plugins
+!.config/yazi/plugins/**/*.md
+.config/yazi/flavors/*
+!.config/yazi/flavors/orlok.yazi
+!.config/yazi/flavors/orlok.yazi/*
+#
+.agents/skills/
 .bash_history
+.bashdb_hist
 .chezmoiscripts/20-install-skills.sh # TODO: rewrite and remove this
 .claude
-.codex/.ai-usagebar-codex-credentials.lock
-.codex/.codex-global-state.json
-.codex/.sandbox_migration
-.codex/.sqlite-maintenance.lock
-.codex/app-server-control
-.codex/app-server-daemon
-.codex/archived_sessions
-.codex/code-review-plugin
-.codex/computer-use
-.codex/dictation-history
-.codex/goals_1.sqlite-shm
-.codex/goals_1.sqlite-wal
-.codex/herdr-agent-state.sh
-.codex/history.jsonl
-.codex/installation_id
-.codex/ipc
-.codex/logs_2.sqlite-shm
-.codex/logs_2.sqlite-wal
-.codex/mcp-oauth-locks
-.codex/memories
-.codex/memories_1.sqlite-shm
-.codex/memories_1.sqlite-wal
-.codex/node_repl
-.codex/packages
-.codex/pets
-.codex/plugins
-.codex/queue_1.sqlite-shm
-.codex/queue_1.sqlite-wal
-.codex/rollout-migrations
-.codex/sqlite
-.codex/state_5.sqlite-shm
-.codex/state_5.sqlite-wal
+.codegraph/
 .dotnet
 .local/share/applications/Basecamp.desktop
 .local/share/applications/Discord.desktop
@@ -111,6 +112,8 @@ AppData
 .local/share/applications/X.desktop
 .local/share/applications/YouTube.desktop
 .local/share/applications/Zoom.desktop
+.local/share/Trash
+.config/yazi/plugins
 .npm
 .nv
 .pki
