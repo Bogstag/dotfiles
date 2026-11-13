@@ -24,6 +24,7 @@ sandbox_mode           = "workspace-write"
   sansFontSize                       = 14
   autoArchiveAfterDays               = 90
   default-workspace-full-view        = true
+  migratedFollowUpQueueToSteer       = false
 
 [features.guardianv2]
   enabled = false
@@ -61,15 +62,15 @@ sandbox_mode           = "workspace-write"
   }
 
 [marketplaces]
-  plugins                = { source_type = "local", source = "/home/bogge/Projects/plugins" }
-  openai-bundled         = {
-    source_type = "local",
-    source      = "/home/bogge/.codex/.tmp/bundled-marketplaces/openai-bundled"
-  }
-  openai-primary-runtime = {
-    source_type = "local",
-    source      = "/home/bogge/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
-  }
+  plugins = { source_type = "local", source = "/home/bogge/Projects/plugins" }
+
+[marketplaces.openai-primary-runtime]
+  source_type = "local"
+  source      = "/home/bogge/.cache/codex-runtimes/codex-primary-runtime/plugins/openai-primary-runtime"
+
+[marketplaces.openai-bundled]
+  source_type = "local"
+  source      = "/home/bogge/.codex/.tmp/bundled-marketplaces/openai-bundled"
 
 [mcp_servers]
   aperture  = { url = "https://ai.goldeye-monster.ts.net/v1/mcp" }
@@ -95,7 +96,7 @@ sandbox_mode           = "workspace-write"
     env                 = {
       BROWSER_USE_AVAILABLE_BACKENDS           = "chrome,iab,mcpapps",
       BROWSER_USE_CODEX_APP_BUILD_FLAVOR       = "prod",
-      BROWSER_USE_CODEX_APP_VERSION            = "26.1103.60933",
+      BROWSER_USE_CODEX_APP_VERSION            = "26.1106.51428",
       BROWSER_USE_TINYSKY_ENABLED              = "1",
       CODEX_CLI_PATH                           = "/usr/lib/chatgpt/resources/codex",
       CODEX_HOME                               = "/home/bogge/.codex",

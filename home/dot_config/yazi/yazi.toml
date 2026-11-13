@@ -3,15 +3,14 @@
 # file:///home/bogge/.config/yazi/yazi.toml
 
 [mgr]
-  linemode    = "size"
+  # linemode    = "size"
   ratio       = [1, 3, 4]
+  scrolloff   = 20
   show_hidden = true
   sort_by     = "natural"
 
 [preview]
-  max_height = 1500
-  max_width  = 1500
-  wrap       = "yes"
+  wrap = "yes"
 
   # [plugin]
   #   prepend_fetchers = [
