@@ -33,8 +33,28 @@
 # ░█░█░█░█░░█░░░░░█░░█░█░░░█░█░░█░░░░█▀█░█░█░█░█░█▀▀             #
 # ░▀░▀░▀▀▀░░▀░░░░▀▀▀░▀░▀░░░▀░▀░░▀░░░░▀░▀░▀▀▀░▀░▀░▀▀▀             #
 **/*.md
+#
 docs
 docs/**
+#
+.config/omarchy/plugins/*/*
+!.config/omarchy/plugins/*/CHANGELOG.md
+!.config/omarchy/plugins/*/DESIGN.md
+!.config/omarchy/plugins/*/preview.*
+!.config/omarchy/plugins/*/README.md
+#
+.config/yazi/plugins/*/*
+!.config/yazi/plugins/*/README.md
+.config/yazi/flavors/*
+!.config/yazi/flavors/orlok.yazi
+!.config/yazi/flavors/orlok.yazi/*
+#
+.vscode/extensions/*/*
+!.vscode/extensions/*/changelog.md
+!.vscode/extensions/*/CHANGELOG.md
+!.vscode/extensions/*/readme.md
+!.vscode/extensions/*/README.md
+#
 ##################################################################
 # ░▀█▀░█▀▀░█▀█░█▀█░█▀▄░█▀▀░█▀▀░░░▀█▀░░░▀█▀░█▀▀░█▀█░█▀█░█▀▄░█▀▀   #
 # ░░█░░█░█░█░█░█░█░█▀▄░█▀▀░▀▀█░░░░█░░░░░█░░█░█░█░█░█░█░█▀▄░█▀▀   #
@@ -82,13 +102,7 @@ AppData
 !.cargo/
 !.cargo/binstall.toml
 .cargo/*
-#
-.config/yazi/plugins
-!.config/yazi/plugins/**/*.md
-.config/yazi/flavors/*
-!.config/yazi/flavors/orlok.yazi
-!.config/yazi/flavors/orlok.yazi/*
-#
+
 .agents/skills/
 .bash_history
 .bashdb_hist
@@ -113,7 +127,6 @@ AppData
 .local/share/applications/YouTube.desktop
 .local/share/applications/Zoom.desktop
 .local/share/Trash
-.config/yazi/plugins
 .npm
 .nv
 .pki

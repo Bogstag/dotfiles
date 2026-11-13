@@ -48,4 +48,5 @@
     { sourceUrl = "jdx/fnox", skill = ["fnox"] },
     { sourceUrl = "tailscale/tailscale-skill", skill = ["tailscale"] },
     { sourceUrl = "modem-dev/hunk", skill = ["hunk-review"] },
+    { sourceUrl = "wheresryan22/anatomy", skill = ["anatomy"] },
   ]

@@ -150,7 +150,7 @@ toml-version = "v1.1.0"
 
 [[schemas]]
   path      = "https://yazi-rs.github.io/schemas/theme.json"
-  include   = ["$HOME/.config/yazi/theme.toml", "**/yazi/theme.toml"]
+  include   = ["**/yazi/theme.toml", "**/yazi/flavors/*/flavor.toml"]
   overrides = [
     {
       targets                         = [

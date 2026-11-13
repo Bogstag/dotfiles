@@ -1,2 +1,11 @@
 #:schema https://yazi-rs.github.io/schemas/vfs.json
 # default file:///$HOME/.config/yazi/vfs-default.toml
+
+[rclone.test]
+  kind         = "scope"
+  run          = "rclone"
+  root         = "/"
+  backend.type = "webdav"
+  backend.url  = "https://my-domain.com/"
+  backend.user = "yazi"
+  backend.pass = "fake-password"
