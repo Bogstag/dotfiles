@@ -8,11 +8,15 @@ FIGlet prints its input using large characters a.k.a FIGcharacters. Made up of o
 
 Source:
 
-- [figlet.org](https://www.figlet.org/)
+- [figlet org](https://www.figlet.org/)
 - [cmatsuoka/figlet](https://github.com/cmatsuoka/figlet)
 - [The TOIlet project](http://caca.zoy.org/wiki/toilet)
 
 Everything you ever whanted to know aout FIGlets: [figfont.txt](https://github.com/cmatsuoka/figlet/blob/master/figfont.txt)
+
+## Demo
+
+Are you intrested to see what it lookslike then [here are all fonts spelling the word dot](./all_figlets.md)
 
 ## Command
 
