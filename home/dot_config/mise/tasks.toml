@@ -1,4 +1,5 @@
 #:schema https://mise.jdx.dev/schema/mise-task.json
+# file:///home/bogge/.config/mise/tasks.toml
 
 [lint]
   depends     = ["lint:*"]
@@ -17,3 +18,11 @@
 ["sync_global_skills"]
   description = "Add or update global skills"
   run         = "mise skills sync --global"
+
+["Update_external_markdown"]
+  description = "Re add external md files"
+  run         = [
+    "chezmoi re-add ~/.config/yazi/plugins/*/{README,readme}.md",
+    "chezmoi re-add ~/.config/omarchy/plugins/*/{CHANGELOG,DESIGN,README,changelog,design,readme}.md",
+    "chezmoi re-add ~/.config/omarchy/plugins/*/preview.png",
+  ]

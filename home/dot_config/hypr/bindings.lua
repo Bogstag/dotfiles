@@ -22,8 +22,11 @@ hl.unbind("SUPER + grave")
 o.bind("SUPER + code:49", "Toggle Quake console", hl.dsp.workspace.toggle_special("qconsole"))
 --
 hl.unbind("SUPER + SHIFT + grave")
-o.bind("SUPER + SHIFT + code:49", "Move window to Quake console",
-    hl.dsp.window.move({ workspace = "special:qconsole", follow = false }))
+o.bind(
+	"SUPER + SHIFT + code:49",
+	"Move window to Quake console",
+	hl.dsp.window.move({ workspace = "special:qconsole", follow = false })
+)
 --
 -- Open the installed ChatGPT desktop app instead of the default web app.
 hl.unbind("SUPER + SHIFT + A")
@@ -38,6 +41,10 @@ o.bind("SUPER + SHIFT + F", "File manager Omafile", "omarchy-shell shell toggle 
 --
 --
 o.bind("SUPER + SHIFT + K", "Quick Reference", "omarchy-shell shell toggle ggregoro.quick-reference")
+--
+--
+o.bind("CTRL + F1", "KeyHint", "keyhint")
+--
 --
 --#endregion <<< me:managed <<<
 --
