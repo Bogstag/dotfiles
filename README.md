@@ -300,6 +300,12 @@ Add or update skills in repo
 
 - **Usage:** `Update-schema-ryl`
 
+## `Update_external_markdown`
+
+- **Usage:** `Update_external_markdown`
+
+Re add external md files
+
 ## `format:gotmpl:write`
 
 - **Usage:** `format:gotmpl:write`

@@ -47,3 +47,8 @@ chezmoi.code-workspace
 notes.md
 ascii-fonts-figlets.md
 .agents/skills/.mise-skills.json
+
+# Do not add external docs to my repo
+home/dot_config/omarchy/plugins/*/*.md
+home/dot_config/omarchy/plugins/*/*.png
+home/dot_config/yazi/plugins/*/*.md

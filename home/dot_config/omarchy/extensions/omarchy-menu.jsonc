@@ -1,6 +1,7 @@
 {
   // Extends the Quickshell Omarchy menu with JSONC.
   // Extends: file:///usr/share/omarchy/default/omarchy/omarchy-menu.jsonc
+  // Source: file:///home/bogge/.config/omarchy/extensions/omarchy-menu.jsonc
   // Fields:
   //   icon        Nerd Font glyph shown in the icon column.
   //   label       Visible row title.
@@ -19,21 +20,11 @@
   // "about": {"icon":"","label":"About","action":"omarchy-launch-or-focus-tui \"zsh -c 'fastfetch; read -k 1'\""}, # Replace the default About
   //
   "Skuggsidan": { "icon": "", "label": "Skuggsidan" },
-  "Skuggsidan.devdocs": {
-    "icon": "",
-    "label": "Dev Docs",
-    "action": "omarchy launch webapp https://devdocs.io/"
-  },
-  "Skuggsidan.keyhint": {
-    "icon": "󰌌",
-    "label": "KeyHint",
-    "action": "keyhint"
-  },
   "style.lockscreen": {
-    "icon": "󰌾",
-    "label": "Lock Screen",
+    "action": "omarchy-shell lock explore",
     "aliases": ["lockscreen", "lock-screen"],
     "description": "Preview and choose a lock screen design",
-    "action": "omarchy-shell lock explore"
+    "icon": "󰌾",
+    "label": "Lock Screen"
   }
 }

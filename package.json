@@ -1,12 +1,25 @@
 {
   "name": "dotfiles",
+  "version": "0.0.3",
   "private": true,
+  "keywords": [
+    "chezmoi",
+    "dotfiles",
+    "insanity",
+    "madness",
+    "mise",
+    "omarchy",
+    "vitepress"
+  ],
+  "author": "Bogstag",
+  "type": "module",
+  "main": "index.ts",
   "scripts": {
     "docs:build": "vitepress build .",
     "docs:dev": "vitepress dev .",
     "docs:preview": "vitepress preview ."
   },
   "devDependencies": {
-    "vitepress": "^1.6.4"
+    "vitepress": "1.6.4"
   }
 }

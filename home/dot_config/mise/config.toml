@@ -116,3 +116,4 @@
   worktrunk                     = "latest"
   yazi                          = "latest"
   "cargo:chezmoi-tui"           = "latest"
+  typos                         = "latest"

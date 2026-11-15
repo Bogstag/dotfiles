@@ -1,0 +1,30 @@
+# See https://github.com/crate-ci/typos/blob/master/docs/reference.md to configure typos
+[files]
+  extend-exclude = []
+  ignore-hidden  = false
+  ignore-files   = false
+  ignore-dot     = false
+  ignore-vcs     = false
+  ignore-global  = false
+  ignore-parent  = false
+
+[default]
+  binary                       = false
+  check-filename               = true
+  check-file                   = true
+  unicode                      = true
+  locale                       = "en-gb"
+  extend-ignore-re             = []
+  extend-ignore-identifiers-re = []
+  extend-ignore-words-re       = []
+
+[default.extend-words]
+  # <typo> = "<correction>"
+  hass = "hass"
+
+[default.extend-identifiers]
+  # <typo> = "<correction>"
+
+[type.NAME]
+  extend-glob = []
+  # ... see `default`

@@ -61,3 +61,12 @@
 ["Sync_repo_skills"]
   description = "Add or update skills in repo"
   run         = "mise skills sync --dir .agents/skills"
+
+["Update_external_markdown"]
+  # TODO: Find a way to run this auto after plugin update.
+  description = "Re add external md files"
+  run         = [
+    "chezmoi re-add ~/.config/yazi/plugins/*/{README,readme}.md",
+    "chezmoi re-add ~/.config/omarchy/plugins/*/{CHANGELOG,DESIGN,README,changelog,design,readme}.md",
+    "chezmoi re-add ~/.config/omarchy/plugins/*/preview.png",
+  ]
