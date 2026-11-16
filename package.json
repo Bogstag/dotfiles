@@ -15,11 +15,31 @@
   "type": "module",
   "main": "index.ts",
   "scripts": {
+    "check:cspell": "cspell .",
+    "check:oxfmt": "oxfmt --check",
+    "check:oxlint": "oxlint",
     "docs:build": "vitepress build .",
     "docs:dev": "vitepress dev .",
-    "docs:preview": "vitepress preview ."
+    "docs:preview": "vitepress preview .",
+    "fix:oxfmt": "oxfmt",
+    "fix:oxlint": "oxlint --fix",
+    "oxlint:danger": "oxlint --fix-dangerously",
+    "oxlint:suggest": "oxlint --fix-suggestions"
+  },
+  "dependencies": {
+    "cspell": "^10.5.1"
   },
   "devDependencies": {
+    "@oxc-node/cli": "^1.0.2",
+    "@oxc-node/core": "^1.0.2",
+    "@tsconfig/node-lts": "^26.0.1",
+    "@tsconfig/node-ts": "^23.6.5",
+    "@tsconfig/recommended": "^1.0.14",
+    "tsrs": "^0.25.0-ts7.1.0-beta",
     "vitepress": "1.6.4"
+  },
+  "lint-staged": {
+    "*": "oxfmt --no-error-on-unmatched-pattern",
+    "*.{js,jsx,ts,tsx,mjs,cjs}": "npm run check:oxlint"
   }
 }

@@ -16,7 +16,7 @@
 **/auth*.*
 **/fnox/config.*
 **/omarchy/calendars*.*
-**/share/opencode/auth*.*
+**/share/OpenCode/auth*.*
 ##################################################################
 # ░█▀█░█▀█░░░█▀▀░█▀▀░█▀▀░█▀▄░█▀▀░▀█▀░█▀▀                         #
 # ░█░█░█░█░░░▀▀█░█▀▀░█░░░█▀▄░█▀▀░░█░░▀▀█                         #
@@ -37,7 +37,6 @@ node_modules/
 tests/
 .agents/
 .github/
-.jouet/
 
 # These are symlinks into the active tool version's install directory
 .agents/skills/

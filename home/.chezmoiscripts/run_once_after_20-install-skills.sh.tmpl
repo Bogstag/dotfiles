@@ -13,6 +13,7 @@ agents='# {{- .skills.agents | toStrings | join " " }}'
 
 # {{ range .skills.global }}
 sourceUrl="# {{- .sourceUrl }}"
+
 # {{- range .skill }}
 skill="# {{ . }}"
 if [[ -d ~/.agents/skills/"${skill}" ]]; then
