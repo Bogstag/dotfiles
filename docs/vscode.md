@@ -4,7 +4,7 @@
 
 ### Plugins
 
-I used to have a lot of plugins for managing colors in vscode, but now days it have some built ins functions. It have its own color picker, but the preview is to small for me so i still use the Color Hightligt (`naumovs.color-highlight`) plugin.
+I used to have a lot of plugins for managing colors in vscode, but now days it have some built ins functions. It have its own color picker, but the preview is to small for me so i still use the Color highlight (`naumovs.color-highlight`) plugin.
 
 Color detection at the same time with Color Highlight (CH) and VSCode (VC).
 
@@ -16,36 +16,41 @@ Color detection at the same time with Color Highlight (CH) and VSCode (VC).
   - Color Highlight has two functions:
     - Color background to color
     - Make text visible (black/white) against current background color
+      - Text dont change color when using HSL, LCH or oklch.
+        - hsl(255 255 30), Below (xxx xxx 30) it is hard to read.
+        - hsl(255 100% 100% / 20%), Below xxx xxx xxx / 20 it is hard to read.
+        - lch(100% 100 334 / 20%), Below xxx xxx xxx / 20 it is hard to read.
 - 🟩 = All functions works
 - 🟨 = Some functions works
 - 🟥 = None functions works
 
 | Format                            | Color Highlight | VSCode | Notes     |
 | --------------------------------- | --------------- | ------ | --------- |
-| #fff                              | 🟩              | 🟩     |           |
-| #ffff                             | 🟩              | 🟩     |           |
-| #ff00dd                           | 🟩              | 🟩     |           |
+| #123                              | 🟩              | 🟩     |           |
+| #1234                             | 🟩              | 🟩     |           |
+| #123456                           | 🟩              | 🟩     |           |
+| #12345678                         | 🟩              | 🟩     |           |
+| #ffffff                           | 🟩              | 🟩     |           |
 | #ffffffff                         | 🟩              | 🟩     |           |
-| `hsl(308, 100%, 50%)`             | 🟩              | 🟩     | \`color\` |
-| hsl(308 100% 50%)                 | 🟩              | 🟩     |           |
-| hsl(308, 100%, 50%)               | 🟩              | 🟩     |           |
-| rgb(255, 0, 221)                  | 🟩              | 🟩     |           |
+| `hsl(308, 100%, 30%)`             | 🟨 Black text   | 🟩     | \`color\` |
+| hsl(308 100% 30%)                 | 🟨 Black text   | 🟩     |           |
+| rgb(0, 0, 0)                      | 🟩              | 🟩     |           |
 | rgb(255 0 221)                    | 🟩              | 🟩     |           |
-| hsl(308 100% 50%)                 | 🟩              | 🟩     |           |
-| hsl(308, 100, 50)                 | 🟨 text black   | 🟥     |           |
+| rgb(255, 0, 221)                  | 🟩              | 🟩     |           |
 | `#ff00dd`                         | 🟩              | 🟥     | \`color\` |
-| hsl(308 100% 50% / 50%)           | 🟩              | 🟥     |           |
-| hsla(308 100% 50% / 50%)          | 🟩              | 🟥     |           |
 | hwb(308, 0%, 0%)                  | 🟩              | 🟥     |           |
-|                                   | 🟩              | 🟥     |           |
-| lch(58.633% 100.425 334.065)      | 🟩              | 🟥     |           |
-| lch(58.63% 100.42 334.06 / .5)    | 🟩              | 🟥     |           |
 | lch(58.6% 100.4 334.0)            | 🟩              | 🟥     |           |
-| oklch(59.690% 0.302 336.105 / .5) | 🟩              | 🟥     |           |
+| lch(58.633% 100.425 334.065)      | 🟩              | 🟥     |           |
 | oklch(59.690% 0.302 336.105)      | 🟩              | 🟥     |           |
-| rgb(255, 0, 221, 50%)             | 🟩              | 🟥     |           |
-| rgb(255 0 221 / 50%)              | 🟩              | 🟥     |           |
-| rgb(255 0 221 / 0.5)              | 🟩              | 🟥     |           |
+| hsl(308 100 30)                   | 🟨 Black text   | 🟥     |           |
+| hsl(308 100% 50% / 30%)           | 🟨 Black text   | 🟥     |           |
+| hsla(308 100% 50% / 30%)          | 🟨 Black text   | 🟥     |           |
+| lch(100% 100 334 / 20%)           | 🟨 Black text   | 🟥     |           |
+| lch(58.63% 100.42 334.06 / .3)    | 🟨 Black text   | 🟥     |           |
+| oklch(59.690% 0.302 336.105 / .3) | 🟨 Black text   | 🟥     |           |
+| rgb(255 0 221 / 0.3)              | 🟨 Black text   | 🟥     |           |
+| rgb(255 0 221 / 30%)              | 🟨 Black text   | 🟥     |           |
+| rgb(255, 0, 221, 30%)             | 🟨 Black text   | 🟥     |           |
 
 #### Dont work
 

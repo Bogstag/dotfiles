@@ -1,6 +1,6 @@
 # fig
 
-fig is a FIGlet wrapper, with some functionallity added.
+fig is a FIGlet wrapper, with some functionality added.
 
 FIGlet stands for "Frank, Ian and Glenn's LETters".
 
@@ -12,11 +12,11 @@ Source:
 - [cmatsuoka/figlet](https://github.com/cmatsuoka/figlet)
 - [The TOIlet project](http://caca.zoy.org/wiki/toilet)
 
-Everything you ever whanted to know aout FIGlets: [figfont.txt](https://github.com/cmatsuoka/figlet/blob/master/figfont.txt)
+Everything you ever whanted to know about FIGlets: [figfont.txt](https://github.com/cmatsuoka/figlet/blob/master/figfont.txt)
 
 ## Demo
 
-Are you intrested to see what it lookslike then [here are all fonts spelling the word dot](./all_figlets.md)
+Are you interested to see what it lokslike then [here are all fonts spelling the word dot](./fig-all-fonts.md)
 
 ## Command
 
@@ -27,7 +27,7 @@ Usage: figlet [ -cklnoprstvxDELNRSWX ] [ -d fontdirectory ]
               [ -f fontfile ] [ -m smushmode ] [ -w outputwidth ]
               [ -C controlfile ] [ -I infocode ] [ message ]
 
-# Big letter is usally inverse to small letter
+# Big letter is usually inverse to small letter
 [ -cklnoprstvxDELNRSWX ]
   -A                # Read input from stdin
   -k                # Kerning (default for most fonts).
@@ -73,7 +73,7 @@ Usage: figlet [ -cklnoprstvxDELNRSWX ] [ -d fontdirectory ]
 ## Software
 
 The current version of FIGlet is 2.2.5 (May 2012)
-When using figlet raw, tou can write and end/exit with `EOF` or `CTRL + D`
+When using figlet raw, you can write and end/exit with `EOF` or `CTRL + D`
 
 ### Scripts
 
@@ -150,7 +150,7 @@ If you really don't like the '#' character for black squares, just pipe the
  Figlet output to 'tr'. The ':' character gives good results...
 
    `echo 08a7z6y5Y4y3Y2Z1A | figlet -f eftichess | tr # :`
-   Whis worked for me: `echo 08a7z6y5Y4y3Y2Z1A | figlet -f eftichess`
+   This worked for me: `echo 08a7z6y5Y4y3Y2Z1A | figlet -f eftichess`
 
 
 

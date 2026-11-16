@@ -77,6 +77,7 @@
 [tools]
   "aqua:Kampfkarren/selene"     = "latest"
   "aqua:owenlamont/ryl"         = "latest"
+  "cargo:chezmoi-tui"           = "latest"
   "github:daptify14/chezit"     = { version = "latest", os = ["linux"] }
   "github:microsoft/apm"        = "latest"
   "go:golang.org/x/tools/gopls" = "latest"
@@ -94,7 +95,6 @@
   hk                            = "latest"
   jactionlint                   = "latest"
   java                          = "latest"
-  jouet                         = "latest"
   lua                           = "latest"
   lua-language-server           = "latest"
   node                          = ["lts", "26"]
@@ -111,9 +111,9 @@
   shfmt                         = "latest"
   stylua                        = "latest"
   tombi                         = "latest"
+  typos                         = "latest"
   uv                            = "latest"
   vp                            = "latest"
   worktrunk                     = "latest"
   yazi                          = "latest"
-  "cargo:chezmoi-tui"           = "latest"
-  typos                         = "latest"
+  cspell                        = "latest"
