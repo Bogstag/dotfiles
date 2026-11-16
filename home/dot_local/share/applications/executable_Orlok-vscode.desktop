@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name=Orlok VSCode
+GenericName=Text Editor
+Type=Application
+GenericName=Orlok VSCode
+Comment=Open project
+# Exec=/usr/bin/code ~/Projects/Orlok --profile "Node.js" --new-window
+Exec=code --profile "Node.js" --new-window /home/bogge/Projects/Orlok
+Icon=vscode
+Type=Application
+StartupNotify=false
+StartupWMClass=com.microsoft.VSCode
+Categories=TextEditor;Development;IDE;
+MimeType=application/x-code-workspace;
+Actions=new-empty-window;
+Keywords=vscode;

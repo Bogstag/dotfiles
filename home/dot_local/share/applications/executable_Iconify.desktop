@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Iconify
+Comment=Iconify
+Exec=omarchy-launch-webapp "https://icon-sets.iconify.design"
+Terminal=false
+Type=Application
+Icon=iconify
+StartupNotify=true
+StartupWMClass=chrome-icon-sets.iconify.design__-Default

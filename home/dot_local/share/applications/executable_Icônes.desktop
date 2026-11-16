@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Icônes
+Comment=Icônes
+Exec=omarchy-launch-webapp "https://icones.js.org/collection/all"
+Terminal=false
+Type=Application
+Icon=icônes
+StartupNotify=true
+StartupWMClass=chrome-icones.js.org__collection_all-Default

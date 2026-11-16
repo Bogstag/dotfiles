@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Globster
+Comment=Globster
+Exec=omarchy-launch-webapp "https://globster.xyz"
+Terminal=false
+Type=Application
+Icon=globster
+StartupNotify=true
+StartupWMClass=chrome-globster.xyz__-Default

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=NerdFonts
+Comment=NerdFonts
+Exec=omarchy-launch-webapp "https://www.nerdfonts.com/cheat-sheet"
+StartupWMClass=chrome-www.nerdfonts.com__cheat-sheet-Default
+Terminal=false
+Type=Application
+Icon=nerdfonts
+StartupNotify=true
