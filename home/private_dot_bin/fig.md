@@ -43,7 +43,7 @@ Usage: figlet [ -cklnoprstvxDELNRSWX ] [ -d fontdirectory ]
   -p                # Puts FIGlet into paragraph mode
   -n                # (default) every newline is a line break.
   # Handle the justification of FIGlet output.
-  -c                # Center justification.
+  -c                # Centre justification.
   -l                # Left justification
   -r                # Right justification.
   -x                # Default justification.
@@ -211,7 +211,7 @@ Date:         Thu, 23 Feb 1995 15:55:22 +0100
 Reply-To: "Discussions about the multi-font large-letter program,              FIGLET." <FIGLET-L@VMD.CSO.UIUC.EDU>
 Sender: "Discussions about the multi-font large-letter program,              FIGLET." <FIGLET-L@VMD.CSO.UIUC.EDU>
 From: Michel Eftimakis <Michel.Eftimakis@ustc.vlsi.com>
-Organization: VLSI Technology - US Technology Centers
+Organisation: VLSI Technology - US Technology Centres
 Subject:      Eftiwall characters table - Really useful !!!
 To: Multiple recipients of list FIGLET-L <FIGLET-L@VMD.CSO.UIUC.EDU>
 

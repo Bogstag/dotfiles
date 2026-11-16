@@ -8,31 +8,30 @@
 [init]
 	defaultBranch = main
 [pull]
-	rebase = true 			 # Rebase (instead of merge) on pull
+	rebase = true 			# Rebase (instead of merge) on pull
 [push]
-	autoSetupRemote = true   # Automatically set upstream branch on push
+	autoSetupRemote = true 	# Automatically set upstream branch on push
 [diff]
-	algorithm = histogram    # Clearer diffs on moved/edited lines
-	colorMoved = plain       # Highlight moved blocks in diffs
-	mnemonicPrefix = true    # More intuitive refs in diff output
-	# tool = hunk				 # Not default
+	algorithm = histogram  	# Clearer diffs on moved/edited lines
+	colorMoved = plain     	# Highlight moved blocks in diffs
+	mnemonicPrefix = true  	# More intuitive refs in diff output
+	tool = omnidiff			# Not default
 [commit]
-	verbose = true           # Include diff comment in commit message template
+	verbose = true         	# Include diff comment in commit message template
 	gpgsign = true
 [column]
-	ui = auto 			     # Output in columns when possible
+	ui = auto 			   	# Output in columns when possible
 [branch]
-	sort = -committerdate    # Sort branches by most recent commit first
+	sort = -committerdate  	# Sort branches by most recent commit first
 [tag]
-	sort = -version:refname  # Sort version numbers as you would expect
+	sort = -version:refname	# Sort version numbers as you would expect
 [rerere]
-	enabled = true           # Record and reuse conflict resolutions
-	autoupdate = true        # Apply stored conflict resolutions automatically
+	enabled = true         	# Record and reuse conflict resolutions
+	autoupdate = true       # Apply stored conflict resolutions automatically
 # All above is default
 
 [core]
 	excludesfile = {{ .chezmoi.destDir }}/.gitignore_global
-	# pager = "hunk pager"
 
 [credential "https://github.com"]
 	helper =
@@ -50,11 +49,15 @@
 [difftool]
 	prompt = false
 
+[difftool "omnidiff"]
+	cmd = /home/bogge/.local/share/mise/installs/github-ivankovic-omnidiff/latest/omnidiff -- \"$LOCAL\" \"$REMOTE\"
+
 [difftool "hunk"]
 	cmd = hunk difftool \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 
 [gpg]
 	format = ssh
+
 [gpg "ssh"]
 	allowedSignersFile = {{ .chezmoi.destDir }}/.ssh/allowed_signers
 

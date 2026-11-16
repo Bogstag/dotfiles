@@ -88,6 +88,7 @@
   bitwarden-secrets-manager     = "latest"
   cargo-binstall                = "latest"
   codegraph                     = "latest"
+  cspell                        = "latest"
   dagu                          = "latest"
   editorconfig-checker          = "latest"
   fnox                          = "latest"
@@ -97,7 +98,7 @@
   java                          = "latest"
   lua                           = "latest"
   lua-language-server           = "latest"
-  node                          = ["lts", "26"]
+  node                          = ["lts"]
   oxfmt                         = "latest"
   oxlint                        = "latest"
   pitchfork                     = "latest"
@@ -116,4 +117,4 @@
   vp                            = "latest"
   worktrunk                     = "latest"
   yazi                          = "latest"
-  cspell                        = "latest"
+  "github:ivankovic/omnidiff"   = "latest"
