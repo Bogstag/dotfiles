@@ -117,7 +117,7 @@ ftp://ftp.figlet.org/pub/figlet/program
 
 ### Chess
 
-```chess
+```text
      _ _                          __                 __           __
     | U |_      || _     _  _   _/ _||()_|| _ _  _  / _|   _ ||  |o )
     |   /o\\VV7 | ]o\ |U(c'/o\ /o\ ]| ]//| Xo(c'(c' | ]o\|/ \| ]  //

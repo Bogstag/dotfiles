@@ -24,8 +24,8 @@ const vitepressConfig = defineConfigWithTheme({
       {
         text: "Guide",
         items: [
-          { text: "Introduction", link: "/introduction" },
-          { text: "Getting Started", link: "/getting-started" },
+          { text: "~", link: "/home" },
+          { text: "Docs", link: "/docs" },
         ],
       },
     ],
