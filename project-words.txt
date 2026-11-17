@@ -1,0 +1,12 @@
+# 2026-11-17
+adbkey
+Bitwarden
+chezmoi
+chezmoiignore
+codespell
+jactionlint
+lintignore
+Syncthing
+usagebar
+voidzero
+yazi

@@ -1,6 +1,13 @@
 # https://github.com/daptify14/chezit#configuration
 
-diff_builtin: false # Do not use built-in diff rendering
-icons: nerdfont # nerdfont | unicode | none
-mode: write # write | read_only
-panel: auto # auto | show | hide
+# Do not use built-in diff rendering
+diff_builtin: false
+
+# nerdfont | unicode | none
+icons: nerdfont
+
+# write | read_only
+mode: write
+
+# auto | show | hide
+panel: auto
