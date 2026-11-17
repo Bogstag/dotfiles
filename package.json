@@ -12,34 +12,61 @@
     "vitepress"
   ],
   "author": "Bogstag",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bogstag/dotfiles.git"
+  },
   "type": "module",
   "main": "index.ts",
   "scripts": {
+    "build": "vitepress build .",
+    "check:codespell": "codespell",
     "check:cspell": "cspell .",
     "check:oxfmt": "oxfmt --check",
     "check:oxlint": "oxlint",
+    "check:typos": "typos .",
+    "dev": "vitepress dev .",
     "docs:build": "vitepress build .",
     "docs:dev": "vitepress dev .",
     "docs:preview": "vitepress preview .",
+    "fix:codespell": "codespell --write-changes",
     "fix:oxfmt": "oxfmt",
     "fix:oxlint": "oxlint --fix",
+    "fix:typos": "typos --write-changes .",
     "oxlint:danger": "oxlint --fix-dangerously",
-    "oxlint:suggest": "oxlint --fix-suggestions"
+    "oxlint:suggest": "oxlint --fix-suggestions",
+    "preview": "vitepress preview ."
   },
   "dependencies": {
-    "cspell": "^10.5.1"
+    "cspell": "10.5.1"
   },
   "devDependencies": {
-    "@oxc-node/cli": "^1.0.2",
-    "@oxc-node/core": "^1.0.2",
-    "@tsconfig/node-lts": "^26.0.1",
-    "@tsconfig/node-ts": "^23.6.5",
-    "@tsconfig/recommended": "^1.0.14",
+    "@oxc-node/cli": "1.0.2",
+    "@oxc-node/core": "1.0.2",
+    "@tsconfig/node-lts": "26.0.1",
+    "@tsconfig/node-ts": "23.6.5",
+    "@tsconfig/recommended": "1.0.14",
     "tsrs": "^0.25.0-ts7.1.0-beta",
     "vitepress": "1.6.4"
   },
   "lint-staged": {
     "*": "oxfmt --no-error-on-unmatched-pattern",
     "*.{js,jsx,ts,tsx,mjs,cjs}": "npm run check:oxlint"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "version": ">=11",
+      "onFail": "error"
+    },
+    "runtime": {
+      "name": "node",
+      "version": ">=26",
+      "onFail": "error"
+    }
+  },
+  "engines": {
+    "node": ">=26",
+    "npm": ">=11"
   }
 }

@@ -56,9 +56,9 @@
   command = "code"
 
 [diff]
-  command = "/home/bogge/.local/share/mise/installs/github-ivankovic-omnidiff/latest/omnidiff"
-  args = ["--color", "always", "--headless", "{{ `{{ .Destination }}` }}", "{{ `{{ .Target }}` }}"]
-  # pager = "delta --paging never"
+  # command = "/home/bogge/.local/share/mise/installs/github-ivankovic-omnidiff/latest/omnidiff"
+  # args = ["--color", "always", "{{ `{{ .Destination }}` }}", "{{ `{{ .Target }}` }}"]
+  pager = "delta --paging never"
 
 [merge]
   args    = ["{{ `{{ .Destination }}` }}", "{{ `{{ .Source }}` }}", "{{ `{{ .Target }}` }}"]

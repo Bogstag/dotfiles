@@ -1,9 +1,23 @@
+# ░█▀▀░█░█░█▀▀░▀▀█░█▄█░█▀█░▀█▀
+# ░█░░░█▀█░█▀▀░▄▀░░█░█░█░█░░█░
+# ░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀▀▀
 if command -v chezmoi &> /dev/null; then
     alias cz=chezmoi
     alias czd="chezmoi diff"
     alias cza="chezmoi apply"
+    alias czr="chezmoi re-add"
 fi
 
+# ░█▀█░█▀█░█▀▀░▀█▀░█▀▀░█░░
+# ░█▀▀░█▀█░▀▀█░░█░░█▀▀░█░░
+# ░▀░░░▀░▀░▀▀▀░░▀░░▀▀▀░▀▀▀
+if command -v pastel &> /dev/null; then
+    alias pl=pastel
+fi
+
+# ░█▀▀░▀▀█░█▀█
+# ░█▀▀░▄▀░░█▀█
+# ░▀▀▀░▀▀▀░▀░▀
 if command -v eza &> /dev/null; then
     # eza List Alias
     #

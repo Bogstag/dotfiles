@@ -3,31 +3,8 @@
 
 command_timeout     = 200
 continuation_prompt = " "
-#
-# Icons nf-ex nf-ple
-#
-#                        
-#                        󰯉  ⬬
-# [ ▒▓] [ ░▒▓]      
-# ╰ ─         l  ∟ ╰
-#  ░▒▓ ▓▒░  ▁▂▃▄▅▆▇█ ▉▊▋▌▍▍▎▏▐  ▏▎▍▌▋▊▉
-#              
-#
-# ╭─ $shell  $os  $directory  $git_branch  $nodejs  $mise  $jobs  $cmd_duration  $time 
-# ╰─
-#
-# #9a348e
-# #da627d
-# #fca17d
-# #86bbd8
-# #ff79c6
-# #06969a
-# #33658a
-# #bd93f9
-# #50fa7b
-# #644ac9
-#
-format              = """
+
+format = """
 [╭─](fg:#9a348e bg:#2b2d36)\
 $shell\
 ${env_var.yazi_level}\
@@ -88,7 +65,7 @@ $character"""
 # $character"""
 
 # Use the color palette
-palette      = "dracula"
+palette      = "orlok"
 scan_timeout = 10
 
 [aws]
@@ -259,7 +236,7 @@ scan_timeout = 10
   Ubuntu   = "󰕈"
   Windows  = "󰍲"
 
-[palettes.dracula]
+[palettes.orlok]
   base    = "#1e1e2e"
   blue    = "#644ac9"
   comment = "#6272a4"
