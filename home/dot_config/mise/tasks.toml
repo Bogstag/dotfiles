@@ -1,16 +1,20 @@
 #:schema https://mise.jdx.dev/schema/mise-task.json
 # file:///home/bogge/.config/mise/tasks.toml
 
-[lint]
-  depends     = ["lint:*"]
-  description = "Run all lint checks"
+[check]
+  depends     = ["check:*"]
+  description = "Run all checks"
 
-[uv-global-intall]
+[fix]
+  depends     = ["fix:*"]
+  description = "Run all fixes"
+
+[uv-global-install]
   # To uninstall replace install with uninstall
   description = "Install pkg with exec globally"
   run         = "uv tool install"
 
-[uv-global-intall-no-exec]
+[uv-global-install-no-exec]
   # To uninstall replace install with uninstall
   description = "Install pkg w/o exec globally"
   run         = "uv pip install --system"

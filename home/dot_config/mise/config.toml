@@ -5,15 +5,17 @@
   bash = true
 
 [env]
-  _.path    = [
+  _.path                = [
     "${GOPATH:-$HOME/go}",
     ".bin",
     ".lib",
     "/home/bogge/.lib/qt6/bin",
     "/home/bogge/.local/share/mise/installs/go/latest/bin",
   ]
-  HK_MISE   = 1
-  UV_PYTHON = { value = "{{ tools.python.path }}", tools = true }
+  HK_MISE               = 1
+  UV_PYTHON             = { value = "{{ tools.python.path }}", tools = true }
+  VP_SETUP_NODE_VERSION = "26"
+  VP_PM_MANAGER         = "yes"
 
 [settings]
   color_theme                         = "dracula"
@@ -79,6 +81,7 @@
   "aqua:owenlamont/ryl"         = "latest"
   "cargo:chezmoi-tui"           = "latest"
   "github:daptify14/chezit"     = { version = "latest", os = ["linux"] }
+  "github:ivankovic/omnidiff"   = "latest"
   "github:microsoft/apm"        = "latest"
   "go:golang.org/x/tools/gopls" = "latest"
   "npm:markdownlint-cli"        = "latest"
@@ -117,4 +120,3 @@
   vp                            = "latest"
   worktrunk                     = "latest"
   yazi                          = "latest"
-  "github:ivankovic/omnidiff"   = "latest"
