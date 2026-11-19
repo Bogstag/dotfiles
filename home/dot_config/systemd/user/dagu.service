@@ -1,0 +1,18 @@
+[Unit]
+Description=Dagu Workflow Engine
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/bogge/.local/bin/dagu start-all
+WorkingDirectory=/home/bogge/.dagu
+EnvironmentFile=/home/bogge/.config/dagu/dagu.env
+EnvironmentFile=-/home/bogge/.config/dagu/bootstrap.env
+Restart=always
+RestartSec=10
+# Stop only Dagu itself, so runs in progress keep going across restarts.
+KillMode=process
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# A solution to a problem that really dont need a solution.
+# When trying to send omarchy notification in dagu.
+# I get a error, so if i use this file and run the notification with this command:
+# ~/.local/bin/dagu-notify --app-name dagu "$DAG_NAME $STATUS" "$ERROR, $FAILED_STEPS"
+# It works. But i can also run this command and it also works:
+# XDG_RUNTIME_DIR=/run/user/$(id -u) \
+# DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$(id -u)/bus" \
+# /usr/share/omarchy/bin/omarchy-notification-send --app-name dagu "$DAG_NAME $STATUS" "$ERROR, $FAILED_STEPS"
+#
+XDG_RUNTIME_DIR="/run/user/$(id -u)"
+export XDG_RUNTIME_DIR
+#
+DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
+export DBUS_SESSION_BUS_ADDRESS
+#
+exec /usr/share/omarchy/bin/omarchy-notification-send "$@"

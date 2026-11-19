@@ -3,49 +3,49 @@
 exclude = ["**/modify_*.yml", "**/modify_*.toml"]
 
 [files]
-  markdown = ["**/*.md", "*.mdx"]
-  yaml     = ["*.yaml", "*.yml", ".yamllint"]
+markdown = ["**/*.md", "*.mdx"]
+yaml = ["*.yaml", "*.yml", ".yamllint"]
 
 # tombi: format.rules.table-keys-order = "ascending"
 [lint.rules]
-  ALL            = "enable"
-  document-end   = "disable"
-  document-start = "disable"  # default on
-  # empty-values = "disable"
-  # anchors = "enable"
-  # braces = "enable"
-  # brackets = "enable"
-  # colons = "enable"
-  # commas = "enable"
-  # empty-lines = "enable"
-  # float-values = "disable"
-  # hyphens = "enable"
-  # key-duplicates = "enable"
-  # key-ordering = "enable"   # default disable
-  # line-length = "enable"
-  # new-line-at-end-of-file = "enable"
-  # new-lines = "enable"
-  # octal-values = "disable"
-  # quoted-strings = "disable"
-  # trailing-spaces = "enable"
-  yaml-directive = "disable"
+ALL = "enable"
+document-end = "disable"
+document-start = "disable" # default on
+# empty-values = "disable"
+# anchors = "enable"
+# braces = "enable"
+# brackets = "enable"
+# colons = "enable"
+# commas = "enable"
+# empty-lines = "enable"
+# float-values = "disable"
+# hyphens = "enable"
+# key-duplicates = "enable"
+# key-ordering = "enable"   # default disable
+line-length = { allow-non-breakable-inline-mappings = true, allow-non-breakable-words = true, level = "warning", max = 100 }
+# new-line-at-end-of-file = "enable"
+# new-lines = "enable"
+# octal-values = "disable"
+# quoted-strings = "disable"
+# trailing-spaces = "enable"
+yaml-directive = "disable"
 
 [lint.rules.quoted-strings]
-  level                            = "error"
-  quote-type                       = "double"
-  required                         = "only-when-needed"
-  extra-required                   = []
-  extra-allowed                    = []
-  allow-quoted-quotes              = true
-  allow-double-quotes-for-escaping = true                # ryl-only
-  check-keys                       = false
+level = "error"
+quote-type = "double"
+required = "only-when-needed"
+extra-required = []
+extra-allowed = []
+allow-quoted-quotes = true
+allow-double-quotes-for-escaping = true # ryl-only
+check-keys = false
 
 [lint.rules.truthy]
-  allowed-values = ["true", "false", "on"]
-  check-keys     = true
-  level          = "error"
+allowed-values = ["true", "false", "on"]
+check-keys = true
+level = "error"
 
 [format]
-  quote-style = "double"
+quote-style = "double"
 
-  # [markdown]
+# [markdown]

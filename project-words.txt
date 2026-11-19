@@ -4,6 +4,7 @@ Bitwarden
 chezmoi
 chezmoiignore
 codespell
+Dagu
 jactionlint
 lintignore
 Syncthing
