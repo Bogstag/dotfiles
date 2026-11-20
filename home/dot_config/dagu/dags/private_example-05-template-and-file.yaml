@@ -1,0 +1,24 @@
+# Template and File Actions
+# Render a small report and read it back
+
+description: Render and read a file without external tools
+steps:
+  - action: template.render
+    id: render_report
+    with:
+      data:
+        source: Dagu
+        status: ok
+      output: ${context.paths.artifacts_dir}/first-launch-report.md
+      template: |+
+        # First Launch Report
+
+        status={{ .status }}
+        source={{ .source }}
+
+  - action: file.read
+    depends: [render_report]
+    id: read_report
+    with:
+      path: ${context.paths.artifacts_dir}/first-launch-report.md
+type: graph
