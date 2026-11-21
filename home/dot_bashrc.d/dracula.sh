@@ -1,3 +1,16 @@
+#!/usr/bin/env bash
+# @file  dracula.sh
+# @brief Holds the color codes for eze dracula theme.
+# @description
+#  EZA_COLORS is an environment variable that customizes file, metadata, and UI colors in eza,
+#  (falling back to EXA_COLORS and overriding LS_COLORS and theme.yml).
+#  It uses colon-separated key=value pairs with semicolon-delimited ANSI codes or reset.
+#  It is the dracula theme.
+#
+# @see It get sourced in [.bashrc](~/.bashrc)
+# @see [eza-community/eza_colors.5.md](https://github.com/eza-community/eza/blob/main/man/eza_colors.5.md)
+# @see [Dracula Theme for eza](https://draculatheme.com/eza)
+# @noargs
 # ---------------------
 # eza universal Dracula
 # ---------------------

@@ -105,7 +105,7 @@ export default defineConfig({
       "sort-keys": [
         "error",
         "asc",
-        { caseSensitive: true, minKeys: 2, natural: false },
+        { allowLineSeparatedGroups: true, natural: true },
       ],
       "sort-vars": "error",
       "typescript/no-magic-numbers": [

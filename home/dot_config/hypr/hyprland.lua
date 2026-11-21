@@ -11,6 +11,12 @@ require("hypr.bindings") -- file:///home/bogge/.config/hypr/bindings.lua
 require("hypr.looknfeel") -- file:///home/bogge/.config/hypr/looknfeel.lua
 require("hypr.autostart") -- file:///home/bogge/.config/hypr/autostart.lua
 --
+-- >>> omacontrol:managed >>>
+-- Load settings written by OmaControl (omacontrol:managed).
+-- It belongs above the toggles below.
+require("hypr.omacontrol")
+-- <<< omacontrol:managed <<<
+--
 -- Toggle config flags dynamically.
 require("default.hypr.toggles")
 --

@@ -270,6 +270,18 @@ Check changed files and stage them if ok
 
 Generate plan for Check-Stage-unstaged task
 
+## `Check:ox`
+
+- **Usage:** `Check:ox`
+
+Checks Js, Ts, JSON, JSONC, JSON5, YAML, TOML, HTML, Vue, Markdown, MDX, Handlebars and more
+
+## `Check:ryl`
+
+- **Usage:** `Check:ryl`
+
+Checks yaml
+
 ## `Chezmoi-edit-config`
 
 - **Usage:** `Chezmoi-edit-config`
@@ -289,6 +301,18 @@ Fix changed files and stage them if ok
 - **Usage:** `Fix-Stage-unstaged-plan`
 
 Generate plan for Fix-Stage-unstaged task
+
+## `Fix:ox`
+
+- **Usage:** `Fix:ox`
+
+Fixes Js, Ts, JSON, JSONC, JSON5, YAML, TOML, HTML, Vue, Markdown, MDX, Handlebars and more
+
+## `Fix:ryl`
+
+- **Usage:** `Fix:ryl`
+
+Fixes yaml
 
 ## `Get-all-file-ext-in-dir`
 

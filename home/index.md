@@ -1,3 +1,7 @@
+---
+layout: doc
+---
+
 # Home of the dotfiles
 
 ## .bin

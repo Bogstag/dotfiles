@@ -4,8 +4,24 @@
   description = "Checks modified files"
   run         = "hk check"
 
+["Check:ryl"]
+  description = "Checks yaml"
+  run         = ["ryl check", "ryl format --check"]
+
+["Check:ox"]
+  description = "Checks Js, Ts, JSON, JSONC, JSON5, YAML, TOML, HTML, Vue, Markdown, MDX, Handlebars and more"
+  run         = ["vp lint", "vp fmt --check"]
+
 ["Fix"]
   run = "hk fix --all"
+
+["Fix:ryl"]
+  description = "Fixes yaml"
+  run         = ["ryl check --fix", "ryl format"]
+
+["Fix:ox"]
+  description = "Fixes Js, Ts, JSON, JSONC, JSON5, YAML, TOML, HTML, Vue, Markdown, MDX, Handlebars and more"
+  run         = ["vp lint --fix", "vp fmt"]
 
 ["Check-Stage-Unstaged"]
   description = "Check changed files and stage them if ok"
