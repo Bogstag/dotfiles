@@ -21,20 +21,20 @@
     "check:codespell": "codespell",
     "check:cspell": "cspell .",
     "check:jactionlint": "jactionlint",
-    "check:oxfmt": "oxfmt --check",
-    "check:oxlint": "oxlint",
+    "check:oxfmt": "vp fmt --check",
+    "check:oxlint": "vp lint",
     "check:typos": "typos .",
     "docs:build": "vitepress build .",
     "docs:dev": "vitepress dev .",
     "docs:preview": "vitepress preview .",
     "fix:codespell": "codespell --write-changes",
     "fix:jactionlint": "jactionlint --fix",
-    "fix:oxfmt": "oxfmt",
-    "fix:oxlint": "oxlint --fix",
+    "fix:oxfmt": "vp fmt",
+    "fix:oxlint": "vp lint --fix",
     "fix:typos": "typos --write-changes .",
     "knip": "knip",
-    "oxlint:danger": "oxlint --fix-dangerously",
-    "oxlint:suggest": "oxlint --fix-suggestions"
+    "oxlint:danger": "vp lint --fix-dangerously",
+    "oxlint:suggest": "vp lint --fix-suggestions"
   },
   "devDependencies": {
     "@tsconfig/node-lts": "26.0.1",
@@ -44,10 +44,9 @@
     "codespell": "1.1.7",
     "cspell": "10.5.2",
     "knip": "6.47.0",
-    "oxfmt": "0.79.0",
-    "oxlint": "1.94.0",
     "tsrs": "7.1.0-beta.tsrs4",
     "typescript": "7.0.2",
+    "vite-plus": "1.7.0",
     "vitepress": "1.6.4",
     "vitepress-sidebar": "1.41.0"
   },
@@ -67,5 +66,5 @@
     "node": ">=26",
     "npm": "^11.0.0"
   },
-  "packageManager": "npm@11.0.0+"
+  "packageManager": "npm@11.20.0"
 }

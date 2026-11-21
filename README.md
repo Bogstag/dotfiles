@@ -104,19 +104,23 @@ Kontrollera alltid `chezmoi diff` och `git diff --cached` före commit.
 
 ## Dokumentation
 
-Installera Node.js och kör VitePress lokalt:
+Installera projektets beroenden med Vite+ och starta VitePress:
 
 ```sh
-npm ci
-npm run docs:dev
+vp install
+vp run docs:dev
 ```
 
 Bygg och förhandsgranska den statiska webbplatsen:
 
 ```sh
-npm run docs:build
-npm run docs:preview
+vp run docs:build
+vp run docs:preview
 ```
+
+`vp check` kör formatteringskontroll, lint och typkontroll. När du kör via
+mise, till exempel `mise exec -- vp run docs:dev`, synkar mise beroendena
+med `npm ci` när manifestet eller låsfilen ändras.
 
 Build-workflowen uppdaterar `gh-pages` när `main` ändras. Granska den
 genererade branchen och starta sedan **Publish docs** manuellt med den granskade

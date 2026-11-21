@@ -26,11 +26,12 @@
 
 
 # Folders
-.codegraph
+.codegraph/
 .codex/
 .ryl_cache/
 .vitepress/cache/
 .vitepress/dist/
+.vitepress/**/*.timestamp-*.mjs
 .vscode/
 bin/
 node_modules/

@@ -129,9 +129,43 @@ steps {
   //    description = "mise-en-place's built-in formatter and linter"
   }
   //
-  ["oxfmt"] = Builtins.oxfmt
+  ["oxfmt"] = (Builtins.oxfmt) {
+    check {
+      command {
+        argv = List("vp", "fmt", "--check", "--no-error-on-unmatched-pattern", "{{files}}")
+      }
+    }
+    check_diff {
+      command {
+        argv =
+          List(
+            "hk",
+            "util",
+            "format-diff",
+            "{{files}}",
+            "--",
+            "vp",
+            "fmt",
+            "--stdin-filepath",
+            "{}",
+          )
+      }
+    }
+    fix {
+      command {
+        argv = List("vp", "fmt", "--write", "--no-error-on-unmatched-pattern", "{{files}}")
+      }
+    }
+  }
 
-  ["ox_lint"] = Builtins.ox_lint
+  ["ox_lint"] = (Builtins.ox_lint) {
+    check {
+      command { argv = List("vp", "lint", "--deny-warnings", "{{files}}") }
+    }
+    fix {
+      command { argv = List("vp", "lint", "--deny-warnings", "--fix", "{{files}}") }
+    }
+  }
   //
 
   ["markdown_lint"] = (Builtins.markdown_lint) {

@@ -10,15 +10,9 @@ const vitePressOptions: UserConfig<DefaultTheme.Config> = defineConfig({
   description: "Small, practical notes about this repository.",
   head: [["link", { href: "/favicon.ico", rel: "icon" }]],
   ignoreDeadLinks: true,
-  rewrites: {
-    "**/README.md": ":**/index.md",
-    // ':folder/readme.md': ':folder/index.md',
-    // ':folder/:sub/README.md': ':folder/:sub/index.md',
-    // ':folder/:sub/readme.md': ':folder/:sub/index.md',
-    // ':folder/:sub/:deep/README.md': ':folder/:sub/:deep/index.md',
-    // ':folder/:sub/:deep/readme.md': ':folder/:sub/:deep/index.md',
-    // ':folder/:sub/:deep/:deeper/README.md': ':folder/:sub/:deep/:deeper/index.md',
-    // ':folder/:sub/:deep/:deeper/readme.md': ':folder/:sub/:deep/:deeper/index.md',
+  rewrites(page) {
+    // The site root already has an index.md.
+    return page.replace(/(?<=\/)README\.md$/u, "index.md");
   },
   srcExclude: [
     "**/AGENTS.md",
@@ -48,7 +42,7 @@ const vitePressOptions: UserConfig<DefaultTheme.Config> = defineConfig({
     ],
   },
   title: "Dotfiles",
-  vite: { assetsInclude: ["**/*.ico", "**/*.svg"] },
+  vite: { assetsInclude: ["**/*.ico", "**/*.svg"], configFile: false },
 });
 
 // UseFolderLinkFromIndexFile: true,
@@ -60,7 +54,6 @@ const sidebarOptions: VitePressSidebarOptions = {
   underscoreToSpace: true,
 };
 
-export const vitePressConfig = withSidebar(
-  vitePressOptions,
-  sidebarOptions,
-);
+// VitePress loads the site configuration through its default export.
+// oxlint-disable-next-line import/no-default-export
+export default withSidebar(vitePressOptions, sidebarOptions);

@@ -9,5 +9,5 @@
     "@tsconfig/node-lts/tsconfig.json",
     "@tsconfig/node-ts/tsconfig.json"
   ],
-  "include": [".vitepress/**/*.mts"]
+  "include": [".vitepress/**/*.mts", "vite.config.mts"]
 }
