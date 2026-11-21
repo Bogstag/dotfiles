@@ -56,14 +56,14 @@
   // endregion
   // region MD010 no-hard-tab
   // Hard tabs : https://github.com/DavidAnson/markdownlint/blob/main/doc/md010.md
-  /*   "MD010": {
+  "MD010": {
     // Include code blocks
     "code_blocks": true,
     // Fenced code languages to ignore
     "ignore_code_languages": [],
     // Number of spaces for each hard tab
-    "spaces_per_tab": 1,
-  }, */
+    "spaces_per_tab": 2
+  },
   // endregion
   // region MD011 no-reversed-link
   // Reversed link syntax : https://github.com/DavidAnson/markdownlint/blob/main/doc/md011.md

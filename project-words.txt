@@ -7,11 +7,15 @@ codespell
 conds
 Dagu
 fnox
+hypr
 jactionlint
 lintignore
+looknfeel
 misecompsync
 mksh
 mylayout
+noargs
+omacontrol
 shellcheck
 shellharden
 shfmt

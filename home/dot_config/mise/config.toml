@@ -62,8 +62,8 @@
   show_env   = false
   show_tools = false
 
-[task_config]
-  includes = ["tasks.toml"]
+  # [task_config]
+  #   includes = ["tasks.toml"]
 
 [tool_alias]
   go          = "core:go"

@@ -10,17 +10,19 @@ const vitePressOptions: UserConfig<DefaultTheme.Config> = defineConfig({
   description: "Small, practical notes about this repository.",
   head: [["link", { href: "/favicon.ico", rel: "icon" }]],
   ignoreDeadLinks: true,
+  // Rewrites(page) {
+  //   // The site root already has an index.md.
+  //   Return page.replace(/(?<=\/)README\.md$/u, "index.md");
+  // },
   rewrites(page) {
-    // The site root already has an index.md.
-    return page.replace(/(?<=\/)README\.md$/u, "index.md");
+    // Rewrites 'folder/folder.md' to 'folder/index.md'
+    return page.replace(/(?<dir>[^/]+)\/\1\.md$/u, "$1/index.md");
   },
   srcExclude: [
     "**/AGENTS.md",
     "**/node_modules/**",
     "**/dist/**",
     "notes.md",
-    "home/dot_config/omarchy/plugins/**",
-    "home/dot_config/yazi/plugins/**",
     "home/dot_config/yazi/flavors/orlok.yazi/readonly_README.md",
   ],
   themeConfig: {
@@ -45,13 +47,86 @@ const vitePressOptions: UserConfig<DefaultTheme.Config> = defineConfig({
   vite: { assetsInclude: ["**/*.ico", "**/*.svg"], configFile: false },
 });
 
-// UseFolderLinkFromIndexFile: true,
-// UseTitleFromFileHeading: true,
 const sidebarOptions: VitePressSidebarOptions = {
-  documentRootPath: "/",
-  hyphenToSpace: true,
-  includeFolderIndexFile: true,
-  underscoreToSpace: true,
+  // ============ [ RESOLVING PATHS ] ============
+  // DocumentRootPath: '/',
+  // ScanStartPath: null,
+  // ResolvePath: null,
+  // BasePath: null,
+  splitSidebarByFolder: true,
+  // FollowSymlinks: false,
+
+  // ============ [ GROUPING ] ============
+  // CollapseFromLevel: 3,
+  // Collapsed: true,
+  // CollapseDepth: 2,
+  // RootGroupCollapsed: false,
+  rootGroupText: "Contents",
+  // RootGroupLink: 'https://github.com/jooy2',
+  // SplitSidebarRootGroupText: '◀ :title',
+
+  // ============ [ GETTING MENU TITLE ] ============
+  // 2 try # Title
+  useTitleFromFileHeading: true,
+  // 1 try Frontmatter title: Title
+  useTitleFromFrontmatter: true,
+  // UseFolderTitleFromIndexFile: false,
+  // FrontmatterTitleFieldName: 'title',
+  // DynamicRouteTitleParam: 'title',
+
+  // ============ [ GETTING MENU LINK ] ============
+  folderLinkNotIncludesFileName: true,
+  useFolderLinkFromIndexFile: true,
+  useFolderLinkFromSameNameSubFile: true,
+  // RemovePrefixFromLink: false,
+
+  // ============ [ INCLUDE / EXCLUDE ] ============
+  excludeByGlobPattern: [
+    ".agents/",
+    ".codegraph/",
+    ".codex/",
+    ".github/",
+    ".ryl_cache/",
+    "**/AGENTS.md",
+    "**/dist/**",
+    "**/node_modules/**",
+    "home/dot_config/yazi/flavors/orlok.yazi/readonly_README.md",
+    "notes.md",
+  ],
+  // ExcludeFilesByFrontmatterFieldName: 'exclude',
+  // ExcludeByFolderDepth: undefined,
+  // IncludeDotFiles: false,
+  // IncludeEmptyFolder: false,
+  includeRootIndexFile: true,
+  // IncludeFolderIndexFile: false,
+  // IncludeDynamicRoutes: false,
+
+  // ============ [ STYLING MENU TITLE ] ============
+  // HyphenToSpace: false,
+  // UnderscoreToSpace: false,
+  capitalizeFirst: true,
+  // CapitalizeEachWords: false,
+  // KeepMarkdownSyntaxFromTitle: false,
+  // RemovePrefixAfterOrdering: false,
+  // PrefixSeparator: '.',
+
+  // ============ [ SORTING ] ============
+  // ManualSortFileNameByPriority: ['first.md', 'second', 'third.md'],
+  // SortFolderTo: null,
+  sortMenusByName: true,
+  // SortMenusByFileDatePrefix: false,
+  // SortMenusByFrontmatterOrder: false,
+  // FrontmatterOrderDefaultValue: 0,
+  // SortMenusByFileCreateDate: false,
+  // SortMenusByFileModifyDate: false,
+  // SortMenusByFrontmatterDate: false,
+  // SortMenusOrderByDescending: false,
+  // SortMenusOrderNumericallyFromTitle: false,
+  // SortMenusOrderNumericallyFromLink: false,
+  // SortMenusByCustomFunction: (a, b) => a.fileName.localeCompare(b.fileName),
+
+  // ============ [ MISC ] ============
+  // DebugPrint: false,
 };
 
 // VitePress loads the site configuration through its default export.
