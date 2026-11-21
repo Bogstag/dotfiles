@@ -23,6 +23,10 @@
   description = "Add or update global skills"
   run         = "mise skills sync --global"
 
+["update_bash_completions"]
+  description = "Source: https://mise-completions.alltuner.com/"
+  run         = "misecompsync --shell bash"
+
 ["Update_external_markdown"]
   description = "Re add external md files"
   run         = [

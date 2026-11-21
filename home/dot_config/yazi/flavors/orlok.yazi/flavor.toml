@@ -1,5 +1,5 @@
 #:schema https://yazi-rs.github.io/schemas/theme.json
-# vim:fileencoding=utf-8:foldmethod=marker
+#
 # Orlok Theme for yazi
 #
 # [flavor]
@@ -10,35 +10,23 @@
 # overall = {}
 
 [mgr]
-  #
   border_style    = { fg = "#815CD6" }
-  # Border
   border_symbol   = "│"
-  #
-  # Count
   count_copied    = { fg = "#282a36", bg = "#50fa7b" }
   count_cut       = { fg = "#282a36", bg = "#ff5555" }
   count_selected  = { fg = "#282a36", bg = "#f1fa8c" }
   cwd             = { fg = "#8be9fd" }
-  #
-  # Find
   find_keyword    = { fg = "#f1fa8c", bold = true, italic = true, underline = true }
   find_position   = { fg = "#ff79c6", bg = "reset", bold = true, italic = true }
-  #
-  # Marker
   marker_copied   = { fg = "#50fa7b", bg = "#50fa7b" }
   marker_cut      = { fg = "#ff5555", bg = "#ff5555" }
   marker_marked   = { fg = "#8be9fd", bg = "#8be9fd" }
   marker_selected = { fg = "#f1fa8c", bg = "#f1fa8c" }
-  #
-  # Symlink
   symlink_target  = { italic = true }
 
 [tabs]
   active    = { fg = "#FFFFFF", bg = "#815CD6", bold = true }
   inactive  = { fg = "#F8F8F2", bg = "#9a348e", dim = true }
-  #
-  # Separator
   # sep_inner = { open = "", close = "" }
   # sep_outer = { open = "", close = "" }
   sep_inner = { open = "", close = "" }
@@ -47,13 +35,9 @@
 [mode]
   normal_alt  = { fg = "#ea4592", bg = "#44475a" }
   normal_main = { fg = "#202025", bg = "#ea4592", bold = true }
-  #
   select_alt  = { fg = "#8be9fd", bg = "#44475a" }
-  # Select mode
   select_main = { fg = "#202025", bg = "#8be9fd", bold = true }
-  #
   unset_alt   = { fg = "#ffb86c", bg = "#44475a" }
-  # Unset mode
   unset_main  = { fg = "#202025", bg = "#ffb86c", bold = true }
 
   # [indicator]
@@ -66,16 +50,12 @@
   # overall   = {}
   # sep_left  = { open = "", close = "" }
   # sep_right = { open = "", close = "" }
-  #
   perm_exec       = { fg = "#50fa7b" }
   perm_read       = { fg = "#f1fa8c" }
-  # Permissions
-  perm_sep        = { fg = "#815CD6" }
+  perm_sep        = { fg = "#815cd6" }
   perm_type       = { fg = "#ea4592" }
   perm_write      = { fg = "#ff5555" }
-  #
   progress_error  = { fg = "#f1fa8c", bg = "#ff5555" }
-  # Progress
   progress_label  = { fg = "#ffffff", bold = true }
   progress_normal = { fg = "#50fa7b", bg = "#63667d" }
 
@@ -103,17 +83,13 @@
   tbl_cell = { fg = "#ff79c6", bg = "#63667d" }
   tbl_col  = { fg = "#8be9fd" }
   title    = { fg = "#ea4592" }
-
-  # Table
-  #   tbl_col  = { fg = "blue" }
-  #   tbl_cell = { fg = "yellow", reversed = true }
-  #
+  # tbl_col  = { fg = "blue" }
+  # tbl_cell = { fg = "yellow", reversed = true }
 
 [notify]
   title_error = { fg = "#ff5555" }
   title_info  = { fg = "#50fa7b" }
   title_warn  = { fg = "#f1fa8c" }
-  #
   # icon_info  = ""
   # icon_warn  = ""
   # icon_error = ""
@@ -127,14 +103,12 @@
   border   = { fg = "#ea4592" }
   selected = { reversed = true }
   title    = {}
-  value    = { fg = "#f8f8f2", bg = "#6272a4", blink = true }
+  value    = { fg = "#f8f8f2", bg = "#6272a4" }
 
 [cmp]
   # active   = { reversed = true }
   # inactive = {}
   border = { fg = "#ea4592" }
-  #
-  # Icons
   # icon_file    = ""
   # icon_folder  = ""
   # icon_command = ""
@@ -152,46 +126,23 @@
 
 [filetype]
   rules = [
-    # Image
     { mime = "**/image/*", fg = "#8be9fd" },
-    # Media
     { mime = "**/{audio,video}/*", fg = "#f1fa8c" },                                                            # #bd93f9
-    # Application
     {
       mime = "**/application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}",
       fg   = "#b44a95"                                                                                          # Tribute to **R**oshal **AR**chive (RAR)
     },
     { mime = "**/application/{pdf,doc,rtf}", fg = "#50fa7b" },
-    # Virtual file system
     { mime = "vfs/{absent,stale}", fg = "#ffffff", bg = "#191A21" },
-    #
-    # Format
     { mime = "application/json", fg = "#ae72bd" },
-    { mime = "application/yaml", fg = "#8be9fd" },
-    { mime = "application/xml", fg = "#8be9fd" },
-    #
-    # Text
-    { mime = "text/markdown", fg = "#26a2e4" },
-    # Other
-    {
-      mime = "application/vnd.ms-pki",
-      fg   = "#8be9fd",
-    },
-    {
-      mime = "application/x-shellscript",
-      fg   = "#50fa7b",
-    },
-    {
-      mime = "application/vnd.sqlite3",
-      fg   = "#8be9fd",
-    },
+    { mime = "application/vnd.ms-pki", fg = "#8be9fd" },
+    { mime = "application/vnd.sqlite3", fg = "#8be9fd" },
+    { mime = "application/x-ipynb+json", fg = "#ff79c6" },
+    { mime = "application/x-shellscript", fg = "#50fa7b" },
     { mime = "application/x-x509-ca-cert", fg = "#ff5555", bold = true },
-    {
-      mime = "application/x-ipynb+json",
-      fg   = "#ff79c6",
-    },
-    #
-    # Special file
+    { mime = "application/xml", fg = "#8be9fd" },
+    { mime = "application/yaml", fg = "#8be9fd" },
+    { mime = "text/markdown", fg = "#26a2e4" },
     { url = "*", is = "orphan", bg = "#FF5555" },
     { url = "*", is = "link", fg = "#f8f8f2" },
     { url = "*", is = "block", fg = "#cddc39" },
@@ -200,8 +151,6 @@
     { url = "*", is = "sock", fg = "#cddc39" },
     { url = "*", is = "sticky", fg = "#cddc39" },
     { url = "*", is = "exec", fg = "#50fa7b" },
-    #
-    # Fallback
     { mime = "*", fg = "#f8f8f2" },
     { mime = "*/", fg = "#ea4592" },
   ]
@@ -214,7 +163,6 @@
 # conds: conditions, e.g., { if = "!dir", ... }
 [icon]
   conds = [
-    # Special files
     { if = "orphan", text = "", fg = "#FF5555" },
     { if = "link", text = "", fg = "#f8f8f2" },
     { if = "block", text = "", fg = "#cddc39" },
@@ -223,7 +171,6 @@
     { if = "sock", text = "", fg = "#cddc39" },
     { if = "sticky", text = "", fg = "#cddc39" },
     { if = "dummy", text = "", fg = "#ff5555" },
-    # Fallback
     { if = "dir & hovered", text = "", fg = "#ea4592" },
     { if = "dir", text = "", fg = "#ea4592" },
     { if = "exec", text = "", fg = "#50fa7b" },
@@ -232,6 +179,11 @@
   #
   dirs  = [
     { name = ".config", text = "", fg = "#ff9800" },
+    { name = ".agents", text = "", fg = "#21b7d9" },
+    { name = ".android", text = "", fg = "#24bd3d" },
+    { name = ".bashrc.d", text = "", fg = "#89e051" },
+    { name = ".steam", text = "", fg = "#cfcfcf" },
+    { name = ".copilot", text = "", fg = "#f7f7f7" },
     { name = ".git", text = "", fg = "#f05133" },                        # Color matched
     { name = ".github", text = "", fg = "#bd93f9" },
     { name = ".npm", text = "", fg = "#bd93f9" },
@@ -338,7 +290,7 @@
     { name = "unicode", text = "󰻐", fg = "#8be9fd" },
     { name = "vanillaos", text = "", fg = "#fabd4d" },
     { name = "Videos", text = "", fg = "#00bcd4" },
-    { name = "vite", text = "", fg = "#8be9fd" },
+    { name = "vite", text = "", fg = "#8be9fd" },
     { name = "vitejs", text = "", fg = "#8be9fd" },
     { name = "vitess", text = "", fg = "#8be9fd" },
     { name = "vitest", text = "", fg = "#8be9fd" },
@@ -346,50 +298,22 @@
     { name = "vue", text = "", fg = "#8be9fd" },
     { name = "vuejs", text = "", fg = "#8be9fd" },
     { name = "vuetify", text = "", fg = "#8be9fd" },
-    { name = "windows", text = "", fg = "#8be9fd" },
     { name = "windows", text = "", fg = "#00a4ef" },
     { name = "xerolinux", text = "", fg = "#888fe2" },
     { name = "zorin", text = "", fg = "#14a1e8" },
-    {
-      name = "budgie",
-      text = "",
-      fg   = "#4e5361",
-    },
-    {
-      name = "cinnamon",
-      text = "",
-      fg   = "#dc682e",
-    },
-    {
-      name = "gnome",
-      text = "",
-      fg   = "#ffffff",
-    },
-    {
-      name = "lxde",
-      text = "",
-      fg   = "#a4a4a4",
-    },
-    {
-      name = "lxqt",
-      text = "",
-      fg   = "#0191d2",
-    },
-    {
-      name = "mate",
-      text = "",
-      fg   = "#9bda5c",
-    },
-    {
-      name = "kdeplasma",
-      text = "",
-      fg   = "#1b89f4",
-    },
-    {
-      name = "xfce",
-      text = "",
-      fg   = "#00aadf",
-    },
+    { name = "yazi", text = "󰇥", fg = "#f68434" },
+    { name = "nvim", text = "", fg = "#00aaae" },
+    { name = "neovim", text = "", fg = "#00aaae" },
+    { name = "microsoft", text = "󰍲", fg = "#0f60d2" },
+    { name = "wallpapers", text = "󰸉", fg = "#3cb8b4" },
+    { name = "budgie", text = "", fg = "#4e5361" },
+    { name = "cinnamon", text = "", fg = "#dc682e" },
+    { name = "gnome", text = "", fg = "#ffffff" },
+    { name = "lxde", text = "", fg = "#a4a4a4" },
+    { name = "lxqt", text = "", fg = "#0191d2" },
+    { name = "mate", text = "", fg = "#9bda5c" },
+    { name = "kdeplasma", text = "", fg = "#1b89f4" },
+    { name = "xfce", text = "", fg = "#00aadf" },
   ]
   #
   exts  = [
@@ -485,7 +409,6 @@
     { name = "cplusplusmodule", text = "", fg = "#f34b7d" },
     { name = "cpp", text = "", fg = "#519aba" },
     { name = "cppm", text = "", fg = "#519aba" },
-    { name = "cpy", text = "", fg = "#005ca5" },
     { name = "cr", text = "", fg = "#c8c8c8" },
     { name = "crdownload", text = "", fg = "#44cda8" },
     { name = "crystal", text = "", fg = "#c8c8c8" },
@@ -526,7 +449,6 @@
     { name = "dxf", text = "󰻫", fg = "#839463" },
     { name = "ebook", text = "", fg = "#eab16d" },
     { name = "ebuild", text = "", fg = "#4c416e" },
-    { name = "edn", text = "", fg = "#519aba" },
     { name = "eex", text = "", fg = "#b88cd9" },
     { name = "ejs", text = "", fg = "#cbcb41" },
     { name = "el", text = "", fg = "#8172be" },
@@ -751,7 +673,6 @@
     { name = "objectfile", text = "", fg = "#9f0500" },
     { name = "objectivec", text = "", fg = "#599eff" },
     { name = "objectivecplusplus", text = "", fg = "#519aba" },
-    { name = "odf", text = "", fg = "#ff5a96" },
     { name = "odg", text = "", fg = "#fffb57" },
     { name = "odin", text = "󰟢", fg = "#3882d2" },
     { name = "odp", text = "", fg = "#fe9c45" },
@@ -865,6 +786,7 @@
     { name = "slvs", text = "󰻫", fg = "#839463" },
     { name = "sml", text = "󰘧", fg = "#e37933" },
     { name = "so", text = "", fg = "#dcddd6" },
+    { name = "sock", text = "", fg = "#839463" },
     { name = "sol", text = "", fg = "#519aba" },
     { name = "solidity", text = "", fg = "#519aba" },
     { name = "solidworksasm", text = "󰻫", fg = "#839463" },
@@ -875,11 +797,10 @@
     { name = "spec.ts", text = "", fg = "#519aba" },
     { name = "spec.tsx", text = "", fg = "#1354bf" },
     { name = "specjs", text = "", fg = "#cbcb41" },
-    { name = "spects", text = "", fg = "#519aba" },
     { name = "spx", text = "", fg = "#0075aa" },
     { name = "sql", text = "", fg = "#dad8d8" },
-    { name = "sqlite", text = "", fg = "#dad8d8" },
-    { name = "sqlite3", text = "", fg = "#dad8d8" },
+    { name = "sqlite", text = "", fg = "#dad8d8" },
+    { name = "sqlite3", text = "", fg = "#dad8d8" },
     { name = "srt", text = "󰨖", fg = "#ffb713" },
     { name = "ssa", text = "󰨖", fg = "#ffb713" },
     { name = "staticlibraryarchive", text = "", fg = "#dcddd6" },
@@ -902,7 +823,6 @@
     { name = "storybookvue", text = "", fg = "#ff4785" },
     { name = "stp", text = "󰻫", fg = "#839463" },
     { name = "strings", text = "", fg = "#2596be" },
-    { name = "styl", text = "", fg = "#8dc149" },
     { name = "sub", text = "󰨖", fg = "#ffb713" },
     { name = "sublime", text = "", fg = "#e37933" },
     { name = "suo", text = "", fg = "#854cc7" },
@@ -1017,15 +937,15 @@
     { name = "_gvimrc", text = "", fg = "#019833" },
     { name = "_vimrc", text = "", fg = "#019833" },
     { name = ".babelrc", text = "", fg = "#cbcb41" },
-    { name = ".bash_profile", text = "󱆃", fg = "#89e051" },
-    { name = ".bashrc", text = "󱆃", fg = "#89e051" },
+    { name = ".bash_profile", text = "", fg = "#89e051" },               # Color matched
+    { name = ".bashrc", text = "", fg = "#89e051" },                     # Color matched
     { name = ".clang-format", text = "", fg = "#6d8086" },
     { name = ".clang-tidy", text = "", fg = "#6d8086" },
     { name = ".codespellrc", text = "󰓆", fg = "#35da60" },
     { name = ".condarc", text = "", fg = "#43b02a" },
     { name = ".dockerignore", text = "󰡨", fg = "#458ee6" },
     { name = ".ds_store", text = "", fg = "#41535b" },
-    { name = ".editorconfig", text = "", fg = "#fff2f2" },
+    { name = ".editorconfig", text = "", fg = "#e0efef" },
     { name = ".env", text = "", fg = "#faf743" },
     { name = ".eslintignore", text = "", fg = "#4b32c3" },
     { name = ".eslintrc", text = "", fg = "#4b32c3" },
@@ -1033,6 +953,7 @@
     { name = ".gitattributes", text = "", fg = "#f54d27" },              # Color matched
     { name = ".gitconfig", text = "", fg = "#f54d27" },                  # Color matched
     { name = ".gitignore", text = "", fg = "#f54d27" },                  # Color matched
+    { name = ".gitignore_global", text = "", fg = "#f54d27" },           # Color matched
     { name = ".gitlab-ci.yml", text = "", fg = "#e24329" },
     { name = ".gitmodules", text = "", fg = "#f54d27" },
     { name = ".gtkrc-2.0", text = "", fg = "#ffffff" },
@@ -1201,6 +1122,7 @@
     { name = "mixlock", text = "", fg = "#b88cd9" },
     { name = "mpv.conf", text = "", fg = "#3b1342" },
     { name = "mpv", text = "", fg = "#3b1342" },
+    { name = "neovim", text = "", fg = "#00aaae" },
     { name = "next.config.cjs", text = "", fg = "#ffffff" },
     { name = "next.config.js", text = "", fg = "#ffffff" },
     { name = "next.config.ts", text = "", fg = "#ffffff" },
@@ -1215,6 +1137,7 @@
     { name = "nuxt.config.mjs", text = "󱄆", fg = "#00c58e" },
     { name = "nuxt.config.ts", text = "󱄆", fg = "#00c58e" },
     { name = "nuxtconfig", text = "󱄆", fg = "#00c58e" },
+    { name = "nvim", text = "", fg = "#00aaae" },
     { name = "package-lock.json", text = "", fg = "#7a0d21" },
     { name = "package.json", text = "", fg = "#7a0d21" },
     { name = "packagejson", text = "", fg = "#e8274b" },
@@ -1290,7 +1213,7 @@
     { name = "vite.config.mjs", text = "", fg = "#ffa800" },
     { name = "vite.config.mts", text = "", fg = "#ffa800" },
     { name = "vite.config.ts", text = "", fg = "#ffa800" },
-    { name = "viteconfig", text = "", fg = "#8040ff" },
+    { name = "viteconfig", text = "", fg = "#8040ff" },
     { name = "vitest.config.cjs", text = "", fg = "#739b1b" },
     { name = "vitest.config.cts", text = "", fg = "#739b1b" },
     { name = "vitest.config.js", text = "", fg = "#739b1b" },
@@ -1320,17 +1243,14 @@
     { name = "xsession", text = "", fg = "#e54d18" },
     { name = "xsettingsd.conf", text = "", fg = "#e54d18" },
     { name = "xsettingsdconf", text = "", fg = "#e54d18" },
+    { name = "yazi", text = "󰇥", fg = "#f68434" },
     { name = "zigobjectnotation", text = "", fg = "#f69a1b" },
   ]
   #
   globs = [
-    {
-      url  = "*bash*",
-      text = "󱆃",
-      fg   = "#50FA7B",
-    },
-    { url = "/*docker*", text = "", fg = "#36acd2" },                    # Color matched
-    { url = "**/*ssh", text = "󰣀", fg = "#8be9fd" },
+    { url = "**bash**", text = "󱆃", fg = "#89e051" },
+    { url = "**docker**", text = "", fg = "#36acd2" },                   # Color matched
+    { url = "**ssh**", text = "󰣀", fg = "#8be9fd" },
     { url = "**/*vscode-insider*/", text = "", fg = "#22baa0" },         # Color matched
     { url = "**/*vscode*/", text = "", fg = "#21a2f1" },                 # Color matched
   ]

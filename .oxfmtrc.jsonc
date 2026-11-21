@@ -1,0 +1,40 @@
+{
+  "$schema": "/home/bogge/.local/share/mise/installs/oxfmt/latest/node_modules/oxfmt/configuration_schema.json",
+  "extends": ["/home/bogge/.oxfmtrc.jsonc"],
+  "allowSeparatedGroups": true,
+  "checkExportFrom": true,
+  "extendDefaultStyles": false,
+  "ignoreDeclarationSort": true,
+  "ignorePatterns": [
+    "*.min.js",
+    "*.toml", // Fighting with tombi
+    "coverage/**",
+    "dist/**",
+    "test/snapshots/**",
+    "vendor/**"
+  ],
+  "objectWrap": "collapse",
+  "overrides": [
+    {
+      "files": ["**/*.jsonc", "[jsonc]", "**/*.json5", "[json5]"],
+      "options": { "trailingComma": "none" }
+    }
+  ],
+  "printWidth": 75, // with collapse >=90 is to long, 70 fine, 75 seams optimal
+  "sortImports": {
+    "groups": [
+      "type-import",
+      ["value-builtin", "value-external"],
+      { "newlinesBetween": true },
+      "type-internal",
+      "value-internal",
+      { "newlinesBetween": true },
+      ["type-parent", "type-sibling", "type-index"],
+      ["value-parent", "value-sibling", "value-index"],
+      { "newlinesBetween": true },
+      "unknown"
+    ],
+    "newlinesBetween": true
+  },
+  "sortPackageJson": { "sortScripts": true }
+}

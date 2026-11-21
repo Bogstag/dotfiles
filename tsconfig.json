@@ -8,5 +8,6 @@
     "@tsconfig/recommended/tsconfig.json",
     "@tsconfig/node-lts/tsconfig.json",
     "@tsconfig/node-ts/tsconfig.json"
-  ]
+  ],
+  "include": [".vitepress/**/*.mts"]
 }

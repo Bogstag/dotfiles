@@ -1,0 +1,15 @@
+schema_version = 1
+
+[tools]
+  # example
+  # graphite-cli = { bash = "gt completion bash" }
+  betterleaks               = { bash = "betterleaks completion bash" }
+  bitwarden-secrets-manager = { bash = "bws completions bash" }
+  chezit                    = { bash = "chezit completion bash" }
+  codex                     = { bash = "codex completion bash" }
+  copilot                   = { bash = "copilot completion bash" }
+  hunk                      = { bash = "hunk completion bash" }
+  ryl                       = { bash = "ryl --generate-completions bash" }
+  tombi                     = { bash = "tombi completion bash" }
+  crush                     = { bash = "crush completion bash" }
+  npm                       = false

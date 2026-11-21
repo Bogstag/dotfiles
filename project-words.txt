@@ -1,13 +1,23 @@
-# 2026-11-17
 adbkey
 Bitwarden
+cand
 chezmoi
 chezmoiignore
 codespell
+conds
 Dagu
+fnox
 jactionlint
 lintignore
+misecompsync
+mksh
+mylayout
+shellcheck
+shellharden
+shfmt
 Syncthing
+tombi
+tsrs
 usagebar
 voidzero
 yazi

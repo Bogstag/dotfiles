@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "fnox": {
+      "type": "stdio",
+      "command": "fnox",
+      "args": ["mcp"],
+      "tools": ["*"]
+    },
+    "hk": {
+      "type": "stdio",
+      "command": "/home/bogge/.local/share/mise/installs/hk/latest/.mise-bins/hk",
+      "args": ["mcp", "--root", "/home/bogge/.local/share/chezmoi"],
+      "tools": ["*"]
+    },
+    "mise": {
+      "type": "stdio",
+      "command": "/usr/bin/mise",
+      "args": ["--cd", "/home/bogge/.local/share/chezmoi", "mcp"],
+      "tools": ["*"]
+    }
+  }
+}

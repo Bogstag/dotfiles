@@ -5,17 +5,21 @@
   bash = true
 
 [env]
-  _.path                = [
+  _.path                         = [
     "${GOPATH:-$HOME/go}",
     ".bin",
     ".lib",
     "/home/bogge/.lib/qt6/bin",
     "/home/bogge/.local/share/mise/installs/go/latest/bin",
   ]
-  HK_MISE               = 1
-  UV_PYTHON             = { value = "{{ tools.python.path }}", tools = true }
-  VP_SETUP_NODE_VERSION = "26"
-  VP_PM_MANAGER         = "yes"
+  HK_MISE                        = 1
+  UV_PYTHON                      = { value = "{{ tools.python.path }}", tools = true }
+  VP_SETUP_NODE_VERSION          = "26"
+  VP_PM_MANAGER                  = "yes"
+  MISE_COMPLETIONS_SYNC_BASH_DIR = "$XDG_DATA_HOME/bash-completion/completions"
+
+[hooks]
+  postinstall = "misecompsync --shell bash --new-only"
 
 [settings]
   color_theme                         = "dracula"
@@ -77,46 +81,48 @@
   worktrunk   = "packslip:max-sixty/worktrunk"
 
 [tools]
-  "aqua:Kampfkarren/selene"     = "latest"
-  "aqua:owenlamont/ryl"         = "latest"
-  "cargo:chezmoi-tui"           = "latest"
-  "github:daptify14/chezit"     = { version = "latest", os = ["linux"] }
-  "github:ivankovic/omnidiff"   = "latest"
-  "github:microsoft/apm"        = "latest"
-  "go:golang.org/x/tools/gopls" = "latest"
-  "npm:markdownlint-cli"        = "latest"
-  7zip                          = "latest"
-  age                           = "latest"
-  betterleaks                   = "latest"
-  bitwarden-secrets-manager     = "latest"
-  cargo-binstall                = "latest"
-  codegraph                     = "latest"
-  cspell                        = "latest"
-  dagu                          = "latest"
-  editorconfig-checker          = "latest"
-  fnox                          = "latest"
-  go                            = "latest"
-  hk                            = "latest"
-  jactionlint                   = "latest"
-  java                          = "latest"
-  lua                           = "latest"
-  lua-language-server           = "latest"
-  node                          = ["lts"]
-  oxfmt                         = "latest"
-  oxlint                        = "latest"
-  pitchfork                     = "latest"
-  pkl                           = "latest"
-  python                        = "latest"
-  resvg                         = "latest"
-  ripgrep                       = "latest"
-  rust                          = "latest"
-  shellcheck                    = "latest"
-  shellharden                   = "latest"
-  shfmt                         = "latest"
-  stylua                        = "latest"
-  tombi                         = "latest"
-  typos                         = "latest"
-  uv                            = "latest"
-  vp                            = "latest"
-  worktrunk                     = "latest"
-  yazi                          = "latest"
+  "aqua:Kampfkarren/selene"               = "latest"
+  "aqua:owenlamont/ryl"                   = "latest"
+  "cargo:chezmoi-tui"                     = "latest"
+  "github:alltuner/mise-completions-sync" = "latest"
+  "github:daptify14/chezit"               = { version = "latest", os = ["linux"] }
+  "github:github/gh-actions-lock"         = { version = "latest", bin = "gh-actions-lock" }
+  "github:ivankovic/omnidiff"             = "latest"
+  "github:microsoft/apm"                  = "latest"
+  "go:golang.org/x/tools/gopls"           = "latest"
+  "npm:markdownlint-cli"                  = "latest"
+  7zip                                    = "latest"
+  age                                     = "latest"
+  betterleaks                             = "latest"
+  bitwarden-secrets-manager               = "latest"
+  cargo-binstall                          = "latest"
+  codegraph                               = "latest"
+  cspell                                  = "latest"
+  dagu                                    = "latest"
+  editorconfig-checker                    = "latest"
+  fnox                                    = "latest"
+  go                                      = "latest"
+  hk                                      = "latest"
+  jactionlint                             = "latest"
+  java                                    = "latest"
+  lua                                     = "latest"
+  lua-language-server                     = "latest"
+  node                                    = ["lts"]
+  oxfmt                                   = "latest"
+  oxlint                                  = "latest"
+  pitchfork                               = "latest"
+  pkl                                     = "latest"
+  python                                  = "latest"
+  resvg                                   = "latest"
+  ripgrep                                 = "latest"
+  rust                                    = "latest"
+  shdoc                                   = "latest"
+  shellcheck                              = "latest"
+  shellharden                             = "latest"
+  shfmt                                   = "latest"
+  stylua                                  = "latest"
+  tombi                                   = "latest"
+  typos                                   = "latest"
+  uv                                      = "latest"
+  worktrunk                               = "latest"
+  yazi                                    = "latest"
