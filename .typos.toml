@@ -13,11 +13,11 @@
     "project-words.txt"
   ]
   ignore-hidden  = true
-  ignore-files   = false
+  ignore-files   = true
   ignore-dot     = true
   ignore-vcs     = true
-  ignore-global  = false
-  ignore-parent  = false
+  ignore-global  = true
+  ignore-parent  = true
 
 [default]
   binary                       = false
@@ -26,7 +26,7 @@
   unicode                      = true
   ignore-hex                   = true
   identifier-leading-digits    = true
-  locale                       = "en"
+  locale                       = "en-gb"
   extend-ignore-identifiers-re = []
   extend-ignore-words-re       = []
   extend-ignore-re             = []
@@ -36,75 +36,43 @@
   brite = "brite"
 
 [default.extend-words]
-  brite      = "brite"
-  hass       = "hass"
-  caligraphy = "caligraphy"
-  characte   = "characte"
-  chiseled   = "chiseled"
-  ot         = "ot"
-  fireing    = "fireing"
-  ue         = "ue"
-  sketchs    = "sketchs"
+  brite    = "brite"
+  hass     = "hass"
+  chiseled = "chiseled"
+  ot       = "ot"
+  ue       = "ue"
+  sketchs  = "sketchs"
 
 [type.lua]
-  extend-glob                  = ["**/*.lua"]
-  extend-ignore-identifiers-re = []
-  extend-ignore-words-re       = []
-  extend-ignore-re             = []
+  extend-glob = ["**/*.lua"]
 
 [type.readme]
-  extend-glob                  = ["**/README.md"]
-  extend-ignore-identifiers-re = []
-  extend-ignore-words-re       = []
-  extend-ignore-re             = []
+  extend-glob = ["**/README.md"]
 
 [type.lock]
-  extend-glob                  = ["**/*-lock*"]
-  extend-ignore-identifiers-re = []
-  extend-ignore-words-re       = []
-  extend-ignore-re             = []
+  extend-glob = ["**/*-lock*"]
 
 [type.json]
-  extend-glob                  = ["**/*.json"]
-  extend-ignore-identifiers-re = []
-  extend-ignore-words-re       = []
-  extend-ignore-re             = []
+  extend-glob        = ["**/*.json"]
+  extend-identifiers = { hass = "hass" }
 
 [type.svg]
-  extend-glob                  = ["**/*.svg"]
-  extend-ignore-identifiers-re = []
-  extend-ignore-words-re       = []
-  extend-ignore-re             = []
+  extend-glob = ["**/*.svg"]
 
 [type.toml]
-  extend-glob                  = ["**/*.toml"]
-  extend-ignore-identifiers-re = []
-  extend-ignore-words-re       = []
-  extend-ignore-re             = []
+  extend-glob = ["**/*.toml"]
 
 [type.ts]
-  extend-glob                  = ["**/*.ts", "**/*.mts"]
-  extend-ignore-identifiers-re = []
-  extend-ignore-words-re       = []
-  extend-ignore-re             = []
+  extend-glob = ["**/*.ts", "**/*.mts"]
 
 [type.txt]
-  extend-glob                  = ["**/*.txt"]
-  extend-ignore-identifiers-re = []
-  extend-ignore-words-re       = []
-  extend-ignore-re             = []
+  extend-glob = ["**/*.txt"]
 
 [type.yaml]
-  extend-glob                  = ["**/*.yaml", "**/*.yml"]
-  extend-ignore-identifiers-re = []
-  extend-ignore-words-re       = []
-  extend-ignore-re             = []
+  extend-glob = ["**/*.yaml", "**/*.yml"]
 
 [type.sh]
-  extend-glob                  = ["**/*.sh", "**/*.bash"]
-  extend-ignore-identifiers-re = []
-  extend-ignore-words-re       = []
-  extend-ignore-re             = []
+  extend-glob = ["**/*.sh", "**/*.bash"]
 
 [type.sh.extend-identifiers]
   ot   = "ot"
@@ -113,32 +81,23 @@
 [type.sh.extend-words]
 
 [type.md]
-  extend-glob                  = ["**/*.md"]
-  binary                       = false
-  check-filename               = true
-  check-file                   = true
-  unicode                      = true
-  locale                       = "en-gb"
-  extend-ignore-identifiers-re = []
-  extend-ignore-words-re       = []
-  extend-ignore-re             = []
+  extend-glob    = ["**/*.md"]
+  binary         = false
+  check-filename = true
+  check-file     = true
+  unicode        = true
 
 [type.md.extend-identifiers]
   hass  = "hass"
   brite = "brite"
 
 [type.md.extend-words]
-  hass  = "hass"
   brite = "brite"
 
 [type.py]
-  extend-glob                  = ["**/*.py"]
-  extend-ignore-identifiers-re = []
-  extend-ignore-words-re       = []
-  extend-ignore-re             = []
+  extend-glob = ["**/*.py"]
 
 [type.py.extend-identifiers]
-  arange   = "arange"
   certifi  = "certifi"
   NDArray  = "NDArray"
   EOFError = "EOFError"
@@ -147,10 +106,7 @@
 [type.py.extend-words]
 
 [type.css]
-  extend-glob                  = ["**/*.css"]
-  extend-ignore-identifiers-re = []
-  extend-ignore-words-re       = []
-  extend-ignore-re             = []
+  extend-glob = ["**/*.css"]
 
 [type.css.extend-identifiers]
   nd = "nd"
@@ -158,14 +114,10 @@
 [type.css.extend-words]
 
 [type.rust]
-  extend-glob                  = ["**/*.rs", "**/Cargo.toml"]
-  extend-ignore-identifiers-re = []
-  extend-ignore-words-re       = []
-  extend-ignore-re             = []
+  extend-glob = ["**/*.rs", "**/Cargo.toml"]
 
 [type.rust.extend-identifiers]
-  ratatui = "ratatui"
-  flate2  = "flate2"
+  flate2 = "flate2"
 
 [type.rust.extend-words]
   ser = "ser"

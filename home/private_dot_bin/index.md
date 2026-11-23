@@ -1,4 +1,4 @@
-# Home of .bin
+# .bin
 
 ## Executable scripts
 

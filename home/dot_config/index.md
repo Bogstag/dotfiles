@@ -2,4 +2,4 @@
 layout: doc
 ---
 
-# Home of .config
+# .config

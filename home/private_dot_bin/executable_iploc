@@ -1,0 +1,4 @@
+#!/usr/bin/env -S usage bash
+#USAGE about "Get geolocated from your ip"
+#USAGE arg "<ip>" help="Specify another ip-address to geolocate"
+curl "ip-api.com/${usage_ip?}"

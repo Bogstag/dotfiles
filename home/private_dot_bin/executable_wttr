@@ -1,0 +1,125 @@
+#!/usr/bin/env -S usage bash
+#USAGE about #"""
+#USAGE   Get weather report from your location
+#USAGE   Är inte terminalen bred nog så visas bara natt och dag
+#USAGE   Väljer du --format, så får du lägga till en eller flera presets.
+#USAGE   Tänk på att du kan sätta flera på rad tex: -ycD
+#USAGE """#
+#USAGE flag "-m --moon" help="Get current Moon phase"
+#USAGE flag "-f --format" help="Select a One-line output preset"
+#USAGE flagset "formats" {
+#USAGE     flag "-y" bool_value=#false help="Outputs: 🌦 +11⁰C"
+#USAGE     flag "-i" bool_value=#false help="Outputs: 🌦   🌡️+11°C 🌬️↓4km/h"
+#USAGE     flag "-c" bool_value=#false help="Outputs: 🌨️ (Weather condition)"
+#USAGE     flag "-D" bool_value=#false help="Outputs: 07:20:58 (Dawn)"
+#USAGE     flag "-d" bool_value=#false help="Outputs: 15:52:02 (Dusk)"
+#USAGE     flag "-e" bool_value=#false help="Outputs: +2°C (Dew point)"
+#USAGE     flag "-f" bool_value=#false help="Outputs: -5°C (Feels Like)"
+#USAGE     flag "-h" bool_value=#false help="Outputs: 77% (Humidity)"
+#USAGE     flag "-m" bool_value=#false help="Outputs: 🌔 (Moon phase)"
+#USAGE     flag "-M" bool_value=#false help="Outputs: 12 (Moon day)"
+#USAGE     flag "-p" bool_value=#false help="Outputs: 0.0mm (Precipitation mm/3 hours)"
+#USAGE     flag "-P" bool_value=#false help="Outputs: 1007hPa (Pressure (hPa))"
+#USAGE     flag "-S" bool_value=#false help="Outputs: 08:21:25 (Sunrise)"
+#USAGE     flag "-s" bool_value=#false help="Outputs: 14:52:05 (Sunset)"
+#USAGE     flag "-t" bool_value=#false help="Outputs: +0°C (Actual Temp)"
+#USAGE     flag "-T" bool_value=#false help="Outputs: 23:34:01+0100 (Current time)"
+#USAGE     flag "-u" bool_value=#false help="Outputs: 0 (UV index: 0-12)"
+#USAGE     flag "-w" bool_value=#false help="Outputs: ↓23km/h (Wind)"
+#USAGE     flag "-z" bool_value=#false help="Outputs: 11:36:20 (Zenith)"
+#USAGE     flag "-Z" bool_value=#false help="Outputs: Europe/Stockholm (Local timezone)"
+#USAGE }
+# TODO: formats flags dont work
+if [[ "${usage_moon:-false}" = "true" ]]; then
+  curl v3.wttr.in/moon
+  exit 0
+fi
+
+
+if [[ "${usage_format:-false}" = "true" ]]; then
+    format=""
+    if [[ "${usage_y:-false}" = "true" ]]; then format=+"%y"; fi
+    if [[ "${usage_i:-false}" = "true" ]]; then format=+"%i"; fi
+    if [[ "${usage_c:-false}" = "true" ]]; then format=+"%c"; fi
+    if [[ "${usage_D:-false}" = "true" ]]; then format=+"%D"; fi
+    if [[ "${usage_d:-false}" = "true" ]]; then format=+"%d"; fi
+    if [[ "${usage_e:-false}" = "true" ]]; then format=+"%e"; fi
+    if [[ "${usage_f:-false}" = "true" ]]; then format=+"%f"; fi
+    if [[ "${usage_m:-false}" = "true" ]]; then format=+"%m"; fi
+    if [[ "${usage_M:-false}" = "true" ]]; then format=+"%M"; fi
+    if [[ "${usage_p:-false}" = "true" ]]; then format=+"%p"; fi
+    if [[ "${usage_P:-false}" = "true" ]]; then format=+"%P"; fi
+    if [[ "${usage_S:-false}" = "true" ]]; then format=+"%S"; fi
+    if [[ "${usage_s:-false}" = "true" ]]; then format=+"%s"; fi
+    if [[ "${usage_t:-false}" = "true" ]]; then format=+"%t"; fi
+    if [[ "${usage_T:-false}" = "true" ]]; then format=+"%T"; fi
+    if [[ "${usage_u:-false}" = "true" ]]; then format=+"%u"; fi
+    if [[ "${usage_w:-false}" = "true" ]]; then format=+"%w"; fi
+    if [[ "${usage_z:-false}" = "true" ]]; then format=+"%z"; fi
+    if [[ "${usage_Z:-false}" = "true" ]]; then format=+"%Z"; fi
+    curl v3.wttr.in?format="${format}"
+    exit 0
+fi
+
+# If you source this file, it will set WTTR_PARAMS as well as show weather.
+# WTTR_PARAMS, "F q m" behaves the same as "Fqm".
+if [[ -z "$WTTR_PARAMS" ]]; then
+  # Form localized URL parameters for curl
+  if [[ -t 1 ]] && [[ "$(tput cols)" -lt 125 ]]; then
+      WTTR_PARAMS+='n' # narrow version (only day and night)
+  fi 2> /dev/null
+  for _token in $( locale LC_MEASUREMENT ); do
+    case $_token in
+      1) WTTR_PARAMS+='m' ;;  # metric (SI) (used by default everywhere except US)
+      2) WTTR_PARAMS+='u' ;;  # USCS (used by default in US)
+      *) WTTR_PARAMS+='m' ;;  # default metric (SI)
+    esac
+  done 2> /dev/null
+  unset _token
+  export WTTR_PARAMS
+fi
+
+wttr() {
+  local location="${1// /+}"
+  test "$#" -gt 0 && shift
+  local args=()
+  for p in $WTTR_PARAMS "$@"; do
+    args+=("--data-urlencode" "$p")
+  done
+  curl -fGsS -H "Accept-Language: ${LANG%_*}" "${args[@]}" --compressed "wttr.in/${location}"?lang=sv
+}
+
+wttr "$@"
+
+
+# #USAGE about "Get weather report from your location"
+# #USAGE flag "-l --location <location>" help="Get weather in this location (city)"
+# #USAGE flag "-m --moon" help="Get current Moon phase"
+
+# #USAGE arg "<location>" help="string to generate QR from"
+
+# if [[ -n "${usage_location}" ]]; then
+#   curl "v3.wttr.in/${usage_location}"
+# fi
+
+# if [[ "${usage_moon:-false}" = "true" ]]; then
+#   curl v3.wttr.in/moon
+# fi
+
+
+# curl v3.wttr.in/
+
+# curl wttr.in/:help
+
+# View options:
+
+#     0                       # only current weather
+#     1                       # current weather + today's forecast
+#     2                       # current weather + today's + tomorrow's forecast
+#     A                       # ignore User-Agent and force ANSI output format (terminal)
+#     d                       # restrict output to standard console font glyphs
+#     F                       # do not show the "Follow" line
+#     n                       # narrow version (only day and night)
+#     q                       # quiet version (no "Weather report" text)
+#     Q                       # superquiet version (no "Weather report", no city name)
+#     T                       # switch terminal sequences off (no colors)

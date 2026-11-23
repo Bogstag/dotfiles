@@ -1,0 +1,4 @@
+#!/usr/bin/env -S usage bash
+#USAGE about "Generate QR code from string"
+#USAGE arg "<string>" help="string to generate QR from"
+curl "qrenco.de/${usage_string?}"

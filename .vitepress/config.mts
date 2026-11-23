@@ -6,7 +6,6 @@ import { withSidebar } from "vitepress-sidebar";
 
 const vitePressOptions: UserConfig<DefaultTheme.Config> = defineConfig({
   base: "/dotfiles/",
-  cleanUrls: true,
   description: "Small, practical notes about this repository.",
   head: [["link", { href: "/favicon.ico", rel: "icon" }]],
   ignoreDeadLinks: true,
@@ -14,10 +13,9 @@ const vitePressOptions: UserConfig<DefaultTheme.Config> = defineConfig({
   //   // The site root already has an index.md.
   //   Return page.replace(/(?<=\/)README\.md$/u, "index.md");
   // },
-  rewrites(page) {
-    // Rewrites 'folder/folder.md' to 'folder/index.md'
-    return page.replace(/(?<dir>[^/]+)\/\1\.md$/u, "$1/index.md");
-  },
+  // Rewrites(page) {
+  //   Return page.replace(/(?<dir>[^/]+)\/\1\.md$/u, "$1/index.md");
+  // },
   srcExclude: [
     "**/AGENTS.md",
     "**/node_modules/**",
@@ -49,7 +47,7 @@ const vitePressOptions: UserConfig<DefaultTheme.Config> = defineConfig({
 
 const sidebarOptions: VitePressSidebarOptions = {
   // ============ [ RESOLVING PATHS ] ============
-  // DocumentRootPath: '/',
+  documentRootPath: "/",
   // ScanStartPath: null,
   // ResolvePath: null,
   // BasePath: null,
@@ -60,24 +58,24 @@ const sidebarOptions: VitePressSidebarOptions = {
   // CollapseFromLevel: 3,
   // Collapsed: true,
   // CollapseDepth: 2,
-  // RootGroupCollapsed: false,
-  rootGroupText: "Contents",
+  rootGroupCollapsed: false,
+  rootGroupText: "Table of Contents",
   // RootGroupLink: 'https://github.com/jooy2',
-  // SplitSidebarRootGroupText: '◀ :title',
+  splitSidebarRootGroupText: "◀ :title",
 
   // ============ [ GETTING MENU TITLE ] ============
+  useFolderTitleFromIndexFile: true,
   // 2 try # Title
   useTitleFromFileHeading: true,
   // 1 try Frontmatter title: Title
-  useTitleFromFrontmatter: true,
-  // UseFolderTitleFromIndexFile: false,
+  // UseTitleFromFrontmatter: true,
   // FrontmatterTitleFieldName: 'title',
   // DynamicRouteTitleParam: 'title',
 
   // ============ [ GETTING MENU LINK ] ============
-  folderLinkNotIncludesFileName: true,
-  useFolderLinkFromIndexFile: true,
-  useFolderLinkFromSameNameSubFile: true,
+  // FolderLinkNotIncludesFileName: true,
+  // UseFolderLinkFromIndexFile: true,
+  // UseFolderLinkFromSameNameSubFile: true,
   // RemovePrefixFromLink: false,
 
   // ============ [ INCLUDE / EXCLUDE ] ============
@@ -97,7 +95,7 @@ const sidebarOptions: VitePressSidebarOptions = {
   // ExcludeByFolderDepth: undefined,
   // IncludeDotFiles: false,
   // IncludeEmptyFolder: false,
-  includeRootIndexFile: true,
+  // IncludeRootIndexFile: true,
   // IncludeFolderIndexFile: false,
   // IncludeDynamicRoutes: false,
 
@@ -111,8 +109,8 @@ const sidebarOptions: VitePressSidebarOptions = {
   // PrefixSeparator: '.',
 
   // ============ [ SORTING ] ============
-  // ManualSortFileNameByPriority: ['first.md', 'second', 'third.md'],
-  // SortFolderTo: null,
+  manualSortFileNameByPriority: ["index.md", "**"],
+  sortFolderTo: "top",
   sortMenusByName: true,
   // SortMenusByFileDatePrefix: false,
   // SortMenusByFrontmatterOrder: false,
