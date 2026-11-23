@@ -1,16 +1,16 @@
 {
   "avatar": "/home/bogge/Pictures/rclone/profile/2841.png",
   "blankMs": 300000,
-  "boot": "video:deer_standing_in_foggy_forest.mp4",
-  "bootResync": false,
+  "boot": "video:orlok-deer.mp4",
+  "bootClipSeconds": 6,
   "clipWallpaper": true,
   "design": "my-mylayout",
+  "favorites": ["my-mylayout"],
   "followTheme": true,
-  "hideAuthIcons": true,
   "mediaControls": true,
   "openAs": "full",
   "powerActions": true,
   "tourSeen": true,
-  "unlock": "zoom",
+  "unlock": "rise",
   "unlockMs": 6000
 }

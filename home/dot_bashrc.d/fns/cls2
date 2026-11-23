@@ -1,4 +1,5 @@
-# Does nothing
+#!/usr/bin/env bash
+# TODO: USAGE
 cls2() {
-	clear
+    clear
 }

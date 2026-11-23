@@ -106,7 +106,7 @@ steps {
   ["render:tasks"] = new Step {
     glob = List("mise.toml", "tasks.toml", "tasks.md")
     check = ".utils/check-task-docs.sh"
-    fix = "mise run --force render:tasks"
+    fix = "mise run --force Render:TasksDoc"
     output_summary = "hide"
   }
   //

@@ -36,12 +36,14 @@
   brite = "brite"
 
 [default.extend-words]
-  brite    = "brite"
-  hass     = "hass"
-  chiseled = "chiseled"
-  ot       = "ot"
-  ue       = "ue"
-  sketchs  = "sketchs"
+  brite      = "brite"
+  hass       = "hass"
+  chiseled   = "chiseled"
+  ot         = "ot"
+  ue         = "ue"
+  sketchs    = "sketchs"
+  capitalize = "capitalize"
+  Color      = "Color"
 
 [type.lua]
   extend-glob = ["**/*.lua"]

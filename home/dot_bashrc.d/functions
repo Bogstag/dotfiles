@@ -1,2 +1,0 @@
-# shellcheck source=./fns/nothing
-for f in ./fns/*; do source "${f}"; done

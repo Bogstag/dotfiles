@@ -1,9 +1,10 @@
-# Does nothing
+#!/usr/bin/env bash
+# TODO: USAGE
 nothing() {
-	A="1"
-	if [[ "${A}" = "2" ]]; then
-		echo
-	else
-		echo
-	fi
+    A="1"
+    if [[ ${A} == "2" ]]; then
+        echo
+    else
+        echo
+    fi
 }

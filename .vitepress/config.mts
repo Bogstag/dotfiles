@@ -51,7 +51,7 @@ const sidebarOptions: VitePressSidebarOptions = {
   // ScanStartPath: null,
   // ResolvePath: null,
   // BasePath: null,
-  splitSidebarByFolder: true,
+  // SplitSidebarByFolder: true,
   // FollowSymlinks: false,
 
   // ============ [ GROUPING ] ============
@@ -65,16 +65,14 @@ const sidebarOptions: VitePressSidebarOptions = {
 
   // ============ [ GETTING MENU TITLE ] ============
   useFolderTitleFromIndexFile: true,
-  // 2 try # Title
   useTitleFromFileHeading: true,
-  // 1 try Frontmatter title: Title
   // UseTitleFromFrontmatter: true,
   // FrontmatterTitleFieldName: 'title',
   // DynamicRouteTitleParam: 'title',
 
   // ============ [ GETTING MENU LINK ] ============
   // FolderLinkNotIncludesFileName: true,
-  // UseFolderLinkFromIndexFile: true,
+  useFolderLinkFromIndexFile: true,
   // UseFolderLinkFromSameNameSubFile: true,
   // RemovePrefixFromLink: false,
 

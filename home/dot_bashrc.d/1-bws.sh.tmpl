@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 export BWS_ACCESS_TOKEN='{{ output "secret-tool" "lookup" "BWS_ACCESS" "TOKEN" }}'
 
 export ANTHROPIC_API_KEY='{{ (bitwardenSecrets "bdecbf97-506a-43a3-8e0c-b4de013c8f97" .bws_access_token).value }}'

@@ -43,7 +43,7 @@ exclude = ["**/modify_*.yml", "**/modify_*.toml"]
   allow-non-breakable-inline-mappings = true
   allow-non-breakable-words           = true
   level                               = "warning"
-  max                                 = 100
+  max                                 = 200
 
 [lint.rules.quoted-strings]
   level                            = "error"
