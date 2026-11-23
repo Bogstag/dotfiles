@@ -106,8 +106,8 @@ steps {
 
   ["render_tasks"] = new Step {
     glob = List("tasks.toml")
-    check = "mise run --force render:tasks"
-    fix = "mise run --force render:tasks"
+    check = "mise run --force Render:TasksDoc"
+    fix = "mise run --force Render:TasksDoc"
     output_summary = "hide"
   }
   //
@@ -128,45 +128,8 @@ steps {
   ["mise"] = (Builtins.mise) {
   //    description = "mise-en-place's built-in formatter and linter"
   }
-  //
-  ["oxfmt"] = (Builtins.oxfmt) {
-    check {
-      command {
-        argv = List("vp", "fmt", "--check", "--no-error-on-unmatched-pattern", "{{files}}")
-      }
-    }
-    check_diff {
-      command {
-        argv =
-          List(
-            "hk",
-            "util",
-            "format-diff",
-            "{{files}}",
-            "--",
-            "vp",
-            "fmt",
-            "--stdin-filepath",
-            "{}",
-          )
-      }
-    }
-    fix {
-      command {
-        argv = List("vp", "fmt", "--write", "--no-error-on-unmatched-pattern", "{{files}}")
-      }
-    }
-  }
 
-  ["ox_lint"] = (Builtins.ox_lint) {
-    check {
-      command { argv = List("vp", "lint", "--deny-warnings", "{{files}}") }
-    }
-    fix {
-      command { argv = List("vp", "lint", "--deny-warnings", "--fix", "{{files}}") }
-    }
-  }
-  //
+  ["vp-check"] = Builtins.vp_check
 
   ["markdown_lint"] = (Builtins.markdown_lint) {
     stage = List("*.md")

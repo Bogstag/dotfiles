@@ -61,13 +61,34 @@ I dont know why, but i found them in starship.toml.
 
 ## Nerd Fonts
 
-[Useful Nerd Fonts](https://www.nerdfonts.com/cheat-sheet). Search `nf-ex` and `nf-ple` for some classic and useful icons.
+[Useful Nerd Fonts](https://www.nerdfonts.com/cheat-sheet) and normal characters.
 
 ```sh
-#                        
-#                        󰯉  ⬬
-# [ ▒▓] [ ░▒▓]      
-# ╰ ─         l  ∟ ╰
-#  ░▒▓ ▓▒░  ▁▂▃▄▅▆▇█ ▉▊▋▌▍▍▎▏▐  ▏▎▍▌▋▊▉
-#              
+# Normal characters
+#   «‹«‹»›»› ╌╍┅╺╸╺╾╼╾╼┉┈┄­  ─╶╶╴—‐―‑– ▁▂▃▄▅▆▇█ ▉▊▋▌▍▍▎▏▐ ░▒▓ ␩␨␧
+#   ┌─┐  ┎┒    ╭╮           ╒═╕
+#   │ │┍┑┖┚┏┓╔╗╰╯ ├─┴─┼─┬─┤ ╘═╛╓╖ ╲ ╱ ▛▜
+#   └─┘┕┙  ┗┛╚╝                ╙╜  ╳  ▌▐
+#                                 ╱ ╲ ▙▟
+#           | ═ ║
+# nf-extra
+#        
+#
+# Fun from nf-fa, nf-md
+#   󱎃   󰯉  ⬬ 󰳳
+#
+# nf-md-format-align     | nf-fa-align
+#   󰉣 󰉡 󰉢 󰉠 󰉣󰉢 󰉣󰉡󰉢 󰉢󰉠󰉣 󰉠󰉠󰉠 |         
+#
+# nf-ple shapes
+#                        
+#
+# nf-ple flame | pixel | ice
+#              |                |          |
+#
+# nf-ple honey | lego
+#                |            
+#
+# nf-ple
+#   
 ```

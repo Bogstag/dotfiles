@@ -258,81 +258,73 @@ echo -n "{{ .chezmoi.sourceDir }}/dot_config/private_Code/User/keybindings.json"
 
 Checks modified files
 
-## `Check-Stage-Unstaged`
+## `Check Stage Unstaged`
 
-- **Usage:** `Check-Stage-Unstaged`
+- **Usage:** `Check Stage Unstaged`
 
 Check changed files and stage them if ok
 
-## `Check-Stage-unstaged-plan`
+## `Chezmoi Edit Config`
 
-- **Usage:** `Check-Stage-unstaged-plan`
+- **Usage:** `Chezmoi Edit Config`
 
-Generate plan for Check-Stage-unstaged task
+## `Docs:UpdatePluginsExternalMarkdown`
 
-## `Check:ox`
+- **Usage:** `Docs:UpdatePluginsExternalMarkdown`
 
-- **Usage:** `Check:ox`
+Re add external plugins md files
 
-Checks Js, Ts, JSON, JSONC, JSON5, YAML, TOML, HTML, Vue, Markdown, MDX, Handlebars and more
+## `Docs:UpdateYaziExternalMarkdown`
 
-## `Check:ryl`
+- **Usage:** `Docs:UpdateYaziExternalMarkdown`
 
-- **Usage:** `Check:ryl`
-
-Checks yaml
-
-## `Chezmoi-edit-config`
-
-- **Usage:** `Chezmoi-edit-config`
+Re add yazi external plugins md files
 
 ## `Fix`
 
 - **Usage:** `Fix`
 
-## `Fix-Stage-Unstaged`
+## `Fix Stage Unstaged`
 
-- **Usage:** `Fix-Stage-Unstaged`
+- **Usage:** `Fix Stage Unstaged`
 
 Fix changed files and stage them if ok
 
-## `Fix-Stage-unstaged-plan`
+## `Get All Files Ext In Workspace`
 
-- **Usage:** `Fix-Stage-unstaged-plan`
+- **Usage:** `Get All Files Ext In Workspace`
 
-Generate plan for Fix-Stage-unstaged task
+## `Mise:SyncSkills`
 
-## `Fix:ox`
-
-- **Usage:** `Fix:ox`
-
-Fixes Js, Ts, JSON, JSONC, JSON5, YAML, TOML, HTML, Vue, Markdown, MDX, Handlebars and more
-
-## `Fix:ryl`
-
-- **Usage:** `Fix:ryl`
-
-Fixes yaml
-
-## `Get-all-file-ext-in-dir`
-
-- **Usage:** `Get-all-file-ext-in-dir`
-
-## `Sync_repo_skills`
-
-- **Usage:** `Sync_repo_skills`
+- **Usage:** `Mise:SyncSkills`
 
 Add or update skills in repo
 
-## `Update-schema-ryl`
+## `Mise:Upgrade`
 
-- **Usage:** `Update-schema-ryl`
+- **Usage:** `Mise:Upgrade`
 
-## `Update_external_markdown`
+## `Plan Check Stage Unstaged`
 
-- **Usage:** `Update_external_markdown`
+- **Usage:** `Plan Check Stage Unstaged`
 
-Re add external md files
+Generate plan for Check-Stage-unstaged task
+
+## `Plan Fix Stage Unstaged`
+
+- **Usage:** `Plan Fix Stage Unstaged`
+
+Generate plan for Fix-Stage-unstaged task
+
+## `Render:TasksDoc`
+
+- **Usage:** `Render:TasksDoc`
+
+Generate tasks documentation
+
+## `Ryl:UpdateSchema`
+
+- **Usage:** `Ryl:UpdateSchema`
 
 ## `format:gotmpl:write`
 
@@ -340,18 +332,9 @@ Re add external md files
 
 Format go templates
 
-## `install-newer-versions`
-
-- **Usage:** `install-newer-versions`
-
 ## `pre-commit`
 
 - **Usage:** `pre-commit`
 
-## `render:tasks`
-
-- **Usage:** `render:tasks`
-
-Generate tasks documentation
 <!-- /mise-tasks -->
 </details>
