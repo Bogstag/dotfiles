@@ -16,7 +16,11 @@ if [[ -f "${OMARCHY_PATH}/default/bash/rc" ]]; then
 fi
 
 # Omarchy defaults can be found here:
-# /usr/share/omarchy/default/bash
+# file:///usr/share/omarchy/default/bash
+
+# Source this AFTER bash-completion.
+# shellcheck source=/home/bogge/.bashrc
+source <(usage g completion-init bash)
 
 # Aliases.
 if [[ -f "${HOME}/.bash_aliases" ]]; then

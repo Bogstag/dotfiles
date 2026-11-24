@@ -8,6 +8,7 @@
   _.path                         = [
     "${GOPATH:-$HOME/go}",
     ".bin",
+    ".cli.d",
     ".lib",
     "/home/bogge/.lib/qt6/bin",
     "/home/bogge/.local/share/mise/installs/go/latest/bin",

@@ -53,17 +53,14 @@ steps {
   ["ryl"] = (Builtins.ryl) {
   //    description = "Re-implementation of yamllint in Rust"
   }
-  //
 
   ["ryl_markdown"] = (Builtins.ryl_markdown) {
   //    description = "Lint YAML embedded in Markdown (front matter + fenced yaml blocks) with ryl"
   }
-  //
 
   ["ryl_markdown_format"] = (Builtins.ryl_markdown_format) {
   //    description = "Lint YAML embedded in Markdown (front matter + fenced yaml blocks) with ryl"
   }
-  //
 
   ["shellharden"] = (Builtins.shellharden) {
     //  description = "The corrective bash syntax highlighter"

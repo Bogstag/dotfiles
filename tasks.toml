@@ -4,42 +4,26 @@
   description = "Checks modified files"
   run         = "hk check"
 
-["Check:ryl"]
-  description = "Checks yaml"
-  run         = ["ryl check", "ryl format --check"]
-
-["Check:ox"]
-  description = "Checks Js, Ts, JSON, JSONC, JSON5, YAML, TOML, HTML, Vue, Markdown, MDX, Handlebars and more"
-  run         = ["vp lint", "vp fmt --check"]
-
 ["Fix"]
   run = "hk fix --all"
 
-["Fix:ryl"]
-  description = "Fixes yaml"
-  run         = ["ryl check --fix", "ryl format"]
-
-["Fix:ox"]
-  description = "Fixes Js, Ts, JSON, JSONC, JSON5, YAML, TOML, HTML, Vue, Markdown, MDX, Handlebars and more"
-  run         = ["vp lint --fix", "vp fmt"]
-
-["Check-Stage-Unstaged"]
+["Check Stage Unstaged"]
   description = "Check changed files and stage them if ok"
   run         = "mise exec -- hk check --no-fail-fast --unstaged  --stage --junit-xml ./tests/check-stage-unstaged_latest.xml"
 
-["Check-Stage-unstaged-plan"]
+["Plan Check Stage Unstaged"]
   description = "Generate plan for Check-Stage-unstaged task"
   run         = "mise run Check-Stage-Unstaged --plan"
 
-["Fix-Stage-Unstaged"]
+["Fix Stage Unstaged"]
   description = "Fix changed files and stage them if ok"
   run         = "mise exec -- hk fix --no-fail-fast --unstaged --stage --junit-xml ./tests/fix-stage-unstaged_latest.xml"
 
-["Fix-Stage-unstaged-plan"]
+["Plan Fix Stage Unstaged"]
   description = "Generate plan for Fix-Stage-unstaged task"
   run         = "mise run Fix-Stage-Unstaged --plan"
 
-[Chezmoi-edit-config]
+["Chezmoi Edit Config"]
   run = "chezmoi edit-config"
 
 ["format:gotmpl:write"]
@@ -49,17 +33,17 @@
   run         = "gotmplfmt -w ${file}"
   sources     = ["gotmplfmt"]
 
-[Get-all-file-ext-in-dir]
+["Get All Files Ext In Workspace"]
   run = '''
   #!/usr/bin/env bash
   find . -type f | sed -rn 's|.*/[^/]+\.([^/.]+)$|\1|p' | sort -u
   '''
 
-[install-newer-versions]
+["Mise:Upgrade"]
   # Use mise upgrade to install newer versions within the configured ranges and update the lockfile.
   run = "mise upgrade --bump"
 
-["render:tasks"]
+["Render:TasksDoc"]
   description = "Generate tasks documentation"
   env         = { CLICOLOR_FORCE = "0" }
   outputs     = ["README.md"]
@@ -68,21 +52,42 @@
   ]
   sources     = ["mise"]
 
-[Update-schema-ryl]
+["Ryl:UpdateSchema"]
   run = "ryl --print-toml-config-schema > $HOME/.config/ryl/ryl.json"
 
 [pre-commit]
   run = "mise exec -- hk run pre-commit --no-stage --junit-xml ./tests/pre-commit.xml"
 
-["Sync_repo_skills"]
+["Mise:SyncSkills"]
   description = "Add or update skills in repo"
   run         = "mise skills sync --dir .agents/skills"
 
-["Update_external_markdown"]
+["Docs:UpdateYaziExternalMarkdown"]
   # TODO: Find a way to run this auto after plugin update.
-  description = "Re add external md files"
+  description = "Re add yazi external plugins md files"
+  run         = '''
+  #!/usr/bin/env bash
+  if [[ ! -d "$(chezmoi source-path)/dot_config/yazi/plugins" ]]; then
+    mkdir -m=0755 $(chezmoi source-path)/dot_config/yazi/plugins
+  fi
+
+  find $(chezmoi source-path)/dot_config/yazi/plugins/ -type f -nowarn -iname '*.md' -delete
+  find ~/.config/yazi/plugins -type f -name '*.md' -exec bash -c '
+  for file do
+      dir="${file%/*}"
+      name="${dir##*/}"
+      cp -- "$file" "$(chezmoi source-path)/dot_config/yazi/plugins/$name.md"
+    done
+  ' bash {} +
+  generate_md_index $(chezmoi source-path)/dot_config/yazi/plugins "Plugins"
+'''
+
+["Docs:UpdatePluginsExternalMarkdown"]
+  # TODO: Find a way to run this auto after plugin update.
+  description = "Re add external plugins md files"
   run         = [
-    "chezmoi re-add ~/.config/yazi/plugins/*/{README,readme}.md",
-    "chezmoi re-add ~/.config/omarchy/plugins/*/{CHANGELOG,DESIGN,README,changelog,design,readme}.md",
-    "chezmoi re-add ~/.config/omarchy/plugins/*/preview.png",
+    "rm -f home/dot_config/omarchy/plugins/*/{private_preview,preview}.png",
+    "rm -f home/dot_config/omarchy/plugins/*/{private_CHANGELOG,private_README,CHANGELOG,README}.md",
+    "chezmoi add --exact ~/.config/omarchy/plugins/*/preview.png",
+    "chezmoi add --exact ~/.config/omarchy/plugins/*/{CHANGELOG,README}.md",
   ]
