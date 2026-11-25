@@ -2,44 +2,45 @@
 # tombi: format.rules.table-keys-order = "ascending"
 
 [deps.npm]
-  auto = true
-  run  = "npm ci"
+auto = true
+run = "npm ci"
 
 [env]
-  _.path = ["node_modules/.bin"]
+_.path = ["node_modules/.bin"]
 
 [settings.packslip]
-  exec = true
+exec = true
 
 [settings.skills]
-  auto_sync = true
-  dir       = ".agents/skills"
-  fetch     = true
-  prune     = true
+auto_sync = true
+dir = ".agents/skills"
+fetch = true
+prune = true
 
 [task_config]
-  includes = ["tasks.toml"]
+includes = ["tasks.toml"]
 
 [tools]
-  "aqua:Kampfkarren/selene/light" = "latest"
-  "aqua:owenlamont/ryl"           = "latest"
-  "npm:markdownlint-cli"          = "latest"
-  betterleaks                     = "latest"
-  fnox                            = "latest"
-  hk                              = "latest"
-  jactionlint                     = "latest"
-  pkl                             = "latest"
-  shellcheck                      = "latest"
-  shfmt                           = "latest"
-  tombi                           = "latest"
-  "github:apple/pkl-lsp"          = {
+"aqua:Kampfkarren/selene/light" = "latest"
+"aqua:owenlamont/ryl" = "latest"
+"npm:markdownlint-cli" = "latest"
+actionlint = "latest"
+betterleaks = "latest"
+fnox = "latest"
+hk = "latest"
+pkl = "latest"
+shellcheck = "latest"
+shfmt = "latest"
+tombi = "latest"
+"github:apple/pkl-lsp" = {
     version    = "latest",
     bin_path   = "bin",
     bin        = "pkl-lsp",
     rename_exe = { " pkl-lsp-*" = "pkl-lsp" }
   }
-  vp                              = "latest"
+vp = "latest"
+ls-lint = "latest"
 
 [wrappers.python]
-  command = "uv"
-  args    = ["run", "python"]
+command = "uv"
+args = ["run", "python"]
