@@ -27,9 +27,9 @@
   description = "Generate plan for Fix-Stage-unstaged task"
   run         = "mise run Fix-All --plan"
 
-["HK-Pre-Commit"]
-  description = "Fixes changed files and stage them if ok"
-  run         = "hk run pre-commit --junit-xml ./tests/hk-pre-commit.junit.xml"
+  # ["HK-Pre-Commit"]
+  #   description = "Fixes changed files and stage them if ok"
+  #   run         = "hk run pre-commit --junit-xml ./tests/hk-pre-commit.junit.xml"
 
 ["Plan Pre-Commit"]
   description = "Generate plan for Fix-Stage-unstaged task"

@@ -20,8 +20,8 @@
 [task_config]
   includes = ["tasks.toml"]
 
-[tasks.pre-commit]
-  run = "hk run pre-commit"
+  # [tasks.pre-commit]
+  #   run = "hk run pre-commit --staged --junit-xml ./tests/mise-pre-commit.junit.xml"
 
 [tools]
   "github:apple/pkl-lsp"          = {

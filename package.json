@@ -18,27 +18,27 @@
   },
   "type": "module",
   "scripts": {
-    "check:vpfmt": "vp fmt --check",
-    "check:vplint": "vp lint",
     "docs:build": "vitepress build .",
     "docs:dev": "vitepress dev .",
     "docs:preview": "vitepress preview .",
-    "fix:vpfmt": "vp fmt",
-    "fix:vplint": "vp lint --fix",
     "knip": "knip",
-    "vplint:danger": "vp lint --fix-dangerously",
-    "vplint:suggest": "vp lint --fix-suggestions"
+    "vp:check": "vp check",
+    "vp:danger": "vp check --fix-dangerously",
+    "vp:fix": "vp check --fix"
   },
   "devDependencies": {
     "@tsconfig/node-lts": "26.0.1",
     "@tsconfig/node-ts": "23.6.5",
     "@tsconfig/recommended": "1.0.14",
-    "@types/node": "26.6.6",
-    "knip": "6.47.0",
+    "@types/node": "26.6.10",
+    "knip": "6.48.0",
     "typescript": "7.0.2",
-    "vite-plus": "1.7.0",
+    "vite-plus": "1.8.0",
     "vitepress": "1.6.4",
     "vitepress-sidebar": "1.41.0"
+  },
+  "overrides": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@8.3.8000"
   },
   "devEngines": {
     "packageManager": {

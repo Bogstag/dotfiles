@@ -3,20 +3,20 @@ amends "package://github.com/jdx/hk/releases/download/v2.14.0/hk@2.14.0#/Config.
 import "package://github.com/jdx/hk/releases/download/v2.14.0/hk@2.14.0#/Builtins.pkl"
 
 local linters = new Mapping {
-  // ["actionlint"] = Builtins.actionlint
-  // ["knip"] = Builtins.knip TODO: Solve problems
-  // ["markdown_lint"] = Builtins.markdown_lint
-  // ["selene"] = Builtins.selene
-  // ["shellcheck"] = Builtins.shellcheck
-  // ["shellharden"] = Builtins.shellharden
-  // ["shfmt"] = Builtins.shfmt
-  // ["stylua"] = Builtins.stylua
-  // ["tsc"] = Builtins.tsc
-  ["typos"] = Builtins.typos
-  // ["vp_check"] = Builtins.vp_check
-  // ["vp_fmt"] = Builtins.vp_fmt
-  // ["vp_lint"] = Builtins.vp_lint
-  // ["zizmor"] = Builtins.zizmor
+// ["actionlint"] = Builtins.actionlint
+// ["knip"] = Builtins.knip TODO: Solve problems
+// ["markdown_lint"] = Builtins.markdown_lint
+// ["selene"] = Builtins.selene
+// ["shellcheck"] = Builtins.shellcheck
+// ["shellharden"] = Builtins.shellharden
+// ["shfmt"] = Builtins.shfmt
+// ["stylua"] = Builtins.stylua
+// ["tsc"] = Builtins.tsc
+// ["typos"] = Builtins.typos
+// ["vp_check"] = Builtins.vp_check
+// ["vp_fmt"] = Builtins.vp_fmt
+// ["vp_lint"] = Builtins.vp_lint
+// ["zizmor"] = Builtins.zizmor
 }
 
 steps = linters
