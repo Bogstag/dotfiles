@@ -1,0 +1,6 @@
+#!/usr/bin/env -S usage bash
+# shellcheck shell=bash
+# USAGE about "Create a index.md in a folder and link to other files in that folder."
+# USAGE arg "<dir>" help="Directory of the index.md file and text in Heading 1"
+# USAGE arg "<heading>" help="Heading 2 in index.md"
+generate_md_index

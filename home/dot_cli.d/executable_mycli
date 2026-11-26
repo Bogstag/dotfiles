@@ -1,0 +1,14 @@
+#!/usr/bin/env -S usage bash
+# shellcheck shell=bash
+#USAGE flag "-f --force" help="Overwrite existing <file>"
+#USAGE flag "-u --user <user>" help="User to run as"
+#USAGE arg "<file>" help="The file to write" default="file.txt"
+
+if [ "${usage_force}" = "true" ]; then
+  rm -f "${usage_file}"
+fi
+if [ -n "$usage_user" ]; then
+  echo "Hello, $usage_user" >> "$usage_file"
+else
+  echo "Hello, world" >> "$usage_file"
+fi

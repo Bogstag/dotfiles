@@ -1,0 +1,17 @@
+# USAGE about "Create a index.md in a folder and link to other files in that folder."
+# USAGE arg "<dir>" help="Directory of the index.md file and text in Heading 1"
+# USAGE arg "<heading>" help="Heading 2 in index.md"
+# shellcheck disable=SC2312
+generate_md_index() {
+    local dir="${1%/}"
+    local heading2="${2:-Plugins}"
+    {
+        printf '# %s\n\n' "${dir##*/}"
+        printf '## %s\n\n' "${heading2}"
+        find "${dir}" -maxdepth 1 -type f -name '*.md' ! -name 'index.md' -printf '%f\n' \
+            | sort -V \
+            | while IFS= read -r file; do
+                printf -- '- [%s](%s)\n' "${file%.md}" "${file}"
+            done
+    } > "${dir}/index.md"
+}

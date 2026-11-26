@@ -132,6 +132,7 @@ local lua = new Group {
 }
 
 local markdown = new Group {
+  exclude = List("home/dot_config/yazi/plugins/*.md")
   steps {
     ["markdown_lint"] = (Builtins.markdown_lint) {
       // Markdown linter
@@ -149,18 +150,18 @@ local markdown = new Group {
   }
 }
 
-local mise = new Group {
-  steps {
-    ["mise_config_dir"] = (Builtins.mise_config_dir) {
-      // mise formatter for a global config repository checked out at ~/.config/mise (e.g. mise bootstrap --adopt)
-      diagnostic_format = "sarif"
-    }
-    ["mise"] = (Builtins.mise) {
-      // mise-en-place's built-in formatter and linter
-      diagnostic_format = "sarif"
-    }
-  }
-}
+// local mise = new Group {
+//   steps {
+//     ["mise_config_dir"] = (Builtins.mise_config_dir) {
+//       // mise formatter for a global config repository checked out at ~/.config/mise (e.g. mise bootstrap --adopt)
+//       diagnostic_format = "sarif"
+//     }
+//     ["mise"] = (Builtins.mise) {
+//       // mise-en-place's built-in formatter and linter
+//       diagnostic_format = "sarif"
+//     }
+//   }
+// }
 
 local pkl = new Group {
   steps {
@@ -201,6 +202,7 @@ local shebang = new Group {
 
 local shell = new Group {
   exclude = List("**/*.tmpl")
+  stage = "true"
   steps {
     ["shellharden"] = (Builtins.shellharden) {
       // The corrective bash syntax highlighter
@@ -213,9 +215,8 @@ local shell = new Group {
       // Shell script analyser
       //  FileSelector { glob = List("**/*.sh", "**/*.bash") }
       //  FileSelector { types = List("sh", "bash") }
-      check = "shellcheck --rcfile=~/.shellcheckrc {{files}}"
-      check_diff = "shellcheck --rcfile=~/.shellcheckrc --format=diff {{files}}"
-      batch = false
+      check = "shellcheck --rcfile=/home/bogge/.shellcheckrc {{files}}"
+      check_diff = "shellcheck --rcfile=/home/bogge/.shellcheckrc --format=diff {{files}}"
       diagnostic_format = "sarif"
     }
 
@@ -223,7 +224,6 @@ local shell = new Group {
       // Shell formatter
       //  FileSelector { glob = List("**/*.sh", "**/*.bash", "**/*.mksh", "**/*.bats", "**/*.zsh") }
       //  FileSelector { types = List("sh", "bash") }
-      batch = false
       diagnostic_format = "sarif"
     }
   }
@@ -283,7 +283,7 @@ steps {
   //   ["json"] = json
   ["lua"] = lua
   ["markdown"] = markdown
-  ["mise"] = mise
+  //   ["mise"] = mise
   ["pkl"] = pkl
   ["shebang"] = shebang
   ["shell"] = shell
@@ -298,12 +298,15 @@ steps {
 // hk check --staged	- Staged paths, using their current working-tree contents
 
 hooks {
-  // ["pre-commit"] {
-  //   // Staged file selection
-  //   fix = false // use cache
-  //   stage = true //Default true
-  //   timeout = "20s"
-  // }
+  ["pre-commit"] {
+    // Staged file selection
+    fix = false // use cache
+    stage = true //Default true
+    timeout = "10s"
+    // steps {
+    //   ["conventional_commit"] = conventional_commit
+    // }
+  }
   ["prepare-commit-msg"] {
     // commit_msg_file, source, sha
     fix = false

@@ -1,0 +1,10 @@
+name "My CLI"
+bin "mycli"
+about "Deploy services from your terminal"
+
+cmd "deploy" help="Deploy a service" {
+    arg "<service>" help="Service to deploy"
+    flag "-e --env <env>" help="Target environment" default="staging" {
+        choices "staging" "production"
+    }
+}

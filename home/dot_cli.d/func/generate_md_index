@@ -1,0 +1,14 @@
+# shellcheck shell=bash
+generate_md_index() {
+    local dir="${1%/}"
+    local heading2="${2:-Plugins}"
+    {
+        printf '# %s\n\n' "${dir##*/}"
+        printf '## %s\n\n' "${heading2}"
+        find "${dir}" -maxdepth 1 -type f -name '*.md' ! -name 'index.md' -printf '%f\n' \
+            | sort -V \
+            | while IFS= read -r file; do
+                printf -- '- [%s](%s)\n' "${file%.md}" "${file}"
+            done
+    } > "${dir}/index.md"
+}

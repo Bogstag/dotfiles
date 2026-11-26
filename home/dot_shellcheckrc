@@ -14,6 +14,7 @@ disable=SC1054
 # To list all: shellcheck --list-optional
 
 enable=add-default-case
+# My reason: Do some error and get feedback when you done something wong.
 # desc:    Suggest adding a default case in `case` statements
 # example: case $? in 0) echo 'Success';; esac
 # fix:     case $? in 0) echo 'Success';; *) echo 'Fail' ;; esac
@@ -48,21 +49,25 @@ enable=check-set-e-suppressed
 # fix:     VAR=hello; echo $VAR
 
 enable=deprecate-which
+# My reason: I cannot learn to spell it, command i can spell.
 # desc:    Suggest 'command -v' instead of 'which'
 # example: which javac
 # fix:     command -v javac
 
 enable=quote-safe-variables
+# My reason: Is a must and not a option like {}.
 # desc:    Suggest quoting variables without metacharacters
 # example: var=hello; echo $var
 # fix:     var=hello; echo "$var"
 
-enable=require-double-brackets # SC2250
+# SC2250
+enable=require-double-brackets
 # desc:    Require [[ and warn about [ in Bash/Ksh
 # example: [ -e /etc/issue ]
 # fix:     [[ -e /etc/issue ]]
 
-enable=require-variable-braces
+# enable=require-variable-braces
+# My reason: I mainly not needed.
 # desc:    Suggest putting braces around all variable references
 # example: var=hello; echo $var
 # fix:     var=hello; echo ${var}

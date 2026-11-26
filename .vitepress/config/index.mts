@@ -4,9 +4,13 @@ import type { VitePressSidebarOptions } from "vitepress-sidebar/types";
 import { defineConfig } from "vitepress";
 import { withSidebar } from "vitepress-sidebar";
 
+import { markdownOptions } from "./markdown.config.mts";
+import { viteConfig } from "./vite.config.mts";
+
 const vitePressOptions: UserConfig<DefaultTheme.Config> = defineConfig({
   base: "/dotfiles/",
   description: "Small, practical notes about this repository.",
+
   head: [["link", { href: "/favicon.ico", rel: "icon" }]],
   ignoreDeadLinks: true,
   // Rewrites(page) {
@@ -16,6 +20,7 @@ const vitePressOptions: UserConfig<DefaultTheme.Config> = defineConfig({
   // Rewrites(page) {
   //   Return page.replace(/(?<dir>[^/]+)\/\1\.md$/u, "$1/index.md");
   // },
+  markdown: markdownOptions,
   srcExclude: [
     "**/AGENTS.md",
     "**/node_modules/**",
@@ -23,6 +28,7 @@ const vitePressOptions: UserConfig<DefaultTheme.Config> = defineConfig({
     "notes.md",
     "home/dot_config/yazi/flavors/orlok.yazi/readonly_README.md",
   ],
+
   themeConfig: {
     logo: {
       dark: "/sipping-coffee-by-laptop.svg",
@@ -42,7 +48,7 @@ const vitePressOptions: UserConfig<DefaultTheme.Config> = defineConfig({
     ],
   },
   title: "Dotfiles",
-  vite: { assetsInclude: ["**/*.ico", "**/*.svg"], configFile: false },
+  vite: viteConfig,
 });
 
 const sidebarOptions: VitePressSidebarOptions = {
@@ -125,6 +131,4 @@ const sidebarOptions: VitePressSidebarOptions = {
   // DebugPrint: false,
 };
 
-// VitePress loads the site configuration through its default export.
-// oxlint-disable-next-line import/no-default-export
 export default withSidebar(vitePressOptions, sidebarOptions);

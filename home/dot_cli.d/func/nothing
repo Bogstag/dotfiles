@@ -1,0 +1,9 @@
+# shellcheck shell=bash
+nothing() {
+    A="1"
+    if [[ ${A} == "2" ]]; then
+        echo
+    else
+        echo
+    fi
+}
