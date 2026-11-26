@@ -88,7 +88,7 @@
     done
   ' bash {} +
   generate_md_index $(chezmoi source-path)/dot_config/yazi/plugins "Plugins"
-  # TODO: Add chmod 0755 to files in plugin folder last.
+  # TODO: Add chmod 0644? to files in plugin folder last.
 '''
 
 ["Docs:UpdatePluginsExternalMarkdown"]

@@ -3,8 +3,7 @@
   "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint/main/schema/markdownlint-config-schema-strict.json",
   // Default state for all rules
   "default": true,
-  // Path to configuration file to extend
-  "extends": "~/.markdownlint.jsonc",
+
   // region MD001 heading-incrementv0.41.1
   // Heading levels should only increment by one level at a time : https://github.com/DavidAnson/markdownlint/blob/main/doc/md001.md
   /*   "MD001": {
@@ -76,7 +75,7 @@
     "maximum": 1,
   }, */
   // endregion
-  // region MD013 line-lengt
+  // region MD013 line-length
   // Line length : https://github.com/DavidAnson/markdownlint/blob/main/doc/md013.md
   "MD013": {
     // Number of characters for headings
@@ -97,7 +96,7 @@
     // "stern": false,
   },
   // endregion
-  // region MD014 commands-show-outpu
+  // region MD014 commands-show-output
   // Dollar signs used before commands without showing output : https://github.com/DavidAnson/markdownlint/blob/main/doc/md014.md
   // "MD014": true,
   // endregion
@@ -236,7 +235,7 @@
   // Spaces inside link text : https://github.com/DavidAnson/markdownlint/blob/main/doc/md039.md
   // "MD039": true,
   // endregion
-  // region MD040 fenced-code-languag
+  // region MD040 fenced-code-language
   // Fenced code blocks should have a language specified : https://github.com/DavidAnson/markdownlint/blob/main/doc/md040.md
   /*   "MD040": {
     // List of languages
@@ -283,7 +282,7 @@
   // },
   // endregion
   // region MD044 proper-name
-  // Proper names should have the correct capitalization : https://github.com/DavidAnson/markdownlint/blob/main/doc/md044.md
+  // Proper names should have the correct capitalisation : https://github.com/DavidAnson/markdownlint/blob/main/doc/md044.md
   /*   "MD044": {
     // List of proper names
     "names": [],
@@ -297,7 +296,7 @@
   // Images should have alternate text (alt text) : https://github.com/DavidAnson/markdownlint/blob/main/doc/md045.md
   // "MD045": true,
   // endregion
-  // region MD046 code-block-styl
+  // region MD046 code-block-style
   // Code block style : https://github.com/DavidAnson/markdownlint/blob/main/doc/md046.md
   "MD046": {
     // Block style
@@ -308,21 +307,21 @@
   // Files should end with a single newline character : https://github.com/DavidAnson/markdownlint/blob/main/doc/md047.md
   // "MD047": true,
   // endregion
-  // region MD048 code-fence-styl
+  // region MD048 code-fence-style
   // Code fence style : https://github.com/DavidAnson/markdownlint/blob/main/doc/md048.md
   /*   "MD048": {
     // Code fence style
     "style": "consistent",
   }, */
   // endregion
-  // region MD049 emphasis-styl
+  // region MD049 emphasis-style
   // Emphasis style : https://github.com/DavidAnson/markdownlint/blob/main/doc/md049.md
   /*   "MD049": {
     // Emphasis style
     "style": "consistent",
   }, */
   // endregion
-  // region MD050 strong-styl
+  // region MD050 strong-style
   // Strong style : https://github.com/DavidAnson/markdownlint/blob/main/doc/md050.md
   /*   "MD050": {
     // Strong style
@@ -337,7 +336,7 @@
     // Pattern for ignoring additional fragments
     "ignored_pattern": "",
   }, */
-  // endregion
+  // endregion,
   // region MD052 reference-links-image
   // Reference links and images should use a label that is defined : https://github.com/DavidAnson/markdownlint/blob/main/doc/md052.md
   /*   "MD052": {
@@ -354,7 +353,7 @@
     "ignored_definitions": ["//"],
   }, */
   // endregion
-  // region MD054 link-image-styl
+  // region MD054 link-image-style
   // Link and image style : https://github.com/DavidAnson/markdownlint/blob/main/doc/md054.md
   /*   "MD054": {
     // Allow autolinks
@@ -371,7 +370,7 @@
     "url_inline": true,
   }, */
   // endregion
-  // region MD055 table-pipe-styl
+  // region MD055 table-pipe-style
   // Table pipe style : https://github.com/DavidAnson/markdownlint/blob/main/doc/md055.md
   /*   "MD055": {
     // Table pipe style
@@ -393,7 +392,7 @@
     "prohibited_texts": ["click here", "here", "link", "more"],
   }, */
   // endregion
-  // region MD060 table-column-styl
+  // region MD060 table-column-style
   // Table column style : https://github.com/DavidAnson/markdownlint/blob/main/doc/md060.md
   "MD060": {
     // Aligned delimiter columns
