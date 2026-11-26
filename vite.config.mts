@@ -1,7 +1,6 @@
 import { defineConfig } from "vite-plus";
 
 // Vite+ loads the toolchain configuration through its default export.
-// oxlint-disable-next-line import/no-default-export
 export default defineConfig({
   fmt: {
     allowSeparatedGroups: true,
@@ -76,6 +75,7 @@ export default defineConfig({
       "eslint/no-console": ["warn", { allow: ["info", "error"] }],
       "eslint/one-var": "allow",
       "eslint/sort-imports": ["allow", { allowSeparatedGroups: true }],
+      "import/no-default-export": "off",
       "import/no-named-export": "off",
       "import/no-nodejs-modules": [
         "error",
@@ -121,4 +121,5 @@ export default defineConfig({
       "vite-plus/prefer-vite-plus-imports": "error",
     },
   },
+  staged: { "*": "vp check --fix" },
 });

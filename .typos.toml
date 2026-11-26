@@ -44,6 +44,7 @@
   sketchs    = "sketchs"
   capitalize = "capitalize"
   Color      = "Color"
+  summarize  = "summarize"
 
 [type.lua]
   extend-glob = ["**/*.lua"]

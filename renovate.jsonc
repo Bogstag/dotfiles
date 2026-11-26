@@ -1,6 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>Bogstag/renovate-config:default.jsonc"],
+  "extends": [
+    "github>Bogstag/renovate-config:default.jsonc",
+    "group:vitePlus"
+  ],
   "automerge": false,
   "automergeType": "pr"
 }

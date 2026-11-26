@@ -1,27 +1,39 @@
 #:schema https://mise.jdx.dev/schema/mise-task.json
 
-["Check"]
-  description = "Checks modified files"
-  run         = "hk check"
-
-["Fix"]
-  run = "hk fix --all"
-
-["Check Stage Unstaged"]
+["HK-Check"]
   description = "Check changed files and stage them if ok"
-  run         = "mise exec -- hk check --no-fail-fast --unstaged  --stage --junit-xml ./tests/check-stage-unstaged_latest.xml"
+  run         = "hk check --junit-xml ./tests/hk-check.junit.xml"
 
-["Plan Check Stage Unstaged"]
+["Plan HK-Check"]
   description = "Generate plan for Check-Stage-unstaged task"
-  run         = "mise run Check-Stage-Unstaged --plan"
+  run         = "mise run HK-Check --plan"
 
-["Fix Stage Unstaged"]
+["HK-Fix"]
+  description = "Check changed files and stage them if ok"
+  run         = [
+    "clear",
+    "hk fix --no-fail-fast --unstaged --stage --junit-xml ./tests/hk-fix.junit.xml"
+  ]
+
+["Plan HK-Fix"]
+  description = "Generate plan for Check-Stage-unstaged task"
+  run         = "mise run HK-Fix --plan"
+
+["Fix-All"]
   description = "Fix changed files and stage them if ok"
-  run         = "mise exec -- hk fix --no-fail-fast --unstaged --stage --junit-xml ./tests/fix-stage-unstaged_latest.xml"
+  run         = "hk fix --all --junit-xml ./tests/fix-all.junit.xml"
 
-["Plan Fix Stage Unstaged"]
+["Plan Fix-All"]
   description = "Generate plan for Fix-Stage-unstaged task"
-  run         = "mise run Fix-Stage-Unstaged --plan"
+  run         = "mise run Fix-All --plan"
+
+["HK-Pre-Commit"]
+  description = "Fixes changed files and stage them if ok"
+  run         = "hk run pre-commit --junit-xml ./tests/hk-pre-commit.junit.xml"
+
+["Plan Pre-Commit"]
+  description = "Generate plan for Fix-Stage-unstaged task"
+  run         = "mise run HK-Pre-Commit --plan"
 
 ["Chezmoi Edit Config"]
   run = "chezmoi edit-config"
@@ -55,9 +67,6 @@
 ["Ryl:UpdateSchema"]
   run = "ryl --print-toml-config-schema > $HOME/.config/ryl/ryl.json"
 
-[pre-commit]
-  run = "mise exec -- hk run pre-commit --no-stage --junit-xml ./tests/pre-commit.xml"
-
 ["Mise:SyncSkills"]
   description = "Add or update skills in repo"
   run         = "mise skills sync --dir .agents/skills"
@@ -70,7 +79,6 @@
   if [[ ! -d "$(chezmoi source-path)/dot_config/yazi/plugins" ]]; then
     mkdir -m=0755 $(chezmoi source-path)/dot_config/yazi/plugins
   fi
-
   find $(chezmoi source-path)/dot_config/yazi/plugins/ -type f -nowarn -iname '*.md' -delete
   find ~/.config/yazi/plugins -type f -name '*.md' -exec bash -c '
   for file do
@@ -80,6 +88,7 @@
     done
   ' bash {} +
   generate_md_index $(chezmoi source-path)/dot_config/yazi/plugins "Plugins"
+  # TODO: Add chmod 0755 to files in plugin folder last.
 '''
 
 ["Docs:UpdatePluginsExternalMarkdown"]

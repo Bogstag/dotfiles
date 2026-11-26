@@ -1,127 +1,327 @@
-amends "package://github.com/jdx/hk/releases/download/v2.11.1/hk@2.11.1#/Config.pkl"
+amends "package://github.com/jdx/hk/releases/download/v2.14.0/hk@2.14.0#/Config.pkl"
 
-import "package://github.com/jdx/hk/releases/download/v2.11.1/hk@2.11.1#/Builtins.pkl"
+import "package://github.com/jdx/hk/releases/download/v2.14.0/hk@2.14.0#/Builtins.pkl"
 
-steps {
-  ["trailing_whitespace"] = (Builtins.trailing_whitespace) {
-  //    description = "Detect and remove trailing whitespace"
+// Groups can provide dir, prefix, workspace_indicator,
+// shell, stage, and exclude.
+
+local conventional_commit = new Group {
+  steps {
+    ["check-added-large-files"] = (Builtins.check_added_large_files) {
+      // Prevent committing large files
+      diagnostic_format = "sarif"
+    }
+    ["check-conventional-commit"] = (Builtins.check_conventional_commit) {
+      // Verify commit message matches conventional commits formatting
+      cache = true
+      diagnostic_format = "sarif"
+    }
   }
-  //
-
-  ["newlines"] = (Builtins.newlines) {
-  //    description = "Ensure files end with newline"
-  }
-  //
-
-  ["check_shebang_scripts_are_executable"] = (Builtins.check_shebang_scripts_are_executable) {
-    //  description = "Verify files with shebang lines are executable"
-    //  Bash startup files are sourced; executable_ sets the target's executable mode.
-    exclude =
-      List(
-        "**/*.ps1",
-        "**/*.tmpl",
-        "**/executable_*",
-        "home/dot_bash_profile",
-        "home/dot_bashrc.d/**",
-      )
-  }
-  //
-
-  ["pkl"] = (Builtins.pkl) {
-  //    description = "Pkl configuration language"
-  }
-  //
-
-  ["pkl_format"] = (Builtins.pkl_format) {
-  //    description = "Pkl formatter"
-  }
-  //
-
-  ["tombi"] = (Builtins.tombi) {
-    //  description = "TOML linter"description = "Shell formatter"
-    exclude = List("**/modify_*.toml")
-  }
-  //
-
-  ["tombi_format"] = (Builtins.tombi_format) {
-    //  description = "TOML formatter"
-    exclude = List("**/modify_*.toml")
-  }
-  //
-
-  ["ryl"] = (Builtins.ryl) {
-  //    description = "Re-implementation of yamllint in Rust"
-  }
-  //
-
-  ["ryl_markdown"] = (Builtins.ryl_markdown) {
-  //    description = "Lint YAML embedded in Markdown (front matter + fenced yaml blocks) with ryl"
-  }
-  //
-
-  ["shellharden"] = (Builtins.shellharden) {
-    //  description = "The corrective bash syntax highlighter"
-    //  types = List("bash", "sh")
-    exclude = List("**/*.tmpl")
-  }
-  //
-
-  ["shellcheck"] = (Builtins.shellcheck) {
-    //  description = "Shell script analyzer"
-    //  FileSelector { glob = List("**/*.sh", "**/*.bash") }
-    //  FileSelector { types = List("sh", "bash") }
-    exclude = List("**/*.tmpl")
-  }
-  //
-
-  ["shfmt"] = (Builtins.shfmt) {
-    //  description = "Shell formatter"
-    //  FileSelector { glob = List("**/*.sh", "**/*.bash", "**/*.mksh", "**/*.bats", "**/*.zsh") }
-    //  FileSelector { types = List("sh", "bash") }
-    exclude = List("**/*.tmpl")
-  }
-  //
-
-  ["stylua"] = (Builtins.stylua) {
-  // description = "Lua formatter"
-  }
-  //
-
-  ["selene"] = (Builtins.selene) {
-  // description = "Lua linter"
-  }
-  //
-
-  ["editorconfig_checker"] = (Builtins.editorconfig_checker) {
-    //  description = "Validate files against EditorConfig rules"
-    glob = List("**/.editorconfig", "**/dot_editorconfig")
-  }
-  //
-
-  ["betterleaks"] = (Builtins.betterleaks) {
-  //    description = "A Better Secrets Scanner built for configurability and speed"
-  }
-  //
-
-  ["render:tasks"] = new Step {
-    glob = List("mise.toml", "tasks.toml", "tasks.md")
-    check = ".utils/check-task-docs.sh"
-    fix = "mise run --force Render:TasksDoc"
-    output_summary = "hide"
-  }
-  //
-
-  ["mise_config_dir"] = (Builtins.mise_config_dir) {
-  //    description = "mise formatter for a global config"
-  }
-  //
-
-  ["mise"] = (Builtins.mise) {
-  //    description = "mise-en-place's built-in formatter and linter"
-  }
-  //
-
 }
-//
-warnings = List("missing-profiles")
-//
+
+local common = new Group {
+  steps {
+    ["trailing_whitespace"] = (Builtins.trailing_whitespace) {
+      // Detect and remove trailing whitespace
+      diagnostic_format = "sarif"
+    }
+    ["newlines"] = (Builtins.newlines) {
+      // Ensure files end with newline
+      diagnostic_format = "sarif"
+    }
+    ["editorconfig_checker"] = (Builtins.editorconfig_checker) {
+      // Validate files against EditorConfig rules
+      glob = List("**/.editorconfig", "**/dot_editorconfig")
+      diagnostic_format = "sarif"
+    }
+    ["check-symlinks"] = (Builtins.check_symlinks) {
+      // Detect broken symlinks
+      diagnostic_format = "sarif"
+    }
+    ["destroyed-symlinks"] = (Builtins.destroyed_symlinks) {
+      // Detect destroyed symlinks
+      diagnostic_format = "sarif"
+    }
+
+    ["betterleaks"] = (Builtins.betterleaks) {
+      // A Better timeout = "10s"Secrets Scanner built for configurability and speed
+      //   check = "betterleaks git --pre-commit --staged --redact --verbose --no-banner {{files}}"
+      //   scan = "commits"
+      cache = true
+      diagnostic_format = "sarif"
+    }
+    // ["ls_lint"] = (Builtins.ls_lint) {
+    //   // Directory and filename naming linter
+    //   diagnostic_format = "sarif"
+    // TODO: .ls-lint.yml: no such file or directory
+    // }
+  }
+}
+
+local go = new Group {
+  steps {
+    ["go-fmt"] = (Builtins.go_fmt) {
+      // Go formatter
+      diagnostic_format = "sarif"
+    }
+    ["go-fix"] = (Builtins.go_fix) {
+      // Go moderniser (requires Go 1.26+)
+      diagnostic_format = "sarif"
+      workspace_indicator = "go.mod"
+    }
+    ["go-vet"] = (Builtins.go_vet) {
+      // Go code vetting
+      diagnostic_format = "sarif"
+      workspace_indicator = "go.mod"
+    }
+  }
+}
+
+local hk = new Group {
+  steps {
+    ["hk_test"] = (Builtins.hk_test) {
+      // Run step-defined hk's tests
+      diagnostic_format = "sarif"
+    }
+    ["hk_validate"] = (Builtins.ryl_markdown) {
+      // Validate hk.pkl and fail on warnings
+      diagnostic_format = "sarif"
+    }
+  }
+}
+
+local infra = new Group {
+  steps {
+    ["actionlint"] = (Builtins.actionlint) {
+      // GitHub Actions workflow linter
+      diagnostic_format = "sarif"
+    }
+    ["update_ryl_schema"] = new Step {
+      glob = List("ryl")
+      check = "mise run --force Update-schema-ryl"
+      fix = "mise run --force Update-schema-ryl"
+      output_summary = "hide"
+      diagnostic_format = "sarif"
+    }
+  }
+}
+
+// local json = new Group {
+//   steps {
+//     ["jq"] = (Builtins.jq) {
+// TODO: Solve error, dont lint package-lock
+//       // JSON processor
+//       batch = false
+//       diagnostic_format = "sarif"
+//     }
+//   }
+// }
+
+local lua = new Group {
+  steps {
+    ["selene"] = (Builtins.selene) {
+      // Lua linter
+      diagnostic_format = "sarif"
+    }
+    ["stylua"] = (Builtins.stylua) {
+      // Lua formatter
+      depends = "selene"
+      diagnostic_format = "sarif"
+    }
+  }
+}
+
+local markdown = new Group {
+  steps {
+    ["markdown_lint"] = (Builtins.markdown_lint) {
+      // Markdown linter
+      diagnostic_format = "sarif"
+    }
+    ["ryl_markdown"] = (Builtins.ryl_markdown) {
+      // Lint YAML embedded in Markdown (front matter + fenced yaml blocks) with ryl
+      diagnostic_format = "sarif"
+    }
+    ["ryl_markdown_format"] = (Builtins.ryl_markdown_format) {
+      // Format YAML embedded in Markdown (front matter + fenced yaml blocks) with ryl
+      depends = "markdown_lint"
+      diagnostic_format = "sarif"
+    }
+  }
+}
+
+local mise = new Group {
+  steps {
+    ["mise_config_dir"] = (Builtins.mise_config_dir) {
+      // mise formatter for a global config repository checked out at ~/.config/mise (e.g. mise bootstrap --adopt)
+      diagnostic_format = "sarif"
+    }
+    ["mise"] = (Builtins.mise) {
+      // mise-en-place's built-in formatter and linter
+      diagnostic_format = "sarif"
+    }
+  }
+}
+
+local pkl = new Group {
+  steps {
+    ["pkl"] = (Builtins.pkl) {
+      // Pkl configuration language
+      diagnostic_format = "sarif"
+    }
+
+    ["pkl_format"] = (Builtins.pkl_format) {
+      // Pkl formatter
+      depends = "pkl"
+      diagnostic_format = "sarif"
+    }
+  }
+}
+
+local shebang = new Group {
+  exclude =
+    List(
+      "**/*.ps1",
+      "**/*.tmpl",
+      "**/executable_*",
+      "home/dot_bash_profile",
+      "home/dot_bashrc.d/**",
+    )
+  steps {
+    ["check_shebang_scripts_are_executable"] = (Builtins.check_shebang_scripts_are_executable) {
+      // Verify files with shebang lines are executable
+      //  Bash startup files are sourced; executable_ sets the target's executable mode.
+      diagnostic_format = "sarif"
+    }
+    ["check-executables-have-shebangs"] = (Builtins.check_executables_have_shebangs) {
+      // Verify executable files have shebang lines
+      diagnostic_format = "sarif"
+    }
+  }
+}
+
+local shell = new Group {
+  exclude = List("**/*.tmpl")
+  steps {
+    ["shellharden"] = (Builtins.shellharden) {
+      // The corrective bash syntax highlighter
+      //  types = List("bash", "sh")
+      depends = "shellcheck"
+      diagnostic_format = "sarif"
+    }
+
+    ["shellcheck"] = (Builtins.shellcheck) {
+      // Shell script analyser
+      //  FileSelector { glob = List("**/*.sh", "**/*.bash") }
+      //  FileSelector { types = List("sh", "bash") }
+      check = "shellcheck --rcfile=~/.shellcheckrc {{files}}"
+      check_diff = "shellcheck --rcfile=~/.shellcheckrc --format=diff {{files}}"
+      batch = false
+      diagnostic_format = "sarif"
+    }
+
+    ["shfmt"] = (Builtins.shfmt) {
+      // Shell formatter
+      //  FileSelector { glob = List("**/*.sh", "**/*.bash", "**/*.mksh", "**/*.bats", "**/*.zsh") }
+      //  FileSelector { types = List("sh", "bash") }
+      batch = false
+      diagnostic_format = "sarif"
+    }
+  }
+}
+
+local toml = new Group {
+  steps {
+    ["tombi"] = (Builtins.tombi) {
+      // TOML linter
+      diagnostic_format = "sarif"
+    }
+    ["tombi_format"] = (Builtins.tombi_format) {
+      // TOML formatter
+      depends = "tombi"
+      diagnostic_format = "sarif"
+    }
+  }
+}
+
+local vp = new Group {
+  steps {
+    ["vp-check"] = (Builtins.vp_check) {
+      // Formats, lints, and type checks code together
+      // **/*.js, **/*.mjs, **/*.cjs, **/*.ts, **/*.mts, **/*.cts, **/*.jsx, **/*.tsx, **/*.mdx, **/*.vue, **/*.svelte, **/*.astro, **/*.json, **/*.jsonc, **/*.json5, **/*.yaml, **/*.yml, **/*.md, **/*.markdown, **/*.html, **/*.htm, **/*.css, **/*.scss, **/*.less, **/*.graphql, **/*.gql, **/*.handlebars, **/*.hbs, **/*.toml
+      diagnostic_format = "sarif"
+    }
+  }
+}
+
+local yaml = new Group {
+  steps {
+    ["ryl"] = (Builtins.ryl) {
+      // Re-implementation of yamllint in Rust
+      diagnostic_format = "sarif"
+    }
+    ["yq"] = (Builtins.yq) {
+      // YAML processor
+      diagnostic_format = "sarif"
+    }
+  }
+}
+
+env { ["NODE_ENV"] = "production" }
+exclude = List("node_modules")
+display_skip_reasons = List("all")
+
+// Steps declared here are shared by the implicit check, fix, and pre-commit hooks.
+// Explicit hook steps with the same name override these definitions.
+// check runs checks without fixing or staging.
+// fix applies fixes without staging.
+// pre-commit applies fixes, stages the resulting changes.
+steps {
+  ["common"] = common
+  ["go"] = go
+  ["hk"] = hk
+  ["infra"] = infra
+  //   ["json"] = json
+  ["lua"] = lua
+  ["markdown"] = markdown
+  ["mise"] = mise
+  ["pkl"] = pkl
+  ["shebang"] = shebang
+  ["shell"] = shell
+  ["toml"] = toml
+  ["vp"] = vp
+  ["yaml"] = yaml
+}
+
+// hk run pre-commit - Staged files
+// hk check / hk fix - Modified files: staged, unstaged, and untracked
+// hk check --all - Tracked files and eligible untracked files
+// hk check --staged	- Staged paths, using their current working-tree contents
+
+hooks {
+  // ["pre-commit"] {
+  //   // Staged file selection
+  //   fix = false // use cache
+  //   stage = true //Default true
+  //   timeout = "20s"
+  // }
+  ["prepare-commit-msg"] {
+    // commit_msg_file, source, sha
+    fix = false
+    stage = false
+    steps {
+      ["conventional_commit"] = conventional_commit
+    }
+  }
+  // commit-msg - commit_msg_file
+  // pre-push - hook_args (remote and URL), hook_stdin (updated refs)
+  // Possible hooks not configured - Useful template variables
+  // post-checkout - prev_head, new_head, is_branch_checkout
+  // post-merge -	hook_args (squash flag)
+  // post-rewrite -	hook_args (command), hook_stdin (rewritten refs)
+  // pre-rebase -	hook_args (upstream and optional branch)
+  // post-commit - No event-specific arguments
+}
+
+// check
+// fix,
+// pre-commit
